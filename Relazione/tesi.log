@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  18 NOV 2009 15:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  18 NOV 2009 17:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -509,43 +509,70 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 23.
+(hyperref)                than one, level fixed on input line 20.
 
-<img/01-interfacce_schema_generale.jpg, id=58, 542.025pt x 493.0922pt>
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 25.
+
+<img/01-interfacce_schema_generale.jpg, id=63, 542.025pt x 493.0922pt>
 File: img/01-interfacce_schema_generale.jpg Graphic file (type jpg)
 
 <use img/01-interfacce_schema_generale.jpg>
-Overfull \hbox (152.02367pt too wide) in paragraph at lines 28--29
+Overfull \hbox (152.02367pt too wide) in paragraph at lines 30--31
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [7
+<img/dlx-cache.jpg, id=65, 542.025pt x 338.76563pt>
+File: img/dlx-cache.jpg Graphic file (type jpg)
+ <use img/dlx-cache.jpg>
+Overfull \hbox (152.02367pt too wide) in paragraph at lines 40--41
+ [][] 
+ []
 
-] [8 <./img/01-interfacce_schema_generale.jpg>] (./tesi.aux)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7
+
+]
+Overfull \hbox (0.88774pt too wide) in paragraph at lines 51--52
+[]\OT1/cmr/bx/n/12 Ready\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-mi-ne d
+el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
+ []
+
+[8 <./img/01-interfacce_schema_generale.jpg>]
+Overfull \hbox (0.88774pt too wide) in paragraph at lines 70--71
+[]\OT1/cmr/bx/n/12 Ready\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-mi-ne d
+el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
+ []
+
+[9 <./img/dlx-cache.jpg>]) [10] (./tesi.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5951 strings out of 493848
- 83728 string characters out of 3149206
- 154745 words of memory out of 3000000
- 9010 multiletter control sequences out of 15000+200000
- 11075 words of font info for 43 fonts, out of 3000000 for 9000
+ 5977 strings out of 493848
+ 84085 string characters out of 3149206
+ 156745 words of memory out of 3000000
+ 9030 multiletter control sequences out of 15000+200000
+ 11421 words of font info for 44 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
- 38i,11n,43p,271b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,11n,43p,301b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 /usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
 sr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
-/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on tesi.pdf (8 pages, 110656 bytes).
+/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on tesi.pdf (10 pages, 152708 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

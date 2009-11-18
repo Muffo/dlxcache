@@ -1,0 +1,467 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\chapter{WSDL del Servizio} 
+
+\begin{small}\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+ targetNamespace="http://localhost:8080/axis/services/Didattica"
+ xmlns:apachesoap="http://xml.apache.org/xml-soap"
+ xmlns:impl="http://localhost:8080/axis/services/Didattica"
+ xmlns:intf="http://localhost:8080/axis/services/Didattica"
+ xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+ xmlns:tns1="urn:didattica.universibo.unibo.it" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <!--WSDL created by Apache Axis version: 1.2RC2
+        Built on Nov 16, 2004 (12:19:44 EST)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:didattica.universibo.unibo.it" 
+   xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://localhost:8080/axis/services/Didattica"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   
+   <complexType name="Facolta">
+    <sequence>
+     <element name="codDocPreside" nillable="true" type="soapenc:string"/>
+     <element name="codFac" nillable="true" type="soapenc:string"/>
+     <element name="descFac" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+   
+   <complexType name="Corso">
+    <sequence>
+     <element name="codCorso" nillable="true" type="soapenc:string"/>
+     <element name="codDocPresidente" nillable="true" type="soapenc:string"/>
+     <element name="descCorso" nillable="true" type="soapenc:string"/>
+     <element name="tipoCorso" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+   
+   <complexType name="Materia">
+    <sequence>
+     <element name="codMateria" nillable="true" type="soapenc:string"/>
+     <element name="descMateria" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+
+   <complexType name="Docente">
+    <sequence>
+     <element name="codDoc" nillable="true" type="soapenc:string"/>
+     <element name="emailDoc" nillable="true" type="soapenc:string"/>
+     <element name="nomeDoc" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+   
+   <complexType name="AttivitaDidattica">
+    <sequence>
+     <element name="annoAccademico" type="xsd:int"/>
+     <element name="annoCorso" nillable="true" type="soapenc:string"/>
+     <element name="annoCorsoIns" nillable="true" type="soapenc:string"/>
+     <element name="annoCorsoUniversibo" nillable="true" type="soapenc:string"/>
+     <element name="codAte" nillable="true" type="soapenc:string"/>
+     <element name="codCorso" nillable="true" type="soapenc:string"/>
+     <element name="codDoc" nillable="true" type="soapenc:string"/>
+     <element name="codInd" nillable="true" type="soapenc:string"/>
+     <element name="codMateria" nillable="true" type="soapenc:string"/>
+     <element name="codMateriaIns" nillable="true" type="soapenc:string"/>
+     <element name="codModulo" nillable="true" type="soapenc:string"/>
+     <element name="codOri" nillable="true" type="soapenc:string"/>
+     <element name="codRil" nillable="true" type="soapenc:string"/>
+     <element name="flagTitolareModulo" nillable="true" type="soapenc:string"/>
+     <element name="sdoppiato" type="xsd:boolean"/>
+     <element name="tipoCiclo" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+
+  </schema>
+  
+  <schema
+   targetNamespace="http://localhost:8080/axis/services/Didattica"
+   xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:didattica.universibo.unibo.it"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   
+   <complexType name="ArrayOf_tns1_Facolta">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType"
+       wsdl:arrayType="tns1:Facolta[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   
+   <complexType name="ArrayOf_tns1_Corso">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType"
+       wsdl:arrayType="tns1:Corso[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+
+   <complexType name="ArrayOf_tns1_AttivitaDidattica">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType"
+       wsdl:arrayType="tns1:AttivitaDidattica[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  
+  </schema>
+ </wsdl:types>
+
+ <wsdl:message name="getFacoltaDescResponse">
+    <wsdl:part name="getFacoltaDescReturn"
+     type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getAttivitaDidatticaCorsoResponse">
+    <wsdl:part name="getAttivitaDidatticaCorsoReturn"
+     type="impl:ArrayOf_tns1_AttivitaDidattica"/>
+ </wsdl:message>
+
+ <wsdl:message name="getFacoltaDescRequest">
+    <wsdl:part name="codFac" type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getCorsoRequest">
+    <wsdl:part name="codCorso" type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getAttivitaDidatticaPadreCorsoResponse">
+    <wsdl:part name="getAttivitaDidatticaPadreCorsoReturn"
+     type="impl:ArrayOf_tns1_AttivitaDidattica"/>
+ </wsdl:message>
+
+ <wsdl:message name="getDocenteRequest">
+    <wsdl:part name="codDoc" type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getAttivitaDidatticaCorsoRequest">
+    <wsdl:part name="codCorso" type="soapenc:string"/>
+    <wsdl:part name="annoAccademico" type="xsd:int"/>
+ </wsdl:message>
+
+ <wsdl:message name="getFacoltaResponse">
+    <wsdl:part name="getFacoltaReturn" type="tns1:Facolta"/>
+ </wsdl:message>
+
+ <wsdl:message name="getSdoppiamentiAttivitaDidatticaRequest">
+    <wsdl:part name="attivitaPadre"
+     type="tns1:AttivitaDidattica"/>
+ </wsdl:message>
+
+ <wsdl:message name="getMateriaRequest">
+    <wsdl:part name="codMateria" type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getMateriaResponse">
+    <wsdl:part name="getMateriaReturn" type="tns1:Materia"/>
+ </wsdl:message>
+
+ <wsdl:message name="getFacoltaRequest">
+    <wsdl:part name="codFac" type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getSdoppiamentiAttivitaDidatticaResponse">
+    <wsdl:part name="getSdoppiamentiAttivitaDidatticaReturn"
+     type="impl:ArrayOf_tns1_AttivitaDidattica"/>
+ </wsdl:message>
+
+ <wsdl:message name="getFacoltaListRequest">
+ </wsdl:message>
+
+ <wsdl:message name="getCorsoListFacoltaRequest">
+    <wsdl:part name="codFac" type="soapenc:string"/>
+ </wsdl:message>
+
+ <wsdl:message name="getAttivitaDidatticaPadreCorsoRequest">
+    <wsdl:part name="codCorso" type="soapenc:string"/>
+    <wsdl:part name="annoAccademico" type="xsd:int"/>
+ </wsdl:message>
+
+ <wsdl:message name="getCorsoListFacoltaResponse">
+    <wsdl:part name="getCorsoListFacoltaReturn"
+     type="impl:ArrayOf_tns1_Corso"/>
+ </wsdl:message>
+
+ <wsdl:message name="getFacoltaListResponse">
+    <wsdl:part name="getFacoltaListReturn"
+     type="impl:ArrayOf_tns1_Facolta"/>
+ </wsdl:message>
+
+ <wsdl:message name="getDocenteResponse">
+    <wsdl:part name="getDocenteReturn" type="tns1:Docente"/>
+ </wsdl:message>
+
+ <wsdl:message name="getCorsoResponse">
+    <wsdl:part name="getCorsoReturn" type="tns1:Corso"/>
+ </wsdl:message>
+
+ <wsdl:portType name="WsDidatticaServerImpl">
+   <wsdl:operation name="getFacoltaDesc"
+    parameterOrder="codFac">
+      <wsdl:input message="impl:getFacoltaDescRequest"
+       name="getFacoltaDescRequest"/>
+      <wsdl:output message="impl:getFacoltaDescResponse"
+       name="getFacoltaDescResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getFacolta" parameterOrder="codFac">
+      <wsdl:input message="impl:getFacoltaRequest"
+       name="getFacoltaRequest"/>
+      <wsdl:output message="impl:getFacoltaResponse"
+       name="getFacoltaResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getFacoltaList">
+      <wsdl:input message="impl:getFacoltaListRequest"
+       name="getFacoltaListRequest"/>
+      <wsdl:output message="impl:getFacoltaListResponse"
+       name="getFacoltaListResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getCorsoListFacolta"
+    parameterOrder="codFac">
+      <wsdl:input message="impl:getCorsoListFacoltaRequest"
+       name="getCorsoListFacoltaRequest"/>
+      <wsdl:output message="impl:getCorsoListFacoltaResponse"
+       name="getCorsoListFacoltaResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getMateria"
+    parameterOrder="codMateria">
+      <wsdl:input message="impl:getMateriaRequest"
+       name="getMateriaRequest"/>
+      <wsdl:output message="impl:getMateriaResponse"
+       name="getMateriaResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getDocente" parameterOrder="codDoc">
+      <wsdl:input message="impl:getDocenteRequest"
+       name="getDocenteRequest"/>
+      <wsdl:output message="impl:getDocenteResponse"
+       name="getDocenteResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getAttivitaDidatticaPadreCorso"
+    parameterOrder="codCorso annoAccademico">
+      <wsdl:input
+       message="impl:getAttivitaDidatticaPadreCorsoRequest"
+       name="getAttivitaDidatticaPadreCorsoRequest"/>
+      <wsdl:output
+       message="impl:getAttivitaDidatticaPadreCorsoResponse"
+       name="getAttivitaDidatticaPadreCorsoResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getAttivitaDidatticaCorso"
+    parameterOrder="codCorso annoAccademico">
+      <wsdl:input
+       message="impl:getAttivitaDidatticaCorsoRequest"
+       name="getAttivitaDidatticaCorsoRequest"/>
+      <wsdl:output
+       message="impl:getAttivitaDidatticaCorsoResponse"
+       name="getAttivitaDidatticaCorsoResponse"/>
+   </wsdl:operation>
+
+   <wsdl:operation name="getSdoppiamentiAttivitaDidattica"
+    parameterOrder="attivitaPadre">
+      <wsdl:input
+       message="impl:getSdoppiamentiAttivitaDidatticaRequest"
+       name="getSdoppiamentiAttivitaDidatticaRequest"/>
+      <wsdl:output
+       message="impl:getSdoppiamentiAttivitaDidatticaResponse"
+       name="getSdoppiamentiAttivitaDidatticaResponse"/>
+    </wsdl:operation>
+
+   <wsdl:operation name="getCorso" parameterOrder="codCorso">
+       <wsdl:input message="impl:getCorsoRequest"
+       name="getCorsoRequest"/>
+      <wsdl:output message="impl:getCorsoResponse"
+       name="getCorsoResponse"/>
+   </wsdl:operation>
+
+ </wsdl:portType>
+
+ <wsdl:binding name="DidatticaSoapBinding"
+  type="impl:WsDidatticaServerImpl">
+
+   <wsdlsoap:binding style="rpc"
+    transport="http://schemas.xmlsoap.org/soap/http"/>
+
+   <wsdl:operation name="getFacoltaDesc">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getFacoltaDescRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it"
+      use="encoded"/>
+     </wsdl:input>
+
+    <wsdl:output name="getFacoltaDescResponse">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getFacolta">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getFacoltaRequest">
+     <wsdlsoap:body
+       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+       namespace="http://didattica.universibo.unibo.it" 
+       use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getFacoltaResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getFacoltaList">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getFacoltaListRequest">
+     <wsdlsoap:body
+       encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+       namespace="http://didattica.universibo.unibo.it" 
+       use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getFacoltaListResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getCorsoListFacolta">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getCorsoListFacoltaRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getCorsoListFacoltaResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getMateria">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getMateriaRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getMateriaResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getDocente">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getDocenteRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getDocenteResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getAttivitaDidatticaPadreCorso">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getAttivitaDidatticaPadreCorsoRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getAttivitaDidatticaPadreCorsoResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+
+   <wsdl:operation name="getAttivitaDidatticaCorso">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getAttivitaDidatticaCorsoRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getAttivitaDidatticaCorsoResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getSdoppiamentiAttivitaDidattica">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getSdoppiamentiAttivitaDidatticaRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getSdoppiamentiAttivitaDidatticaResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+   <wsdl:operation name="getCorso">
+    <wsdlsoap:operation soapAction=""/>
+    <wsdl:input name="getCorsoRequest">
+     <wsdlsoap:body
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://didattica.universibo.unibo.it" 
+      use="encoded"/>
+    </wsdl:input>
+    <wsdl:output name="getCorsoResponse">
+     <wsdlsoap:body 
+      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+      namespace="http://localhost:8080/axis/services/Didattica"
+      use="encoded"/>
+    </wsdl:output>
+   </wsdl:operation>
+
+  </wsdl:binding>
+
+  <wsdl:service name="WsDidatticaServerImplService">
+    <wsdl:port binding="impl:DidatticaSoapBinding" 
+     name="Didattica">
+      <wsdlsoap:address
+       location="http://localhost:8080/axis/services/Didattica"/>
+      </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>
+\end{verbatim}\end{small}

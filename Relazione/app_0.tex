@@ -1,0 +1,114 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\chapter{Esempio completo di messaggio WSS} 
+\label{appendiceWSS} 
+
+
+L'esempio seguente illustra un caso completo che comprende l'utilizzo di token, firma e cifratura per capire come vengono realizzate le trasformazioni nel messaggio e di come viene modificato l'header nell'utilizzo di Web Service Security.\\
+Nel documento il contenuto del body del messaggio è stato cifrato e successivamente il timestamp e l'intero body sono stati firmati digitalmente.\\
+L'ordine di queste operazioni si può dedurre dall'ordine degli elementi all'interno dell'header \texttt{<wsse:Security>}.
+\begin{small}\begin{verbatim}
+(001) <?xml version="1.0" encoding="utf-8"?>
+(002) <S11:Envelope xmlns:S11="..." xmlns:wsse="..." xmlns:wsu="..."
+                            xmlns:xenc="..." xmlns:ds="...">
+(003)   <S11:Header>
+(004)      <wsse:Security>
+(005)         <wsu:Timestamp wsu:Id="T0">
+(006)           <wsu:Created>
+(007)                   2001-09-13T08:42:00Z</wsu:Created>
+(008)         </wsu:Timestamp>
+(009)
+(010)         <wsse:BinarySecurityToken
+                     ValueType="...#X509v3"
+                     wsu:Id="X509Token"
+                     EncodingType="...#Base64Binary">
+(011)         MIIEZzCCA9CgAwIBAgIQEmtJZc0rqrKh5i...
+(012)         </wsse:BinarySecurityToken>
+(013)         <xenc:EncryptedKey>
+(014)             <xenc:EncryptionMethod Algorithm=
+                        "http://www.w3.org/2001/04/xmlenc#rsa-1_5"/>
+(015)             <ds:KeyInfo>
+(016)                <wsse:KeyIdentifier
+                         EncodingType="...#Base64Binary"
+                   ValueType="...#X509v3">MIGfMa0GCSq...
+(017)                </wsse:KeyIdentifier>
+(018)             </ds:KeyInfo>
+(019)             <xenc:CipherData>
+(020)                <xenc:CipherValue>d2FpbmdvbGRfE0lm4byV0...
+(021)                </xenc:CipherValue>
+(022)             </xenc:CipherData>
+(023)             <xenc:ReferenceList>
+(024)                 <xenc:DataReference URI="#enc1"/>
+(025)             </xenc:ReferenceList>
+(026)         </xenc:EncryptedKey>
+(027)         <ds:Signature>
+(028)            <ds:SignedInfo>
+(029)               <ds:CanonicalizationMethod
+            Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+(030)               <ds:SignatureMethod
+            Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+(031)               <ds:Reference URI="#T0">
+(032)                  <ds:Transforms>
+(033)                     <ds:Transform
+            Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+(034)                  </ds:Transforms>
+(035)                  <ds:DigestMethod
+            Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+(036)                  <ds:DigestValue>LyLsF094hPi4wPU...
+(037)                   </ds:DigestValue>
+(038)               </ds:Reference>
+(039)               <ds:Reference URI="#body">
+(040)                  <ds:Transforms>
+(041)                     <ds:Transform
+            Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+(042)                  </ds:Transforms>
+(043)                  <ds:DigestMethod
+            Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+(044)                  <ds:DigestValue>LyLsF094hPi4wPU...
+(045)                   </ds:DigestValue>
+(046)               </ds:Reference>
+(047)            </ds:SignedInfo>
+(048)            <ds:SignatureValue>
+(049)                     Hp1ZkmFZ/2kQLXDJbchm5gK...
+(050)            </ds:SignatureValue>
+(051)            <ds:KeyInfo>
+(052)                <wsse:SecurityTokenReference>
+(053)                    <wsse:Reference URI="#X509Token"/>
+(054)                </wsse:SecurityTokenReference>
+(055)            </ds:KeyInfo>
+(056)         </ds:Signature>
+(057)      </wsse:Security>
+(058)   </S11:Header>
+(059)   <S11:Body wsu:Id="body">
+(060)      <xenc:EncryptedData
+                  Type="http://www.w3.org/2001/04/xmlenc#Element"
+                  wsu:Id="enc1">
+(061)         <xenc:EncryptionMethod
+        Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+(062)         <xenc:CipherData>
+(063)            <xenc:CipherValue>d2FpbmdvbGRfE0lm4byV0...
+(064)            </xenc:CipherValue>
+(065)         </xenc:CipherData>
+(066)      </xenc:EncryptedData>
+(067)   </S11:Body>
+(068) </S11:Envelope>
+\end{verbatim}\end{small}
+Concentriamoci prima sulle linee (003-058) che contengono gli header del messaggio SOAP, in particolare le linee (004-057) riguardano tutto un unico elemento \texttt{<wsse:Security>} per il destinatario finale.\\ 
+Le linee (005-008) contengono le informazioni del timestamp che in questo caso contiene la data di creazione dell'header corrente.\\
+Le linee (010-012) contengono un security token associate al messago. In questo caso si tratta di un certificato X.509 (che vedremo nei dettagli in seguito). La linea (011) ne è la rappresentazione con il tradizionale encoding Base64.\\
+
+Le linee (013-026) specificano la chiave usata per cifrare il body del messaggio. Siccome si tratta di una chiame simmetrica, questa viene trasmessa a sua volta in forma cifrata.\\
+La linea (014) definisce l'algoritmo utilizzato per cifrare la chiave.\\
+Le linee (015-018) specificano l'identificativo della chiave usata per cifrare la chiave simmetrica.\\
+Le linee (019-022) contengono infine la rappresentazione cifrata della chiave simmetrica.
+Le linee (023-025) contengono il riferimento alla parte di messaggio che è stata cifrata con questa chiave simmetrica. In questo caso si tratta solo del body (\texttt{Id="enc1"}).
+
+Le linee (027-056) contengono la firma digitale. La firma è basata sul certificato X.509.\\
+Le linee (028-047) indicano cosa è stato firmato e con che metodo, in particolare la linea (031) contiene un riferimento al timestamp e la linea (039) contiene un riferimento al body.\\
+Le linee (048-050) contengono la rappresentazione della firma vera e propria.\\
+Le linee (052-054) indicano la chiave usata per la firma, ossia il certificato X.509 incluso nel messaggio, in particolare nella linea (053) compare il riferimento al token contenuto nelle righe  (010-012).
+
+Il body del messaggio è contenuto nelle linee (059-067).\\
+Le linee (060-066) representano i metadati relativi al messaggio cifrato usati da XML Encryption.\\
+In particolare la linea (060) contiene un riferimento \texttt{wsu:Id="enc1"} che  viene puntato dalla chiave (dalla linea (024)) e indica che tutto l'elemento è stato sostituito con questo blocco di informazioni usate da XML Encryption.\\
+La linea (061) specifica l'algoritmo di cifratura (Triple-DES).\\
+Le linee (063-064) contengono il messaggio vero e proprio, risultato della cifratura.\\

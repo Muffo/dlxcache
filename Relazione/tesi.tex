@@ -1,0 +1,253 @@
+\newif\ifpdf
+\ifx\pdfoutput\undefined \pdffalse \else \ifnum\pdfoutput=1
+\pdftrue \else \pdffalse \fi \fi
+
+%\documentclass[12pt,a4paper,oneside, titlepage,fleqn,italian]{book} %stampa
+\documentclass[12pt,a4paper,twoside,openright,titlepage,fleqn,italian]{book}
+
+\usepackage[italian]{babel} %<--per la sillabazione italiana
+\usepackage[latin1]{inputenc} %<--per la tastiera italiana e le lettere accentate
+\usepackage{graphicx} %<--per le figure
+
+%\DeclareGraphicsRule{.jpg}{bmp}{.bb}{} %da decommentare per il pdf
+%\DeclareGraphicsRule{.png}{bmp}{.bb}{} %da decommentare per il pdf
+
+\usepackage{amsmath} %<--pacchetto American Mathematician Society
+\usepackage{amssymb} %<--pacchetto più ampio per simboli matematici
+\usepackage[colorlinks=false]{hyperref}%<--inserisce segnalibri e riferimenti indice
+\usepackage{longtable}
+
+\renewcommand{\thesection}{\arabic{section}}
+\addtolength{\voffset}{-0,5cm}
+\addtolength{\textheight}{1cm}
+\setlength{\parindent}{0pt}
+\frenchspacing
+\linespread{1.25}
+
+%\addtolength{\voffset}{-1,5cm} %stampa
+%\addtolength{\textheight}{-1,5cm} %stampa
+%\addtolength{\textwidth}{-1,5cm} %stampa
+%inverto i margini per la rilegatura
+%\linespread{1} %stampa
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}%
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}%
+\renewcommand{\sectionmark}[1]{\markright{\thechapter .\thesection\ #1}}%
+\renewcommand{\subsectionmark}[1]{\markright{\thechapter .\thesubsection\ #1}}%
+\fancyhf{} %Clears all header and footer fields, in preparation.
+\lhead{\rightmark}%
+\chead{}%
+\rhead{\bfseries\thepage}%
+\renewcommand{\headrulewidth}{0.4pt}%
+\renewcommand{\footrulewidth}{0pt}%
+\setlength{\headheight}{15pt}%
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}}%
+
+\fancyhead[LE,RO]{\textbf{\thepage}} %Displays the page number in bold in the header,
+%to the left on even pages and to the right on odd pages.
+\fancyhead[RE]{\nouppercase{\leftmark}} %Displays the upper-level (section) information -
+%as determined above - in non-upper case in the header, to the left on odd pages.
+\fancyhead[LO]{\nouppercase{\rightmark}} %Displays the lower-level (chapter) information - as
+%determined above - in the header, to the left on odd pages.
+ 
+%\usepackage{layaureo}
+\usepackage{frontesp} 	% frontespizio unibo 
+			% modificare frontesp.sty al variare del numero di correlatori
+
+%\addtolength{\topsep}{- 3pt}
+%\addtolength{\itemsep}{- 9pt}
+%\addtolength{\partopsep}{- 9pt}
+
+\usepackage{atbeginend} % per modificare proprietà allinizio e fine degli envirorments 
+			%come lo spacing prima degli elenchi puntati
+\AfterBegin{itemize}{\addtolength{\parskip}{- 9pt}}
+\AfterBegin{description}{\addtolength{\itemsep}{- 9pt}}
+\AfterBegin{enumerate}{\addtolength{\itemsep}{- 9pt}}
+
+%\AfterBegin{verbatim}{\parskip{0.5}}
+
+%comandi per questo documento
+%\newcommand{\sinc}{\textrm{sinc}}
+%\newcommand{\erf}{\textrm{erf}}
+%\newcommand{\erfc}{\textrm{erfc}}
+%\newcommand{\ud}{\textrm{d}}
+
+
+%se non funziona l'hypenation in italiano come a me, un po' di dizionario:
+\hyphenation{li-mi-ti}
+\hyphenation{per-met-te-re}
+\hyphenation{na-vi-ga-zio-ne}
+\hyphenation{re-fe-ren-zia-to}
+\hyphenation{in-te-res-se}
+\hyphenation{i-ni-zial-men-te}
+\hyphenation{na-tu-ral-men-te}
+\hyphenation{ge-ne-ra-to}
+\hyphenation{mo-du-la-re}
+\hyphenation{ca-te-go-riz-za-zio-ne}
+\hyphenation{do-cu-men-to}
+\hyphenation{de-sti-na-ti}
+\hyphenation{re-qui-si-ti}
+\hyphenation{op-zio-na-li}
+\hyphenation{ri-chie-sta}
+\hyphenation{ri-spo-sta}
+\hyphenation{in-te-ra-zio-ni}
+\hyphenation{pro-ble-ma-ti-che}
+\hyphenation{re-in-ge-gne-riz-za-re}
+\hyphenation{istan-zian-do}
+\hyphenation{archi-tet-tu-ra-le}
+\hyphenation{ne-ces-se-ria-men-te}
+\hyphenation{ne-ces-sa-rio}
+\hyphenation{se-con-da}
+\hyphenation{ne-ces-sa-rie}
+\hyphenation{chia-ve}
+\hyphenation{dif-fe-ren-te}
+\hyphenation{de-se-ria-liz-za-re}
+\hyphenation{fun-zio-na-li-ta}
+\hyphenation{au-to-ma-tiz-za-re}
+\hyphenation{ri-chie-ste}
+\hyphenation{si-tua-zio-ne}
+\hyphenation{per-met-te-re}
+\hyphenation{per-so-na-liz-za-ti}
+\hyphenation{as-pet-ta-re}
+\hyphenation{si-tua-zio-ne}
+\hyphenation{di-spo-si-zio-ne}
+\hyphenation{mo-di-fi-ca}
+\hyphenation{pro-ble-mi}
+\hyphenation{name-space}
+\hyphenation{in-te-ro-pe-ra-bi-li-ta}
+\hyphenation{rap-pre-sen-ta-ta}
+\hyphenation{ge-ne-ra-zio-ni}
+\hyphenation{ge-ne-ra-zio-ne}
+\hyphenation{i-den-ti-fi-ca-no}
+\hyphenation{dis-po-si-zio-ne}
+\hyphenation{a-spet-ta}
+\hyphenation{e-ster-na-li-ta}
+\hyphenation{coin-vol-go-no}
+\hyphenation{at-tri-bu-to}
+\hyphenation{de-sti-na-ta-rio}
+\hyphenation{e-sten-di-bi-le}
+\hyphenation{com-ples-se}
+\hyphenation{i-nol-tre}
+\hyphenation{re-spon-sa-bi-liz-za-re}
+\hyphenation{o-gnu-no}
+\hyphenation{sod-di-sfa-re}
+\hyphenation{si-ste-mi}
+\hyphenation{lo-gi-ca}
+\hyphenation{e-stat-ta}
+\hyphenation{a-stat-ta}
+\hyphenation{mec-ca-ni-smo}
+\hyphenation{con-fi-gu-ra-zio-ne}
+\hyphenation{co-sti-tui-sco-no}
+\hyphenation{av-ve-ni-re}
+\hyphenation{tra-mi-te}
+\hyphenation{pa-ra-me-tro}
+\hyphenation{se-con-da}
+\hyphenation{Ge-rar-do}
+\hyphenation{of-fen-de-ran-no}
+
+\hyphenation{A-pa-che}
+\hyphenation{WSDL}
+\hyphenation{SOAP}
+\hyphenation{UDDI}
+\hyphenation{SwA}
+\hyphenation{IBM}
+\hyphenation{IONA}
+\hyphenation{SAML}
+
+
+% per far andare a capo il testo in formato \texttt{ }
+\usepackage[htt]{hyphenat}
+
+
+\begin{document}
+
+
+%+++++++   questa parte viene utilizzata per generare il frontespizio: non fateci caso
+\title{Progetto di una memoria cache per il processore DLX}
+\author{Andrea Grandi}
+\date{}
+\titolocorso{Ingegneria Informatica}
+\nomemateria{Calcolatori Elettronici M}
+\degreeyear{2009/2010}					% Anno Accademico di Laurea
+\session{III} 						% Sessione di Laurea
+\principaladviser{Chiar.mo Prof. Antonio Corradi}	% Relatore principale
+
+% non funziona modificare frontesp.sty al variare del numero di correlatori
+\firstreader{Chiar.mo Prof. Andrea Zanoni}
+\secondreader{Dott. Ing. Enrico Lodolo}			% Correlatori
+\thirdreader{Dott. Ing. Luca Ghedini}			% Correlatori
+
+
+
+\maketitle % Frontespizio
+
+
+% Aggiunge una pagina bianca
+%\thispagestyle{empty}
+%\textcolor{white}{.}\\
+%\pagebreak 
+
+
+
+% La dedica dobbiamo metterla per forzaaaa!
+%\dedica{A mio nonno Gino, per avermi insegnato\\ ad affrontare le situazioni con\\ 
+% forza di volontà ed un po' d'ironia\\nello studio e nella vita}
+%\makededica
+
+
+\addtolength{\oddsidemargin}{+1,3cm} %inversione destra/sinistra tradizionale
+\addtolength{\evensidemargin}{-1,3cm} %inversione destra/sinistra tradizionale
+
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\addtocounter{tocdepth}{+1}	% Mette anche le \subsubsection nell'indice
+
+%Se si vuole mettere l'indice nell'indice (comodo per la navigazione con pdf)
+%\markboth{Indice}{Indice}
+%\addcontentsline{toc}{chapter}{Indice}
+
+\tableofcontents 		% Indice
+\newpage
+
+% \addtolength{\parskip}{-5pt}
+\input{introduzione}
+
+% Intro alle memorie cache
+\input{cap1}
+
+%% premessa e universibo
+%\input{cap2}
+
+%% intro axis e WSS4J
+%\input{cap3}
+
+%% sviluppo progetto ws server e client e test
+%\input{cap4}
+
+%\input{conclusioni}
+
+%\appendix
+
+%\input{app_0}
+
+%\input{app_b}
+
+%\input{app_a}
+
+%\input{app_b2}
+
+%\input{app_c}
+
+%\input{app_d}
+
+%\input{app_e}
+
+%\addtolength{\parskip}{5pt}
+
+%\input{bibliografia}
+
+%\input{ringraziamenti}
+
+
+\end{document}

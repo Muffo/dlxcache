@@ -1,0 +1,171 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\chapter{UniversiBO v2: framework} 
+Oltre alla seguente descrizione è possibile tramite PHPDocumentor estrarre dai commenti ai sorgenti la documentazione dettagliata delle interfacce di tutti i singoli metodi.\\
+\'E riportata di seguito una descrizione sommaria delle classi principali e delle loro funzionalità:\\
+
+\subsubsection{Receiver}
+Il Receiver dovendo essere invocato dalla richiesta HTTP deve essere incluso in un file presente nella directory radice del web server.\\
+Ad ogni Receiver è associato un file di configurazione in formato XML (es: config.xml) che viene passato al FrontController. Una applicazione web può essere composta da più receivers, è quindi necessario associare ad un receiver un identificativo (di tipo stringa). Perchè sia possibile invocare in maniera trasparente i diversi receivers devono condividere le informazioni sui loro identificativi nel file di configurazione. Per comodità i receivers di un applicazione possono anche condividere lo stesso file di configurazione.\\
+Il receiver deve essere a conoscenza del percorso in cui è presente la cartella base del framework e permette di specificare una cartella base per l'applicazione corrente. Tutti i restanti file dell'applicazione e del framework possono essere posti al di fuori della  radice del web server con un incremento della sicurezza del sistema.\\
+In questo modo più receiver appartenenti a diverse applicazioni sullo stesso sistema possono utilizzare la stessa copia fisica del framework.
+\begin{itemize}
+\item viene inizializzato con le informazioni riguardanti ai percorsi un cui sono contenute
+\item ha il compito di attivare il resto del framework tramite un metodo d'accesso main()
+\item impostare l'envirorment del linguaggio PHP
+\item instanziare il FrontController e indicargli di lanciare il comando relativo alla richiesta corrente
+\end{itemize}
+
+\subsubsection{FrontController}
+Dopo essere stato istanziato dispone di un metodo \texttt{setConfig()} per configurarsi con le informazioni contenute nel file di configurazione associato al Receiver.\\
+La classe FrontController è reponsabile per istanziare ed eseguire una classe che implementa un Comando (eredita da BaseCommand) in relazione alla richiesta web, a questo scopo è fornito il metodo \texttt{executeCommand()}.\\
+L'identificativo del comando da eseguire è specificato nella richiesta HTTP in GET dal parametro "do" (\texttt{"www.example.com/receiver.php?do=NomeComando"}). Nel file di configurazione saranno elenati tutti i possibili comandi e le associati alle classi che li implementano, in modo che il FrontController possa recuperarle ed istanziare. A questo scopo si vedano i metodo \texttt{getCommandRequest()} e \texttt{getCommandClass()}.\\
+Non possedendo PHP i namespaces, ma un sistema di inclusione dinamico a runtime si è scelto comunque di fornire la possibilità di richiamare i comandi dell'applicazione tramite dot notation (stile java, package separati da punti in corrispondenza a directory su disco) anche se si deve ricordare che bisogna porre attenzione a non definire classi con nomi già utilizzati in altri package perchè poterebbe facilmente alla generazione di conflitti a runtime durante l'esecuzione di più comandi.\\
+Mette infine a disposizione un metodo che permette ad un comando di redirigere il controllo su un nuovo comando eventualmente specificando un altro receiver o su un plugin.\\
+
+Dopo l'esecuzione del comando, il front controller ne riceve la risposta occupandosi eventualmente di indicare al template engine il template da visualizzare, a tal scopo anche i possibili template vanno elencati nel file di configurazione.\\
+Nel caso in cui venga utilizzato il template engine, ha il compito di occuparsi eventualmente del passaggio in maniera trasparente tra diversi template di visualizzazione definiti nel file di configurazione.\\
+Per eseguire il passaggio basta specificare nella richiesta il parametro \texttt{setStyle=nome\_template} oppure durante l'esecuzione invocare il metodo \texttt{setStyle()} 
+
+\subsubsection{BaseCommand}
+Si tratta della classe astratta che identifica un comando Command dell'applicazione.\\
+Questa classe deve essere ereditata implementando il metodo astratto \texttt{execute()}.\\
+Nella fase di \texttt{initCommand()} viene stabilito un riferimento al FrontController che sarà poi accessibile tramite il metodo \texttt{getFrontController()}, in questo modo sarà poi possibile accedere a tutti gli strumenti messi a disposizione dalla Toolbox.\\
+Oltre ad \texttt{initCommand()} è disponibile anche il \texttt{shutdownCommand()} i due metodi possono essere ridefiniti da eventuali classi figlie per aggiungere funzionalità e specializzare il comando, per un corretto funzionamento di tutto il sistema è necessario inserire sempre l'eseguzione dell'init/shutdowm del padre \texttt{parent:initCommand()}.\\
+E' infine disponibile la possibilità di eseguire il maniera semplice dei PluginCommand tramite il metodo \texttt{executePlugin()}.\\
+L'insieme delle implementazioni di BaseCommand sono a carico della specifica applicazione e ne costituiscono la logica applicativa.\\
+
+\subsubsection{PluginCommand}
+Si tratta della classe astratta che identifica un "sotto comando" messi a disposizione dell'applicazione per essere invocati da dei BaseCommand o da altri PluginCommand.\\
+Questa classe deve essere ereditata implementando il metodo astratto \texttt{execute( \$param )}.\\
+Ad un PluginCommand è possibile risalire a tutte le risorse disponibili al BaseCommand che lo ha invocato, tramite il metodo \texttt{getBaseCommand()} per poter in questo modo accedere per esempio al TemplateEngine o al DB.\\
+Una particolare implementazione di un PluginCommand dipende quindi dal BaseCommand invocante e da un parametro \texttt{\$param} di tipo mixed che ne rende il suo funzionamento configurabile.\\
+Generalmente (ma non necessariamente) ad un PluginCommand è associato un "sotto template" che ne rappresenta la vista, sarà cura di chi implementa il template del BaseCommand decidere se includere o meno il sotto template del PluginCommand.
+
+\subsubsection{Error}
+Come specificato nei requisiti si è tentato di spingere al massimo la facilità di utilizzo dell' ErrorHandler.\\
+La classe Error fornisce la rappresentazione degli oggetti di tipo Error, ma fornisce anche una serie di due metodi astratti per gestirne il comportamento.\\
+Il meccanismo scelto per la gestione degli errori è l'utilizzo di funzioni callback configurabili.
+Un oggetto errore è rappresentato da una categoria e da un parametro di tipo mixed che ne specifica le proprietà. Ad ogni categoria di errori viene assegnata una funzione handler per la gestione, questa funzione deve essere ingrado di gestire ed interpretare le proprietà dell'errore (quindi il contenuto del parametro).\\
+L'impostazione delle funzioni callback di handling vengono impostate inizialmente tramite i metodi statici \texttt{setHandler()} e \texttt{getHandler()}.
+Un oggetto Error può essere creato mediante il costruttore e successivamente lanciato mediante il metodo \texttt{throwError()} che ne invoca l'handler. Grazie alla flessibilità del linguaggio risulta possibile utilizzare il metodo \texttt{throwError()} anche in maniera statica permettendo di lanciare un errore senza doverne prima creare l'istanza migliorandone notevolente la semplicità d'uso.\\
+Altra alternativa è eseguire il \texttt{collect()} di un errore e successivamente poter eseguire il \texttt{retrieve()} per recuperare gli errori di una certa categoria. Anche il metodo \texttt{collect()} può essere invocato in maniera statica in maniera analoga al caso precedente.
+Per maggiore chiarezza sul funzionamento si rimanda agli esempi presenti sul CVS del progetto che ne mostrano tutti i possibili usi.\\
+
+Il framework definisce ed utilizza al suo interno una categoria di errori \texttt{\_ERROR\_CRITICAL} , sarà cura dell'applicazione definire un handler per questo tipo di errore, si ricorda comunque in generale che questo tipo di errore comporta situazioni irrecuperabili e deve interrompere l'esecuzione della richiesta.\\
+
+\subsubsection{LogHandler}
+Fornisce supporto al salvataggio su disco informazioni importanti riguardanti l'applicazione.
+Il costruttore \texttt{LogHandler()} permette di creare o accedere ad una risorsa di logging specificando un'identificativo e il formato delle informazioni da registrare tramite un array associativo.\\
+Tramite il metodo \texttt{addLogEntry()} si aggiunge la registrazione di un'informazione sui file di log su disco.\\
+Per maggiore chiarezza sul funzionamento si riporta sempre agli esempi presenti su CVS che ne mostrano tutti i possibili usi.\\
+
+\subsubsection{TemplateEngine}
+
+Si tratta dell'interfaccia di accesso al template engine, che permette l'output in diverse viste in maniera indipendente dai contenuti.\\
+Non esitendo le interfaccie in PHP4 per retrocompatibilità si è creata una classe astratta i cui metodi devono essere implementati (l'implementazione astratta di default lanci un errore critico) dai template engine.\\
+Naturalmente non essendo il linguaggio fortemente tipizzato, la classe astratta non deve essere esplicitamente ereditata, ma è sufficiente che sia semplicemente rispettata l'interfaccia.\\
+Questo ha reso possibile utilizzare la già diffusa classe Smarty senza doverla modificare.\\
+Si è voluto esplicitamente limitare l'uso del template engine a pochi metodi di interfaccia, per permettere in futuro se si vorranno utilizzare altri template engine di creare semplici classi wrapper.\\
+
+Per le informazioni ed esempi sull'uso del template engine si rimanda alla documentazione presente sul sito ufficiale http://smarty.php.net\\
+
+\subsubsection{DB}
+Si tratta della classe di accesso al database per la persistenza dei dati applicativi.\\
+La classe scelta per questo compito è la diffusa PEAR::DB.\\
+
+Nel file di configurazione sono assciati a dei identificativi di connessione i dati per l'accesso al particolare database (tipo, username, password, host, nome database)\\
+L'istanza del template engine si ottiene dal FrontController tramite il metodo factory singleton \texttt{getTemplateEngine()} passando come parametro l'identificativo della connessione.\\
+
+Per le informazioni ed esempi sull'uso di PEAR::DB si rimanda alla documentazione del componente del componente e ai tutorial disponibili in rete.\\
+
+\subsubsection{PHPMailer}
+Si tratta della classe che fornisce lo strumento per inviare in maniera semplice informazioni in output via e-mail, con il supporto nativo al protocollo SMTP.\\
+
+Un'istanza di PHPMailer el template engine si ottiene dal FrontController tramite il metodo factory \texttt{getMail()} che si occupa di impostare preventivamente il server SMTP da utilizzare secondo quanto specificato nel file di configurazione.\\
+
+Per le informazioni ed esempi sull'uso di PHPMailer si rimanda alla documentazione del componente e al sito ufficiale.\\
+http://phpmailer.sourceforge.net
+
+\subsubsection{il file di configurazione}
+Il file di configurazione è scritto in formato XML, il parsing viene eseguito tramite le classe restitituita da XmlDocFacotorty.\\
+La classe ottenuta varia a seconda della versione di PHP. Nel caso di PHP5 si utilizza la classe nativa del linguaggio per trattare documenti XML tramite il parser DOM. Altrimenti viene resituita la classe MyXmlDoc: un wrapper scritto appositamente per supportare in PHP4 la stessa interfaccia utilizzata dal parser per PHP5.\\
+
+Si allega per esempio un file di configurazione contenente tutte le informazioni richieste.
+\begin{small}\begin{verbatim}<?xml version="1.0"?>
+<config>
+ <!--root folder del framework-->
+ <rootFolder>../framework/</rootFolder>
+
+ <!--percorso a partire dalla webroot-->
+ <rootURL>universibo2/htmls/</rootURL>
+ 
+ <!--elenco dei receivers dell'applicazione 
+  <identificativo>percorsoRelativoAllaRootURL/receiver.php</identificativo>
+  --> 
+ <receivers>
+  <main>index.php</main>
+ </receivers>
+ 
+ <defaultCommand>ShowHome</defaultCommand>
+ <commands path="commands/" default="ShowHome">
+  <ShowError class="ShowError">
+    <response type="template" name="default">error.tpl</response>
+  </ShowError>
+  <Login class="Login">
+    <response type="template" name="default">login.tpl</response>
+    <response type="template" name="form">login_form.tpl</response>
+  </Login>
+  <Logout class="Logout" />
+  <ShowHome class="ShowHome">
+   <response type="template" name="default">home.tpl</response>
+   <pluginCommand name="ShowNewsLatest" class="News.ShowNewsLatest" />
+  </ShowHome>
+  <TestUnit class="TestUnit" />
+ </commands>
+ 
+ <dbInfo type="DB">
+  <connection identifier="main">
+  pgsql://pg_username:pg_password@host/pg_dbname
+  </connection>
+  <connection identifier="mysql">
+  mysql://my_username:my_password@host/my_dbname
+  </connection>
+ </dbInfo>
+ 
+ <mailerInfo>
+  <smtp>smtp.example.com</smtp>
+  <fromAddress>pippo@example.com</fromAddress>
+  <fromName>Pippo</fromName>
+ </mailerInfo>
+ 
+ <templateInfo type="Smarty" debugging="on">
+  <template_dirs>
+   <web_dir>tpl/</web_dir>
+   <smarty_dir>../framework/smarty/</smarty_dir>
+   <smarty_template>../app/templates/</smarty_template>
+   <smarty_compile>../app/templates_compile/</smarty_compile>
+   <smarty_config>../app/templates_config/</smarty_config>
+   <smarty_cache>../app/templates_cache/</smarty_cache>
+  </template_dirs>
+  <template_styles default="black">
+   <style name="black" dir="black/" />
+   <style name="unibo" dir="unibo/" />
+   <style name="simple" dir="simple/" />
+  </template_styles>
+ </templateInfo>
+ 
+ <langInfo>
+   <lang_dir>../path/lang/</lang_dir> 
+   <lang_default>it</lang_default> 
+   <date_separator>/</date_separator> 
+ </langInfo>
+ 
+ <appSettings>
+  <langFile>/location/of/userLanguageFile.txt</langFile>
+  <forumLocation>forum/</forumLocation>
+  <files>../html/file-universibo</files>
+  <alertMessage>Il sito non è momentaneamente</alertMessage>
+ </appSettings>
+ 
+</config>
+\end{verbatim}\end{small}

@@ -1,0 +1,405 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Il progetto UniversiBO}
+\begin{flushright}
+\begin{small}\textit{"Make everything as simple as possible,\\
+ but not simpler."\\
+- Albert Einstein -\\
+}\end{small}\end{flushright}
+
+In questo capitolo si darà una descrizione sommaria del progetto UniversiBO, partendo dall'analisi dei bisogni che hanno motivato l'idea innovativa, descrivendo quale è stato il background che ha portato i fondatori a pensare di dover costruire un servizio su misura di studente, quali sono stati i modelli di riferimento per il progetto e la gestione dell'iniziativa durante sua evoluzione. Infine si giungerà ad una descrizione tecnica di alcune sue parti che hanno portato a motivare la scelta dell'utilizzo delle tecnologie Web Service per comunicare con le strutture informatiche dell'Ateneo di Bologna.\\
+
+\section{L'analisi dei bisogni}
+L'elevata dinamicità che caratterizza la nostra società, definita sempre più spesso ``Società dell'informazione'', o meglio ``Società della Conoscenza'', pone al centro l'informazione stessa, attribuendole il ruolo di risorsa strategica che condiziona l'efficienza dei sistemi, divenendo fattore di sviluppo economico, di crescita e di ricchezza culturale.\\
+In questo contesto in cui la quantità di informazione disponibile è notevolmente superiore alla capacità di utilizzarla: la problematica non concerne la sua reperibilità, piuttosto si ritrova nella possibilità di organizzarla in una forma qualitativamente idonea ad assistere l'uomo nelle proprie attività.\\
+Per questo è molto importante avere a disposizione degli strumenti che consentano di accedere alle risorse di cui abbiamo bisogno in modo rapido ed efficace.\\
+
+Allo stesso modo nell'analisi dei bisogni di un servizio online di supporto alla didattica è fondamentale distinguere le due tipologie di utenti che andranno a fruire del servizio e scomporre dal punto di vista concettuale l'ottica dello studente e quella del docente. 
+Lo studente ha per definizione come obiettivo il superamento degli esami e questo si scompone in due ordini di bisogni, uno informativo e l'altro comunicativo.\\
+Per quanto riguarda il primo ordine di bisogni è infatti importante avere la possibilità di reperire le informazioni velocemente e in caso di necessità, infatti nella maggior parte dei casi lo studente ha bisogno delle informazioni quando è lontano dall'università. Non possiamo tralasciare che poiché la rete è uno strumento asincrono consente anche a coloro i quali non possono assistere alle lezioni a causa di impegni di lavoro o esigenze personali di fruire dei contenuti pubblicati online.\\
+Il secondo tipo di bisogno è di avere disponibile sempre un canale di comunicazione verticale con il docente e orizzontale con gli altri studenti che è molto importante nella fase di studio per risolvere dubbi velocemente.\\
+Dal punto di vista del docente, un servizio online è attraente se nel medio e lungo periodo derivano dei vantaggi dal suo utilizzo, in primo luogo vantaggi in termini di tempo, poi vantaggi in termini di qualità della didattica, infine vantaggi di immagine.\\
+
+Anche se negli ultimi anni sono stati fatti ingenti investimenti in nuove tecnologie, al momento della nascita del progetto UniversiBO vi era nei fondatori la sensazione che lo stato dei servizi offerti dalle università non rispondesse in generale alle esigenze sopra esposte e che gli utenti fossero scontenti delle molteplicità di siti e di informazioni non organizzate con le quali dovevano avere a che fare quotidianamente.\\
+I docenti, d'altra parte, non avendo a disposizione i servizi, non si sentono stimolati ad investire nell'innovazione della didattica e ad investigare i vantaggi offerti dalle nuove tecnologie in merito ai processi di apprendimento.\\
+Si è quindi progettato un insieme di servizi che permettessero agli studenti di fruire di un sito facilmente navigabile dove reperire informazioni aggregate attorno ai loro bisogni e dove poter trovare tutto quello di cui necessitano per la preparazione degli esami, mentre ai docenti uno strumento sicuramente semplice e che permetta loro di ottimizzare le operazioni di routine, come la risposta alle domande, le comunicazioni agli studenti o l'inserimento di files con l'obiettivo primario di risparmiare tempo.\\
+
+Nel rispondere a queste esigenze è stato progettato e realizzato UniversiBO, la cui la mission iniziale è stata: ``aiutare gli studenti ad aiutarsi tra loro, fornire un punto di riferimento centralizzato in cui prelevare tutte le informazioni didattiche riguardanti i propri corsi di studio e offrire un mezzo di interazione semplice e veloce con i docenti''.
+Nel corso delle vicissitudini che hanno accompagnato il progetto e con il passare del tempo, il team di ragazzi che ha sostenuto il progetto si è costituito in associazione e si è lentamente orientato a fornire sempre più servizi che potessero creare una community tra gli studenti e lasciare agli organi di Ateneo il compito di fornire servizi per la didattica.\\
+Allo stato attuale la vision del team di progetto è: ``Favorire l'informatizzazione attraverso l'utilizzo di tecnologie open source e software libero, la diffusione dell'approccio collaborativo nella risoluzione dei problemi e fare sì che le strutture universitarie offrano servizi aggregati attorno ai bisogni dello studente. UniversiBO si impegna a estendere i confini delle aule delle facoltà ponendosi come innovativo luogo d'incontro virtuale. Grazie alla diffusione e alla condivisione di \emph{informazione}, si propone infatti di creare una community di studenti incentivandoli a partecipare attivamente alla vita universitaria e desidera inoltre porsi come punto di collegamento tra il corpo docente e il mondo studentesco.''\\
+
+Nel lavoro di Matteo Vignoli \cite{tesiVigno} viene descritto dettagliatamente la situazione dei servizi, l'integrazione del progetto con i servizi esistenti e l'evoluzione fino al momento della sua prima presentazione.\\
+% Furono tante le iniziative di singoli soggetti all'interno dell'Ateneo nel periodo precedente al 2000, quando il boom del Web era in pieno sviluppo e le sperimentazioni si susseguivano una dopo l'altra. Purtroppo però il risultato si rivelava un'offerta molto frammentata e disomogenea che non permetteva né agli studenti né ai docenti di sfruttare al meglio le potenzialità della rete.\\
+
+%%Proprio per questo alcuni studenti realizzavano servizi su server privati con lo scopo di creare comunità virtuali.\\
+%%Nel Novembre 2000 da parte di uno studente, Matteo Vignoli, venne fondata una mailing list chiamata \emph{gestionale-bo} dedicata al Corso di Laurea di Ingegneria Gestionale e poco dopo un altro studente, Andrea Scavolini, credendo fortemente nel valore dell'iniziativa si propose per aiutare nella gestione.\\
+%%La mailing list offriva servizi di informazione e interazione, il principio alla base era la condivisione e soprattutto l'idea che le informazioni sono un bene prezioso che deve essere reso disponibile a tutti.\\
+%%Visto l'elevato utilizzo dello strumento che si dopo un paio d'anni cominciò a rivelarsi inadeguato per l'elevato traffico si decise che era necessaria un'evoluzione che andasse verso un servizio consultabile via web con strumenti di interazione adeguati e progettati sul singolo esame e non sull'intero corso di laurea.\\
+%%Per realizzarla si pensava di avvalersi dell'esperienza di qualcuno che avesse già realizzato un servizio simile e di realizzare l'evoluzione assieme a Ilias Bartolini, che aveva già realizzato un servizio di nome brainetwork.\\
+
+%%Da segnalare è che questi due servizi, brainetwork e gestionale-bo, non avevano nessun carattere istituzionale, anche se molti professori collaboravano spontaneamente inserendo materiale e partecipando attivamente alle discussioni.\\
+L'iniziativa ha avuto origine da tre studenti provenienti da diverse esperienze in Internet finalizzate alla condivisione delle informazioni tra studenti. Il loro obiettivo era realizzare un nuovo sito, la community didattica degli studenti; la priorità era che fosse realizzata mettendo lo studente al centro del servizio. L'applicazione fu quindi inizialmente progettata in modo da permettere allo studente di accedere a tutte le informazioni di supporto alla didattica e considerando che se un servizio di questo tipo fosse stato utile per gli studenti lo sarebbe stato anche per i docenti aiutandoli nelle loro attività.\\
+
+Fin da subito si sono delineate due priorità in parte contrapposte, la prima era di fornire al progetto una veste istituzionale per rendere possibile la collaborazione dei professori e la seconda di mantenere l'indipendenza decisionale e organizzativa.\\
+La prima infatti avrebbe limitato le potenzialità sia di condivisione che di sviluppo, in quanto sicuramente non sarebbe stato facile implementare alcuni servizi come ad esempio lo scambio di files tra studenti. In più proprio per la natura di grande organizzazione, l'università con i suoi tempi e le sue regole amministrative avrebbero rallentato sicuramente l'evoluzione del progetto ponendo vincoli e restrizioni, ma si era convinti che la collaborazione avrebbe reso sicuramente più efficace l'iniziativa.\\
+La seconda era una garanzia allo status di studenti e quindi doveva salvaguardare la libertà di realizzare il servizio usufruendo del tempo libero e non condizionando la carriera accademica.\\
+
+\section{La nascita di UniversiBO}
+Per erogare un servizio informatico occorre definire un adeguato modello dei processi per tutte le fasi del ciclo di vita del servizio.\\
+
+Nella sua prima incarnazione UniversiBO è nato dallo sviluppo di tre processi principali: il processo di definizione dei requisiti, il processo di progettazione e predisposizione del servizio e il processo di erogazione del servizio.\\
+
+La definizione dei requisiti ha richiesto innanzitutto uno sforzo di chiarezza per accertare gli obiettivi e le esigenze di tutti i soggetti coinvolti nel progetto in modo da evitare successivi fraintendimenti e poter valutare le risorse umane a disposizione, quindi la definizione dell'elenco di massima delle principali operazioni necessarie a produrre il progetto in questione, le risorse umane atte a svolgerle e le relative competenze, la definizione del budget, l'analisi dei profili degli utenti finali con uno sguardo rivolto all'aspetto pedagogico, la definizione dei servizi e la valutazione dei servizi analoghi già offerti per ricavarne i punti di forza.\\
+
+L'obiettivo finale che si è voluto raggiungere, è stato fornire il servizio a partire dalla facoltà di Ingegneria dell'Università degli Studi di Bologna attraverso tappe intermedie, fino ad eventualmente permettere l'estensione del servizio a tutto l'Ateneo di Bologna e magari la possibilità di esportarlo anche in altre Università.\\
+
+Il progetto è stato suddiviso in sette fasi principali: Requisiti e studio di Fattibilità, Disegno di una demo del servizio, Progettazione, Implementazione, Validazione e collaudo e StartUP.\\
+Questo si rifaceva in parte al modello di sviluppo waterfall e fu guidato in parte dai preziosi consigli che sono stati dati dal dott. Luca Garlaschelli, responsabile del Progetto Portale dell'Ateneo di Bologna.\\
+Uno dei cardini di UniversiBO è la massima integrazione con i servizi esistenti, cercando di non intersecare in alcun modo il lavoro di altri, per questo ci si è rivolti al Portale di Ateneo e il dott. Garlaschelli suggerì che per integrare UniversiBO si sarebbe dovuto preparare un progetto articolato e referenziato che comprendesse come basi fondamentali i tempi di realizzazione delle singole fasi del sito e soprattutto le necessità principali che sarebbero sorte.\\
+
+Dal punto di vista tecnico la prima versione del sito web è stato realizzato a partire dall'architettura logica del database su cui è stato costruito il software, implementato per la maggior parte in PHP \cite{linkPHP} con una serie di semplici script in stile funzionale, risultando in un'architettura interna scarsamente strutturata.\\
+ 
+Nonostante tutto si è riusciti ad integrare gradatamente un notevole numero di servizi:
+\begin{enumerate}
+\item Presentazione di informazioni raggruppate per facoltà, corsi di laurea, attività didattica o altri canali trasversali;
+\item Creazione di pagine relative ad ogni singola attività didattica con possibilità di inserire o collegare le informazioni base relative a programmi, obiettivi, materiali, ecc...;
+\item Servizio di pubblicazione di notizie sul sito web con invio di notifiche personalizzate agli utenti;
+\item Inserimento di materiale didattico sotto forma di files;
+\item Interazione tra studenti e docenti tramite i singoli forum a disposizione di ogni esame;
+\item Collegamenti agli orari delle lezioni;
+\item Visualizzazione integrata degli appelli d'esame.
+\end{enumerate}
+
+Il progetto partito sul Corso di Laurea di Ingegneria Gestionale il 23 settembre 2002 è stato pensato da principio per essere esteso in altri contesti sia tecnologici che in base agli utilizzatori, così dopo un anno i servizi erano già a disposizione di due facoltà con un elevato numero di utenti e con differenti background come Economia oltre alla già citata Ingegneria.\\
+
+Il sistema nel suo complesso si articolava con numerose e complesse interazioni con gli altri servizi di Ateneo tra cui:
+\begin{enumerate}
+\item database Oracle del CeSIA: utilizzato in particolar modo per la programmazione della didattica;
+\item database MySQL di Ingegneria per il prelievo di informazioni relative a programmi dei corsi
+\item database MySQL di Economia: contenente le informazioni riguardanti la didattica e la struttura dell'orario delle lezioni
+\item database MS-SQL del CeSIA: per ottenere le informazioni necessarie alla creazione degli account dei docenti;
+\item database Oracle di Uniwex: per ottenere le informazioni riguardanti gli appelli d'esame. 
+\end{enumerate}
+
+Inoltre fin dall'inizio del progetto fu testato con successo l'utilizzo di semplici Web Service che sarebbero dovuti essere messi a disposizione del portale di Ateneo per il prelievo di maggiori informazioni riguardanti il corpo docente.\\
+
+L'autenticazione degli utenti avviene in maniera differente a seconda del profilo dell'utente.\\
+I docenti vengono automaticamente registrati al momento dell'inserimento dei piani didattici uniti con le informazioni presenti nella rubrica di Ateneo.\\
+Gli studenti vengono autenticati tramite la loro email di Ateneo e il riconoscimento avviene attraverso il sistema di Active Directory di Ateneo.\\
+Allo stato attuale viene utilizzato il servizio Active Directory solo per il primo login, a questo punto viene spedita la password generata in modo casuale via email all'utente, viene in questo modo certificata la sua identità e associata univocamente allo username che l'utente sceglie e questi, dal secondo accesso in poi, si autentica sul server di UniversiBO.\\
+
+Questi dettagli architetturali, pur non avendo la pretesa di essere esaustivi, sono stati forniti solo per permettere di intuire fin da subito come un progetto di piccole dimensioni si sia venuto a trovare in breve tempo, in un contesto articolato in numerose interazioni che si sono rivelate sempre più difficili e costose da gestire.\\
+All'interno di questo scenario nacque fin da subito il problema della sicurezza delle informazioni dei meccanismi necessari a garantire l'autenticità dei contenuti, l'integrità dei dati tramessi e il rispetto della privacy delle informazioni relative agli utenti.\\
+
+
+\section{Il progetto UniversiBO v2}
+
+La progressiva estensione del primo progetto, ne rese in breve tempo insostenibile lo sviluppo. UniversiBO v2 è nato quindi, con lo scopo di reingegnerizzare il progetto UniversiBO alla luce delle problematiche nate per dare un'organizzazione più razionale alle fasi di progettazione, ridisegnare l'architettura del sistema per migliorarne la flessibilità e il riuso dei componenti.\\
+Ricominciando il progetto da zero e grazie all'esperienza acquisita, fu possibile quindi portare alla luce una serie di altre problematiche che si verificarno nella prima fase e tentarne di trovarne una soluzione concreta.\\ 
+
+Tra i principali problemi sollevati grazie ai consigli ricevuti dal prof. Boari, venne messo in primo piano anche quello della continuità dell'iniziativa. Se la prima versione di UniversiBO fu quasi interamente frutto del lavoro di un singolo, la necessità di ricominciare fu colta come occasione per inserire sin dalle prime fasi del progetto nuovi ragazzi.\\
+
+Il progetto è stato sviluppato secondo la filosofia del Free Software, il codice sorgente è Open Source disponibile con licenza GPL, tutti possono modificarlo e riutilizzarlo con il solo vincolo che continui a restare libero.\\
+Secondo questa filosofia il progetto ha deciso di aprire uno spazio su Sourceforge, il più grande repository di software open source al mondo e diventato punto di riferimento di moltissime comunità del software libero\newline \texttt{http://sourceforge.net/projects/universibo/}.\\
+
+Per creare una solida architettura al progetto, tra i nuovi obiettivi da perseguire si è voluto aggiungere la creazione di un framework che permetta di inserire servizi in maniera incrementale che si appoggino all'architettura senza necessità di ridisegnare l'intero sistema.\\
+ 
+Per uniformare l'aspetto grafico del servizio con le linee dell'Ateneo si è deciso di permettere la presentazione dei contenuti con stili diversi.\\
+Punto cardine dello sviluppo dei nuovi stili è stato il rispetto delle norme di accessibilità. Per cui allo stato attuale l'accesso alle informazioni è possibile su tutti i tipi di piattaforme e da utenti con disabilità, rispettando diverse le norme tra cui le Web Content Accessibility Guidelines (livello AA) del W3C \cite{specsWCAG}.\\
+
+Dalle esperienze acquisite dalla prima versione di UniversiBO venne riscontrata anche la necessità di suddividere il problema in sottoparti. Mentre la prima versione può essere descritta come un ammasso confuso di script, nella v2 si sta tentando di suddividere lo sviluppo, sia architetturalmente, che dal punto di vista organizzativo, in due "direzioni" diverse.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/20-web-vertical-layers.jpg}
+ \caption{Separazione logica verticale}
+ \label{fig:20-web-vertical-layers}
+\end{figure}
+
+La suddivisione verticale descritta in figura \ref{fig:20-web-vertical-layers} (detta anche 3-tier) rappresenta lo stato dell'arte di molte applicazioni web sviluppate negli ultimi anni. Si è scelto di adottare questa separazione perché definisce una prima suddivisione dei compiti del team di sviluppo secondo cui organizzare il lavoro. Una volta definite le interfacce con cui comunicano i livelli è possibile per diverse persone portare avanti il lavoro in maniera più indipendente e obbliga alla formalizzazione delle specifiche di cosa arriva in input ed in output ai tre livelli. Rende più flessibile l'interazione tra le varie parti del sistema.\\
+Infine la divisione verticale permette una specializzazione delle conoscenze dei componenti del team sulle tecnologie specifiche di ogni livello.\\
+
+La separazione orizzontale ha invece lo scopo di dividere la complessità restringendo l'ambito di lavoro in moduli più ristretti.\\
+Apoggiandosi su un framework appositamente strutturato ed alcuni componenti base comuni, si è tentato di dividere l'applicazione in una sorta di moduli il più possibile indipendeti tra loro e ciascuno dei quali si occupa di realizzare un servizio web. Per esempio alcuni moduli già sviluppati sono il servizio News, il servizio File, il servizio Link, ecc...\\
+Ogni modulo è costituito da un insieme di Plugin che vengono raggruppati in un unico package.\\
+
+Questa suddivisione permette lo sviluppo incrementale dell'applicazione, dopo aver creato il framework si possono aggiungere e sviluppare in parallelo nuovi servizi e a seguire il nuovo rilascio dell'applicazione alla fine di ogni processo di integrazione. Infine permette dove possibile la formazione di piccoli gruppi di lavoro per progetti.\\
+
+
+\subsection{Metodologie di sviluppo}
+L'approccio per descritto sopra è concettualmente molto simile al modello a spirale, ma con la possibilità di eseguire in parallelo il lavoro su diversi servizi dividendo lo sviluppo "per progetti" come consigliato nel lavoro di Matteo Vignoli \cite{tesiVigno}.\\
+
+UniversiBO si caratterizza come un progetto di medie-piccole dimensioni con ormai a disposizione tante risorse umane con tempo a disposizione limitato e notevoli differenze di know-how.\\
+Alla luce degli ultimi cambiamenti lo sviluppo "per progetti" a cascata come descritto da Vignoli deve essere considerato nell'ottica di tentare di responsabilizzare ragazzi alle prime armi. La possibilità di lavorare su problemi con uno scope ristretto permette di gratificare di più nuovi ragazzi che entrano nel progetto e garantisce continuità all'iniziativa.\\
+Restringendo il punto di vista di questa analisi, dall'intero progetto UniversiBO al problema particolare dello sviluppo del software, le proposte di Vignoli vanno in conflitto con le metodologie che sono da sempre state applicate nei progetti open source.\\
+
+Come descritto nell'articolo \emph{"The Cathedral and the Bazaar"} di E.S. Raymond \cite{CatEBaz} il successo di progetti open source è legato alla capacità di attirare utenti interessati allo sviluppo del progetto, in grado di fornire feedback e addirittura capaci di proporre in prima persona soluzioni alternative. In quest'ottica è importante la comunicazione con la comunità degli utenti in grado di sviluppare, il codice è spesso il primo mezzo per comunicare con loro.\\
+Rilasciare spesso release del prodotto, disporre un repository da cui chiunque interessato può prelevare il codice sorgente, tenere in contatto gli sviluppatori con mezzi di comunicazione come forum o meglio mailing list, immediati ma anche in grado di preservare in un luogo pubblico anche la memoria storica dei messaggi. Tutte queste attività sono finalizzate a creare una comunità di sviluppatori.\\
+Anche se solitamente è stato di fondamentale importanza il grosso contributo iniziale da parte di uno o pochi sviluppatori, lo scopo finale è giungere all'allargamento ad un'ampia base di sviluppatori che migliorino il software in una sorta di processo ``darwiniano''. Raggiunte dimensioni considerevoli diventa quindi importante la figura del mantainer in grado di coagulare tramite la propria autorevolezza il lavoro di tutte le persone e con la responsabilità di decidere quali soluzioni scartare e quali adottare, fornire una pianificazione molto sommaria della attività.\\
+
+Lo sviluppo con una netta separazione per progetti descritta precedentemente, d'altro canto impone la schedulazione delle attività a cascata su ognuno dei progetti e l'imposizione di deadline piuttosto stringenti alle quali procedere con l'integrazione dei componenti.\\
+Questa separazione rallenta la frequenza del rilascio del software, impone ritmi agli sviluppatori che non possono assicurare di sostenere, specialmente se svolgono le loro attività in maniera volontaria.\\
+
+La comunità di UniversiBO ancora non dispone di un larga base per potersi permettere di adottare completamente lo stile \emph{Bazaar} descritto da Raymond.\\
+Dal punto di vista personale e dalle esperienze degli ultimi mesi su UniversiBO, alcune delle pratiche di sviluppo che più si avvicinano alle necessità del progetto UniversiBO sono da ricercarsi tra le metodologie Agili come \emph{Scrum} ed \emph{eXtreme Programming}(XP) da cui si è tentato di attigere alcuni insegnamenti.\\
+
+\label{metodologie-agili}Le metodologie Agili come si evince dall'\emph{Agile Manifesto} \cite{linkAgileManifesto} sono un insieme di pratiche di sviluppo con lo scopo di produrre software di elevata qualità e in grado di rispondere velocemente alla variazione degli obiettivi.\\
+Le release vengono rilasciate frequentemente con cicli di poche settimane, come nello sviluppo open source per ottenere feedback veloci dai clienti. La pianificazione viene eseguita in cicli di pochi giorni, parte dei clienti fanno parte dello stesso team di sviluppo con lo scopo di migliorare la comunicazione, la percezione degli obiettivi e identificare le features più importanti da implementare entro la prossima release.\\
+Lo scopo è quello di produrre software che metta a disposizione nei tempi più brevi possibili le caratteristiche con il maggior valore aggiunto e riduca i rischi dovuti ai cambiamenti durante lo sviluppo. Tutti questi obiettivi che possono sembrare molto generici, vengono inseguiti applicando un insieme concreto di pratiche di sviluppo.\\
+
+A differenza dello sviluppo tipico dei progetti open source, le metodologie agili si rivolgono a progetti medio piccoli, dove la comunicazione è diretta tra gli sviluppatori, il codice e il continuo contatto faccia a faccia sono i mezzi privilegiati di comunicazione.\\
+La scrittura del codice viene supportata e/o guidata dai test che permettono di eseguire variazioni continua del design (\emph{refactoring}). Si parte da un design più semplice e flessibile possibile e lo si raffina e migliora in modo da soddisfare gli obiettivi del ciclo di sviluppo che vengono sempre indicati dai test. I test stessi sono la più veloce forma di feedback che un programmatore possa ottenere dal suo codice e l'idea di dover subito testarne una parte spinge a creare design più semplice e disaccoppiato.\\
+Un design semplice non deve essere sinonimo di cattivo design, ma di design pulito, efficace che si può comunicare più facilemente e non aggiunge overhead che possa entrare in conflitto con futuri cambiamenti.\\
+La ricerca di un design che sia il più semplice possibile porta a focalizzare lo sviluppo sul raggiungimento  degli obiettivi non soggetti a cambiamento o più a breve termine impegnando il minor sforzo possibile.\\
+L'implementazione viene effettuata in coppie (\emph{pair programming}) migliorando la qualità del codice, della comunicazione e della diffusione delle conoscenze del team senza effettivamente abbassare la produttività. Infatti mentre uno dei due sviluppatori scrive sulla tastiera l'altro può pensare in termini più estesi allo scope di un certo pezzo di codice, di come si integrerà, come si svilupperà, come potrà essere testato, come può essere migliorato e soprattutto può correggere e scovare errori che in un secondo tempo richiederebbero ore di debug.\\
+Ogni componente del team ha completa visibilità e responsabilità sull'intero codice, l'integrazione delle modifiche è effettuata continuamente e rispetta un insieme di regole comuni di stile per evitare conflitti.\\
+
+Queste pratiche, che si è tentato di riassumere nei precedenti pochi paragrafi, ed altre ancora di livello più alto, sono spiegate più approfonditamente in altri lavori. Tra questi segnaliamo le pubblicazioni di K.Beck \cite{bookXPEplained}, A.Cockburn \cite{bookAgileSD} che offrono una panoramica, in cui viene descritto come le pratiche si supportino a vicenda creando un'organizzazione e una struttura in grado di sviluppare software con elevati standard qualitativi, solido ma non rigido e in grado di rispondere velocemente al cambiamento. Inoltre le pubblicazioni di M.Fowler \cite{bookRefactoring} e un secondo libro dello stesso K.Beck \cite{bookTDD} in cui vengono descritte approfonditamente ed in maniera più concreta le pratiche di Refactoring e di Test Driven Development.\\
+
+Lo stesso Raymond, nell'articolo \emph{Discovering the Obvious: Hacking and Refactoring} \cite{HackAndRef} ha erroneamente tentato di associare troppo strettamente lo sviluppo dei grossi progetti open source con le metodologie agili (di cui il refactoring citato nel titolo è una pratica), tuttavia vi sono alcuni punti in comune che in maniera più o meno inconscia sono stati adottati nello sviluppo della seconda versione di UniversiBO.\\
+
+Senza entrare troppo nei dettagli che esulano da questa trattazione, sono state prese durante lo sviluppo della seconda parte del progetto UniversiBO decisioni per tentare di avvicinarsi il più possibile a queste pratiche, anche se applicate con meno rigore a causa della situazione degli sviluppatori (studenti volontari, con poco tempo a disposizione, scarsa esperienza e lacune di conoscenza).\\ 
+
+L'intero sviluppo di UniversiBO v2 è avvenuto on-line utilizzando un sistema di Concurrent Versioning System (CVS) \cite{bookCVS} ospitato da Sourceforge, che permette a più sviluppatori di utilizzare un unico archivio in cui depositare il codice, crearne diversi rami di sviluppo e sincronizzare le operazioni di modifica evitando interferenze.\\
+Tutti gli sviluppatori che hanno richiesto accesso al CVS hanno avuto completi diritti di modifica e gestione del codice in linea al principio della \emph{collective ownership} di XP.\\
+Ogni modifica e sviluppo doveva essere il prima possibile resa funzionante, corredata di adeguati test e subito integrata sul CVS.\\
+
+Tra le prime informazioni ad essere state condivise ci sono stati i \emph{coding standard} per permettere un minimo di omogeneità dei sorgenti.\\ 
+E' stata creata una mailing list e che poi è stata allargata a più componenti del gruppo per migliorare la diffusione delle informazioni.\\
+La documentazione è stata resa disponibile on-line e in un secondo momento pubblicata su uno strumento collaborativo di tipo wiki, in cui chiunque può facilmente proporre modifiche ai contenuti e che allo stato attuale contiene oltre 400 pagine di documentazione.\\
+
+Nonostante gli impegni universitari degli sviluppatori, alcune parti del codice sono state sviluppate in sessioni di \emph{pair programming}, sia per migliorare la qualità del codice ma soprattutto per permettere la trasmissione reciproca di conoscenze.\\
+Dopo la definizione iniziale del design del framework dell'applicazione e con maggiore frequenza dopo l'uscita alla prima release, si è proceduto ad uno sviluppo su brevi cicli focalizzati su particolari features e servizi per permettere l'uscita continua di nuove release.\\
+All'interno del framework applicativo stesso sono stati previsti strumenti di testing che putroppo non sono stati utilizzati con la dovuta costanza.\\
+
+Di fondamentale importanza è stato anche mantenere alte le motivazioni degli sviluppatori e l'imposizione di un ritmo regolare a seguito della prima release, evitando grossi affaticamenti concentrati in brevi periodi di tempo e tentando di far convergere gli impegni universitari con quelli del progetto UniversiBO per distribuire meglio il carico.\\
+Infine sempre in linea con le metodologie agili ad eccezione del framework iniziale, si è sempre tentato di mantenere il più semplice e flessibile possibile il design dell'applicazione.\\
+
+
+
+\subsection{Scelta della piattaforma e componenti}
+
+Il progetto UniversiBO è partito senza nessun supporto finanziario, vincolo per tutte le tecnologie utilizzate è quindi il costo zero.\\
+Inizialmente si è valutata come piattaforma ideale per lo sviluppo della logica applicativa PHP4, rispetto a Java/jsp per la possibilità di trovare in rete un maggiore numero di componenti riutilizzabili e compatibli con la licenza utilizzata da UniversiBO ed inoltre per le performance migliori su piccole applicazioni (si tenga conto per il primo server che ha ospitato il sito UniversiBO era un vecchio PC costituito da componenti di scarto o recuperati).\\
+Al momento dello sviluppo di UniversiBO v2 si è deciso di continuare ad utilizzare PHP credendo che l'esperienza acquisita da team iniziale su questa la tecnologia rappresentasse un notevole fattore di vantaggio, nonostante il suo insegnamento non fosse inserito nei piani didattici della Facoltà di Ingegneria e quindi fosse più difficile trovare altri studenti esperti.\\
+
+Per la persistenza dei dati locale ci si appoggia su database relazionale SQL, con l'idea introdurre uno strato di astrazione dallo specifico database utilizzato tramite un un componente di database abstraction per PHP.\\
+
+PHP dispone del supporto per moltissimi sistemi o interfacce per DBMS: MySQL, PostgreSQL, MsSQL, Oracle, ODBC e molti altri. Le interfacce verso questi sistemi messe a disposizione dalle librerie PHP sono state create in tempi diversi e sono molto differenti tra loro a causa dell'assenza di uno standard.\\
+% Come visto nel primo paragrafo sulla base dell'architettura delle applicazioni a tre livelli è nata la necessità di rendere indipendente il livello 1 (logico-applicativo) da quello intermedio (persistenza dei dati). Infatti nell'ambiente web accade spesso che ogni servizi di hosting si appoggino su server DBMS diversi tra loro e le applicazioni web necessitano di poter funzionare indipendentemente dal tipo di quest ultimo.\\
+
+\emph{"Write once - run anywhere"} non è solo uno slogan Java, ma questo principio si dovrebbe applicare a tutte le piattaforme aperte PHP compreso.\\
+Molti business model del settore informatico richiedono l'indipendenza rispetto al sistema sottostante per assicurare che il prodotto sia vendibile ad un ampia fetta di acquirenti.\\
+L'aspetto vincente di molti framework o pacchetti software per il Web è stata proprio nella loro portabilità e capacità di separare i due livelli (logica applicativa e persistenza) e proprio in questo ambito si sono diffusi i DataBase Abstraction Layer (DBAL).\\
+Il loro compito primario è quello di fornire un'intefaccia unificata per i sistemi sottostanti, appianare le differenze che intercorrono tra i vari DBMS e rendere quindi un'applicazione scritta con PHP maggiormente portabile.\\
+
+Altro vantaggio che consegue all'utilizzo dei DBAL e quello di permettere ai programmatori di imparare un unico set di comandi utilizzabile su tutti i sistemi e velocizzare la parte di apprendimento e sviluppo delle applicazioni.\\
+Gli svantaggi dei DBAL sono principalmente un overhead prestazionale nell'accesso al database e nella preclusione all'utilizzo di caratteristiche specifiche di un certo database.\\
+
+Un lavoro approfondito sul benchmarking e confronto dei diversi Abstraction Layers diponibili per PHP è stato fatto in un precedente lavoro \textit{"PHP e Database Abstraction Layers"} \cite{PHPeDBAL}.\\
+In conclusione dopo aver valutato e confrontato i diversi prodotti disponibili in base a criteri di design architetturale, documentazione, portabilità, semplicità d'uso e performance si è deciso di utilizzare PEAR:DB per la maturità del progetto, l'elevata portabilità e le buone prestazioni.\\
+
+La creazione dello schema è stata principalmente sviluppata per PostgreSQL e in seguito per MySQL ed in futuro eventualmente altri database.\\
+Altre informazioni, come i log dell'applicazione sono registrati direttamente sul filesystem del webserver per poter funzionare anche in caso di downtime del database.\\
+
+In generale la struttura di base dell'applicazione è integrata da molti componenti Open Source.\\
+Per lo strato di presentazione, per esempio, si sono considerati vari template engine per PHP per generare l'output dell'applicazione. Al momento della realizzazione del template engine sono valutate le possibilità di utilizzare un sistema nativo PHP come Smarty o in alternativa creare un output XML da trasformare successivamente con fogli di stile XSLT per genare l'output XHTML.\\
+Al momento di inizio del progetto le tecnologie XML e XSLT non era supportato nativamente da tutti i browser e il supporto lato server di XML di PHP era ancora in parte sperimentale e con performance peggiori. La soluzione scelta con l'uso di Smarty oltre a maggiore semplicità  permette comunque di creare eventualmente output XML da far poi interpretare ad un secondo livello. Infine si è scelto di utilizzare Smarty anche per la sua ampia diffusione e affidabilità.\\
+L'output dei nuovi stili creati, oltre ad essere in linea alle già citate norme di accessibilità del WCAG, è pienamente compatibile allo standard XHTML 1.0 Transitional.\\
+
+Per l'invio di email viene utilizzato PHPMailer, che permette il collegamento diretto ad un server SMTP senza altri componenti intermediari dipendenti dal sistema operativo.\\
+L'accesso ai Web Service è stato testato fin da subito in collaborazione con le strutture del Portale di Ateneo tramite l'utilizzo del package PEAR::SOAP.\\
+
+Una grossa problematica già riscontrata al momento della precedente versione del progetto riguarda l'accesso al sistema di autenticazione Microsoft Active Directory considerato necessario dalle strutture dell'Ateneo.\\
+Il sistema Active Directory è di tipo proprietario e dispone di un'interfaccia esterna che si è verificata non essere pienamente compatibile con lo standard LDAP con estensioni SSL. La soluzione del problema ha richiesto lo sviluppo di un componente ad hoc con tecnologia Java per scavalcare il problema.\\
+
+
+\subsection{Progetto dell'architettura di base}
+A partire dal considerazioni appena fatte, in questa sezione viene fornita una descrizione tecnica un po' più approfondita, ma sicuramente non esaustiva, dell'architettura di UniversiBO.\\
+
+Prima di tutto ci si è posto il problema di costruire un framework che si occupi della separazione 3-tier (si noti l'analogia tra i 3-tier e il Model-View-Control) dell'applicazione e guidi il successivo sviluppo dei servizi secondo questa logica.
+Sulla base di questo framework generico si passerà alla costruzione della nostra applicazione con la definizione del suo dominio e spazio concettuale.
+Infine si è fatto in modo di poter agganciare i servizi all'applicazione come dei plugin.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/22-v2-packages.png}
+ \caption{Separazione logica di base dei componenti/packages}
+ \label{fig:v2-packages}
+\end{figure}
+
+Sarà compito soprattutto del framework integrare e rendere disponibili componenti di utilità per l'applicazione e quindi di integrare in maniera semplice altri componenti Open Source già largamente diffusi per le funzionalità del livello di presentazione e di persistenza dei dati.\\
+La logica applicativa dovrà naturalemente essere costruita ad hoc e farà parte della nostra specifica applicazione, quindi sarà separata in un differente package.\\
+Come si è già visto, è stato deciso infine di separare i servizi in differenti package oltre che per la naturale struttura logica anche per poter responsabilizzare diverse persone del team di sviluppo su un ambito con complessità e scope ristretto.\\
+Sarà cura dei progettisti dei servizi rendere lo spazio concettuale dei servizi il più possibile indipendente dallo spazio concettuale dell'applicazione. Le due parti trovano punto di contatto nella definizione dei comandi dell'applicazione, che accedendo ai servizi utilizzano un'apposita interfaccia definita per il generico plugin.\\
+
+Per poter illustrare con maggiore chiarezza l'interazione tra i componenti, si tenterà di illustrare passo-passo il processo logico che ha portato alla definizione del framework.\\ 
+
+
+\subsubsection{Il framework}
+Obiettivo e scopo è creare un framework per generalizzare e risolvere problematiche comuni alle aplicazioni web.\\ Le principali caratteristiche che si è voluto ricercare e i requisiti raccolti all'inizio dello sviluppo sono i seguenti:
+\begin{itemize}
+\item Sistema di configurazione flessibile non code-based;
+\item Facilmente estendibile attraverso la definizione di comandi applicativi relativi allo spazio concettuale delle specifiche applicazioni, definizione dei modalità per la loro invocazione;
+\item Separazione della rappresentazione dell'output dalla logica applicativa permettendo diverse viste;
+\item Integrazione di un accesso alla persistenza dei dati su database relazionale con un layer di astrazione indipendente dalla particolare implementazione del database;
+\item Sistema di error handling flessibile e semplice da utilizzare per sopperire alla carenza del linguaggio PHP4;
+\item Sistema di logging delle operazioni sensibili;
+\item Toolbox di strumenti utili in grado di includere altre classi open-source di uso comune;
+\item Utilizzo e di una pura Object Oriented methodology, limitando il più possibile free-standing code di PHP4 e deprecando variabili globali per ragioni di sicurezza e pulizia delle applicazioni;
+\item Fornire supporto ed "instradare" verso lo sviluppo di applicazioni 3-tier basate sul pattern MVC;
+\item Implementato per essere utilizzato con PHP5 e retrocompatibile verso PHP4.
+\end{itemize} 
+
+Dall'analisi dei requisiti e del materiale consultato nella fase di benchmarking è stato deciso di porre un Front Controller pattern alla base dell'architettura del framework e dell'applicazione.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/23-v2-frontcontroller.png}
+ \caption{Front Controller pattern}
+ \label{fig:v2-frontcontroller}
+\end{figure}
+
+A fronte di una richiesta (HTTP e non), viene mandato in esecuzione un oggetto Receiver che ha il compito di impostare l'envirorment del linguaggio PHP, instanziare un oggetto \texttt{FrontController} fornendogli i parametri di configurazione dell'applicazione e lanciare \texttt{executeCommand()} per far partire l'esecuzione di un comando.\\
+Il \texttt{FrontController} ha il compito di eseguire il dispatch della richiesta istanziando l'oggetto che esegue il comando richiesto e attenderne la risposta per mostrarne l'output e/o eseguire altri comandi.\\
+I comandi per poter essere invocati devono implementare la classe astratta \texttt{BaseCommand} ridefinendo il metodo \texttt{execute()} ed opzionalmente i metodi \texttt{init()} e \texttt{shutdown()}.\\
+
+Il Front Controller pattern può essere racchiuso in un'architettura Model-View-Control un po' riarrangiata e fornendo anche la base per un'architettura 3-Tier separando accesso ai dati su database e visualizzazione tramite Template Engine.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/24-v2-frontcontroller-mvc.png}
+ \caption{Adattamento pattern MVC}
+ \label{fig:v2-frontcontroller-mvc}
+\end{figure}
+
+Il \texttt{FrontController} viene arricchito con due metodi Factory \texttt{getTemplateEngine()} e \texttt{getDbConnection()} che creano le istanze degli oggetti di tipo rispettivamente \texttt{TemplateEngine} e \texttt{DB} e implementano un pattern Singleton per non replicare inutilmente le istanze.\\
+Il sistema grazie al Template Engine può mostrare in output diverse viste che possono essere scambiate utilizzando i metodi a disposizione del FrontController. La chiamata a questi metodi è stata mappata di default su direttive del file di configurazione e ad un parametro alla richiesta del browser per fornire alcuni semplici metodi di modifica.\\
+
+Allo stato attuale il \texttt{TemplateEngine} restituito è Smarty, da cui è stata estratta una sottoparte dell'intefaccia.\\
+In questo modo nulla vieta di costruire classi wrapper per altri Template Engine (esempio: xtemplate o pear::template).\\
+
+Per soddisfare il requisito della creazione di una Toolbox, occupandosi già il \texttt{FrontController} del pasing del file XML di configurazione ed essendo già associato al \texttt{BaseCommand} si è scelto di integrare questa responsabilità \cite{linkToolbox}.\\
+Possono essere così creati altri factory method per poter usufruire di istanze di oggetti configurati secondo le specifiche nel file di configurazione come PHPMailer, NuSOAP, Kronos o qualsiasi altro componente utile all'applicazione.\\
+La Toolbox permette in questo modo di disaccoppiare gli oggetti tra di loro, gli unici vincoli sono il legame con il FrontController necessario ad una semplice configurazione e quello con l'utilizzatore.\\
+
+Viste le carenze del linguaggio PHP4 che non mette a disposizione meccanismi per la gestione delle eccezioni e la cripticità delle documentazioni di altri componenti per l'error handling, si è deciso di creare una nuova classe \texttt{Error} disponibile anche per i comandi e compatibile con PHP4.\\
+Il sistema permette di creare delle categorie di errori e definire delle funzioni secondo il meccanismo callback che ne effettauno la loro gestione.\\
+Si è scelto di privilegiare la semplicità d'uso e il basso overhead della gestione degli errori\\ 
+
+Il \texttt{LogHandler} si occupa di registrare su disco o rete informazioni rilevanti.\\
+Puo essere a sua volta riutilizzata dagli handler degli errori per salvare le informazioni riguardanti le situazioni di errore.\\
+Permette di volta in volta di essere estesa e al momento dell'invocazione del costruttore di definire diversi pattern di log che vengono poi tradotti in formato Comma Separated Values (.csv).\\
+
+Durante la definizione dell'architettura sono state fatte anche scelte progettuali che permettessero un facile sviluppo di applicazioni con Test Driven Development per i motivi già descritti nella precedente sezione.\\
+Il framework in sè essendo costituito da comandi astratti è difficilmente testabile. Risultano inoltre difficilmente testabili le applicazioni web in PHP a causa della loro struttura in cui le richieste HTTP non sono oggetti riproducibili ma elementi nativi del linguaggio.\\
+In proposito si è pensato di costruire un oggetto wrapper per simulare le richieste web da usare anche come mock object, ma ciò avrebbe comportato uno snaturamento del linguaggio e una maggiore complessità di implementazione nel non poter trattare gli array superglobal \texttt{\$\_GET}, \texttt{\$\_POST}, \texttt{\$\_SESSION} di PHP che risultano di enorme comodità.\\
+
+Per migliorare le possibilità di testing può essere utile per il progettista delle applicazioni spostare la maggiorparte delle funzionalità dai comandi del framework sugli oggetti del dominio dell'applicazione ciò però comporta in generale un degrado delle prestazioni.\\
+Si è scelto di integrare nativamente PEAR::PhpUnit all'interno di un comando applicativo \texttt{UnitTest}, questo comando può essere disattivato da configurazione, ma risulta utile per ricreare l'ambiente dell'applicazione messo a disposizione dal framework al momento del testing.\\
+
+Infine per permettere la scomposizione dei servizi si è definita una classe astratta \texttt{PluginCommand} che identifica un "sotto comando" messo a disposizione dell'applicazione per essere invocati dai \texttt{BaseCommand} o da altri \texttt{PluginCommand}.\\
+Le varie implementazioni dei \texttt{PluginCommand} rispecchiano il pattern architetturale \texttt{CompositeView} che ne permette di innestarle ricorsivamente e di utilizzarle in maniera semplice.\\
+Questa classe deve essere ereditata implementando il metodo astratto \texttt{execute( \$param )}.\\
+Ad un \texttt{PluginCommand} è possibile risalire a tutte le risorse disponibili al \texttt{BaseCommand} che lo ha invocato.\\
+Generalmente (ma non necessariamente) ad un \texttt{PluginCommand} è associato un "sotto template" che ne rappresenta la vista.\\
+
+Altri dettagli e una descrizione delle competenze relative alle principali classi del framework sono stati messi in appendice per maggiori approfondimenti.\\
+
+
+\subsubsection{Il core dell'applicazione UniversiBO}
+Sulla base del framework appena descritto è stato quindi possibile iniziare ad implementare un insieme di funzionalità di base dell'applicazione, sulla quale poi agganciare i servizi.\\
+\'E scopo della parte iniziale di questa sezione descrivere le parti che costituiscono il cuore dello spazio concettuale dell'applicazione e definire come devono essere strutturate alcune interfacce di base che vengono messe a disposizione dai servizi.\\
+
+Partendo dai casi d'uso, dalle specifiche elaborate a partire dagli obiettivi, dai feedback raccolti dagli utenti e dalle statistiche raccolte dalla prima versione di UniversiBO sono stati individuati gli elementi base del sistema che vengono condivisi da tutta l'applicazione, per poi iniziare a costruirvi sopra alcuni servizi.\\
+Le features, le specifiche e il modo in cui i singoli comandi si devono integrare tra loro sono anche frutto del lavoro di studio della navigabilità del sito, che ha definito la struttura delle pagine richieste eventualmente descrivendone gli \emph{use case} in UML o preferibilmente delle \emph{user stories} \cite{bookUserStories}.\\
+L'utilizzo di diversi metodi di raccolta delle specifiche è dovuto all'ampio arco temporale in cui è stata effettuata questa procedura, al diverso grado di apprendimento del team di sviluppo durante questo arco temporale. Alcune di queste specifiche sono state subito condivise con tutto il gruppo tramite gli strumenti di comunicazione (mailing list, forum, ecc..), altre purtroppo sono rimaste per lungo tempo su qualche appunto personale di qualcuno degli sviluppatori.\\
+Per brevità solo alcune di questi casi d'uso e alcuni esempi di specifiche raccolte in modo disorganizzato o meno sono riportati in appendice a pagina \pageref{appendiceRequisiti}.\\
+A partire da questa analisi sono stati implementate le specifiche estensioni del \texttt{BaseCommand} appoggiandosi al dominio base dell'applicazione, eventualmente richiamando i plugin dei servizi.\\
+
+Per elementi base del sistema si intendono quelli necessari a modellare concetti ed entità comuni a tutta l'applicazione.\\
+Le entità che si trovano alla base del modello sono, l'\emph{utente} e il \emph{canale} di informazione.\\
+
+Il principale problema che si è subito evidenziato è stato quindi la definizione architetturale di un utente, dei gruppi di utenti, dei loro ruoli ripetto ad un canale, del canale d'informazione stesso e delle relazioni che corrono tra essi che implicano le logiche di gestione degli accessi.\\
+A questo proposito si sono ritenute molto utili gli spunti tratti di \emph{Dealing with Roles} \cite{linkRolesFowler} di Martin Fowler e \emph{Architectural Patterns for Enabling Application Security} \cite{linkAppSecurity} di Yoder e Barcalow che descrivono con estrema chiarezza diversi punti di vista con cui affrontare il problema e i vantaggi e svantaggi che derivano dall'utilizzo di alcuni pattern proposti.\\ 
+
+UniversiboCommand oltre ad aggiungere tante altre funzionalità comuni a tutto il sito, si occupa di mantenere il riferimento ad un oggetto User che identifica l'utente che sta utlizzando il servizio.\\
+Per descrivere il comportamento di User si è scelta una soluzione mista con un Internal Flag \cite{linkRolesFowler} per generalizzare il gruppo di appartenenza dell'utente e un pattern Role Realtionship \cite{linkRolesFowler} per legare ogni singolo utente ad un Canale.\\
+
+Il pattern Session \cite{linkAppSecurity} è già ricoperto dall'UniversiboCommand che sfruttando le sessioni native del linguaggio PHP tiene traccia dell'utente.\\
+Il comando Login implementa un Check Point \cite{linkAppSecurity} rispetto ad User per verificarne l'identità, da quel punto in avanti gli accessi ad ogni canale sono verificati. Infatti CanaleCommand implementa all'iterno del metodo \texttt{initCommand()} il pattern Secure Access Layer \cite{linkAppSecurity} rispetto ad User per verificare l'accesso in base al gruppo di appartenenza.\\
+Nelle implementazioni dei comandi che ereditano da CanaleCommand devono essere prese in considerazione azioni relative al Ruolo che l'utente ricopre all'interno del canale creando delle Limited View \cite{linkAppSecurity}.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/25-v2-core.png}
+ \caption{Relazioni User-Ruolo-Canale}
+ \label{fig:v2-core}
+\end{figure}
+
+E' stata di fondamentale importanza trattare questi problemi nella prima fase della progettazione dell'applicazione.\\ 
+I problemi di sicurezza hanno una complessità che si estende trasversalmente su tutta l'applicazione. Spesso risulta molto elevato il costo dovuto a doverli trattare ed inserire in un secondo momento.\\ 
+Altre considerazioni generali sulla sicurezza delle applicazioni web e in particolare con PHP sono state approfondite nell'appendice a pagina \pageref{appendicePHPWS} che tratta tipici scenari web in cui e necessario gestire problematiche di sicurezza, descrive un'ampia gamma di vulnerabilità e possibili soluzioni.\\
+
+Tra i componenti comuni a tutta l'applicazione e i servizi sono stati aggiunti sistemi di utilità come per esempio per la gestione dell'help, contatti e altri che per brevità non descriveremo in queste pagine.\\
+
+Segnaliamo solo l'importanza di aver costruito un'astrazione del canale di informazione mediante la classe \texttt{Canale}. Estendendo infatti quest'ultima e corredandola di un metodo factory è stato possibile costruire i diversi tipi di canale. I servizi costruti successivamente sono stati implementati in maniera dipendente solo dall'interfaccia di \texttt{Canale}. Quindi utilizzando i \texttt{Plugin} precedentemente descritti è stato possibili renderli disponibili in tutti i comandi di tipo \texttt{CanaleCommand}.\\
+Il diagramma in figura \ref{fig:v2-plugin} illustra questa situazione.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/25b-v2-plugin.png}
+ \caption{Costruzione di un servizio mediante Plugin}
+ \label{fig:v2-plugin}
+\end{figure}
+
+\subsubsection{Progettazione della didattica}
+
+Il problema della modellazione delle informazioni didattiche è stato per la prima volta affrontato durante la progettazione del database della prima versione di UniversiBO che grazie all'aiuto dei tecnici del Centro Servizi Informatici di Ateneo (CeSIA) si è potuto realizzare con una struttura molto simile al database di Ateneo.\\
+
+Le informazioni didattiche venivano aggiornate semplicemente sincronizzando in maniera semiautomaitca e a tempi prefissati alcune tabelle tra il database locale di UniversiBO e un copia del datawarehouse di Ateneo.\\
+Nella prima versione queste operazioni venivano eseguite utilizzando le librerie client Oracle attarverso l'interfaccia messa a disposizione da PHP e dopo aver estratto i dati ne venivano eseguite alcune complesse trasformazioni per alleggerire il database da alcune informazioni non necessarie.\\
+
+Nell'aggiornamento alla nuova versione la struttura dei dati riguardanti la didattica sul database di UniversiBO è rimasta praticamente identica, salvo l'aver rinominato alcuni campi e tabelle e aggiunto informazioni per collegare Corsi di laurea e Facoltà ai rispettivi Presidenti e Presidi.\\
+
+Per evitare inutili appesantimenti nella trattazione, lo schema relazionale delle tabelle e dei legami che intercorrono tra esse sono stati lasciati per i più arditi in appendice.\\
+
+Il frutto di tutta l'inutile complessità e confusione è dovuta in parte al fatto che la struttura del database di Ateneo ha dovuto attraversare una grossa quantità di salti generazionali e riforme normative aggiustandosi sempre con lenti adattamenti che ne hanno deteriorato la struttura.\\
+A partire da questo, il database di UniversiBO ne ha probabilmente ereditato gli aspetti peggiori e il tentativo di ripulirne alcuni ha forse solo creato maggiore confusione.\\
+
+Consci di questo problema si è deciso, sopra queste tabelle, di costruire una struttura ad oggetti con il compito di nasconderne l'effettiva realizzazione fisica e semplificare il compito agli sviluppatori della restante logica applicativa.\\
+
+Saltando alcuni passaggi, giungiamo direttamente al risultato descritto nel diagramma UML in figura \ref{fig:v2-didattica} che mostra come la struttura della didattica si agganci al framework e ai componenti base dell'applicazione agganciandosi alle classi \texttt{Canale} e \texttt{BaseCommand} i cui ruoli sono stati descritti in precedenza.\\
+
+\begin{figure}[!ht]
+ \centering
+ \includegraphics{img/26-v2-didattica.png}
+ \caption{Diagramma delle classi della didattica}
+ \label{fig:v2-didattica}
+\end{figure}
+
+L'insieme di queste classi permette in primo luogo di astrarre dai problemi della didattica e di essere pronte ad ospitare a livello superiori diverse implementazioni.\\
+
+
+\subsection{Scenario per l'utilizzo dei Web Service}
+A partire dalla descrizione tecnica fatta finora è sorta la necessità di trovare un nuovo mezzo per eseguire la sincronizzazione dei dati riguradanti la didattica.\\
+
+Per motivi tecnico-legali, il primo accesso diretto al database di Ateneo, che era stato mal controllato nella gestione dei diritti degli accessi, è stato interrotto.\\
+In seguito, nel periodo di circa un anno, si è passati dalla possibilità di usufruire di apposite viste sul database mai funzionanti, allo scambio via e-mail di file .csv, alla proposta di usufruire di Web Service, alla riproposta di poter usufruire sia delle viste che di eventuali Web Service.\\
+
+La scelta di effettuare il wrapping di tutti gli aspetti della didattica nelle classi descritte in figura \ref{fig:v2-didattica} e l'avvicinamento alle metodologie agili descritte a pagina \pageref{metodologie-agili} sono proprio nati come reazione a tutti questi cambiamenti di piani.\\
+
+In questi casi di integrazione di sevizi con risorse esterne diventano strategicamente e tecnologicamente convenienti l'utilizzo di Web Service per la garanzia di interoperabilità su qualsiasi piattaforma. Forse questo non sarà del tutto vero a breve termine in cui ancora ci si scontra sui problemi per far luce sui dettagli ambigui delle specifiche e sulle implementazioni che non sono del tutto mature, ma le prospettive a lungo termine sono promettenti.\\
+
+Quindi sarà nostra intenzione provare a creare servizi utilizzando quella che al momento attuale è la tecnologia Java che sembra offrire la maggiore garanzia di supporto e solidità e verificarne anche l'interoperabilità con i tool Web Service per PHP.\\
+
+
+
+%Se per esempio pensiamo ad un accesso tramite Web Services ad un database come nel nostro caso, possiamo effettuare lato server delle elaborazioni che non sarebbero altrettanto facilmente eseguibili con altre tecnologie.\\
+
+%Sono molti anche gli aspetti che spostano la bilancia a sfavore l'utilizzo di Web Services.\\
+%Innanzitutto l'immaturita della tecnologia. Molte implementazioni ad oggi utilizzano approcci che spesso non sono pienamente corrispondenti agli standard o alle recenti specifiche di interoperabilità del WS-I.\\
+%Il traffico di rete generato dalla serializzazione di informazioni in formato XML è notevolmente più elevato delle alternative che tramettono i dati in formati binari ottimizzati.\\
+%La complessità computazionale nel trattare documenti XML è spesso più elevata di altri approcci.\\
+
+%Non del tutto convinti da quale lato della bilancia possa pendere l'ago, approfittiamo comunque dell'occasione cadutaci tra le mani, con la curiosità e l'entusiasmo di indagare tutte le problematiche finora incontrate sul tema Web Services.\\

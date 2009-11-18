@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  18 NOV 2009 17:36
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  18 NOV 2009 18:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -515,24 +515,16 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 25.
 
-<img/01-interfacce_schema_generale.jpg, id=63, 542.025pt x 493.0922pt>
+<img/01-interfacce_schema_generale.jpg, id=63, 226.59656pt x 337.26pt>
 File: img/01-interfacce_schema_generale.jpg Graphic file (type jpg)
 
 <use img/01-interfacce_schema_generale.jpg>
-Overfull \hbox (152.02367pt too wide) in paragraph at lines 30--31
- [][] 
- []
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/dlx-cache.jpg, id=65, 542.025pt x 338.76563pt>
+<img/dlx-cache.jpg, id=65, 337.26pt x 223.58531pt>
 File: img/dlx-cache.jpg Graphic file (type jpg)
  <use img/dlx-cache.jpg>
-Overfull \hbox (152.02367pt too wide) in paragraph at lines 40--41
- [][] 
- []
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -544,20 +536,21 @@ Overfull \hbox (0.88774pt too wide) in paragraph at lines 51--52
 el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
-[8 <./img/01-interfacce_schema_generale.jpg>]
+
 Overfull \hbox (0.88774pt too wide) in paragraph at lines 70--71
 []\OT1/cmr/bx/n/12 Ready\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-mi-ne d
 el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
-[9 <./img/dlx-cache.jpg>]) [10] (./tesi.aux)
+[8 <./img/01-interfacce_schema_generale.jpg>]) [9 <./img/dlx-cache.jpg>]
+(./tesi.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5977 strings out of 493848
- 84085 string characters out of 3149206
+ 5976 strings out of 493848
+ 84078 string characters out of 3149206
  156745 words of memory out of 3000000
  9030 multiletter control sequences out of 15000+200000
  11421 words of font info for 44 fonts, out of 3000000 for 9000
@@ -570,9 +563,9 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on tesi.pdf (10 pages, 152708 bytes).
+Output written on tesi.pdf (9 pages, 132599 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
+ 113 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

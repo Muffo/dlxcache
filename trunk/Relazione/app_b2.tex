@@ -1,0 +1,19 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\chapter{Schema relazionale della didattica}
+
+Il seguente schema relazionale rappresenta la struttura della didattica di Ateneo all'interno del database di UniversiBO.\\
+
+Solo per non trarre in errore chi già conosce la struttura del database di Ateneo riportiamo alcune segnalazioni.\\
+La tabella \texttt{prg\_insegnamento} corrisponde in realtà a \texttt{prg\_attivita\_didattica} del database di Ateneo.\\
+Nella tabella \texttt{prg\_sdoppiamento} sono stati riportate solo le tuple aventi i campi \texttt{*\_fis} non nulli perchè le altre risultavano non necessarie\\
+Infine che il campo \texttt{anno\_corso\_universibo} rappresenta l'anno di corso corrispondente al piano di studi predefinito.\\
+
+\label{relational-schema}
+\begin{small}\texttt{\textbf{canale}(\underline{id\_canale}, tipo\_canale, nome\_canale, ..., permessi\_groups, ...);\\
+facolta(\underline{cod\_fac}, desc\_fac, url\_facolta, id\_canale, cod\_doc);\\
+\textbf{classi\_corso}(\underline{cod\_corso}, desc\_corso, id\_canale, cat\_id, cod\_doc, cod\_fac, categoria);\\
+\textbf{prg\_insegnamento}(\underline{cod\_ate}, \underline{anno\_accademico}, \underline{cod\_corso}, \underline{cod\_ind}, \underline{cod\_ori}, \underline{cod\_materia}, \underline{anno\_corso}, \underline{cod\_materia\_ins}, \underline{anno\_corso\_ins}, \underline{cod\_ril},\\\underline{cod\_modulo}, \underline{cod\_doc}, id\_canale, tipo\_ciclo, anno\_corso\_universibo);\\
+\textbf{prg\_sdoppiamento}(\underline{cod\_ate}, \underline{anno\_accademico}, \underline{cod\_corso}, \underline{cod\_ind}, \underline{cod\_ori}, \underline{cod\_materia}, \underline{anno\_corso}, \underline{cod\_materia\_ins}, \underline{anno\_corso\_ins}, \underline{cod\_ril},\\flag\_mutuato, flag\_comune, tipo\_ciclo, anno\_accademico\_fis, cod\_corso\_fis, cod\_ind\_fis, cod\_ori\_fis, cod\_materia\_fis, anno\_corso\_fis,\\ cod\_materia\_ins\_fis, anno\_corso\_ins\_fis, cod\_ril\_fis, cod\_ate\_fis,\\anno\_corso\_universibo);\\
+\textbf{classi\_materie}(\underline{cod\_materia}, desc\_materia);\\
+\textbf{docente}(id\_utente, \underline{cod\_doc}, nome\_doc);\\
+}\end{small}

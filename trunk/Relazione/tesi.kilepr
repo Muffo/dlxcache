@@ -1,0 +1,71 @@
+[General]
+archive=tar zcvf '%S.tar.gz' %F
+extIsRegExp=false
+extensions=.eps .pdf .dvi .ps .fig .log .aux .gif .jpg .png .fig
+name=tesi
+
+[item:app_a.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:app_b.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:bibliografia.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:cap1.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:cap2.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:conclusioni.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:frontesp.sty]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:introduzione.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:ringraziamenti.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true
+
+[item:tesi.kilepr]
+archive=true
+encoding=ISO 8859-1
+highlight=None
+open=false
+
+[item:tesi.tex]
+archive=true
+encoding=ISO 8859-1
+highlight=LaTeX-Kile
+open=true

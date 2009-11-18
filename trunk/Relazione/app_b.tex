@@ -1,0 +1,104 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\chapter{UniversiBO v2: alcune specifiche} 
+\label{appendiceRequisiti}  
+In questa appendice riportiamo alcuni esempi di casi d'uso, di user stories e alcuni feedback ricevuti dagli utenti.\\
+
+\subsubsection{Casi d'uso}
+Questi a seguire, sono alcuni casi d'uso UML costruiti all'inizio della progettazione.\\
+Descrivono alcune proprietà generali d'uso generali che stanno alla base della logica applicativa.\\
+
+L'utente entra nell'applicazione per ricercare informazioni, queste sono raggruppate su canali tematici, per cui navigando raggiunge il canale di suo interesse e ne fruisce dei servizi.\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/40-usecase-autenticazione.png}
+ \caption{Use case autenticazione}
+ \label{fig:usecase-autenticazione}
+\end{figure}
+
+L'utente deve potersi autenticare per poi poter usufruire dei servizi personalizzati.\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/41-usecase-info-servizi.png}
+ \caption{Use case ricerca e fruizione servizi}
+ \label{fig:usecase-info-servizi}
+\end{figure}
+
+Dopo l'autenticazione che permettere di identificare al sistema i diversi attori che possono svolgere azioni diverse sui servizi, disponibili.\\
+L'autenticazione permette di personalizzare anche la navigazione per una ricerca più veloce dei canali di interesse.\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/42-usecase-servizi.png}
+ \caption{Use case ricerca e fruizione servizi}
+ \label{fig:usecase-servizi}
+\end{figure}
+
+
+\subsubsection{Diagrammi di navigazione}
+Lo studio dei processi di navigazione del sito parte con un diagramma di navigazione principale.\\
+Questo schema a blocchi descrive le principali modalità con cui l'utente deve poter raggiungere direttamente l'informazione desiderata e costituisce lo scheletro di base su costruire la navigazione all'interno del sito. Purtroppo non esistono strumenti standard per descrivere questo processo.\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/43-digramma-navigazione.jpg}
+ \caption{Diagramma di navigazione}
+ \label{fig:diagramma-navigazione}
+\end{figure}
+
+Nella figura \ref{fig:diagramma-navigazione} il blocco MyUniversiBO rappresenta una vista personalizzata sui blocchi informativi principali.\\
+
+A partire da questo diagramma si costruiscono le prime bozze grafiche, eventualmente si formalizza ulteriormente il processo di navigazione di alcune sottoparti e infine si fanno delle analisi di usabilità delle singole parti.\\
+Il processo andrebbe poi ulteriormente raffinato facendo analisi statistiche sul sito in produzione e raccogliendo i problemi e difficoltà più comuni in cui incorrono gli utenti.\\
+
+\subsubsection{User stories}
+Per esempio per alcuni servizi come i Files o le News i requisiti sono stati inizialmente raccolti in base alla precedente versione, feedback e il benchmarking.\\
+
+\begin{quotation}Contenuti: Titolo, Notizia, Data di inserimento, Autore\\
+News assegnabili a canali ed aree di interesse, una notizia può appartenere a più canali\\
+Possibilità di visualizzare gruppi di dimensioni diverse delle ultime n-notizie\\
+Possibilità di scrivere, cancellare, modificare le news\\
+Possibilità di notificare le notizie, con diverse priorità (urgente/non urgente)\\
+Politiche dei diritti per scrittura modifica, cancellazione:\\
+- Moderatore: Modifica le news di cui è proprietario negli argomenti che modera,\\ Scrivere negli argomenti che modera\\
+- Referente: Può scrivere e modificare tutto nei sui argomenti\\
+- Admin: Gli è permesso tutto in tutti i canali\\
+- I referenti e gli admin possono delegare i diritti ad altri\\
+Possibilità di segnalare le notizie più nuove rispetto ad una certa data\\
+Possibilità di inserire news con data posticipata\\
+Possibilità di inserire news con scadenza (con visualizzazione opzionale per chi ha il\\ diritto di modificarle/cancellarle)
+Possibilità di utilizzare codici speciali (bbcode) per inserire oggetti grafici (come faccette, ecc?)\\
+Possibilità di riconoscere automaticamente i link all'interno del testo della news e visualizzarli come tali\\
+
+Feedback: i docenti si sono lamentati di non poter inserire contemporaneamente in più canali una notizia.\\
+Feedback: è noioso quando accade un errore nell'inserimento dover reinserire da capo tutti i dati del form.\\
+Feedback: nelle pagine di inserimento e modifica dovrebbe comparire un help a portata di mano.\\
+Feedback: quando inserisco una notizia a volte i tempi d'attesa sono elevati (il problema è dovuto al fatto che le notifiche e-mail vengono inviate in maniera sincrona, bisogna renderlo asincrono).\\
+\end{quotation}
+
+Dopo una prima analisi sommaria del design più adatto al componente trattato, si sono scritte delle user stories che ricoprissero tutti i requisiti.\\
+Ogni user story corrisponde ad un task legato ad una funzionalità concreta dell'applicazione. Come prevedono le metodologie agili, lo scopo è quello di scegliere sempre la funzionalità con il maggiore valore aggiunto per il prodotto e che abbia un riscontro effettivo per l'utente finale.\\
+Ogni user story è stata appuntata su un cartoncino di piccole dimensioni è presa in carico da un membro del team che si occuperà di implementarla.\\
+Un esempio significativo di user story è il seguente:\\
+
+\textit{Data: 23-01-2004\newline
+\newline
+Visualizzando un canale devono essere mostrate le ultime N notizie appartenenti ad esso.\newline
+Se una delle notizie è nuova rispetto all'ultimo accesso dell'utente deve comparire un'immagine grafica per distinguerla.\newline
+Se l'utente possiede i diritti necessari deve vedere il link per aggiungere una notizia e accanto ad ogni notizia i link per modificarla e/o eliminarla.\newline
+Se ci sono più di N notizie deve comparire un link ad un archivio della pagina.\newline
+\newline
+Implementata da: brain\newline
+Data: 03-03-2004\newline
+\newline
+Note:\newline
+Ho aggiungiunto alla classe NewsItem il campo \$username e i relativi metodi acessori, duplicando la logica di User. Non è carino ma è molto più veloce.\newline
+Se il canale è tra i preferiti prendo la data dell'ultimo accesso al canale, se non è tra i preferiti \_non\_ prendo l'ultimo login.\newline
+Bisogna implementare le operazioni di modifica/elimina e mostrare l'archivio.\newline
+Bisogna scrivere il contenuto dell'help.}\\ 
+
+I cartoncini utilizzati sono scelti appositamente di piccole dimensioni per costringere a creare piccoli task.\\
+Uno sviluppatore prendendosi l'incarico di svilupppare una carta ne assume anche il possesso fisico che serve a stimolarlo maggiormente e serve da promemoria.\\
+
+

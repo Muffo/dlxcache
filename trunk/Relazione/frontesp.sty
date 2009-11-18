@@ -1,0 +1,119 @@
+% The following variables are defined for the thesis title page
+	% The name of the laurea course
+	\def\titolocorso#1{\gdef\titolocorso{#1}}
+	\usepackage{color}
+	
+	
+	\def\nomemateria#1{\gdef\nomemateria{#1}}
+	% The Academic year the degree will be officially conferred
+	\def\session#1{\gdef\session{#1}}
+	% The Session Number
+	\def\degreeyear#1{\gdef\degreeyear{#1}}
+	% The name of your committee's chair
+	\def\principaladviser#1{\gdef\principaladviser{#1}}
+	% The names of your other committe members, one per line
+	\def\firstreader#1{\gdef\firstreader{#1}}
+	\def\secondreader#1{\gdef\secondreader{#1}}
+	\def\thirdreader#1{\gdef\thirdreader{#1}}
+	% The number of committee members, which affects both the
+	% number of lines and the amount of space between lines
+	% on the approval page.
+%	\def\numberofmembers{2}
+%	\def\approvalspace{.75in}
+	
+%	\def\numberofmembers#1{
+%		\gdef\@numberofmembers{#1}
+%		\ifnum \numberofmembers > 3
+%		\gdef\approvalspace{.5in}
+%	\fi}
+
+
+
+% The \maketitle command is adapted to build a
+% title page suitable for the University of Bologna.
+%
+%\ProcessOptions\relax
+
+\renewcommand{\maketitle}
+{
+\begin{titlepage}%
+  \thispagestyle{empty}%
+  \addtolength{\footskip}{-4cm}
+  \addtolength{\textheight}{6cm}
+  \addtolength{\topmargin}{-1cm}
+  \addtolength{\hoffset}{0,75cm}
+  \addtolength{\textwidth}{2cm}
+  \let\footnotesize\small
+  \let\footnoterule\relax
+%  \vspace*{-25mm}
+  \begin{center}
+    \textsc{\Large Alma Mater Studiorum\\
+    Universit\`a degli Studi di Bologna}\medskip\\
+    \rule{120mm}{0.01mm}\medskip\\
+   {\Large Facolt\`a di Ingegneria}\medskip\\
+   {\small Corso di Laurea in} \textsc{\titolocorso}\medskip\\
+   {\small Progetto di} \textsc{\nomemateria}\medskip\\
+  \bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+    {\Huge \bf \@title \par}
+%    {\large Tesi di Laurea~di  \@author} \par
+  \bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+  \end{center}\par
+%    Relatore:
+%  \begin{quote}
+%    {\large \chair}\newline
+%  \end{quote}\par
+
+  \begin{center}
+%\begin{tabular}{lcr}
+%{\large Candidato:}&\qquad\qquad\qquad&{\large Relatore:}\\
+% {\large \@author}& & {\large \principaladviser}\\
+%& & \\
+%& &{\large Correlatori:}\\
+%& & {\large \firstreader}\\
+%& & {\large \secondreader}\\
+%& & {\large \thirdreader}\\
+%\end{tabular}
+
+{\Large Componenti Gruppo:\\
+    Andrea Grandi\\
+    Filippo Malaguti\\
+    Massimiliano Mattetti\\
+    Gabriele Morlini\\
+    Thomas Ricci\\}
+
+   \end{center}
+%  \ifnum \numberofmembers > 2
+	%  \ifnum \numberofmembers > 3
+	%    Correlatore:
+	%  \else
+	%    Correlatori:
+	%  \fi
+	%  \begin{quote}
+	%      {\large \@othermembers}
+	%  \end{quote}
+%  \fi
+%  \vfill
+  \bigskip\bigskip
+  \begin{center}
+    \rule{120mm}{0.01mm}\\
+    {Anno Accademico \degreeyear}
+
+  \end{center}
+  \end{titlepage}
+  \setcounter{footnote}{0}%
+  \let\thanks\relax\let\maketitle\relax
+%  \gdef\thanks{}\gdef\author{}\gdef\title{}
+}
+
+
+\def\dedica#1{\gdef\dedica{#1}}
+\newcommand{\makededica}
+{
+  \thispagestyle{empty}
+  \begin{flushright}
+  \textcolor{white}{.}\\
+  \vspace{4cm}
+  \dedica
+  \end{flushright}
+  \pagebreak 
+}

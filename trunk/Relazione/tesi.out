@@ -1,4 +1,5 @@
 \BOOKMARK [0][-]{chapter*.2}{Introduzione}{}
 \BOOKMARK [1][-]{section*.3}{Obiettivi del progetto}{chapter*.2}
 \BOOKMARK [0][-]{chapter.1}{Caratteristiche della memoria cache}{}
-\BOOKMARK [1][-]{section*.4}{Struttura e interfacce}{chapter.1}
+\BOOKMARK [1][-]{section*.4}{Politica di rimpiazzamento}{chapter.1}
+\BOOKMARK [2][-]{section*.5}{Struttura e interfacce}{section*.4}

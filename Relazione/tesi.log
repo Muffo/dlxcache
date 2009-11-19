@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  19 NOV 2009 15:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  19 NOV 2009 15:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -520,7 +520,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 File: img/01-interfacce_schema_generale.jpg Graphic file (type jpg)
 
 <use img/01-interfacce_schema_generale.jpg>
-<img/dlx-cache.jpg, id=80, 337.26pt x 223.58531pt>
+<img/dlx-cache.jpg, id=80, 467.49657pt x 280.04625pt>
 File: img/dlx-cache.jpg Graphic file (type jpg)
  <use img/dlx-cache.jpg>
 
@@ -532,22 +532,28 @@ Overfull \hbox (0.88774pt too wide) in paragraph at lines 77--78
 el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
+<img/cache-ram.jpg, id=88, 413.29407pt x 297.36093pt>
+File: img/cache-ram.jpg Graphic file (type jpg)
+ <use img/cache-ram.jpg>
 
-Overfull \hbox (0.88774pt too wide) in paragraph at lines 96--97
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (0.88774pt too wide) in paragraph at lines 95--96
 []\OT1/cmr/bx/n/12 Ready\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-mi-ne d
 el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
-[10 <./img/dlx-cache.jpg>]) [11] (./tesi.aux)
+[10 <./img/dlx-cache.jpg>]) [11 <./img/cache-ram.jpg>] (./tesi.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5988 strings out of 493848
- 84288 string characters out of 3149206
+ 5995 strings out of 493848
+ 84411 string characters out of 3149206
  159745 words of memory out of 3000000
- 9037 multiletter control sequences out of 15000+200000
+ 9042 multiletter control sequences out of 15000+200000
  12075 words of font info for 46 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
  38i,11n,43p,301b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -559,9 +565,9 @@ sr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
 ocal/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on tesi.pdf (11 pages, 173025 bytes).
+Output written on tesi.pdf (11 pages, 229263 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 132 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

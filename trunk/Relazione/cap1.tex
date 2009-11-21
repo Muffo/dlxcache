@@ -1,10 +1,10 @@
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \chapter{Caratteristiche della memoria cache}
 
-\begin{flushright}\begin{small}\textit{"The beginning of knowledge\\
- is the discovery of something we do not understand."}\\
-- Frank Herbert -\\
-\end{small}\end{flushright}
+%\begin{flushright}\begin{small}\textit{"The beginning of knowledge\\
+% is the discovery of something we do not understand."}\\
+%- Frank Herbert -\\
+%\end{small}\end{flushright}
 
 Si \`e scelto di progettare una cache di tipo set-associative, la cui schematizzazione \`e mostrata in Fig. \ref{fig:set_ass}.
 Questa tipologia di cache rappresenta un buon compromesso tra flessibilit\`a e costo in termini di silicio.
@@ -25,9 +25,7 @@ In questo modo si limita il numero di confronti tra TAG accettando il fatto che 
 %Ogni linea pu\`o essere memorizzata in una qualsiasi delle vie dello slot individuato dall'INDEX.
 La parte meno significativa dell'indirizzo rappresenta l'OFFSET che consente di individuare il dato all'interno di una linea.
 
-Per garantire maggiore flessibilit\`a si \`e scelto di parametrizzare alcune delle caratteristiche statiche della cache,
-
-quali ad esempio:
+Per garantire maggiore flessibilit\`a si \`e scelto di parametrizzare alcune delle caratteristiche statiche della cache, quali ad esempio:
 \begin{itemize}
 \item la dimensione dei blocchi
 \item il numero di vie
@@ -77,6 +75,8 @@ In particolare sono presenti i seguenti segnali:
 \item \textbf{Ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
 \end{itemize}
 
+Per quanto riguarda gli scambi di dati tra processore e memoria cache, si ipotizza che siano sempre lette e scritte parole di lunghezza fissa a 32 bit.
+
 L'interfaccia verso la RAM, mostrata in Fig. \ref{fig:int_ram}, consente alla cache di recuperare i blocchi dal livello sottostante.
 
 \begin{figure}[!h]
@@ -98,7 +98,7 @@ In particolare sono presenti i seguenti segnali:
 Si noti che la cache non \`e a conoscenza del componente posto al livello superiore. Vista la simmetria delle due interfacce \`e quindi possibile sostituire la RAM con un ulteriore livello di cache. inserendo quindi pi\`u livelli di cache all'interno del processore.\\
 \`E presente infine una terza interfaccia verso l'esterno, utilizzata per monitorare lo stato interno della cache e poter quindi eseguire il debug.
 I segnali disponibili verranno definiti nel seguito.\\
-Si ipotizza che la memoria cache progettata non sia impiegata in sistemi multimaster. Per tale motivo non si considereranno problematiche inerenti alla presenza di un controllore di memoria e all'invalidazione delle linee.
+Si ipotizza che la memoria cache progettata non sia impiegata in sistemi multimaster. Per tale motivo non si considereranno problematiche inerenti alla presenza di un controllore di memoria come ad esempio l'invalidazione delle linee e lo snooping dei dati presenti in cache..
 
 
 

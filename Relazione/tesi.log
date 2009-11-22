@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  21 NOV 2009 17:23
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  22 NOV 2009 18:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -488,17 +488,16 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 (./introduzione.tex [4
 
 
-]) (./cap1.tex [5
+] [5
 
-] [6
-
-
-]
+]) (./cap1.tex [6]
 Capitolo 1.
-<img/set-associative.jpg, id=63, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=65, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg> [7
+
+
 
  <./img/set-associative.jpg>]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 30.
@@ -509,11 +508,11 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 30.
 
-<img/01-interfacce_schema_generale.jpg, id=71, 226.59656pt x 337.26pt>
+<img/01-interfacce_schema_generale.jpg, id=73, 226.59656pt x 337.26pt>
 File: img/01-interfacce_schema_generale.jpg Graphic file (type jpg)
 
 <use img/01-interfacce_schema_generale.jpg> [8]
-<img/dlx-cache.jpg, id=79, 467.49657pt x 280.04625pt>
+<img/dlx-cache.jpg, id=81, 467.49657pt x 280.04625pt>
 File: img/dlx-cache.jpg Graphic file (type jpg)
  <use img/dlx-cache.jpg>
 
@@ -526,7 +525,7 @@ el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
 [9 <./img/01-interfacce_schema_generale.jpg>]
-<img/cache-ram.jpg, id=87, 413.29407pt x 297.36093pt>
+<img/cache-ram.jpg, id=89, 413.29407pt x 297.36093pt>
 File: img/cache-ram.jpg Graphic file (type jpg)
  <use img/cache-ram.jpg>
 
@@ -544,13 +543,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5984 strings out of 493848
- 84253 string characters out of 3149206
+ 5988 strings out of 493848
+ 84282 string characters out of 3149206
  159745 words of memory out of 3000000
- 9032 multiletter control sequences out of 15000+200000
+ 9034 multiletter control sequences out of 15000+200000
  11729 words of font info for 45 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
- 38i,11n,43p,301b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,12n,43p,425b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
@@ -558,9 +557,9 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on tesi.pdf (11 pages, 215325 bytes).
+Output written on tesi.pdf (11 pages, 218960 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 25 named destinations out of 1000 (max. 500000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,6 @@
 \select@language {italian}
 \contentsline {chapter}{Introduzione}{5}{chapter*.2}
-\contentsline {section}{\numberline {1}Obiettivi del progetto}{5}{section.0.1}
+\contentsline {section}{\numberline {1}Obiettivi del progetto}{6}{section.0.1}
 \contentsline {chapter}{\numberline {1}Caratteristiche della memoria cache}{7}{chapter.1}
 \contentsline {section}{\numberline {1}Politica di rimpiazzamento}{8}{section.1.1}
 \contentsline {section}{\numberline {2}Struttura e interfacce}{9}{section.1.2}

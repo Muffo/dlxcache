@@ -1,0 +1,29 @@
+Command line:
+   Decode_Stage_Test_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+
+Wed Nov 18 13:47:39 2009
+
+
+ Elaboration Time: 0.0156 sec
+
+ Current Memory Usage: 289.759 Meg
+
+ Total Signals          : 33
+ Total Nets             : 4390
+ Total Signal Drivers   : 13
+ Total Blocks           : 7
+ Total Primitive Blocks : 6
+ Total Processes        : 8
+ Total Traceable Variables  : 81
+ Total Scalar Nets and Variables : 6204
+In process Decode_Stage_Test.vhd:stimulus 
+ 
+
+ Total Simulation Time: 0.062401 sec
+
+ Current Memory Usage: 289.759 Meg
+
+Wed Nov 18 13:47:43 2009
+

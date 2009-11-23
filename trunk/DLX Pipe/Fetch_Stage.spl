@@ -1,0 +1,9 @@
+[Inputs]
+clk
+reset
+force_jump
+=pc_for_jump[29:0]=
+[Outputs]
+=instruction[31:0]=
+=pc[29:0]=
+[BiDir]

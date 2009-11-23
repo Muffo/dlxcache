@@ -1,0 +1,826 @@
+Release 11.3 - xst L.57 (nt)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.34 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.34 secs
+ 
+--> Reading design: DLXPipelined.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "DLXPipelined.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "DLXPipelined"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : DLXPipelined
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : DLXPipelined.lso
+Keep Hierarchy                     : NO
+Netlist Hierarchy                  : as_optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Global.vhd" in Library work.
+Package <Global> compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Float_32.vhd" in Library work.
+Package <Float_32> compiled.
+Package body <Float_32> compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Fetch_Stage.vhd" in Library work.
+Entity <Fetch_Stage> compiled.
+Entity <Fetch_Stage> (Architecture <Arch1_Fetch_Stage>) compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Decode_Stage.vhd" in Library work.
+Entity <Decode_Stage> compiled.
+Entity <Decode_Stage> (Architecture <Arch1_Decode_Stage>) compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Execute_Stage.vhd" in Library work.
+Entity <Execute_Stage> compiled.
+Entity <Execute_Stage> (Architecture <Arch1_Execute_Stage>) compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Memory_Stage.vhd" in Library work.
+Entity <Memory_Stage> compiled.
+Entity <Memory_Stage> (Architecture <Arch1_Memory_Stage>) compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/WriteBack_Stage.vhd" in Library work.
+Entity <WriteBack_Stage> compiled.
+Entity <WriteBack_Stage> (Architecture <Arch1_WriteBack_Stage>) compiled.
+Compiling vhdl file "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/DLXPipelined.vhd" in Library work.
+Entity <DLXPipelined> compiled.
+Entity <DLXPipelined> (Architecture <Arch1_DLXPipelined>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <DLXPipelined> in library <work> (architecture <Arch1_DLXPipelined>).
+
+Analyzing hierarchy for entity <Fetch_Stage> in library <work> (architecture <Arch1_Fetch_Stage>).
+
+Analyzing hierarchy for entity <Decode_Stage> in library <work> (architecture <Arch1_Decode_Stage>).
+
+Analyzing hierarchy for entity <Execute_Stage> in library <work> (architecture <Arch1_Execute_Stage>).
+
+Analyzing hierarchy for entity <Memory_Stage> in library <work> (architecture <Arch1_Memory_Stage>).
+
+Analyzing hierarchy for entity <WriteBack_Stage> in library <work> (architecture <Arch1_WriteBack_Stage>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <DLXPipelined> in library <work> (Architecture <Arch1_DLXPipelined>).
+Entity <DLXPipelined> analyzed. Unit <DLXPipelined> generated.
+
+Analyzing Entity <Fetch_Stage> in library <work> (Architecture <Arch1_Fetch_Stage>).
+WARNING:Xst:790 - "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Fetch_Stage.vhd" line 76: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Fetch_Stage.vhd" line 85: Index value(s) does not match array range, simulation mismatch.
+Entity <Fetch_Stage> analyzed. Unit <Fetch_Stage> generated.
+
+Analyzing Entity <Decode_Stage> in library <work> (Architecture <Arch1_Decode_Stage>).
+INFO:Xst:2679 - Register <register_file_inst<0>> in unit <Decode_Stage> has a constant value of 00000000000000000000000000000000 during circuit operation. The register is replaced by logic.
+Entity <Decode_Stage> analyzed. Unit <Decode_Stage> generated.
+
+Analyzing Entity <Execute_Stage> in library <work> (Architecture <Arch1_Execute_Stage>).
+Entity <Execute_Stage> analyzed. Unit <Execute_Stage> generated.
+
+Analyzing Entity <Memory_Stage> in library <work> (Architecture <Arch1_Memory_Stage>).
+WARNING:Xst:790 - "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Memory_Stage.vhd" line 61: Index value(s) does not match array range, simulation mismatch.
+INFO:Xst:1607 - Contents of array <RAM_inst> may be accessed with an index that does not cover the full array size.
+WARNING:Xst:790 - "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Memory_Stage.vhd" line 65: Index value(s) does not match array range, simulation mismatch.
+INFO:Xst:1607 - Contents of array <RAM_inst> may be accessed with an index that does not cover the full array size.
+WARNING:Xst:790 - "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Memory_Stage.vhd" line 107: Index value(s) does not match array range, simulation mismatch.
+Entity <Memory_Stage> analyzed. Unit <Memory_Stage> generated.
+
+Analyzing Entity <WriteBack_Stage> in library <work> (Architecture <Arch1_WriteBack_Stage>).
+Entity <WriteBack_Stage> analyzed. Unit <WriteBack_Stage> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Fetch_Stage>.
+    Related source file is "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Fetch_Stage.vhd".
+    Found 10x32-bit ROM for signal <instruction$mux0001>.
+    Found 10x32-bit ROM for signal <instruction$mux0002>.
+    Found 32-bit 4-to-1 multiplexer for signal <instruction>.
+    Found 30-bit up counter for signal <pc_reg>.
+    Found 30-bit adder for signal <pc_reg$add0000> created at line 55.
+    Summary:
+	inferred   2 ROM(s).
+	inferred   1 Counter(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  32 Multiplexer(s).
+Unit <Fetch_Stage> synthesized.
+
+
+Synthesizing Unit <Decode_Stage>.
+    Related source file is "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Decode_Stage.vhd".
+    Found 32-bit 4-to-1 multiplexer for signal <register_a>.
+    Found 32-bit 4-to-1 multiplexer for signal <register_b>.
+    Found 32-bit 32-to-1 multiplexer for signal <$varindex0000> created at line 117.
+    Found 32-bit 32-to-1 multiplexer for signal <$varindex0001> created at line 129.
+    Found 32-bit 32-to-1 multiplexer for signal <$varindex0002> created at line 123.
+    Found 32-bit 32-to-1 multiplexer for signal <$varindex0003> created at line 135.
+    Found 1024-bit register for signal <fp_register_file_inst>.
+    Found 32-bit register for signal <instruction_buffer>.
+    Found 30-bit register for signal <pc_buffer>.
+    Found 5-bit comparator equal for signal <register_a$cmp_eq0001> created at line 114.
+    Found 5-bit comparator equal for signal <register_b$cmp_eq0000> created at line 120.
+    Found 992-bit register for signal <register_file_inst<1:31>>.
+INFO:Xst:738 - HDL ADVISOR - 1024 flip-flops were inferred for signal <fp_register_file_inst>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+INFO:Xst:738 - HDL ADVISOR - 992 flip-flops were inferred for signal <register_file_inst>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred 2078 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred 192 Multiplexer(s).
+Unit <Decode_Stage> synthesized.
+
+
+Synthesizing Unit <Execute_Stage>.
+    Related source file is "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Execute_Stage.vhd".
+    Found 32-bit comparator equal for signal <alu_exit$cmp_eq0005> created at line 166.
+    Found 32-bit comparator equal for signal <alu_exit$cmp_eq0084> created at line 249.
+    Found 32-bit comparator lessequal for signal <alu_exit$cmp_le0000> created at line 172.
+    Found 32-bit comparator lessequal for signal <alu_exit$cmp_le0001> created at line 255.
+    Found 32-bit comparator less for signal <alu_exit$cmp_lt0000> created at line 180.
+    Found 32-bit comparator less for signal <alu_exit$cmp_lt0001> created at line 263.
+    Found 32-bit comparator not equal for signal <alu_exit$cmp_ne0000> created at line 186.
+    Found 32-bit comparator not equal for signal <alu_exit$cmp_ne0001> created at line 269.
+    Found 32-bit addsub for signal <alu_exit$share0000>.
+    Found 32-bit shifter logical left for signal <alu_exit$shift0006> created at line 261.
+    Found 32-bit shifter arithmetic right for signal <alu_exit$shift0007> created at line 275.
+    Found 32-bit shifter logical right for signal <alu_exit$shift0008> created at line 277.
+    Found 1-bit xor2 for signal <alu_exit$xor0000> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0001> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0002> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0003> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0004> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0005> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0006> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0007> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0008> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0009> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0010> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0011> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0012> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0013> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0014> created at line 283.
+    Found 1-bit xor2 for signal <alu_exit$xor0015> created at line 283.
+    Found 32-bit xor2 for signal <alu_exit$xor0016> created at line 198.
+    Found 32-bit register for signal <instruction_buffer>.
+    Found 3-bit register for signal <instruction_format_buffer>.
+    Found 30-bit register for signal <pc_buffer>.
+    Found 30-bit adder for signal <pc_for_jump$share0000>.
+    Found 32-bit register for signal <register_a_buffer>.
+    Found 32-bit register for signal <register_b_buffer>.
+    Found 5-bit comparator equal for signal <var_register_a$cmp_eq0000> created at line 80.
+    Found 5-bit comparator equal for signal <var_register_a$cmp_eq0001> created at line 88.
+    Found 32-bit 4-to-1 multiplexer for signal <var_register_a$mux0006> created at line 102.
+    Found 5-bit comparator equal for signal <var_register_b$cmp_eq0000> created at line 83.
+    Found 5-bit comparator equal for signal <var_register_b$cmp_eq0002> created at line 134.
+    Summary:
+	inferred 129 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  12 Comparator(s).
+	inferred  32 Multiplexer(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <Execute_Stage> synthesized.
+
+
+Synthesizing Unit <Memory_Stage>.
+    Related source file is "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Memory_Stage.vhd".
+    Found 32-bit register for signal <alu_exit_buffer>.
+    Found 8-bit 32-to-1 multiplexer for signal <dest_register_data$varindex0000> created at line 61.
+    Found 32-bit register for signal <instruction_buffer>.
+    Found 3-bit register for signal <instruction_format_buffer>.
+    Found 32-bit register for signal <memory_data_register_buffer>.
+    Found 30-bit register for signal <pc_buffer>.
+    Found 256-bit register for signal <RAM_inst>.
+    Found 8-bit 29-to-1 multiplexer for signal <RAM_inst$mux0000> created at line 61.
+    Found 8-bit 30-to-1 multiplexer for signal <RAM_inst$mux0001> created at line 61.
+    Found 8-bit 31-to-1 multiplexer for signal <RAM_inst$mux0002> created at line 61.
+INFO:Xst:738 - HDL ADVISOR - 256 flip-flops were inferred for signal <RAM_inst>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred 385 D-type flip-flop(s).
+	inferred  32 Multiplexer(s).
+Unit <Memory_Stage> synthesized.
+
+
+Synthesizing Unit <WriteBack_Stage>.
+    Related source file is "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/WriteBack_Stage.vhd".
+    Found 32-bit register for signal <data_buffer>.
+    Found 32-bit register for signal <instruction_buffer>.
+    Found 3-bit register for signal <instruction_format_buffer>.
+    Found 30-bit register for signal <pc_buffer>.
+    Summary:
+	inferred  97 D-type flip-flop(s).
+Unit <WriteBack_Stage> synthesized.
+
+
+Synthesizing Unit <DLXPipelined>.
+    Related source file is "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/DLXPipelined.vhd".
+Unit <DLXPipelined> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 10x32-bit ROM                                         : 2
+# Adders/Subtractors                                   : 3
+ 30-bit adder                                          : 2
+ 32-bit addsub                                         : 1
+# Counters                                             : 1
+ 30-bit up counter                                     : 1
+# Registers                                            : 111
+ 3-bit register                                        : 3
+ 30-bit register                                       : 4
+ 32-bit register                                       : 72
+ 8-bit register                                        : 32
+# Comparators                                          : 14
+ 32-bit comparator equal                               : 2
+ 32-bit comparator less                                : 2
+ 32-bit comparator lessequal                           : 2
+ 32-bit comparator not equal                           : 2
+ 5-bit comparator equal                                : 6
+# Multiplexers                                         : 12
+ 32-bit 32-to-1 multiplexer                            : 4
+ 32-bit 4-to-1 multiplexer                             : 4
+ 8-bit 29-to-1 multiplexer                             : 1
+ 8-bit 30-to-1 multiplexer                             : 1
+ 8-bit 31-to-1 multiplexer                             : 1
+ 8-bit 32-to-1 multiplexer                             : 1
+# Logic shifters                                       : 3
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 17
+ 1-bit xor2                                            : 16
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 10x32-bit ROM                                         : 2
+# Adders/Subtractors                                   : 3
+ 30-bit adder                                          : 2
+ 32-bit addsub                                         : 1
+# Counters                                             : 1
+ 30-bit up counter                                     : 1
+# Registers                                            : 2689
+ Flip-Flops                                            : 2689
+# Comparators                                          : 14
+ 32-bit comparator equal                               : 2
+ 32-bit comparator less                                : 2
+ 32-bit comparator lessequal                           : 2
+ 32-bit comparator not equal                           : 2
+ 5-bit comparator equal                                : 6
+# Multiplexers                                         : 12
+ 32-bit 32-to-1 multiplexer                            : 4
+ 32-bit 4-to-1 multiplexer                             : 4
+ 8-bit 29-to-1 multiplexer                             : 1
+ 8-bit 30-to-1 multiplexer                             : 1
+ 8-bit 31-to-1 multiplexer                             : 1
+ 8-bit 32-to-1 multiplexer                             : 1
+# Logic shifters                                       : 3
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 17
+ 1-bit xor2                                            : 16
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2170 - Unit Execute_Stage : the following signal(s) form a combinatorial loop: alu_exit_shift0004<31>.
+
+Optimizing unit <DLXPipelined> ...
+
+Optimizing unit <Fetch_Stage> ...
+
+Optimizing unit <Decode_Stage> ...
+
+Optimizing unit <Execute_Stage> ...
+
+Optimizing unit <Memory_Stage> ...
+
+Optimizing unit <WriteBack_Stage> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/instruction_buffer_3> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <Decode_Stage_inst/instruction_buffer_0> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/instruction_buffer_27> in Unit <DLXPipelined> is equivalent to the following 15 FFs/Latches, which will be removed : <Decode_Stage_inst/instruction_buffer_25> <Decode_Stage_inst/instruction_buffer_24> <Decode_Stage_inst/instruction_buffer_23> <Decode_Stage_inst/instruction_buffer_20> <Decode_Stage_inst/instruction_buffer_19> <Decode_Stage_inst/instruction_buffer_18> <Decode_Stage_inst/instruction_buffer_15> <Decode_Stage_inst/instruction_buffer_14> <Decode_Stage_inst/instruction_buffer_13> <Decode_Stage_inst/instruction_buffer_10> <Decode_Stage_inst/instruction_buffer_9> <Decode_Stage_inst/instruction_buffer_8> <Decode_Stage_inst/instruction_buffer_7> <Decode_Stage_inst/instruction_buffer_6> <Decode_Stage_inst/instruction_buffer_4> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/instruction_buffer_22> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <Decode_Stage_inst/instruction_buffer_12> <Decode_Stage_inst/instruction_buffer_11> <Decode_Stage_inst/instruction_buffer_5> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/instruction_buffer_21> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <Decode_Stage_inst/instruction_buffer_17> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/instruction_buffer_31> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <Decode_Stage_inst/instruction_buffer_30> <Decode_Stage_inst/instruction_buffer_28> <Decode_Stage_inst/instruction_buffer_26> 
+INFO:Xst:2261 - The FF/Latch <Execute_Stage_inst/instruction_buffer_3> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <Execute_Stage_inst/instruction_buffer_0> 
+INFO:Xst:2261 - The FF/Latch <Execute_Stage_inst/instruction_buffer_21> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <Execute_Stage_inst/instruction_buffer_17> 
+INFO:Xst:2261 - The FF/Latch <Execute_Stage_inst/instruction_buffer_31> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <Execute_Stage_inst/instruction_buffer_30> <Execute_Stage_inst/instruction_buffer_28> <Execute_Stage_inst/instruction_buffer_26> 
+INFO:Xst:2261 - The FF/Latch <Execute_Stage_inst/instruction_buffer_27> in Unit <DLXPipelined> is equivalent to the following 15 FFs/Latches, which will be removed : <Execute_Stage_inst/instruction_buffer_25> <Execute_Stage_inst/instruction_buffer_24> <Execute_Stage_inst/instruction_buffer_23> <Execute_Stage_inst/instruction_buffer_20> <Execute_Stage_inst/instruction_buffer_19> <Execute_Stage_inst/instruction_buffer_18> <Execute_Stage_inst/instruction_buffer_15> <Execute_Stage_inst/instruction_buffer_14> <Execute_Stage_inst/instruction_buffer_13> <Execute_Stage_inst/instruction_buffer_10> <Execute_Stage_inst/instruction_buffer_9> <Execute_Stage_inst/instruction_buffer_8> <Execute_Stage_inst/instruction_buffer_7> <Execute_Stage_inst/instruction_buffer_6> <Execute_Stage_inst/instruction_buffer_4> 
+INFO:Xst:2261 - The FF/Latch <Execute_Stage_inst/instruction_buffer_22> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <Execute_Stage_inst/instruction_buffer_12> <Execute_Stage_inst/instruction_buffer_11> <Execute_Stage_inst/instruction_buffer_5> 
+INFO:Xst:2261 - The FF/Latch <Memory_Stage_inst/instruction_buffer_27> in Unit <DLXPipelined> is equivalent to the following 15 FFs/Latches, which will be removed : <Memory_Stage_inst/instruction_buffer_25> <Memory_Stage_inst/instruction_buffer_24> <Memory_Stage_inst/instruction_buffer_23> <Memory_Stage_inst/instruction_buffer_20> <Memory_Stage_inst/instruction_buffer_19> <Memory_Stage_inst/instruction_buffer_18> <Memory_Stage_inst/instruction_buffer_15> <Memory_Stage_inst/instruction_buffer_14> <Memory_Stage_inst/instruction_buffer_13> <Memory_Stage_inst/instruction_buffer_10> <Memory_Stage_inst/instruction_buffer_9> <Memory_Stage_inst/instruction_buffer_8> <Memory_Stage_inst/instruction_buffer_7> <Memory_Stage_inst/instruction_buffer_6> <Memory_Stage_inst/instruction_buffer_4> 
+INFO:Xst:2261 - The FF/Latch <Memory_Stage_inst/instruction_buffer_3> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <Memory_Stage_inst/instruction_buffer_0> 
+INFO:Xst:2261 - The FF/Latch <Memory_Stage_inst/instruction_buffer_22> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <Memory_Stage_inst/instruction_buffer_12> <Memory_Stage_inst/instruction_buffer_11> <Memory_Stage_inst/instruction_buffer_5> 
+INFO:Xst:2261 - The FF/Latch <Memory_Stage_inst/instruction_buffer_21> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <Memory_Stage_inst/instruction_buffer_17> 
+INFO:Xst:2261 - The FF/Latch <Memory_Stage_inst/instruction_buffer_31> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <Memory_Stage_inst/instruction_buffer_30> <Memory_Stage_inst/instruction_buffer_28> <Memory_Stage_inst/instruction_buffer_26> 
+INFO:Xst:2261 - The FF/Latch <WriteBack_Stage_inst/instruction_buffer_31> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <WriteBack_Stage_inst/instruction_buffer_30> <WriteBack_Stage_inst/instruction_buffer_28> <WriteBack_Stage_inst/instruction_buffer_26> 
+INFO:Xst:2261 - The FF/Latch <WriteBack_Stage_inst/instruction_buffer_27> in Unit <DLXPipelined> is equivalent to the following 15 FFs/Latches, which will be removed : <WriteBack_Stage_inst/instruction_buffer_25> <WriteBack_Stage_inst/instruction_buffer_24> <WriteBack_Stage_inst/instruction_buffer_23> <WriteBack_Stage_inst/instruction_buffer_20> <WriteBack_Stage_inst/instruction_buffer_19> <WriteBack_Stage_inst/instruction_buffer_18> <WriteBack_Stage_inst/instruction_buffer_15> <WriteBack_Stage_inst/instruction_buffer_14> <WriteBack_Stage_inst/instruction_buffer_13> <WriteBack_Stage_inst/instruction_buffer_10> <WriteBack_Stage_inst/instruction_buffer_9> <WriteBack_Stage_inst/instruction_buffer_8> <WriteBack_Stage_inst/instruction_buffer_7> <WriteBack_Stage_inst/instruction_buffer_6> <WriteBack_Stage_inst/instruction_buffer_4> 
+INFO:Xst:2261 - The FF/Latch <WriteBack_Stage_inst/instruction_buffer_22> in Unit <DLXPipelined> is equivalent to the following 3 FFs/Latches, which will be removed : <WriteBack_Stage_inst/instruction_buffer_12> <WriteBack_Stage_inst/instruction_buffer_11> <WriteBack_Stage_inst/instruction_buffer_5> 
+INFO:Xst:2261 - The FF/Latch <WriteBack_Stage_inst/instruction_buffer_21> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <WriteBack_Stage_inst/instruction_buffer_17> 
+INFO:Xst:2261 - The FF/Latch <WriteBack_Stage_inst/instruction_buffer_3> in Unit <DLXPipelined> is equivalent to the following FF/Latch, which will be removed : <WriteBack_Stage_inst/instruction_buffer_0> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_11> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_11> <Decode_Stage_inst/fp_register_file_inst_25_11> <Decode_Stage_inst/fp_register_file_inst_23_11> <Decode_Stage_inst/fp_register_file_inst_22_11> <Decode_Stage_inst/fp_register_file_inst_24_11> <Decode_Stage_inst/fp_register_file_inst_21_11> <Decode_Stage_inst/fp_register_file_inst_20_11> <Decode_Stage_inst/fp_register_file_inst_19_11> <Decode_Stage_inst/fp_register_file_inst_18_11> <Decode_Stage_inst/fp_register_file_inst_17_11> <Decode_Stage_inst/fp_register_file_inst_16_11> <Decode_Stage_inst/fp_register_file_inst_14_11> <Decode_Stage_inst/fp_register_file_inst_13_11> <Decode_Stage_inst/fp_register_file_inst_15_11> <Decode_Stage_inst/fp_register_file_inst_12_11> <Decode_Stage_inst/fp_register_file_inst_11_11> <Decode_Stage_inst/fp_register_file_inst_10_11>
+   <Decode_Stage_inst/fp_register_file_inst_9_11> <Decode_Stage_inst/fp_register_file_inst_8_11> <Decode_Stage_inst/fp_register_file_inst_7_11> <Decode_Stage_inst/fp_register_file_inst_5_11> <Decode_Stage_inst/fp_register_file_inst_4_11> <Decode_Stage_inst/fp_register_file_inst_6_11> <Decode_Stage_inst/register_file_inst_26_11> <Decode_Stage_inst/register_file_inst_27_11> <Decode_Stage_inst/register_file_inst_9_11> <Decode_Stage_inst/register_file_inst_25_11> <Decode_Stage_inst/register_file_inst_8_11> <Decode_Stage_inst/register_file_inst_24_11> <Decode_Stage_inst/register_file_inst_19_11> <Decode_Stage_inst/register_file_inst_23_11> <Decode_Stage_inst/register_file_inst_18_11> <Decode_Stage_inst/register_file_inst_7_11> <Decode_Stage_inst/register_file_inst_6_11> <Decode_Stage_inst/register_file_inst_22_11> <Decode_Stage_inst/register_file_inst_17_11> <Decode_Stage_inst/register_file_inst_5_11> <Decode_Stage_inst/register_file_inst_21_11> <Decode_Stage_inst/register_file_inst_4_11>
+   <Decode_Stage_inst/register_file_inst_20_11> <Decode_Stage_inst/register_file_inst_16_11> <Decode_Stage_inst/register_file_inst_15_11> <Decode_Stage_inst/register_file_inst_13_11> <Decode_Stage_inst/register_file_inst_14_11> <Decode_Stage_inst/register_file_inst_11_11> <Decode_Stage_inst/register_file_inst_10_11> <Decode_Stage_inst/register_file_inst_12_11> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_7> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_7> <Decode_Stage_inst/fp_register_file_inst_25_7> <Decode_Stage_inst/fp_register_file_inst_23_7> <Decode_Stage_inst/fp_register_file_inst_22_7> <Decode_Stage_inst/fp_register_file_inst_24_7> <Decode_Stage_inst/fp_register_file_inst_21_7> <Decode_Stage_inst/fp_register_file_inst_20_7> <Decode_Stage_inst/fp_register_file_inst_19_7> <Decode_Stage_inst/fp_register_file_inst_18_7> <Decode_Stage_inst/fp_register_file_inst_17_7> <Decode_Stage_inst/fp_register_file_inst_16_7> <Decode_Stage_inst/fp_register_file_inst_14_7> <Decode_Stage_inst/fp_register_file_inst_13_7> <Decode_Stage_inst/fp_register_file_inst_15_7> <Decode_Stage_inst/fp_register_file_inst_12_7> <Decode_Stage_inst/fp_register_file_inst_11_7> <Decode_Stage_inst/fp_register_file_inst_10_7> <Decode_Stage_inst/fp_register_file_inst_9_7>
+   <Decode_Stage_inst/fp_register_file_inst_8_7> <Decode_Stage_inst/fp_register_file_inst_7_7> <Decode_Stage_inst/fp_register_file_inst_5_7> <Decode_Stage_inst/fp_register_file_inst_4_7> <Decode_Stage_inst/fp_register_file_inst_6_7> <Decode_Stage_inst/register_file_inst_26_7> <Decode_Stage_inst/register_file_inst_27_7> <Decode_Stage_inst/register_file_inst_9_7> <Decode_Stage_inst/register_file_inst_25_7> <Decode_Stage_inst/register_file_inst_8_7> <Decode_Stage_inst/register_file_inst_24_7> <Decode_Stage_inst/register_file_inst_19_7> <Decode_Stage_inst/register_file_inst_23_7> <Decode_Stage_inst/register_file_inst_18_7> <Decode_Stage_inst/register_file_inst_7_7> <Decode_Stage_inst/register_file_inst_6_7> <Decode_Stage_inst/register_file_inst_22_7> <Decode_Stage_inst/register_file_inst_17_7> <Decode_Stage_inst/register_file_inst_5_7> <Decode_Stage_inst/register_file_inst_21_7> <Decode_Stage_inst/register_file_inst_4_7> <Decode_Stage_inst/register_file_inst_20_7> <Decode_Stage_inst/register_file_inst_16_7>
+   <Decode_Stage_inst/register_file_inst_15_7> <Decode_Stage_inst/register_file_inst_13_7> <Decode_Stage_inst/register_file_inst_14_7> <Decode_Stage_inst/register_file_inst_11_7> <Decode_Stage_inst/register_file_inst_10_7> <Decode_Stage_inst/register_file_inst_12_7> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_12> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_12> <Decode_Stage_inst/fp_register_file_inst_25_12> <Decode_Stage_inst/fp_register_file_inst_23_12> <Decode_Stage_inst/fp_register_file_inst_22_12> <Decode_Stage_inst/fp_register_file_inst_24_12> <Decode_Stage_inst/fp_register_file_inst_21_12> <Decode_Stage_inst/fp_register_file_inst_20_12> <Decode_Stage_inst/fp_register_file_inst_19_12> <Decode_Stage_inst/fp_register_file_inst_18_12> <Decode_Stage_inst/fp_register_file_inst_17_12> <Decode_Stage_inst/fp_register_file_inst_16_12> <Decode_Stage_inst/fp_register_file_inst_14_12> <Decode_Stage_inst/fp_register_file_inst_13_12> <Decode_Stage_inst/fp_register_file_inst_15_12> <Decode_Stage_inst/fp_register_file_inst_12_12> <Decode_Stage_inst/fp_register_file_inst_11_12> <Decode_Stage_inst/fp_register_file_inst_10_12>
+   <Decode_Stage_inst/fp_register_file_inst_9_12> <Decode_Stage_inst/fp_register_file_inst_8_12> <Decode_Stage_inst/fp_register_file_inst_7_12> <Decode_Stage_inst/fp_register_file_inst_5_12> <Decode_Stage_inst/fp_register_file_inst_4_12> <Decode_Stage_inst/fp_register_file_inst_6_12> <Decode_Stage_inst/register_file_inst_26_12> <Decode_Stage_inst/register_file_inst_27_12> <Decode_Stage_inst/register_file_inst_9_12> <Decode_Stage_inst/register_file_inst_25_12> <Decode_Stage_inst/register_file_inst_8_12> <Decode_Stage_inst/register_file_inst_24_12> <Decode_Stage_inst/register_file_inst_19_12> <Decode_Stage_inst/register_file_inst_23_12> <Decode_Stage_inst/register_file_inst_18_12> <Decode_Stage_inst/register_file_inst_7_12> <Decode_Stage_inst/register_file_inst_6_12> <Decode_Stage_inst/register_file_inst_22_12> <Decode_Stage_inst/register_file_inst_17_12> <Decode_Stage_inst/register_file_inst_5_12> <Decode_Stage_inst/register_file_inst_21_12> <Decode_Stage_inst/register_file_inst_4_12>
+   <Decode_Stage_inst/register_file_inst_20_12> <Decode_Stage_inst/register_file_inst_16_12> <Decode_Stage_inst/register_file_inst_15_12> <Decode_Stage_inst/register_file_inst_13_12> <Decode_Stage_inst/register_file_inst_14_12> <Decode_Stage_inst/register_file_inst_11_12> <Decode_Stage_inst/register_file_inst_10_12> <Decode_Stage_inst/register_file_inst_12_12> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_8> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_8> <Decode_Stage_inst/fp_register_file_inst_25_8> <Decode_Stage_inst/fp_register_file_inst_23_8> <Decode_Stage_inst/fp_register_file_inst_22_8> <Decode_Stage_inst/fp_register_file_inst_24_8> <Decode_Stage_inst/fp_register_file_inst_21_8> <Decode_Stage_inst/fp_register_file_inst_20_8> <Decode_Stage_inst/fp_register_file_inst_19_8> <Decode_Stage_inst/fp_register_file_inst_18_8> <Decode_Stage_inst/fp_register_file_inst_17_8> <Decode_Stage_inst/fp_register_file_inst_16_8> <Decode_Stage_inst/fp_register_file_inst_14_8> <Decode_Stage_inst/fp_register_file_inst_13_8> <Decode_Stage_inst/fp_register_file_inst_15_8> <Decode_Stage_inst/fp_register_file_inst_12_8> <Decode_Stage_inst/fp_register_file_inst_11_8> <Decode_Stage_inst/fp_register_file_inst_10_8> <Decode_Stage_inst/fp_register_file_inst_9_8>
+   <Decode_Stage_inst/fp_register_file_inst_8_8> <Decode_Stage_inst/fp_register_file_inst_7_8> <Decode_Stage_inst/fp_register_file_inst_5_8> <Decode_Stage_inst/fp_register_file_inst_4_8> <Decode_Stage_inst/fp_register_file_inst_6_8> <Decode_Stage_inst/register_file_inst_26_8> <Decode_Stage_inst/register_file_inst_27_8> <Decode_Stage_inst/register_file_inst_9_8> <Decode_Stage_inst/register_file_inst_25_8> <Decode_Stage_inst/register_file_inst_8_8> <Decode_Stage_inst/register_file_inst_24_8> <Decode_Stage_inst/register_file_inst_19_8> <Decode_Stage_inst/register_file_inst_23_8> <Decode_Stage_inst/register_file_inst_18_8> <Decode_Stage_inst/register_file_inst_7_8> <Decode_Stage_inst/register_file_inst_6_8> <Decode_Stage_inst/register_file_inst_22_8> <Decode_Stage_inst/register_file_inst_17_8> <Decode_Stage_inst/register_file_inst_5_8> <Decode_Stage_inst/register_file_inst_21_8> <Decode_Stage_inst/register_file_inst_4_8> <Decode_Stage_inst/register_file_inst_20_8> <Decode_Stage_inst/register_file_inst_16_8>
+   <Decode_Stage_inst/register_file_inst_15_8> <Decode_Stage_inst/register_file_inst_13_8> <Decode_Stage_inst/register_file_inst_14_8> <Decode_Stage_inst/register_file_inst_11_8> <Decode_Stage_inst/register_file_inst_10_8> <Decode_Stage_inst/register_file_inst_12_8> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_13> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_13> <Decode_Stage_inst/fp_register_file_inst_25_13> <Decode_Stage_inst/fp_register_file_inst_23_13> <Decode_Stage_inst/fp_register_file_inst_22_13> <Decode_Stage_inst/fp_register_file_inst_24_13> <Decode_Stage_inst/fp_register_file_inst_21_13> <Decode_Stage_inst/fp_register_file_inst_20_13> <Decode_Stage_inst/fp_register_file_inst_19_13> <Decode_Stage_inst/fp_register_file_inst_18_13> <Decode_Stage_inst/fp_register_file_inst_17_13> <Decode_Stage_inst/fp_register_file_inst_16_13> <Decode_Stage_inst/fp_register_file_inst_14_13> <Decode_Stage_inst/fp_register_file_inst_13_13> <Decode_Stage_inst/fp_register_file_inst_15_13> <Decode_Stage_inst/fp_register_file_inst_12_13> <Decode_Stage_inst/fp_register_file_inst_11_13> <Decode_Stage_inst/fp_register_file_inst_10_13>
+   <Decode_Stage_inst/fp_register_file_inst_9_13> <Decode_Stage_inst/fp_register_file_inst_8_13> <Decode_Stage_inst/fp_register_file_inst_7_13> <Decode_Stage_inst/fp_register_file_inst_5_13> <Decode_Stage_inst/fp_register_file_inst_4_13> <Decode_Stage_inst/fp_register_file_inst_6_13> <Decode_Stage_inst/register_file_inst_26_13> <Decode_Stage_inst/register_file_inst_27_13> <Decode_Stage_inst/register_file_inst_9_13> <Decode_Stage_inst/register_file_inst_25_13> <Decode_Stage_inst/register_file_inst_8_13> <Decode_Stage_inst/register_file_inst_24_13> <Decode_Stage_inst/register_file_inst_19_13> <Decode_Stage_inst/register_file_inst_23_13> <Decode_Stage_inst/register_file_inst_18_13> <Decode_Stage_inst/register_file_inst_7_13> <Decode_Stage_inst/register_file_inst_6_13> <Decode_Stage_inst/register_file_inst_22_13> <Decode_Stage_inst/register_file_inst_17_13> <Decode_Stage_inst/register_file_inst_5_13> <Decode_Stage_inst/register_file_inst_21_13> <Decode_Stage_inst/register_file_inst_4_13>
+   <Decode_Stage_inst/register_file_inst_20_13> <Decode_Stage_inst/register_file_inst_16_13> <Decode_Stage_inst/register_file_inst_15_13> <Decode_Stage_inst/register_file_inst_13_13> <Decode_Stage_inst/register_file_inst_14_13> <Decode_Stage_inst/register_file_inst_11_13> <Decode_Stage_inst/register_file_inst_10_13> <Decode_Stage_inst/register_file_inst_12_13> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_9> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_9> <Decode_Stage_inst/fp_register_file_inst_25_9> <Decode_Stage_inst/fp_register_file_inst_23_9> <Decode_Stage_inst/fp_register_file_inst_22_9> <Decode_Stage_inst/fp_register_file_inst_24_9> <Decode_Stage_inst/fp_register_file_inst_21_9> <Decode_Stage_inst/fp_register_file_inst_20_9> <Decode_Stage_inst/fp_register_file_inst_19_9> <Decode_Stage_inst/fp_register_file_inst_18_9> <Decode_Stage_inst/fp_register_file_inst_17_9> <Decode_Stage_inst/fp_register_file_inst_16_9> <Decode_Stage_inst/fp_register_file_inst_14_9> <Decode_Stage_inst/fp_register_file_inst_13_9> <Decode_Stage_inst/fp_register_file_inst_15_9> <Decode_Stage_inst/fp_register_file_inst_12_9> <Decode_Stage_inst/fp_register_file_inst_11_9> <Decode_Stage_inst/fp_register_file_inst_10_9> <Decode_Stage_inst/fp_register_file_inst_9_9>
+   <Decode_Stage_inst/fp_register_file_inst_8_9> <Decode_Stage_inst/fp_register_file_inst_7_9> <Decode_Stage_inst/fp_register_file_inst_5_9> <Decode_Stage_inst/fp_register_file_inst_4_9> <Decode_Stage_inst/fp_register_file_inst_6_9> <Decode_Stage_inst/register_file_inst_26_9> <Decode_Stage_inst/register_file_inst_27_9> <Decode_Stage_inst/register_file_inst_9_9> <Decode_Stage_inst/register_file_inst_25_9> <Decode_Stage_inst/register_file_inst_8_9> <Decode_Stage_inst/register_file_inst_24_9> <Decode_Stage_inst/register_file_inst_19_9> <Decode_Stage_inst/register_file_inst_23_9> <Decode_Stage_inst/register_file_inst_18_9> <Decode_Stage_inst/register_file_inst_7_9> <Decode_Stage_inst/register_file_inst_6_9> <Decode_Stage_inst/register_file_inst_22_9> <Decode_Stage_inst/register_file_inst_17_9> <Decode_Stage_inst/register_file_inst_5_9> <Decode_Stage_inst/register_file_inst_21_9> <Decode_Stage_inst/register_file_inst_4_9> <Decode_Stage_inst/register_file_inst_20_9> <Decode_Stage_inst/register_file_inst_16_9>
+   <Decode_Stage_inst/register_file_inst_15_9> <Decode_Stage_inst/register_file_inst_13_9> <Decode_Stage_inst/register_file_inst_14_9> <Decode_Stage_inst/register_file_inst_11_9> <Decode_Stage_inst/register_file_inst_10_9> <Decode_Stage_inst/register_file_inst_12_9> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_14> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_14> <Decode_Stage_inst/fp_register_file_inst_25_14> <Decode_Stage_inst/fp_register_file_inst_23_14> <Decode_Stage_inst/fp_register_file_inst_22_14> <Decode_Stage_inst/fp_register_file_inst_24_14> <Decode_Stage_inst/fp_register_file_inst_21_14> <Decode_Stage_inst/fp_register_file_inst_20_14> <Decode_Stage_inst/fp_register_file_inst_19_14> <Decode_Stage_inst/fp_register_file_inst_18_14> <Decode_Stage_inst/fp_register_file_inst_17_14> <Decode_Stage_inst/fp_register_file_inst_16_14> <Decode_Stage_inst/fp_register_file_inst_14_14> <Decode_Stage_inst/fp_register_file_inst_13_14> <Decode_Stage_inst/fp_register_file_inst_15_14> <Decode_Stage_inst/fp_register_file_inst_12_14> <Decode_Stage_inst/fp_register_file_inst_11_14> <Decode_Stage_inst/fp_register_file_inst_10_14>
+   <Decode_Stage_inst/fp_register_file_inst_9_14> <Decode_Stage_inst/fp_register_file_inst_8_14> <Decode_Stage_inst/fp_register_file_inst_7_14> <Decode_Stage_inst/fp_register_file_inst_5_14> <Decode_Stage_inst/fp_register_file_inst_4_14> <Decode_Stage_inst/fp_register_file_inst_6_14> <Decode_Stage_inst/register_file_inst_26_14> <Decode_Stage_inst/register_file_inst_27_14> <Decode_Stage_inst/register_file_inst_9_14> <Decode_Stage_inst/register_file_inst_25_14> <Decode_Stage_inst/register_file_inst_8_14> <Decode_Stage_inst/register_file_inst_24_14> <Decode_Stage_inst/register_file_inst_19_14> <Decode_Stage_inst/register_file_inst_23_14> <Decode_Stage_inst/register_file_inst_18_14> <Decode_Stage_inst/register_file_inst_7_14> <Decode_Stage_inst/register_file_inst_6_14> <Decode_Stage_inst/register_file_inst_22_14> <Decode_Stage_inst/register_file_inst_17_14> <Decode_Stage_inst/register_file_inst_5_14> <Decode_Stage_inst/register_file_inst_21_14> <Decode_Stage_inst/register_file_inst_4_14>
+   <Decode_Stage_inst/register_file_inst_20_14> <Decode_Stage_inst/register_file_inst_16_14> <Decode_Stage_inst/register_file_inst_15_14> <Decode_Stage_inst/register_file_inst_13_14> <Decode_Stage_inst/register_file_inst_14_14> <Decode_Stage_inst/register_file_inst_11_14> <Decode_Stage_inst/register_file_inst_10_14> <Decode_Stage_inst/register_file_inst_12_14> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_20> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_20> <Decode_Stage_inst/fp_register_file_inst_25_20> <Decode_Stage_inst/fp_register_file_inst_23_20> <Decode_Stage_inst/fp_register_file_inst_22_20> <Decode_Stage_inst/fp_register_file_inst_24_20> <Decode_Stage_inst/fp_register_file_inst_21_20> <Decode_Stage_inst/fp_register_file_inst_20_20> <Decode_Stage_inst/fp_register_file_inst_19_20> <Decode_Stage_inst/fp_register_file_inst_18_20> <Decode_Stage_inst/fp_register_file_inst_17_20> <Decode_Stage_inst/fp_register_file_inst_16_20> <Decode_Stage_inst/fp_register_file_inst_14_20> <Decode_Stage_inst/fp_register_file_inst_13_20> <Decode_Stage_inst/fp_register_file_inst_15_20> <Decode_Stage_inst/fp_register_file_inst_12_20> <Decode_Stage_inst/fp_register_file_inst_11_20> <Decode_Stage_inst/fp_register_file_inst_10_20>
+   <Decode_Stage_inst/fp_register_file_inst_9_20> <Decode_Stage_inst/fp_register_file_inst_8_20> <Decode_Stage_inst/fp_register_file_inst_7_20> <Decode_Stage_inst/fp_register_file_inst_5_20> <Decode_Stage_inst/fp_register_file_inst_4_20> <Decode_Stage_inst/fp_register_file_inst_6_20> <Decode_Stage_inst/register_file_inst_26_20> <Decode_Stage_inst/register_file_inst_27_20> <Decode_Stage_inst/register_file_inst_9_20> <Decode_Stage_inst/register_file_inst_25_20> <Decode_Stage_inst/register_file_inst_8_20> <Decode_Stage_inst/register_file_inst_24_20> <Decode_Stage_inst/register_file_inst_19_20> <Decode_Stage_inst/register_file_inst_23_20> <Decode_Stage_inst/register_file_inst_18_20> <Decode_Stage_inst/register_file_inst_7_20> <Decode_Stage_inst/register_file_inst_6_20> <Decode_Stage_inst/register_file_inst_22_20> <Decode_Stage_inst/register_file_inst_17_20> <Decode_Stage_inst/register_file_inst_5_20> <Decode_Stage_inst/register_file_inst_21_20> <Decode_Stage_inst/register_file_inst_4_20>
+   <Decode_Stage_inst/register_file_inst_20_20> <Decode_Stage_inst/register_file_inst_16_20> <Decode_Stage_inst/register_file_inst_15_20> <Decode_Stage_inst/register_file_inst_13_20> <Decode_Stage_inst/register_file_inst_14_20> <Decode_Stage_inst/register_file_inst_11_20> <Decode_Stage_inst/register_file_inst_10_20> <Decode_Stage_inst/register_file_inst_12_20> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_15> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_15> <Decode_Stage_inst/fp_register_file_inst_25_15> <Decode_Stage_inst/fp_register_file_inst_23_15> <Decode_Stage_inst/fp_register_file_inst_22_15> <Decode_Stage_inst/fp_register_file_inst_24_15> <Decode_Stage_inst/fp_register_file_inst_21_15> <Decode_Stage_inst/fp_register_file_inst_20_15> <Decode_Stage_inst/fp_register_file_inst_19_15> <Decode_Stage_inst/fp_register_file_inst_18_15> <Decode_Stage_inst/fp_register_file_inst_17_15> <Decode_Stage_inst/fp_register_file_inst_16_15> <Decode_Stage_inst/fp_register_file_inst_14_15> <Decode_Stage_inst/fp_register_file_inst_13_15> <Decode_Stage_inst/fp_register_file_inst_15_15> <Decode_Stage_inst/fp_register_file_inst_12_15> <Decode_Stage_inst/fp_register_file_inst_11_15> <Decode_Stage_inst/fp_register_file_inst_10_15>
+   <Decode_Stage_inst/fp_register_file_inst_9_15> <Decode_Stage_inst/fp_register_file_inst_8_15> <Decode_Stage_inst/fp_register_file_inst_7_15> <Decode_Stage_inst/fp_register_file_inst_5_15> <Decode_Stage_inst/fp_register_file_inst_4_15> <Decode_Stage_inst/fp_register_file_inst_6_15> <Decode_Stage_inst/register_file_inst_26_15> <Decode_Stage_inst/register_file_inst_27_15> <Decode_Stage_inst/register_file_inst_9_15> <Decode_Stage_inst/register_file_inst_25_15> <Decode_Stage_inst/register_file_inst_8_15> <Decode_Stage_inst/register_file_inst_24_15> <Decode_Stage_inst/register_file_inst_19_15> <Decode_Stage_inst/register_file_inst_23_15> <Decode_Stage_inst/register_file_inst_18_15> <Decode_Stage_inst/register_file_inst_7_15> <Decode_Stage_inst/register_file_inst_6_15> <Decode_Stage_inst/register_file_inst_22_15> <Decode_Stage_inst/register_file_inst_17_15> <Decode_Stage_inst/register_file_inst_5_15> <Decode_Stage_inst/register_file_inst_21_15> <Decode_Stage_inst/register_file_inst_4_15>
+   <Decode_Stage_inst/register_file_inst_20_15> <Decode_Stage_inst/register_file_inst_16_15> <Decode_Stage_inst/register_file_inst_15_15> <Decode_Stage_inst/register_file_inst_13_15> <Decode_Stage_inst/register_file_inst_14_15> <Decode_Stage_inst/register_file_inst_11_15> <Decode_Stage_inst/register_file_inst_10_15> <Decode_Stage_inst/register_file_inst_12_15> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_21> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_21> <Decode_Stage_inst/fp_register_file_inst_25_21> <Decode_Stage_inst/fp_register_file_inst_23_21> <Decode_Stage_inst/fp_register_file_inst_22_21> <Decode_Stage_inst/fp_register_file_inst_24_21> <Decode_Stage_inst/fp_register_file_inst_21_21> <Decode_Stage_inst/fp_register_file_inst_20_21> <Decode_Stage_inst/fp_register_file_inst_19_21> <Decode_Stage_inst/fp_register_file_inst_18_21> <Decode_Stage_inst/fp_register_file_inst_17_21> <Decode_Stage_inst/fp_register_file_inst_16_21> <Decode_Stage_inst/fp_register_file_inst_14_21> <Decode_Stage_inst/fp_register_file_inst_13_21> <Decode_Stage_inst/fp_register_file_inst_15_21> <Decode_Stage_inst/fp_register_file_inst_12_21> <Decode_Stage_inst/fp_register_file_inst_11_21> <Decode_Stage_inst/fp_register_file_inst_10_21>
+   <Decode_Stage_inst/fp_register_file_inst_9_21> <Decode_Stage_inst/fp_register_file_inst_8_21> <Decode_Stage_inst/fp_register_file_inst_7_21> <Decode_Stage_inst/fp_register_file_inst_5_21> <Decode_Stage_inst/fp_register_file_inst_4_21> <Decode_Stage_inst/fp_register_file_inst_6_21> <Decode_Stage_inst/register_file_inst_26_21> <Decode_Stage_inst/register_file_inst_27_21> <Decode_Stage_inst/register_file_inst_9_21> <Decode_Stage_inst/register_file_inst_25_21> <Decode_Stage_inst/register_file_inst_8_21> <Decode_Stage_inst/register_file_inst_24_21> <Decode_Stage_inst/register_file_inst_19_21> <Decode_Stage_inst/register_file_inst_23_21> <Decode_Stage_inst/register_file_inst_18_21> <Decode_Stage_inst/register_file_inst_7_21> <Decode_Stage_inst/register_file_inst_6_21> <Decode_Stage_inst/register_file_inst_22_21> <Decode_Stage_inst/register_file_inst_17_21> <Decode_Stage_inst/register_file_inst_5_21> <Decode_Stage_inst/register_file_inst_21_21> <Decode_Stage_inst/register_file_inst_4_21>
+   <Decode_Stage_inst/register_file_inst_20_21> <Decode_Stage_inst/register_file_inst_16_21> <Decode_Stage_inst/register_file_inst_15_21> <Decode_Stage_inst/register_file_inst_13_21> <Decode_Stage_inst/register_file_inst_14_21> <Decode_Stage_inst/register_file_inst_11_21> <Decode_Stage_inst/register_file_inst_10_21> <Decode_Stage_inst/register_file_inst_12_21> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_16> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_16> <Decode_Stage_inst/fp_register_file_inst_25_16> <Decode_Stage_inst/fp_register_file_inst_23_16> <Decode_Stage_inst/fp_register_file_inst_22_16> <Decode_Stage_inst/fp_register_file_inst_24_16> <Decode_Stage_inst/fp_register_file_inst_21_16> <Decode_Stage_inst/fp_register_file_inst_20_16> <Decode_Stage_inst/fp_register_file_inst_19_16> <Decode_Stage_inst/fp_register_file_inst_18_16> <Decode_Stage_inst/fp_register_file_inst_17_16> <Decode_Stage_inst/fp_register_file_inst_16_16> <Decode_Stage_inst/fp_register_file_inst_14_16> <Decode_Stage_inst/fp_register_file_inst_13_16> <Decode_Stage_inst/fp_register_file_inst_15_16> <Decode_Stage_inst/fp_register_file_inst_12_16> <Decode_Stage_inst/fp_register_file_inst_11_16> <Decode_Stage_inst/fp_register_file_inst_10_16>
+   <Decode_Stage_inst/fp_register_file_inst_9_16> <Decode_Stage_inst/fp_register_file_inst_8_16> <Decode_Stage_inst/fp_register_file_inst_7_16> <Decode_Stage_inst/fp_register_file_inst_5_16> <Decode_Stage_inst/fp_register_file_inst_4_16> <Decode_Stage_inst/fp_register_file_inst_6_16> <Decode_Stage_inst/register_file_inst_26_16> <Decode_Stage_inst/register_file_inst_27_16> <Decode_Stage_inst/register_file_inst_9_16> <Decode_Stage_inst/register_file_inst_25_16> <Decode_Stage_inst/register_file_inst_8_16> <Decode_Stage_inst/register_file_inst_24_16> <Decode_Stage_inst/register_file_inst_19_16> <Decode_Stage_inst/register_file_inst_23_16> <Decode_Stage_inst/register_file_inst_18_16> <Decode_Stage_inst/register_file_inst_7_16> <Decode_Stage_inst/register_file_inst_6_16> <Decode_Stage_inst/register_file_inst_22_16> <Decode_Stage_inst/register_file_inst_17_16> <Decode_Stage_inst/register_file_inst_5_16> <Decode_Stage_inst/register_file_inst_21_16> <Decode_Stage_inst/register_file_inst_4_16>
+   <Decode_Stage_inst/register_file_inst_20_16> <Decode_Stage_inst/register_file_inst_16_16> <Decode_Stage_inst/register_file_inst_15_16> <Decode_Stage_inst/register_file_inst_13_16> <Decode_Stage_inst/register_file_inst_14_16> <Decode_Stage_inst/register_file_inst_11_16> <Decode_Stage_inst/register_file_inst_10_16> <Decode_Stage_inst/register_file_inst_12_16> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_22> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_22> <Decode_Stage_inst/fp_register_file_inst_25_22> <Decode_Stage_inst/fp_register_file_inst_23_22> <Decode_Stage_inst/fp_register_file_inst_22_22> <Decode_Stage_inst/fp_register_file_inst_24_22> <Decode_Stage_inst/fp_register_file_inst_21_22> <Decode_Stage_inst/fp_register_file_inst_20_22> <Decode_Stage_inst/fp_register_file_inst_19_22> <Decode_Stage_inst/fp_register_file_inst_18_22> <Decode_Stage_inst/fp_register_file_inst_17_22> <Decode_Stage_inst/fp_register_file_inst_16_22> <Decode_Stage_inst/fp_register_file_inst_14_22> <Decode_Stage_inst/fp_register_file_inst_13_22> <Decode_Stage_inst/fp_register_file_inst_15_22> <Decode_Stage_inst/fp_register_file_inst_12_22> <Decode_Stage_inst/fp_register_file_inst_11_22> <Decode_Stage_inst/fp_register_file_inst_10_22>
+   <Decode_Stage_inst/fp_register_file_inst_9_22> <Decode_Stage_inst/fp_register_file_inst_8_22> <Decode_Stage_inst/fp_register_file_inst_7_22> <Decode_Stage_inst/fp_register_file_inst_5_22> <Decode_Stage_inst/fp_register_file_inst_4_22> <Decode_Stage_inst/fp_register_file_inst_6_22> <Decode_Stage_inst/register_file_inst_26_22> <Decode_Stage_inst/register_file_inst_27_22> <Decode_Stage_inst/register_file_inst_9_22> <Decode_Stage_inst/register_file_inst_25_22> <Decode_Stage_inst/register_file_inst_8_22> <Decode_Stage_inst/register_file_inst_24_22> <Decode_Stage_inst/register_file_inst_19_22> <Decode_Stage_inst/register_file_inst_23_22> <Decode_Stage_inst/register_file_inst_18_22> <Decode_Stage_inst/register_file_inst_7_22> <Decode_Stage_inst/register_file_inst_6_22> <Decode_Stage_inst/register_file_inst_22_22> <Decode_Stage_inst/register_file_inst_17_22> <Decode_Stage_inst/register_file_inst_5_22> <Decode_Stage_inst/register_file_inst_21_22> <Decode_Stage_inst/register_file_inst_4_22>
+   <Decode_Stage_inst/register_file_inst_20_22> <Decode_Stage_inst/register_file_inst_16_22> <Decode_Stage_inst/register_file_inst_15_22> <Decode_Stage_inst/register_file_inst_13_22> <Decode_Stage_inst/register_file_inst_14_22> <Decode_Stage_inst/register_file_inst_11_22> <Decode_Stage_inst/register_file_inst_10_22> <Decode_Stage_inst/register_file_inst_12_22> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_17> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_17> <Decode_Stage_inst/fp_register_file_inst_25_17> <Decode_Stage_inst/fp_register_file_inst_23_17> <Decode_Stage_inst/fp_register_file_inst_22_17> <Decode_Stage_inst/fp_register_file_inst_24_17> <Decode_Stage_inst/fp_register_file_inst_21_17> <Decode_Stage_inst/fp_register_file_inst_20_17> <Decode_Stage_inst/fp_register_file_inst_19_17> <Decode_Stage_inst/fp_register_file_inst_18_17> <Decode_Stage_inst/fp_register_file_inst_17_17> <Decode_Stage_inst/fp_register_file_inst_16_17> <Decode_Stage_inst/fp_register_file_inst_14_17> <Decode_Stage_inst/fp_register_file_inst_13_17> <Decode_Stage_inst/fp_register_file_inst_15_17> <Decode_Stage_inst/fp_register_file_inst_12_17> <Decode_Stage_inst/fp_register_file_inst_11_17> <Decode_Stage_inst/fp_register_file_inst_10_17>
+   <Decode_Stage_inst/fp_register_file_inst_9_17> <Decode_Stage_inst/fp_register_file_inst_8_17> <Decode_Stage_inst/fp_register_file_inst_7_17> <Decode_Stage_inst/fp_register_file_inst_5_17> <Decode_Stage_inst/fp_register_file_inst_4_17> <Decode_Stage_inst/fp_register_file_inst_6_17> <Decode_Stage_inst/register_file_inst_26_17> <Decode_Stage_inst/register_file_inst_27_17> <Decode_Stage_inst/register_file_inst_9_17> <Decode_Stage_inst/register_file_inst_25_17> <Decode_Stage_inst/register_file_inst_8_17> <Decode_Stage_inst/register_file_inst_24_17> <Decode_Stage_inst/register_file_inst_19_17> <Decode_Stage_inst/register_file_inst_23_17> <Decode_Stage_inst/register_file_inst_18_17> <Decode_Stage_inst/register_file_inst_7_17> <Decode_Stage_inst/register_file_inst_6_17> <Decode_Stage_inst/register_file_inst_22_17> <Decode_Stage_inst/register_file_inst_17_17> <Decode_Stage_inst/register_file_inst_5_17> <Decode_Stage_inst/register_file_inst_21_17> <Decode_Stage_inst/register_file_inst_4_17>
+   <Decode_Stage_inst/register_file_inst_20_17> <Decode_Stage_inst/register_file_inst_16_17> <Decode_Stage_inst/register_file_inst_15_17> <Decode_Stage_inst/register_file_inst_13_17> <Decode_Stage_inst/register_file_inst_14_17> <Decode_Stage_inst/register_file_inst_11_17> <Decode_Stage_inst/register_file_inst_10_17> <Decode_Stage_inst/register_file_inst_12_17> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_23> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_23> <Decode_Stage_inst/fp_register_file_inst_25_23> <Decode_Stage_inst/fp_register_file_inst_23_23> <Decode_Stage_inst/fp_register_file_inst_22_23> <Decode_Stage_inst/fp_register_file_inst_24_23> <Decode_Stage_inst/fp_register_file_inst_21_23> <Decode_Stage_inst/fp_register_file_inst_20_23> <Decode_Stage_inst/fp_register_file_inst_19_23> <Decode_Stage_inst/fp_register_file_inst_18_23> <Decode_Stage_inst/fp_register_file_inst_17_23> <Decode_Stage_inst/fp_register_file_inst_16_23> <Decode_Stage_inst/fp_register_file_inst_14_23> <Decode_Stage_inst/fp_register_file_inst_13_23> <Decode_Stage_inst/fp_register_file_inst_15_23> <Decode_Stage_inst/fp_register_file_inst_12_23> <Decode_Stage_inst/fp_register_file_inst_11_23> <Decode_Stage_inst/fp_register_file_inst_10_23>
+   <Decode_Stage_inst/fp_register_file_inst_9_23> <Decode_Stage_inst/fp_register_file_inst_8_23> <Decode_Stage_inst/fp_register_file_inst_7_23> <Decode_Stage_inst/fp_register_file_inst_5_23> <Decode_Stage_inst/fp_register_file_inst_4_23> <Decode_Stage_inst/fp_register_file_inst_6_23> <Decode_Stage_inst/register_file_inst_26_23> <Decode_Stage_inst/register_file_inst_27_23> <Decode_Stage_inst/register_file_inst_9_23> <Decode_Stage_inst/register_file_inst_25_23> <Decode_Stage_inst/register_file_inst_8_23> <Decode_Stage_inst/register_file_inst_24_23> <Decode_Stage_inst/register_file_inst_19_23> <Decode_Stage_inst/register_file_inst_23_23> <Decode_Stage_inst/register_file_inst_18_23> <Decode_Stage_inst/register_file_inst_7_23> <Decode_Stage_inst/register_file_inst_6_23> <Decode_Stage_inst/register_file_inst_22_23> <Decode_Stage_inst/register_file_inst_17_23> <Decode_Stage_inst/register_file_inst_5_23> <Decode_Stage_inst/register_file_inst_21_23> <Decode_Stage_inst/register_file_inst_4_23>
+   <Decode_Stage_inst/register_file_inst_20_23> <Decode_Stage_inst/register_file_inst_16_23> <Decode_Stage_inst/register_file_inst_15_23> <Decode_Stage_inst/register_file_inst_13_23> <Decode_Stage_inst/register_file_inst_14_23> <Decode_Stage_inst/register_file_inst_11_23> <Decode_Stage_inst/register_file_inst_10_23> <Decode_Stage_inst/register_file_inst_12_23> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_18> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_18> <Decode_Stage_inst/fp_register_file_inst_25_18> <Decode_Stage_inst/fp_register_file_inst_23_18> <Decode_Stage_inst/fp_register_file_inst_22_18> <Decode_Stage_inst/fp_register_file_inst_24_18> <Decode_Stage_inst/fp_register_file_inst_21_18> <Decode_Stage_inst/fp_register_file_inst_20_18> <Decode_Stage_inst/fp_register_file_inst_19_18> <Decode_Stage_inst/fp_register_file_inst_18_18> <Decode_Stage_inst/fp_register_file_inst_17_18> <Decode_Stage_inst/fp_register_file_inst_16_18> <Decode_Stage_inst/fp_register_file_inst_14_18> <Decode_Stage_inst/fp_register_file_inst_13_18> <Decode_Stage_inst/fp_register_file_inst_15_18> <Decode_Stage_inst/fp_register_file_inst_12_18> <Decode_Stage_inst/fp_register_file_inst_11_18> <Decode_Stage_inst/fp_register_file_inst_10_18>
+   <Decode_Stage_inst/fp_register_file_inst_9_18> <Decode_Stage_inst/fp_register_file_inst_8_18> <Decode_Stage_inst/fp_register_file_inst_7_18> <Decode_Stage_inst/fp_register_file_inst_5_18> <Decode_Stage_inst/fp_register_file_inst_4_18> <Decode_Stage_inst/fp_register_file_inst_6_18> <Decode_Stage_inst/register_file_inst_26_18> <Decode_Stage_inst/register_file_inst_27_18> <Decode_Stage_inst/register_file_inst_9_18> <Decode_Stage_inst/register_file_inst_25_18> <Decode_Stage_inst/register_file_inst_8_18> <Decode_Stage_inst/register_file_inst_24_18> <Decode_Stage_inst/register_file_inst_19_18> <Decode_Stage_inst/register_file_inst_23_18> <Decode_Stage_inst/register_file_inst_18_18> <Decode_Stage_inst/register_file_inst_7_18> <Decode_Stage_inst/register_file_inst_6_18> <Decode_Stage_inst/register_file_inst_22_18> <Decode_Stage_inst/register_file_inst_17_18> <Decode_Stage_inst/register_file_inst_5_18> <Decode_Stage_inst/register_file_inst_21_18> <Decode_Stage_inst/register_file_inst_4_18>
+   <Decode_Stage_inst/register_file_inst_20_18> <Decode_Stage_inst/register_file_inst_16_18> <Decode_Stage_inst/register_file_inst_15_18> <Decode_Stage_inst/register_file_inst_13_18> <Decode_Stage_inst/register_file_inst_14_18> <Decode_Stage_inst/register_file_inst_11_18> <Decode_Stage_inst/register_file_inst_10_18> <Decode_Stage_inst/register_file_inst_12_18> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_24> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_24> <Decode_Stage_inst/fp_register_file_inst_25_24> <Decode_Stage_inst/fp_register_file_inst_23_24> <Decode_Stage_inst/fp_register_file_inst_22_24> <Decode_Stage_inst/fp_register_file_inst_24_24> <Decode_Stage_inst/fp_register_file_inst_21_24> <Decode_Stage_inst/fp_register_file_inst_20_24> <Decode_Stage_inst/fp_register_file_inst_19_24> <Decode_Stage_inst/fp_register_file_inst_18_24> <Decode_Stage_inst/fp_register_file_inst_17_24> <Decode_Stage_inst/fp_register_file_inst_16_24> <Decode_Stage_inst/fp_register_file_inst_14_24> <Decode_Stage_inst/fp_register_file_inst_13_24> <Decode_Stage_inst/fp_register_file_inst_15_24> <Decode_Stage_inst/fp_register_file_inst_12_24> <Decode_Stage_inst/fp_register_file_inst_11_24> <Decode_Stage_inst/fp_register_file_inst_10_24>
+   <Decode_Stage_inst/fp_register_file_inst_9_24> <Decode_Stage_inst/fp_register_file_inst_8_24> <Decode_Stage_inst/fp_register_file_inst_7_24> <Decode_Stage_inst/fp_register_file_inst_5_24> <Decode_Stage_inst/fp_register_file_inst_4_24> <Decode_Stage_inst/fp_register_file_inst_6_24> <Decode_Stage_inst/register_file_inst_26_24> <Decode_Stage_inst/register_file_inst_27_24> <Decode_Stage_inst/register_file_inst_9_24> <Decode_Stage_inst/register_file_inst_25_24> <Decode_Stage_inst/register_file_inst_8_24> <Decode_Stage_inst/register_file_inst_24_24> <Decode_Stage_inst/register_file_inst_19_24> <Decode_Stage_inst/register_file_inst_23_24> <Decode_Stage_inst/register_file_inst_18_24> <Decode_Stage_inst/register_file_inst_7_24> <Decode_Stage_inst/register_file_inst_6_24> <Decode_Stage_inst/register_file_inst_22_24> <Decode_Stage_inst/register_file_inst_17_24> <Decode_Stage_inst/register_file_inst_5_24> <Decode_Stage_inst/register_file_inst_21_24> <Decode_Stage_inst/register_file_inst_4_24>
+   <Decode_Stage_inst/register_file_inst_20_24> <Decode_Stage_inst/register_file_inst_16_24> <Decode_Stage_inst/register_file_inst_15_24> <Decode_Stage_inst/register_file_inst_13_24> <Decode_Stage_inst/register_file_inst_14_24> <Decode_Stage_inst/register_file_inst_11_24> <Decode_Stage_inst/register_file_inst_10_24> <Decode_Stage_inst/register_file_inst_12_24> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_19> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_19> <Decode_Stage_inst/fp_register_file_inst_25_19> <Decode_Stage_inst/fp_register_file_inst_23_19> <Decode_Stage_inst/fp_register_file_inst_22_19> <Decode_Stage_inst/fp_register_file_inst_24_19> <Decode_Stage_inst/fp_register_file_inst_21_19> <Decode_Stage_inst/fp_register_file_inst_20_19> <Decode_Stage_inst/fp_register_file_inst_19_19> <Decode_Stage_inst/fp_register_file_inst_18_19> <Decode_Stage_inst/fp_register_file_inst_17_19> <Decode_Stage_inst/fp_register_file_inst_16_19> <Decode_Stage_inst/fp_register_file_inst_14_19> <Decode_Stage_inst/fp_register_file_inst_13_19> <Decode_Stage_inst/fp_register_file_inst_15_19> <Decode_Stage_inst/fp_register_file_inst_12_19> <Decode_Stage_inst/fp_register_file_inst_11_19> <Decode_Stage_inst/fp_register_file_inst_10_19>
+   <Decode_Stage_inst/fp_register_file_inst_9_19> <Decode_Stage_inst/fp_register_file_inst_8_19> <Decode_Stage_inst/fp_register_file_inst_7_19> <Decode_Stage_inst/fp_register_file_inst_5_19> <Decode_Stage_inst/fp_register_file_inst_4_19> <Decode_Stage_inst/fp_register_file_inst_6_19> <Decode_Stage_inst/register_file_inst_26_19> <Decode_Stage_inst/register_file_inst_27_19> <Decode_Stage_inst/register_file_inst_9_19> <Decode_Stage_inst/register_file_inst_25_19> <Decode_Stage_inst/register_file_inst_8_19> <Decode_Stage_inst/register_file_inst_24_19> <Decode_Stage_inst/register_file_inst_19_19> <Decode_Stage_inst/register_file_inst_23_19> <Decode_Stage_inst/register_file_inst_18_19> <Decode_Stage_inst/register_file_inst_7_19> <Decode_Stage_inst/register_file_inst_6_19> <Decode_Stage_inst/register_file_inst_22_19> <Decode_Stage_inst/register_file_inst_17_19> <Decode_Stage_inst/register_file_inst_5_19> <Decode_Stage_inst/register_file_inst_21_19> <Decode_Stage_inst/register_file_inst_4_19>
+   <Decode_Stage_inst/register_file_inst_20_19> <Decode_Stage_inst/register_file_inst_16_19> <Decode_Stage_inst/register_file_inst_15_19> <Decode_Stage_inst/register_file_inst_13_19> <Decode_Stage_inst/register_file_inst_14_19> <Decode_Stage_inst/register_file_inst_11_19> <Decode_Stage_inst/register_file_inst_10_19> <Decode_Stage_inst/register_file_inst_12_19> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_0> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_0> <Decode_Stage_inst/fp_register_file_inst_25_0> <Decode_Stage_inst/fp_register_file_inst_23_0> <Decode_Stage_inst/fp_register_file_inst_22_0> <Decode_Stage_inst/fp_register_file_inst_24_0> <Decode_Stage_inst/fp_register_file_inst_21_0> <Decode_Stage_inst/fp_register_file_inst_20_0> <Decode_Stage_inst/fp_register_file_inst_19_0> <Decode_Stage_inst/fp_register_file_inst_18_0> <Decode_Stage_inst/fp_register_file_inst_17_0> <Decode_Stage_inst/fp_register_file_inst_16_0> <Decode_Stage_inst/fp_register_file_inst_14_0> <Decode_Stage_inst/fp_register_file_inst_13_0> <Decode_Stage_inst/fp_register_file_inst_15_0> <Decode_Stage_inst/fp_register_file_inst_12_0> <Decode_Stage_inst/fp_register_file_inst_11_0> <Decode_Stage_inst/fp_register_file_inst_10_0> <Decode_Stage_inst/fp_register_file_inst_9_0>
+   <Decode_Stage_inst/fp_register_file_inst_8_0> <Decode_Stage_inst/fp_register_file_inst_7_0> <Decode_Stage_inst/fp_register_file_inst_5_0> <Decode_Stage_inst/fp_register_file_inst_4_0> <Decode_Stage_inst/fp_register_file_inst_6_0> <Decode_Stage_inst/register_file_inst_26_0> <Decode_Stage_inst/register_file_inst_27_0> <Decode_Stage_inst/register_file_inst_9_0> <Decode_Stage_inst/register_file_inst_25_0> <Decode_Stage_inst/register_file_inst_8_0> <Decode_Stage_inst/register_file_inst_24_0> <Decode_Stage_inst/register_file_inst_19_0> <Decode_Stage_inst/register_file_inst_23_0> <Decode_Stage_inst/register_file_inst_18_0> <Decode_Stage_inst/register_file_inst_7_0> <Decode_Stage_inst/register_file_inst_6_0> <Decode_Stage_inst/register_file_inst_22_0> <Decode_Stage_inst/register_file_inst_17_0> <Decode_Stage_inst/register_file_inst_5_0> <Decode_Stage_inst/register_file_inst_21_0> <Decode_Stage_inst/register_file_inst_4_0> <Decode_Stage_inst/register_file_inst_20_0> <Decode_Stage_inst/register_file_inst_16_0>
+   <Decode_Stage_inst/register_file_inst_15_0> <Decode_Stage_inst/register_file_inst_13_0> <Decode_Stage_inst/register_file_inst_14_0> <Decode_Stage_inst/register_file_inst_11_0> <Decode_Stage_inst/register_file_inst_10_0> <Decode_Stage_inst/register_file_inst_12_0> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_30> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_30> <Decode_Stage_inst/fp_register_file_inst_25_30> <Decode_Stage_inst/fp_register_file_inst_23_30> <Decode_Stage_inst/fp_register_file_inst_22_30> <Decode_Stage_inst/fp_register_file_inst_24_30> <Decode_Stage_inst/fp_register_file_inst_21_30> <Decode_Stage_inst/fp_register_file_inst_20_30> <Decode_Stage_inst/fp_register_file_inst_19_30> <Decode_Stage_inst/fp_register_file_inst_18_30> <Decode_Stage_inst/fp_register_file_inst_17_30> <Decode_Stage_inst/fp_register_file_inst_16_30> <Decode_Stage_inst/fp_register_file_inst_14_30> <Decode_Stage_inst/fp_register_file_inst_13_30> <Decode_Stage_inst/fp_register_file_inst_15_30> <Decode_Stage_inst/fp_register_file_inst_12_30> <Decode_Stage_inst/fp_register_file_inst_11_30> <Decode_Stage_inst/fp_register_file_inst_10_30>
+   <Decode_Stage_inst/fp_register_file_inst_9_30> <Decode_Stage_inst/fp_register_file_inst_8_30> <Decode_Stage_inst/fp_register_file_inst_7_30> <Decode_Stage_inst/fp_register_file_inst_5_30> <Decode_Stage_inst/fp_register_file_inst_4_30> <Decode_Stage_inst/fp_register_file_inst_6_30> <Decode_Stage_inst/register_file_inst_26_30> <Decode_Stage_inst/register_file_inst_27_30> <Decode_Stage_inst/register_file_inst_9_30> <Decode_Stage_inst/register_file_inst_25_30> <Decode_Stage_inst/register_file_inst_8_30> <Decode_Stage_inst/register_file_inst_24_30> <Decode_Stage_inst/register_file_inst_19_30> <Decode_Stage_inst/register_file_inst_23_30> <Decode_Stage_inst/register_file_inst_18_30> <Decode_Stage_inst/register_file_inst_7_30> <Decode_Stage_inst/register_file_inst_6_30> <Decode_Stage_inst/register_file_inst_22_30> <Decode_Stage_inst/register_file_inst_17_30> <Decode_Stage_inst/register_file_inst_5_30> <Decode_Stage_inst/register_file_inst_21_30> <Decode_Stage_inst/register_file_inst_4_30>
+   <Decode_Stage_inst/register_file_inst_20_30> <Decode_Stage_inst/register_file_inst_16_30> <Decode_Stage_inst/register_file_inst_15_30> <Decode_Stage_inst/register_file_inst_13_30> <Decode_Stage_inst/register_file_inst_14_30> <Decode_Stage_inst/register_file_inst_11_30> <Decode_Stage_inst/register_file_inst_10_30> <Decode_Stage_inst/register_file_inst_12_30> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_25> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_25> <Decode_Stage_inst/fp_register_file_inst_25_25> <Decode_Stage_inst/fp_register_file_inst_23_25> <Decode_Stage_inst/fp_register_file_inst_22_25> <Decode_Stage_inst/fp_register_file_inst_24_25> <Decode_Stage_inst/fp_register_file_inst_21_25> <Decode_Stage_inst/fp_register_file_inst_20_25> <Decode_Stage_inst/fp_register_file_inst_19_25> <Decode_Stage_inst/fp_register_file_inst_18_25> <Decode_Stage_inst/fp_register_file_inst_17_25> <Decode_Stage_inst/fp_register_file_inst_16_25> <Decode_Stage_inst/fp_register_file_inst_14_25> <Decode_Stage_inst/fp_register_file_inst_13_25> <Decode_Stage_inst/fp_register_file_inst_15_25> <Decode_Stage_inst/fp_register_file_inst_12_25> <Decode_Stage_inst/fp_register_file_inst_11_25> <Decode_Stage_inst/fp_register_file_inst_10_25>
+   <Decode_Stage_inst/fp_register_file_inst_9_25> <Decode_Stage_inst/fp_register_file_inst_8_25> <Decode_Stage_inst/fp_register_file_inst_7_25> <Decode_Stage_inst/fp_register_file_inst_5_25> <Decode_Stage_inst/fp_register_file_inst_4_25> <Decode_Stage_inst/fp_register_file_inst_6_25> <Decode_Stage_inst/register_file_inst_26_25> <Decode_Stage_inst/register_file_inst_27_25> <Decode_Stage_inst/register_file_inst_9_25> <Decode_Stage_inst/register_file_inst_25_25> <Decode_Stage_inst/register_file_inst_8_25> <Decode_Stage_inst/register_file_inst_24_25> <Decode_Stage_inst/register_file_inst_19_25> <Decode_Stage_inst/register_file_inst_23_25> <Decode_Stage_inst/register_file_inst_18_25> <Decode_Stage_inst/register_file_inst_7_25> <Decode_Stage_inst/register_file_inst_6_25> <Decode_Stage_inst/register_file_inst_22_25> <Decode_Stage_inst/register_file_inst_17_25> <Decode_Stage_inst/register_file_inst_5_25> <Decode_Stage_inst/register_file_inst_21_25> <Decode_Stage_inst/register_file_inst_4_25>
+   <Decode_Stage_inst/register_file_inst_20_25> <Decode_Stage_inst/register_file_inst_16_25> <Decode_Stage_inst/register_file_inst_15_25> <Decode_Stage_inst/register_file_inst_13_25> <Decode_Stage_inst/register_file_inst_14_25> <Decode_Stage_inst/register_file_inst_11_25> <Decode_Stage_inst/register_file_inst_10_25> <Decode_Stage_inst/register_file_inst_12_25> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_1> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_1> <Decode_Stage_inst/fp_register_file_inst_25_1> <Decode_Stage_inst/fp_register_file_inst_23_1> <Decode_Stage_inst/fp_register_file_inst_22_1> <Decode_Stage_inst/fp_register_file_inst_24_1> <Decode_Stage_inst/fp_register_file_inst_21_1> <Decode_Stage_inst/fp_register_file_inst_20_1> <Decode_Stage_inst/fp_register_file_inst_19_1> <Decode_Stage_inst/fp_register_file_inst_18_1> <Decode_Stage_inst/fp_register_file_inst_17_1> <Decode_Stage_inst/fp_register_file_inst_16_1> <Decode_Stage_inst/fp_register_file_inst_14_1> <Decode_Stage_inst/fp_register_file_inst_13_1> <Decode_Stage_inst/fp_register_file_inst_15_1> <Decode_Stage_inst/fp_register_file_inst_12_1> <Decode_Stage_inst/fp_register_file_inst_11_1> <Decode_Stage_inst/fp_register_file_inst_10_1> <Decode_Stage_inst/fp_register_file_inst_9_1>
+   <Decode_Stage_inst/fp_register_file_inst_8_1> <Decode_Stage_inst/fp_register_file_inst_7_1> <Decode_Stage_inst/fp_register_file_inst_5_1> <Decode_Stage_inst/fp_register_file_inst_4_1> <Decode_Stage_inst/fp_register_file_inst_6_1> <Decode_Stage_inst/register_file_inst_26_1> <Decode_Stage_inst/register_file_inst_27_1> <Decode_Stage_inst/register_file_inst_9_1> <Decode_Stage_inst/register_file_inst_25_1> <Decode_Stage_inst/register_file_inst_8_1> <Decode_Stage_inst/register_file_inst_24_1> <Decode_Stage_inst/register_file_inst_19_1> <Decode_Stage_inst/register_file_inst_23_1> <Decode_Stage_inst/register_file_inst_18_1> <Decode_Stage_inst/register_file_inst_7_1> <Decode_Stage_inst/register_file_inst_6_1> <Decode_Stage_inst/register_file_inst_22_1> <Decode_Stage_inst/register_file_inst_17_1> <Decode_Stage_inst/register_file_inst_5_1> <Decode_Stage_inst/register_file_inst_21_1> <Decode_Stage_inst/register_file_inst_4_1> <Decode_Stage_inst/register_file_inst_20_1> <Decode_Stage_inst/register_file_inst_16_1>
+   <Decode_Stage_inst/register_file_inst_15_1> <Decode_Stage_inst/register_file_inst_13_1> <Decode_Stage_inst/register_file_inst_14_1> <Decode_Stage_inst/register_file_inst_11_1> <Decode_Stage_inst/register_file_inst_10_1> <Decode_Stage_inst/register_file_inst_12_1> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_31> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_31> <Decode_Stage_inst/fp_register_file_inst_25_31> <Decode_Stage_inst/fp_register_file_inst_23_31> <Decode_Stage_inst/fp_register_file_inst_22_31> <Decode_Stage_inst/fp_register_file_inst_24_31> <Decode_Stage_inst/fp_register_file_inst_21_31> <Decode_Stage_inst/fp_register_file_inst_20_31> <Decode_Stage_inst/fp_register_file_inst_19_31> <Decode_Stage_inst/fp_register_file_inst_18_31> <Decode_Stage_inst/fp_register_file_inst_17_31> <Decode_Stage_inst/fp_register_file_inst_16_31> <Decode_Stage_inst/fp_register_file_inst_14_31> <Decode_Stage_inst/fp_register_file_inst_13_31> <Decode_Stage_inst/fp_register_file_inst_15_31> <Decode_Stage_inst/fp_register_file_inst_12_31> <Decode_Stage_inst/fp_register_file_inst_11_31> <Decode_Stage_inst/fp_register_file_inst_10_31>
+   <Decode_Stage_inst/fp_register_file_inst_9_31> <Decode_Stage_inst/fp_register_file_inst_8_31> <Decode_Stage_inst/fp_register_file_inst_7_31> <Decode_Stage_inst/fp_register_file_inst_5_31> <Decode_Stage_inst/fp_register_file_inst_4_31> <Decode_Stage_inst/fp_register_file_inst_6_31> <Decode_Stage_inst/register_file_inst_26_31> <Decode_Stage_inst/register_file_inst_27_31> <Decode_Stage_inst/register_file_inst_9_31> <Decode_Stage_inst/register_file_inst_25_31> <Decode_Stage_inst/register_file_inst_8_31> <Decode_Stage_inst/register_file_inst_24_31> <Decode_Stage_inst/register_file_inst_19_31> <Decode_Stage_inst/register_file_inst_23_31> <Decode_Stage_inst/register_file_inst_18_31> <Decode_Stage_inst/register_file_inst_7_31> <Decode_Stage_inst/register_file_inst_6_31> <Decode_Stage_inst/register_file_inst_22_31> <Decode_Stage_inst/register_file_inst_17_31> <Decode_Stage_inst/register_file_inst_5_31> <Decode_Stage_inst/register_file_inst_21_31> <Decode_Stage_inst/register_file_inst_4_31>
+   <Decode_Stage_inst/register_file_inst_20_31> <Decode_Stage_inst/register_file_inst_16_31> <Decode_Stage_inst/register_file_inst_15_31> <Decode_Stage_inst/register_file_inst_13_31> <Decode_Stage_inst/register_file_inst_14_31> <Decode_Stage_inst/register_file_inst_11_31> <Decode_Stage_inst/register_file_inst_10_31> <Decode_Stage_inst/register_file_inst_12_31> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_26> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_26> <Decode_Stage_inst/fp_register_file_inst_25_26> <Decode_Stage_inst/fp_register_file_inst_23_26> <Decode_Stage_inst/fp_register_file_inst_22_26> <Decode_Stage_inst/fp_register_file_inst_24_26> <Decode_Stage_inst/fp_register_file_inst_21_26> <Decode_Stage_inst/fp_register_file_inst_20_26> <Decode_Stage_inst/fp_register_file_inst_19_26> <Decode_Stage_inst/fp_register_file_inst_18_26> <Decode_Stage_inst/fp_register_file_inst_17_26> <Decode_Stage_inst/fp_register_file_inst_16_26> <Decode_Stage_inst/fp_register_file_inst_14_26> <Decode_Stage_inst/fp_register_file_inst_13_26> <Decode_Stage_inst/fp_register_file_inst_15_26> <Decode_Stage_inst/fp_register_file_inst_12_26> <Decode_Stage_inst/fp_register_file_inst_11_26> <Decode_Stage_inst/fp_register_file_inst_10_26>
+   <Decode_Stage_inst/fp_register_file_inst_9_26> <Decode_Stage_inst/fp_register_file_inst_8_26> <Decode_Stage_inst/fp_register_file_inst_7_26> <Decode_Stage_inst/fp_register_file_inst_5_26> <Decode_Stage_inst/fp_register_file_inst_4_26> <Decode_Stage_inst/fp_register_file_inst_6_26> <Decode_Stage_inst/register_file_inst_26_26> <Decode_Stage_inst/register_file_inst_27_26> <Decode_Stage_inst/register_file_inst_9_26> <Decode_Stage_inst/register_file_inst_25_26> <Decode_Stage_inst/register_file_inst_8_26> <Decode_Stage_inst/register_file_inst_24_26> <Decode_Stage_inst/register_file_inst_19_26> <Decode_Stage_inst/register_file_inst_23_26> <Decode_Stage_inst/register_file_inst_18_26> <Decode_Stage_inst/register_file_inst_7_26> <Decode_Stage_inst/register_file_inst_6_26> <Decode_Stage_inst/register_file_inst_22_26> <Decode_Stage_inst/register_file_inst_17_26> <Decode_Stage_inst/register_file_inst_5_26> <Decode_Stage_inst/register_file_inst_21_26> <Decode_Stage_inst/register_file_inst_4_26>
+   <Decode_Stage_inst/register_file_inst_20_26> <Decode_Stage_inst/register_file_inst_16_26> <Decode_Stage_inst/register_file_inst_15_26> <Decode_Stage_inst/register_file_inst_13_26> <Decode_Stage_inst/register_file_inst_14_26> <Decode_Stage_inst/register_file_inst_11_26> <Decode_Stage_inst/register_file_inst_10_26> <Decode_Stage_inst/register_file_inst_12_26> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_2> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_2> <Decode_Stage_inst/fp_register_file_inst_25_2> <Decode_Stage_inst/fp_register_file_inst_23_2> <Decode_Stage_inst/fp_register_file_inst_22_2> <Decode_Stage_inst/fp_register_file_inst_24_2> <Decode_Stage_inst/fp_register_file_inst_21_2> <Decode_Stage_inst/fp_register_file_inst_20_2> <Decode_Stage_inst/fp_register_file_inst_19_2> <Decode_Stage_inst/fp_register_file_inst_18_2> <Decode_Stage_inst/fp_register_file_inst_17_2> <Decode_Stage_inst/fp_register_file_inst_16_2> <Decode_Stage_inst/fp_register_file_inst_14_2> <Decode_Stage_inst/fp_register_file_inst_13_2> <Decode_Stage_inst/fp_register_file_inst_15_2> <Decode_Stage_inst/fp_register_file_inst_12_2> <Decode_Stage_inst/fp_register_file_inst_11_2> <Decode_Stage_inst/fp_register_file_inst_10_2> <Decode_Stage_inst/fp_register_file_inst_9_2>
+   <Decode_Stage_inst/fp_register_file_inst_8_2> <Decode_Stage_inst/fp_register_file_inst_7_2> <Decode_Stage_inst/fp_register_file_inst_5_2> <Decode_Stage_inst/fp_register_file_inst_4_2> <Decode_Stage_inst/fp_register_file_inst_6_2> <Decode_Stage_inst/register_file_inst_26_2> <Decode_Stage_inst/register_file_inst_27_2> <Decode_Stage_inst/register_file_inst_9_2> <Decode_Stage_inst/register_file_inst_25_2> <Decode_Stage_inst/register_file_inst_8_2> <Decode_Stage_inst/register_file_inst_24_2> <Decode_Stage_inst/register_file_inst_19_2> <Decode_Stage_inst/register_file_inst_23_2> <Decode_Stage_inst/register_file_inst_18_2> <Decode_Stage_inst/register_file_inst_7_2> <Decode_Stage_inst/register_file_inst_6_2> <Decode_Stage_inst/register_file_inst_22_2> <Decode_Stage_inst/register_file_inst_17_2> <Decode_Stage_inst/register_file_inst_5_2> <Decode_Stage_inst/register_file_inst_21_2> <Decode_Stage_inst/register_file_inst_4_2> <Decode_Stage_inst/register_file_inst_20_2> <Decode_Stage_inst/register_file_inst_16_2>
+   <Decode_Stage_inst/register_file_inst_15_2> <Decode_Stage_inst/register_file_inst_13_2> <Decode_Stage_inst/register_file_inst_14_2> <Decode_Stage_inst/register_file_inst_11_2> <Decode_Stage_inst/register_file_inst_10_2> <Decode_Stage_inst/register_file_inst_12_2> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_27> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_27> <Decode_Stage_inst/fp_register_file_inst_25_27> <Decode_Stage_inst/fp_register_file_inst_23_27> <Decode_Stage_inst/fp_register_file_inst_22_27> <Decode_Stage_inst/fp_register_file_inst_24_27> <Decode_Stage_inst/fp_register_file_inst_21_27> <Decode_Stage_inst/fp_register_file_inst_20_27> <Decode_Stage_inst/fp_register_file_inst_19_27> <Decode_Stage_inst/fp_register_file_inst_18_27> <Decode_Stage_inst/fp_register_file_inst_17_27> <Decode_Stage_inst/fp_register_file_inst_16_27> <Decode_Stage_inst/fp_register_file_inst_14_27> <Decode_Stage_inst/fp_register_file_inst_13_27> <Decode_Stage_inst/fp_register_file_inst_15_27> <Decode_Stage_inst/fp_register_file_inst_12_27> <Decode_Stage_inst/fp_register_file_inst_11_27> <Decode_Stage_inst/fp_register_file_inst_10_27>
+   <Decode_Stage_inst/fp_register_file_inst_9_27> <Decode_Stage_inst/fp_register_file_inst_8_27> <Decode_Stage_inst/fp_register_file_inst_7_27> <Decode_Stage_inst/fp_register_file_inst_5_27> <Decode_Stage_inst/fp_register_file_inst_4_27> <Decode_Stage_inst/fp_register_file_inst_6_27> <Decode_Stage_inst/register_file_inst_26_27> <Decode_Stage_inst/register_file_inst_27_27> <Decode_Stage_inst/register_file_inst_9_27> <Decode_Stage_inst/register_file_inst_25_27> <Decode_Stage_inst/register_file_inst_8_27> <Decode_Stage_inst/register_file_inst_24_27> <Decode_Stage_inst/register_file_inst_19_27> <Decode_Stage_inst/register_file_inst_23_27> <Decode_Stage_inst/register_file_inst_18_27> <Decode_Stage_inst/register_file_inst_7_27> <Decode_Stage_inst/register_file_inst_6_27> <Decode_Stage_inst/register_file_inst_22_27> <Decode_Stage_inst/register_file_inst_17_27> <Decode_Stage_inst/register_file_inst_5_27> <Decode_Stage_inst/register_file_inst_21_27> <Decode_Stage_inst/register_file_inst_4_27>
+   <Decode_Stage_inst/register_file_inst_20_27> <Decode_Stage_inst/register_file_inst_16_27> <Decode_Stage_inst/register_file_inst_15_27> <Decode_Stage_inst/register_file_inst_13_27> <Decode_Stage_inst/register_file_inst_14_27> <Decode_Stage_inst/register_file_inst_11_27> <Decode_Stage_inst/register_file_inst_10_27> <Decode_Stage_inst/register_file_inst_12_27> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_3> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_3> <Decode_Stage_inst/fp_register_file_inst_25_3> <Decode_Stage_inst/fp_register_file_inst_23_3> <Decode_Stage_inst/fp_register_file_inst_22_3> <Decode_Stage_inst/fp_register_file_inst_24_3> <Decode_Stage_inst/fp_register_file_inst_21_3> <Decode_Stage_inst/fp_register_file_inst_20_3> <Decode_Stage_inst/fp_register_file_inst_19_3> <Decode_Stage_inst/fp_register_file_inst_18_3> <Decode_Stage_inst/fp_register_file_inst_17_3> <Decode_Stage_inst/fp_register_file_inst_16_3> <Decode_Stage_inst/fp_register_file_inst_14_3> <Decode_Stage_inst/fp_register_file_inst_13_3> <Decode_Stage_inst/fp_register_file_inst_15_3> <Decode_Stage_inst/fp_register_file_inst_12_3> <Decode_Stage_inst/fp_register_file_inst_11_3> <Decode_Stage_inst/fp_register_file_inst_10_3> <Decode_Stage_inst/fp_register_file_inst_9_3>
+   <Decode_Stage_inst/fp_register_file_inst_8_3> <Decode_Stage_inst/fp_register_file_inst_7_3> <Decode_Stage_inst/fp_register_file_inst_5_3> <Decode_Stage_inst/fp_register_file_inst_4_3> <Decode_Stage_inst/fp_register_file_inst_6_3> <Decode_Stage_inst/register_file_inst_26_3> <Decode_Stage_inst/register_file_inst_27_3> <Decode_Stage_inst/register_file_inst_9_3> <Decode_Stage_inst/register_file_inst_25_3> <Decode_Stage_inst/register_file_inst_8_3> <Decode_Stage_inst/register_file_inst_24_3> <Decode_Stage_inst/register_file_inst_19_3> <Decode_Stage_inst/register_file_inst_23_3> <Decode_Stage_inst/register_file_inst_18_3> <Decode_Stage_inst/register_file_inst_7_3> <Decode_Stage_inst/register_file_inst_6_3> <Decode_Stage_inst/register_file_inst_22_3> <Decode_Stage_inst/register_file_inst_17_3> <Decode_Stage_inst/register_file_inst_5_3> <Decode_Stage_inst/register_file_inst_21_3> <Decode_Stage_inst/register_file_inst_4_3> <Decode_Stage_inst/register_file_inst_20_3> <Decode_Stage_inst/register_file_inst_16_3>
+   <Decode_Stage_inst/register_file_inst_15_3> <Decode_Stage_inst/register_file_inst_13_3> <Decode_Stage_inst/register_file_inst_14_3> <Decode_Stage_inst/register_file_inst_11_3> <Decode_Stage_inst/register_file_inst_10_3> <Decode_Stage_inst/register_file_inst_12_3> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_28> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_28> <Decode_Stage_inst/fp_register_file_inst_25_28> <Decode_Stage_inst/fp_register_file_inst_23_28> <Decode_Stage_inst/fp_register_file_inst_22_28> <Decode_Stage_inst/fp_register_file_inst_24_28> <Decode_Stage_inst/fp_register_file_inst_21_28> <Decode_Stage_inst/fp_register_file_inst_20_28> <Decode_Stage_inst/fp_register_file_inst_19_28> <Decode_Stage_inst/fp_register_file_inst_18_28> <Decode_Stage_inst/fp_register_file_inst_17_28> <Decode_Stage_inst/fp_register_file_inst_16_28> <Decode_Stage_inst/fp_register_file_inst_14_28> <Decode_Stage_inst/fp_register_file_inst_13_28> <Decode_Stage_inst/fp_register_file_inst_15_28> <Decode_Stage_inst/fp_register_file_inst_12_28> <Decode_Stage_inst/fp_register_file_inst_11_28> <Decode_Stage_inst/fp_register_file_inst_10_28>
+   <Decode_Stage_inst/fp_register_file_inst_9_28> <Decode_Stage_inst/fp_register_file_inst_8_28> <Decode_Stage_inst/fp_register_file_inst_7_28> <Decode_Stage_inst/fp_register_file_inst_5_28> <Decode_Stage_inst/fp_register_file_inst_4_28> <Decode_Stage_inst/fp_register_file_inst_6_28> <Decode_Stage_inst/register_file_inst_26_28> <Decode_Stage_inst/register_file_inst_27_28> <Decode_Stage_inst/register_file_inst_9_28> <Decode_Stage_inst/register_file_inst_25_28> <Decode_Stage_inst/register_file_inst_8_28> <Decode_Stage_inst/register_file_inst_24_28> <Decode_Stage_inst/register_file_inst_19_28> <Decode_Stage_inst/register_file_inst_23_28> <Decode_Stage_inst/register_file_inst_18_28> <Decode_Stage_inst/register_file_inst_7_28> <Decode_Stage_inst/register_file_inst_6_28> <Decode_Stage_inst/register_file_inst_22_28> <Decode_Stage_inst/register_file_inst_17_28> <Decode_Stage_inst/register_file_inst_5_28> <Decode_Stage_inst/register_file_inst_21_28> <Decode_Stage_inst/register_file_inst_4_28>
+   <Decode_Stage_inst/register_file_inst_20_28> <Decode_Stage_inst/register_file_inst_16_28> <Decode_Stage_inst/register_file_inst_15_28> <Decode_Stage_inst/register_file_inst_13_28> <Decode_Stage_inst/register_file_inst_14_28> <Decode_Stage_inst/register_file_inst_11_28> <Decode_Stage_inst/register_file_inst_10_28> <Decode_Stage_inst/register_file_inst_12_28> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_4> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_4> <Decode_Stage_inst/fp_register_file_inst_25_4> <Decode_Stage_inst/fp_register_file_inst_23_4> <Decode_Stage_inst/fp_register_file_inst_22_4> <Decode_Stage_inst/fp_register_file_inst_24_4> <Decode_Stage_inst/fp_register_file_inst_21_4> <Decode_Stage_inst/fp_register_file_inst_20_4> <Decode_Stage_inst/fp_register_file_inst_19_4> <Decode_Stage_inst/fp_register_file_inst_18_4> <Decode_Stage_inst/fp_register_file_inst_17_4> <Decode_Stage_inst/fp_register_file_inst_16_4> <Decode_Stage_inst/fp_register_file_inst_14_4> <Decode_Stage_inst/fp_register_file_inst_13_4> <Decode_Stage_inst/fp_register_file_inst_15_4> <Decode_Stage_inst/fp_register_file_inst_12_4> <Decode_Stage_inst/fp_register_file_inst_11_4> <Decode_Stage_inst/fp_register_file_inst_10_4> <Decode_Stage_inst/fp_register_file_inst_9_4>
+   <Decode_Stage_inst/fp_register_file_inst_8_4> <Decode_Stage_inst/fp_register_file_inst_7_4> <Decode_Stage_inst/fp_register_file_inst_5_4> <Decode_Stage_inst/fp_register_file_inst_4_4> <Decode_Stage_inst/fp_register_file_inst_6_4> <Decode_Stage_inst/register_file_inst_26_4> <Decode_Stage_inst/register_file_inst_27_4> <Decode_Stage_inst/register_file_inst_9_4> <Decode_Stage_inst/register_file_inst_25_4> <Decode_Stage_inst/register_file_inst_8_4> <Decode_Stage_inst/register_file_inst_24_4> <Decode_Stage_inst/register_file_inst_19_4> <Decode_Stage_inst/register_file_inst_23_4> <Decode_Stage_inst/register_file_inst_18_4> <Decode_Stage_inst/register_file_inst_7_4> <Decode_Stage_inst/register_file_inst_6_4> <Decode_Stage_inst/register_file_inst_22_4> <Decode_Stage_inst/register_file_inst_17_4> <Decode_Stage_inst/register_file_inst_5_4> <Decode_Stage_inst/register_file_inst_21_4> <Decode_Stage_inst/register_file_inst_4_4> <Decode_Stage_inst/register_file_inst_20_4> <Decode_Stage_inst/register_file_inst_16_4>
+   <Decode_Stage_inst/register_file_inst_15_4> <Decode_Stage_inst/register_file_inst_13_4> <Decode_Stage_inst/register_file_inst_14_4> <Decode_Stage_inst/register_file_inst_11_4> <Decode_Stage_inst/register_file_inst_10_4> <Decode_Stage_inst/register_file_inst_12_4> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_29> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_29> <Decode_Stage_inst/fp_register_file_inst_25_29> <Decode_Stage_inst/fp_register_file_inst_23_29> <Decode_Stage_inst/fp_register_file_inst_22_29> <Decode_Stage_inst/fp_register_file_inst_24_29> <Decode_Stage_inst/fp_register_file_inst_21_29> <Decode_Stage_inst/fp_register_file_inst_20_29> <Decode_Stage_inst/fp_register_file_inst_19_29> <Decode_Stage_inst/fp_register_file_inst_18_29> <Decode_Stage_inst/fp_register_file_inst_17_29> <Decode_Stage_inst/fp_register_file_inst_16_29> <Decode_Stage_inst/fp_register_file_inst_14_29> <Decode_Stage_inst/fp_register_file_inst_13_29> <Decode_Stage_inst/fp_register_file_inst_15_29> <Decode_Stage_inst/fp_register_file_inst_12_29> <Decode_Stage_inst/fp_register_file_inst_11_29> <Decode_Stage_inst/fp_register_file_inst_10_29>
+   <Decode_Stage_inst/fp_register_file_inst_9_29> <Decode_Stage_inst/fp_register_file_inst_8_29> <Decode_Stage_inst/fp_register_file_inst_7_29> <Decode_Stage_inst/fp_register_file_inst_5_29> <Decode_Stage_inst/fp_register_file_inst_4_29> <Decode_Stage_inst/fp_register_file_inst_6_29> <Decode_Stage_inst/register_file_inst_26_29> <Decode_Stage_inst/register_file_inst_27_29> <Decode_Stage_inst/register_file_inst_9_29> <Decode_Stage_inst/register_file_inst_25_29> <Decode_Stage_inst/register_file_inst_8_29> <Decode_Stage_inst/register_file_inst_24_29> <Decode_Stage_inst/register_file_inst_19_29> <Decode_Stage_inst/register_file_inst_23_29> <Decode_Stage_inst/register_file_inst_18_29> <Decode_Stage_inst/register_file_inst_7_29> <Decode_Stage_inst/register_file_inst_6_29> <Decode_Stage_inst/register_file_inst_22_29> <Decode_Stage_inst/register_file_inst_17_29> <Decode_Stage_inst/register_file_inst_5_29> <Decode_Stage_inst/register_file_inst_21_29> <Decode_Stage_inst/register_file_inst_4_29>
+   <Decode_Stage_inst/register_file_inst_20_29> <Decode_Stage_inst/register_file_inst_16_29> <Decode_Stage_inst/register_file_inst_15_29> <Decode_Stage_inst/register_file_inst_13_29> <Decode_Stage_inst/register_file_inst_14_29> <Decode_Stage_inst/register_file_inst_11_29> <Decode_Stage_inst/register_file_inst_10_29> <Decode_Stage_inst/register_file_inst_12_29> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_5> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_5> <Decode_Stage_inst/fp_register_file_inst_25_5> <Decode_Stage_inst/fp_register_file_inst_23_5> <Decode_Stage_inst/fp_register_file_inst_22_5> <Decode_Stage_inst/fp_register_file_inst_24_5> <Decode_Stage_inst/fp_register_file_inst_21_5> <Decode_Stage_inst/fp_register_file_inst_20_5> <Decode_Stage_inst/fp_register_file_inst_19_5> <Decode_Stage_inst/fp_register_file_inst_18_5> <Decode_Stage_inst/fp_register_file_inst_17_5> <Decode_Stage_inst/fp_register_file_inst_16_5> <Decode_Stage_inst/fp_register_file_inst_14_5> <Decode_Stage_inst/fp_register_file_inst_13_5> <Decode_Stage_inst/fp_register_file_inst_15_5> <Decode_Stage_inst/fp_register_file_inst_12_5> <Decode_Stage_inst/fp_register_file_inst_11_5> <Decode_Stage_inst/fp_register_file_inst_10_5> <Decode_Stage_inst/fp_register_file_inst_9_5>
+   <Decode_Stage_inst/fp_register_file_inst_8_5> <Decode_Stage_inst/fp_register_file_inst_7_5> <Decode_Stage_inst/fp_register_file_inst_5_5> <Decode_Stage_inst/fp_register_file_inst_4_5> <Decode_Stage_inst/fp_register_file_inst_6_5> <Decode_Stage_inst/register_file_inst_26_5> <Decode_Stage_inst/register_file_inst_27_5> <Decode_Stage_inst/register_file_inst_9_5> <Decode_Stage_inst/register_file_inst_25_5> <Decode_Stage_inst/register_file_inst_8_5> <Decode_Stage_inst/register_file_inst_24_5> <Decode_Stage_inst/register_file_inst_19_5> <Decode_Stage_inst/register_file_inst_23_5> <Decode_Stage_inst/register_file_inst_18_5> <Decode_Stage_inst/register_file_inst_7_5> <Decode_Stage_inst/register_file_inst_6_5> <Decode_Stage_inst/register_file_inst_22_5> <Decode_Stage_inst/register_file_inst_17_5> <Decode_Stage_inst/register_file_inst_5_5> <Decode_Stage_inst/register_file_inst_21_5> <Decode_Stage_inst/register_file_inst_4_5> <Decode_Stage_inst/register_file_inst_20_5> <Decode_Stage_inst/register_file_inst_16_5>
+   <Decode_Stage_inst/register_file_inst_15_5> <Decode_Stage_inst/register_file_inst_13_5> <Decode_Stage_inst/register_file_inst_14_5> <Decode_Stage_inst/register_file_inst_11_5> <Decode_Stage_inst/register_file_inst_10_5> <Decode_Stage_inst/register_file_inst_12_5> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_10> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_10> <Decode_Stage_inst/fp_register_file_inst_25_10> <Decode_Stage_inst/fp_register_file_inst_23_10> <Decode_Stage_inst/fp_register_file_inst_22_10> <Decode_Stage_inst/fp_register_file_inst_24_10> <Decode_Stage_inst/fp_register_file_inst_21_10> <Decode_Stage_inst/fp_register_file_inst_20_10> <Decode_Stage_inst/fp_register_file_inst_19_10> <Decode_Stage_inst/fp_register_file_inst_18_10> <Decode_Stage_inst/fp_register_file_inst_17_10> <Decode_Stage_inst/fp_register_file_inst_16_10> <Decode_Stage_inst/fp_register_file_inst_14_10> <Decode_Stage_inst/fp_register_file_inst_13_10> <Decode_Stage_inst/fp_register_file_inst_15_10> <Decode_Stage_inst/fp_register_file_inst_12_10> <Decode_Stage_inst/fp_register_file_inst_11_10> <Decode_Stage_inst/fp_register_file_inst_10_10>
+   <Decode_Stage_inst/fp_register_file_inst_9_10> <Decode_Stage_inst/fp_register_file_inst_8_10> <Decode_Stage_inst/fp_register_file_inst_7_10> <Decode_Stage_inst/fp_register_file_inst_5_10> <Decode_Stage_inst/fp_register_file_inst_4_10> <Decode_Stage_inst/fp_register_file_inst_6_10> <Decode_Stage_inst/register_file_inst_26_10> <Decode_Stage_inst/register_file_inst_27_10> <Decode_Stage_inst/register_file_inst_9_10> <Decode_Stage_inst/register_file_inst_25_10> <Decode_Stage_inst/register_file_inst_8_10> <Decode_Stage_inst/register_file_inst_24_10> <Decode_Stage_inst/register_file_inst_19_10> <Decode_Stage_inst/register_file_inst_23_10> <Decode_Stage_inst/register_file_inst_18_10> <Decode_Stage_inst/register_file_inst_7_10> <Decode_Stage_inst/register_file_inst_6_10> <Decode_Stage_inst/register_file_inst_22_10> <Decode_Stage_inst/register_file_inst_17_10> <Decode_Stage_inst/register_file_inst_5_10> <Decode_Stage_inst/register_file_inst_21_10> <Decode_Stage_inst/register_file_inst_4_10>
+   <Decode_Stage_inst/register_file_inst_20_10> <Decode_Stage_inst/register_file_inst_16_10> <Decode_Stage_inst/register_file_inst_15_10> <Decode_Stage_inst/register_file_inst_13_10> <Decode_Stage_inst/register_file_inst_14_10> <Decode_Stage_inst/register_file_inst_11_10> <Decode_Stage_inst/register_file_inst_10_10> <Decode_Stage_inst/register_file_inst_12_10> 
+INFO:Xst:2261 - The FF/Latch <Decode_Stage_inst/fp_register_file_inst_27_6> in Unit <DLXPipelined> is equivalent to the following 47 FFs/Latches, which will be removed : <Decode_Stage_inst/fp_register_file_inst_26_6> <Decode_Stage_inst/fp_register_file_inst_25_6> <Decode_Stage_inst/fp_register_file_inst_23_6> <Decode_Stage_inst/fp_register_file_inst_22_6> <Decode_Stage_inst/fp_register_file_inst_24_6> <Decode_Stage_inst/fp_register_file_inst_21_6> <Decode_Stage_inst/fp_register_file_inst_20_6> <Decode_Stage_inst/fp_register_file_inst_19_6> <Decode_Stage_inst/fp_register_file_inst_18_6> <Decode_Stage_inst/fp_register_file_inst_17_6> <Decode_Stage_inst/fp_register_file_inst_16_6> <Decode_Stage_inst/fp_register_file_inst_14_6> <Decode_Stage_inst/fp_register_file_inst_13_6> <Decode_Stage_inst/fp_register_file_inst_15_6> <Decode_Stage_inst/fp_register_file_inst_12_6> <Decode_Stage_inst/fp_register_file_inst_11_6> <Decode_Stage_inst/fp_register_file_inst_10_6> <Decode_Stage_inst/fp_register_file_inst_9_6>
+   <Decode_Stage_inst/fp_register_file_inst_8_6> <Decode_Stage_inst/fp_register_file_inst_7_6> <Decode_Stage_inst/fp_register_file_inst_5_6> <Decode_Stage_inst/fp_register_file_inst_4_6> <Decode_Stage_inst/fp_register_file_inst_6_6> <Decode_Stage_inst/register_file_inst_26_6> <Decode_Stage_inst/register_file_inst_27_6> <Decode_Stage_inst/register_file_inst_9_6> <Decode_Stage_inst/register_file_inst_25_6> <Decode_Stage_inst/register_file_inst_8_6> <Decode_Stage_inst/register_file_inst_24_6> <Decode_Stage_inst/register_file_inst_19_6> <Decode_Stage_inst/register_file_inst_23_6> <Decode_Stage_inst/register_file_inst_18_6> <Decode_Stage_inst/register_file_inst_7_6> <Decode_Stage_inst/register_file_inst_6_6> <Decode_Stage_inst/register_file_inst_22_6> <Decode_Stage_inst/register_file_inst_17_6> <Decode_Stage_inst/register_file_inst_5_6> <Decode_Stage_inst/register_file_inst_21_6> <Decode_Stage_inst/register_file_inst_4_6> <Decode_Stage_inst/register_file_inst_20_6> <Decode_Stage_inst/register_file_inst_16_6>
+   <Decode_Stage_inst/register_file_inst_15_6> <Decode_Stage_inst/register_file_inst_13_6> <Decode_Stage_inst/register_file_inst_14_6> <Decode_Stage_inst/register_file_inst_11_6> <Decode_Stage_inst/register_file_inst_10_6> <Decode_Stage_inst/register_file_inst_12_6> 
+Found area constraint ratio of 100 (+ 5) on block DLXPipelined, actual ratio is 71.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_8> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_16> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_24> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_9> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_17> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_25> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_18> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_10> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_26> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_19> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_11> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_27> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_20> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_12> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_28> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_21> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_13> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_29> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_22> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_14> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_30> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_23> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_15> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_31> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_0> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_1> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_2> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_3> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_4> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_5> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_6> is unconnected in block <DLXPipelined>.
+WARNING:Xst:1898 - Due to constant pushing, FF/Latch <Memory_Stage_inst/memory_data_register_buffer_7> is unconnected in block <DLXPipelined>.
+FlipFlop Execute_Stage_inst/instruction_format_buffer_0 has been replicated 1 time(s)
+FlipFlop Execute_Stage_inst/instruction_format_buffer_1 has been replicated 1 time(s)
+FlipFlop Execute_Stage_inst/instruction_format_buffer_2 has been replicated 1 time(s)
+FlipFlop Memory_Stage_inst/instruction_buffer_27 has been replicated 1 time(s)
+FlipFlop Memory_Stage_inst/instruction_format_buffer_0 has been replicated 1 time(s)
+FlipFlop Memory_Stage_inst/instruction_format_buffer_1 has been replicated 1 time(s)
+FlipFlop Memory_Stage_inst/instruction_format_buffer_2 has been replicated 1 time(s)
+FlipFlop WriteBack_Stage_inst/instruction_format_buffer_0 has been replicated 1 time(s)
+FlipFlop WriteBack_Stage_inst/instruction_format_buffer_1 has been replicated 2 time(s)
+FlipFlop WriteBack_Stage_inst/instruction_format_buffer_2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 814
+ Flip-Flops                                            : 814
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : DLXPipelined.ngr
+Top Level Output File Name         : DLXPipelined
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 2638
+
+Cell Usage :
+# BELS                             : 4917
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 797
+#      LUT2                        : 172
+#      LUT2_D                      : 2
+#      LUT2_L                      : 20
+#      LUT3                        : 447
+#      LUT3_D                      : 17
+#      LUT3_L                      : 48
+#      LUT4                        : 1563
+#      LUT4_D                      : 124
+#      LUT4_L                      : 383
+#      MUXCY                       : 146
+#      MUXF5                       : 625
+#      MUXF6                       : 256
+#      MUXF7                       : 128
+#      MUXF8                       : 64
+#      VCC                         : 1
+#      XORCY                       : 122
+# FlipFlops/Latches                : 814
+#      FD                          : 304
+#      FDC                         : 30
+#      FDE                         : 480
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 2637
+#      IBUF                        : 1
+#      OBUF                        : 2636
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                     1859  out of   4656    39%  
+ Number of Slice Flip Flops:            814  out of   9312     8%  
+ Number of 4 input LUTs:               3574  out of   9312    38%  
+ Number of IOs:                        2638
+ Number of bonded IOBs:                2638  out of    232   1137% (*) 
+ Number of GCLKs:                         1  out of     24     4%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 814   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 30    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 19.472ns (Maximum Frequency: 51.355MHz)
+   Minimum input arrival time before clock: 4.197ns
+   Maximum output required time after clock: 22.753ns
+   Maximum combinational path delay: 7.549ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 19.472ns (frequency: 51.355MHz)
+  Total number of paths / destination ports: 21115760 / 1294
+-------------------------------------------------------------------------
+Delay:               19.472ns (Levels of Logic = 19)
+  Source:            WriteBack_Stage_inst/instruction_format_buffer_0_1 (FF)
+  Destination:       Memory_Stage_inst/alu_exit_buffer_6 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: WriteBack_Stage_inst/instruction_format_buffer_0_1 to Memory_Stage_inst/alu_exit_buffer_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.514   0.721  WriteBack_Stage_inst/instruction_format_buffer_0_1 (WriteBack_Stage_inst/instruction_format_buffer_0_1)
+     LUT4:I0->O            1   0.612   0.360  WriteBack_Stage_inst/dest_register<4>_SW3 (N1183)
+     LUT4:I3->O           24   0.612   1.094  WriteBack_Stage_inst/dest_register<4> (wb_dest_register_4_OBUF)
+     LUT4_D:I2->O         22   0.612   0.992  Execute_Stage_inst/var_register_b_cmp_eq0000526_2 (Execute_Stage_inst/var_register_b_cmp_eq0000526_1)
+     LUT4_L:I3->LO         1   0.612   0.103  Execute_Stage_inst/var_register_b_mux0015<28>14 (Execute_Stage_inst/var_register_b_mux0015<28>14)
+     LUT4:I3->O            1   0.612   0.360  Execute_Stage_inst/var_register_b_mux0015<28>21 (Execute_Stage_inst/var_register_b_mux0015<28>21)
+     LUT4:I3->O            7   0.612   0.754  Execute_Stage_inst/var_register_b_mux0015<28>79 (Execute_Stage_inst/var_register_b_mux0015<28>79)
+     LUT4:I0->O            1   0.612   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_lut<1> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_lut<1>)
+     MUXCY:S->O            1   0.404   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<1> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<2> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<3> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<3>)
+     MUXCY:CI->O           2   0.399   0.410  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<4> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<4>)
+     LUT3_D:I2->O        157   0.612   1.109  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<6>1 (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<6>)
+     LUT4_D:I3->O         21   0.612   0.962  Execute_Stage_inst/alu_exit_cmp_eq00452 (Execute_Stage_inst/alu_exit_cmp_eq0045)
+     LUT4_D:I3->O         22   0.612   0.992  Execute_Stage_inst/alu_exit<0>573_1 (Execute_Stage_inst/alu_exit<0>573)
+     LUT4:I3->O            1   0.612   0.360  Execute_Stage_inst/alu_exit<6>210 (Execute_Stage_inst/alu_exit<6>210)
+     LUT4:I3->O            1   0.612   0.360  Execute_Stage_inst/alu_exit<6>225 (Execute_Stage_inst/alu_exit<6>225)
+     LUT4:I3->O            1   0.612   0.000  Execute_Stage_inst/alu_exit<6>412_SW0_F (N3187)
+     MUXF5:I0->O           1   0.278   0.360  Execute_Stage_inst/alu_exit<6>412_SW0 (N1475)
+     LUT4:I3->O            2   0.612   0.000  Execute_Stage_inst/alu_exit<6>445 (exe_alu_exit_6_OBUF)
+     FD:D                      0.268          Memory_Stage_inst/alu_exit_buffer_6
+    ----------------------------------------
+    Total                     19.472ns (10.535ns logic, 8.938ns route)
+                                       (54.1% logic, 45.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 57 / 54
+-------------------------------------------------------------------------
+Offset:              4.197ns (Levels of Logic = 3)
+  Source:            reset (PAD)
+  Destination:       Execute_Stage_inst/instruction_format_buffer_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to Execute_Stage_inst/instruction_format_buffer_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            84   1.106   1.090  reset_IBUF (reset_IBUF)
+     LUT4:I3->O            1   0.612   0.509  Decode_Stage_inst/instruction_format<1>3711 (Decode_Stage_inst/N10)
+     LUT4:I0->O            3   0.612   0.000  Decode_Stage_inst/instruction_format<1>51 (dec_instruction_format_1_OBUF)
+     FD:D                      0.268          Execute_Stage_inst/instruction_format_buffer_1
+    ----------------------------------------
+    Total                      4.197ns (2.598ns logic, 1.599ns route)
+                                       (61.9% logic, 38.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 21088298 / 1068
+-------------------------------------------------------------------------
+Offset:              22.753ns (Levels of Logic = 20)
+  Source:            WriteBack_Stage_inst/instruction_format_buffer_0_1 (FF)
+  Destination:       exe_alu_exit<6> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: WriteBack_Stage_inst/instruction_format_buffer_0_1 to exe_alu_exit<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.514   0.721  WriteBack_Stage_inst/instruction_format_buffer_0_1 (WriteBack_Stage_inst/instruction_format_buffer_0_1)
+     LUT4:I0->O            1   0.612   0.360  WriteBack_Stage_inst/dest_register<4>_SW3 (N1183)
+     LUT4:I3->O           24   0.612   1.094  WriteBack_Stage_inst/dest_register<4> (wb_dest_register_4_OBUF)
+     LUT4_D:I2->O         22   0.612   0.992  Execute_Stage_inst/var_register_b_cmp_eq0000526_2 (Execute_Stage_inst/var_register_b_cmp_eq0000526_1)
+     LUT4_L:I3->LO         1   0.612   0.103  Execute_Stage_inst/var_register_b_mux0015<28>14 (Execute_Stage_inst/var_register_b_mux0015<28>14)
+     LUT4:I3->O            1   0.612   0.360  Execute_Stage_inst/var_register_b_mux0015<28>21 (Execute_Stage_inst/var_register_b_mux0015<28>21)
+     LUT4:I3->O            7   0.612   0.754  Execute_Stage_inst/var_register_b_mux0015<28>79 (Execute_Stage_inst/var_register_b_mux0015<28>79)
+     LUT4:I0->O            1   0.612   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_lut<1> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_lut<1>)
+     MUXCY:S->O            1   0.404   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<1> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<2> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<3> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<3>)
+     MUXCY:CI->O           2   0.399   0.410  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<4> (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<4>)
+     LUT3_D:I2->O        157   0.612   1.109  Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<6>1 (Execute_Stage_inst/alu_exit_cmp_eq00391_wg_cy<6>)
+     LUT4_D:I3->O         21   0.612   0.962  Execute_Stage_inst/alu_exit_cmp_eq00452 (Execute_Stage_inst/alu_exit_cmp_eq0045)
+     LUT4_D:I3->O         22   0.612   0.992  Execute_Stage_inst/alu_exit<0>573_1 (Execute_Stage_inst/alu_exit<0>573)
+     LUT4:I3->O            1   0.612   0.360  Execute_Stage_inst/alu_exit<6>210 (Execute_Stage_inst/alu_exit<6>210)
+     LUT4:I3->O            1   0.612   0.360  Execute_Stage_inst/alu_exit<6>225 (Execute_Stage_inst/alu_exit<6>225)
+     LUT4:I3->O            1   0.612   0.000  Execute_Stage_inst/alu_exit<6>412_SW0_F (N3187)
+     MUXF5:I0->O           1   0.278   0.360  Execute_Stage_inst/alu_exit<6>412_SW0 (N1475)
+     LUT4:I3->O            2   0.612   0.380  Execute_Stage_inst/alu_exit<6>445 (exe_alu_exit_6_OBUF)
+     OBUF:I->O                 3.169          exe_alu_exit_6_OBUF (exe_alu_exit<6>)
+    ----------------------------------------
+    Total                     22.753ns (13.436ns logic, 9.318ns route)
+                                       (59.0% logic, 41.0% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 106 / 97
+-------------------------------------------------------------------------
+Delay:               7.549ns (Levels of Logic = 4)
+  Source:            reset (PAD)
+  Destination:       dec_instruction_format<1> (PAD)
+
+  Data Path: reset to dec_instruction_format<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            84   1.106   1.090  reset_IBUF (reset_IBUF)
+     LUT4:I3->O            1   0.612   0.509  Decode_Stage_inst/instruction_format<1>3711 (Decode_Stage_inst/N10)
+     LUT4:I0->O            3   0.612   0.451  Decode_Stage_inst/instruction_format<1>51 (dec_instruction_format_1_OBUF)
+     OBUF:I->O                 3.169          dec_instruction_format_1_OBUF (dec_instruction_format<1>)
+    ----------------------------------------
+    Total                      7.549ns (5.499ns logic, 2.050ns route)
+                                       (72.8% logic, 27.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 194.00 secs
+Total CPU time to Xst completion: 193.45 secs
+ 
+--> 
+
+Total memory usage is 368300 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   39 (   0 filtered)
+Number of infos    :   59 (   0 filtered)
+

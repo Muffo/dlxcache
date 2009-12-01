@@ -20,6 +20,10 @@
   <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_LSO" xil_pn:name="Cache_cmp.lso"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Cache_cmp.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Cache_cmp.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="Cache_cmp.xst"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="DLXPipe.ntrc_log"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="DLXPipelined.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="DLXPipelined.lso"/>
@@ -57,20 +61,11 @@
     <transform xil_pn:end_ts="1257411937" xil_pn:in_ck="6774837462788401813" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1257411937">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="DLXPipelined.vhd"/>
-      <outfile xil_pn:name="DLXPipelined_Test.vhd"/>
-      <outfile xil_pn:name="Decode_Stage.vhd"/>
-      <outfile xil_pn:name="Decode_Stage_Test.vhd"/>
-      <outfile xil_pn:name="Execute_Stage.vhd"/>
-      <outfile xil_pn:name="Fetch_Stage.vhd"/>
-      <outfile xil_pn:name="Fetch_Stage_Test.vhd"/>
-      <outfile xil_pn:name="Fixed_32.vhd"/>
-      <outfile xil_pn:name="Fixed_32_Test.vhd"/>
-      <outfile xil_pn:name="Float_32.vhd"/>
-      <outfile xil_pn:name="Float_32_Test.vhd"/>
-      <outfile xil_pn:name="Global.vhd"/>
-      <outfile xil_pn:name="Memory_Stage.vhd"/>
-      <outfile xil_pn:name="WriteBack_Stage.vhd"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1257249232" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-9044832904953873877" xil_pn:start_ts="1257249232">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -87,36 +82,31 @@
     <transform xil_pn:end_ts="1257411937" xil_pn:in_ck="6774837462788401813" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1257411937">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="DLXPipelined.vhd"/>
-      <outfile xil_pn:name="DLXPipelined_Test.vhd"/>
-      <outfile xil_pn:name="Decode_Stage.vhd"/>
-      <outfile xil_pn:name="Decode_Stage_Test.vhd"/>
-      <outfile xil_pn:name="Execute_Stage.vhd"/>
-      <outfile xil_pn:name="Fetch_Stage.vhd"/>
-      <outfile xil_pn:name="Fetch_Stage_Test.vhd"/>
-      <outfile xil_pn:name="Fixed_32.vhd"/>
-      <outfile xil_pn:name="Fixed_32_Test.vhd"/>
-      <outfile xil_pn:name="Float_32.vhd"/>
-      <outfile xil_pn:name="Float_32_Test.vhd"/>
-      <outfile xil_pn:name="Global.vhd"/>
-      <outfile xil_pn:name="Memory_Stage.vhd"/>
-      <outfile xil_pn:name="WriteBack_Stage.vhd"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1257411943" xil_pn:in_ck="6774837462788401813" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5243590109127686983" xil_pn:start_ts="1257411937">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="Decode_Stage_Test_beh.prj"/>
-      <outfile xil_pn:name="Decode_Stage_Test_isim_beh.exe"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1258548453" xil_pn:in_ck="-7519160645584065979" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-7766668300231498313" xil_pn:start_ts="1258548452">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="Decode_Stage_Test_isim_beh.wdb"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1257327050" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1257327050">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -142,7 +132,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="DLXPipe.ntrc_log"/>
       <outfile xil_pn:name="DLXPipelined.cmd_log"/>

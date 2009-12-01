@@ -1,0 +1,6 @@
+set -tmpdir "C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/xst"
+elaborate
+-lso Cache_cmp.lso
+-ifn Cache_cmp.prj
+-ifmt mixed

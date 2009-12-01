@@ -1,0 +1,38 @@
+Release 11.3 - xst L.57 (nt)
+Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
+ 
+--> 
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3607 - Unit work/Global is now defined in a different file.  It was defined in "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/Global.vhd", and is now defined in "C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/Global.vhd".
+Compiling vhdl file "C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/Global.vhd" in Library work.
+Package <global> compiled.
+Compiling vhdl file "C:/Users/Filippo/Repository Progetto Cache/DLX Pipe/Cache_cmp.vhd" in Library work.
+Package <ChacheLibrary> compiled.
+Entity <Cache_cmp> compiled.
+Entity <Cache_cmp> (Architecture <Behavioral>) compiled.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.36 secs
+ 
+--> 
+
+Total memory usage is 153248 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

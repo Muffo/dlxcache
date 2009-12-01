@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  22 NOV 2009 18:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  1 DEC 2009 11:08
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -519,34 +519,46 @@ File: img/dlx-cache.jpg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (0.88774pt too wide) in paragraph at lines 75--76
-[]\OT1/cmr/bx/n/12 Ready\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-mi-ne d
-el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
+Overfull \hbox (14.31718pt too wide) in paragraph at lines 75--76
+[]\OT1/cmr/bx/n/12 ch[]-rea-dy\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-m
+i-ne del-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
 [9 <./img/01-interfacce_schema_generale.jpg>]
-<img/cache-ram.jpg, id=89, 413.29407pt x 297.36093pt>
+File: img/dlx-cache.jpg Graphic file (type jpg)
+ <use img/dlx-cache.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/cache-ram.jpg, id=90, 413.29407pt x 297.36093pt>
 File: img/cache-ram.jpg Graphic file (type jpg)
  <use img/cache-ram.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (0.88774pt too wide) in paragraph at lines 95--96
+Overfull \hbox (0.88774pt too wide) in paragraph at lines 112--113
 []\OT1/cmr/bx/n/12 Ready\OT1/cmr/m/n/12 : se-gna-le che in-di-ca il ter-mi-ne d
 el-l'o-pe-ra-zio-ne di let-tu-ra/scrittura
  []
 
-[10 <./img/dlx-cache.jpg>]) [11 <./img/cache-ram.jpg>] (./tesi.aux)
+[10 <./img/dlx-cache.jpg>]
+
+LaTeX Warning: Text page 11 contains only floats.
+
+[11 <./img/cache-ram.jpg>]) [12] (./tesi.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 5988 strings out of 493848
- 84282 string characters out of 3149206
+ 5992 strings out of 493848
+ 84330 string characters out of 3149206
  159745 words of memory out of 3000000
- 9034 multiletter control sequences out of 15000+200000
+ 9036 multiletter control sequences out of 15000+200000
  11729 words of font info for 45 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
  38i,12n,43p,425b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -557,9 +569,9 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
 /local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on tesi.pdf (11 pages, 218960 bytes).
+Output written on tesi.pdf (12 pages, 221282 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
+ 136 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

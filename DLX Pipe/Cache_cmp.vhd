@@ -30,6 +30,11 @@ CONSTANT INDEX_BIT : natural := 2;
 CONSTANT TAG_BIT : natural := PARALLELISM - INDEX_BIT - OFFSET_BIT;
 CONSTANT NWAY : natural := 2;
 
+CONSTANT MESI_I : STD_LOGIC_VECTOR (1 downto 0) := "00";
+CONSTANT MESI_M : STD_LOGIC_VECTOR (1 downto 0) := "11";
+CONSTANT MESI_E : STD_LOGIC_VECTOR (1 downto 0) := "01";
+CONSTANT MESI_S : STD_LOGIC_VECTOR (1 downto 0) := "10";
+
 TYPE data_line IS ARRAY (0 to 2**OFFSET_BIT) of STD_LOGIC_VECTOR (7 downto 0);
 
 TYPE cache_line IS 
@@ -71,7 +76,7 @@ entity Cache_cmp is
            ch_baddr : in  STD_LOGIC_VECTOR (31 downto 2);
            ch_bdata : inout  STD_LOGIC_VECTOR (31 downto 0);
            ch_reset : in  STD_LOGIC;
-           ch_ready : in  STD_LOGIC;
+           ch_ready : out  STD_LOGIC;
 			  ch_hit : out STD_LOGIC;
 			  ch_hitm : out STD_LOGIC;
 			  ch_inv : in STD_LOGIC;
@@ -81,11 +86,20 @@ end Cache_cmp;
 
 architecture Behavioral of Cache_cmp is
 
-shared variable cache : cache_type (0 to 2**INDEX_BIT);
+signal cache : cache_type (0 to 2**INDEX_BIT);
+signal RAM_inst: ram_type(0 to 1024) := (others => X"00");
 
 begin
 
-
+cache_reset: process (ch_reset)
+begin
+	for i in 0 to 2**INDEX_BIT loop
+		for j in 0 to NWAY loop
+			cache(i).ways(j).status <= MESI_I;
+			cache(i).ways(j).lru_counter <= (others => '1');
+		end loop;
+	end loop;
+end process cache_reset;
 
 end Behavioral;
 

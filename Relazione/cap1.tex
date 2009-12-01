@@ -47,19 +47,19 @@ Infine, in caso di invalidazione di una linea, si porta al valore massimo il con
 
 
 \section{Struttura e interfacce}
-La memoria cache si interfaccia con i dispositivi esterni attraverso 3 tipi di interfacce, come mostrato in Fig. \ref{fig:int_gen}.
+La memoria cache si interfaccia con i dispositivi esterni attraverso 4 tipi di interfacce, come mostrato in Fig. \ref{fig:int_gen}.
 
-\begin{figure}[!h]
- \centering
+\begin{figure}[h!]
+\centering
 \includegraphics{img/01-interfacce_schema_generale.jpg}
- \caption{Interfacce della memoria cache}
- \label{fig:int_gen}
+\caption{Interfacce della memoria cache}
+\label{fig:int_gen}
 \end{figure}
 
 
 L'interfaccia verso il micropocessore, mostrata in Fig. \ref{fig:int_dlx}, consente a quest'ultimo di accedere ai dati memorizzati all'interno della cache. 
 
-\begin{figure}[!h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{img/dlx-cache.jpg}
 \caption{Interfaccia della memoria cache verso il processore DLX}
@@ -68,18 +68,35 @@ L'interfaccia verso il micropocessore, mostrata in Fig. \ref{fig:int_dlx}, conse
 
 In particolare sono presenti i seguenti segnali:
 \begin{itemize} %i nomi dei comandi non sono esatti: vanno sostituiti
-\item \textbf{Address[31-2]}: indirizzi a 32 bit emessi dal microprocessore
-\item \textbf{Data[32-0]}: bus dati con parallelismo 32bit 
-\item \textbf{Write}: segnale per il comando di scrittura in cache
-\item \textbf{Read}: segnale per il comando di lettura da cache
-\item \textbf{Ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
+\item \textbf{ch\_baddr[31-2]}: indirizzi a 32 bit emessi dal microprocessore
+\item \textbf{ch\_bdata[32-0]}: bus dati con parallelismo 32bit 
+\item \textbf{ch\_memwr}: segnale per il comando di scrittura in cache
+\item \textbf{ch\_memrd}: segnale per il comando di lettura da cache
+\item \textbf{ch\_ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
 \end{itemize}
 
 Per quanto riguarda gli scambi di dati tra processore e memoria cache, si ipotizza che siano sempre lette e scritte parole di lunghezza fissa a 32 bit.
 
+L'interfaccia verso il controllore di memoria (segnali di controllo?), mostrata in Fig. \ref{fig:int_cnt}, consente di testare e modificare lo stato delle linee.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/dlx-cache.jpg} %immagine da fare
+\caption{Interfaccia della memoria cache verso il controllore di memoria}
+\label{fig:int_cnt}
+\end{figure}
+
+In particolare sono presenti i seguenti segnali:
+\begin{itemize} %i nomi dei comandi non sono esatti: vanno sostituiti
+\item \textbf{ch\_eads}: inizia il ciclo di snoop
+\item \textbf{ch\_hit}: la linea richiesta \`e presente in memoria
+\item \textbf{ch\_hitm}: la linea richiesta \`e presente in memoria in stato modified
+\item \textbf{ch\_flush}: la linea richiesta \`e presente in memoria in stato modified
+\end{itemize}
+
 L'interfaccia verso la RAM, mostrata in Fig. \ref{fig:int_ram}, consente alla cache di recuperare i blocchi dal livello sottostante.
 
-\begin{figure}[!h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{img/cache-ram.jpg}
 \caption{Interfaccia della memoria cache verso la RAM}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/DLXCache/Cache/Cache_test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="cache_test" />
+            <top_module name="chachelibrary" />
+            <top_module name="global" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/cache_test/ch_baddr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_baddr[31:2]</obj_property>
+      <obj_property name="ObjectShortName">ch_baddr[31:2]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#008000</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_bdata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_bdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ch_bdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_memrd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_memrd</obj_property>
+      <obj_property name="ObjectShortName">ch_memrd</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_memwr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_memwr</obj_property>
+      <obj_property name="ObjectShortName">ch_memwr</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_inv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_inv</obj_property>
+      <obj_property name="ObjectShortName">ch_inv</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_wtwb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_wtwb</obj_property>
+      <obj_property name="ObjectShortName">ch_wtwb</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_eads" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_eads</obj_property>
+      <obj_property name="ObjectShortName">ch_eads</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_reset</obj_property>
+      <obj_property name="ObjectShortName">ch_reset</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_flush" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_flush</obj_property>
+      <obj_property name="ObjectShortName">ch_flush</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_ready</obj_property>
+      <obj_property name="ObjectShortName">ch_ready</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_hit" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_hit</obj_property>
+      <obj_property name="ObjectShortName">ch_hit</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/cache_test/ch_hitm" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ch_hitm</obj_property>
+      <obj_property name="ObjectShortName">ch_hitm</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+</wave_config>

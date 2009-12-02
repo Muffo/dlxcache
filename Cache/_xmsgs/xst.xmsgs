@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;0&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;1&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;2&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;0&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;1&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;2&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;0&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;1&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;2&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;0&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;1&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;2&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;0&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;1&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;2&gt;.status</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">00</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">11</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">ch_ready</arg>&gt; in unit &lt;<arg fmt="%s" index="2">Cache_cmp</arg>&gt; has a constant value of <arg fmt="%s" index="3">1</arg> during circuit operation. The register is replaced by logic.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;14&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_memwr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;20&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;15&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;21&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;16&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;22&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;17&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;23&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;18&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;24&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;19&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_baddr</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;0&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;30&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;25&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">ch_hit</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;1&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;31&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;26&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;2&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;27&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;3&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;28&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;4&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;29&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;5&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;6&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">ch_hitm</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;7&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;8&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;9&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_inv</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_wtwb</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_reset</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_flush</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_memrd</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;10&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;11&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">ch_eads</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;12&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="2565" delta="unknown" >Inout &lt;<arg fmt="%s" index="1">ch_bdata&lt;13&gt;</arg>&gt; is never assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;2&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;2&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;2&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;1&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;1&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;1&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;0&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;0&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.ways&lt;0&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;4&gt;.index</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;2&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;2&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;2&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;1&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;1&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;1&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;0&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;0&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.ways&lt;0&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;3&gt;.index</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;2&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;2&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;2&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;1&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;1&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;1&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;0&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;0&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.ways&lt;0&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;2&gt;.index</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;2&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;2&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;2&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;1&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;1&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;1&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;0&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;0&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.ways&lt;0&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;1&gt;.index</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;2&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;2&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;2&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;2&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;1&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;1&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;1&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;1&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;0&gt;.tag</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;0&gt;.status</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;0&gt;.lru_counter</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.ways&lt;0&gt;.data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">cache&lt;0&gt;.index</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">RAM_inst</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+</messages>
+

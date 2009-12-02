@@ -1,0 +1,22 @@
+Running: C:\Xilinx\11.1\ISE\bin\nt\unwrapped\fuse.exe -ise C:/DLXCache/Cache/Cache.ise -intstyle ise -incremental -o C:/DLXCache/Cache/Cache_test_isim_beh.exe -prj C:/DLXCache/Cache/Cache_test_beh.prj Cache_test 
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/DLXCache/Cache/Cache_test.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:89 - "C:/DLXCache/Cache/Cache_test.vhd" Line 79: <cache_cmp> remains a black-box since it has no binding entity.
+Completed static elaboration
+Fuse Memory Usage: 58924 KB
+Fuse CPU Usage: 249 ms
+Using precompiled package standard from library std
+Using precompiled package std_logic_1164 from library ieee
+Using precompiled package std_logic_arith from library ieee
+Using precompiled package std_logic_unsigned from library ieee
+Using precompiled package numeric_std from library ieee
+WARNING:Simulator:648 - "C:/DLXCache/Cache/Cache_test.vhd" Line 79. Instance cache_cmp is unbound
+Compiling architecture behavior of entity cache_test
+Time Resolution for simulation is 1ps.
+Compiled 6 VHDL Units
+Built simulation executable C:/DLXCache/Cache/Cache_test_isim_beh.exe
+Fuse Memory Usage: 64560 KB
+Fuse CPU Usage: 312 ms

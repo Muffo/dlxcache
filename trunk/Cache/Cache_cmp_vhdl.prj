@@ -1,0 +1,3 @@
+vhdl work "C:\DLXCache\Cache\Global.vhd"
+vhdl work "C:\DLXCache\Cache\Cache_lib.vhd"
+vhdl work "C:\DLXCache\Cache\Cache_cmp.vhd"

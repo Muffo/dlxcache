@@ -1,3 +1,0 @@
-vhdl isim_temp "Global.vhd"
-vhdl isim_temp "Cache_lib.vhd"
-vhdl isim_temp "Cache_cmp.vhd"

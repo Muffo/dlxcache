@@ -5,7 +5,7 @@
 -- Create Date:    10:29:02 12/01/2009 
 -- Design Name: 
 -- Module Name:    Cache_cmp - Behavioral 
--- Project Name: 
+-- Project Name: 	 Cache
 -- Target Devices: 
 -- Tool versions: 
 -- Description: 
@@ -24,7 +24,6 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use work.CacheLibrary.all;
 use work.Global.all;
-
 
 entity Cache_cmp is
     port ( ch_memrd : in  STD_LOGIC;
@@ -47,9 +46,16 @@ architecture Behavioral of Cache_cmp is
 signal cache : cache_type (0 to 2**INDEX_BIT - 1);
 signal RAM_inst: ram_type(0 to 1024) := (others => X"00");
 
-alias addr_tag is ch_baddr(OFFSET_BIT + INDEX_BIT + TAG_BIT - 1 downto OFFSET_BIT + INDEX_BIT);
+alias addr_tag is ch_baddr(PARALLELISM - 1 downto OFFSET_BIT + INDEX_BIT);
 alias addr_index is ch_baddr(OFFSET_BIT + INDEX_BIT - 1 downto OFFSET_BIT);
 alias addr_offset is ch_baddr(OFFSET_BIT - 1 downto 0);
+
+-- NON FUNZIONA
+--function line_status(signal addr_index: bit_vector(INDEX_BIT-1 to 0), signal way_num: natural) return bit_vector(1 to 0) is
+--begin
+--	return cache(conv_integer(addr_index))(way_num).status;
+--end;
+
 
 begin
 
@@ -65,25 +71,28 @@ begin
 				end loop;
 			end loop;
 			
-			-- per test
+			-- Inserisco alcuni dati nella cache per effettuare test
 			cache(0)(0).status <= MESI_E;
 			cache(0)(0).data(0)(7 downto 0) <= (others => '1');
 			cache(0)(0).data(1)(7 downto 0) <= (others => '0');
 			cache(0)(0).data(2)(7 downto 0) <= (others => '1');
-			cache(0)(0).data(3)(7 downto 0) <= (others => '1');
+			cache(0)(0).data(3)(7 downto 0) <= "10101010";
+			cache(0)(0).tag(TAG_BIT-1 downto 0) <= (others => '0');
 		end if;
 	end process cache_reset;
 	
 	cache_read: process(ch_memrd) is
-		variable word : STD_LOGIC_VECTOR (31 downto 0) := (others => '1');
+		variable word : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 	begin
 		if(ch_memrd = '1') then
 			for i in 0 to NWAY - 1 loop
-				if(cache(conv_integer(addr_index))(i).status /= MESI_I and cache(conv_integer(addr_index))(i).tag = addr_tag) then -- HIT
+				if((cache(conv_integer(addr_index))(i).status /= MESI_I) and (cache(conv_integer(addr_index))(i).tag = addr_tag)) then -- HIT
+		      --NON FUNZIONA		if(line_status(addr_index, i) /= MESI_I) and (cache(conv_integer(addr_index))(i).tag = addr_tag)) then -- HIT	
 					word(7 downto 0) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset));
-					word(15 downto 8) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset + 1));
-					word(23 downto 16) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset + 2));
-					word(31 downto 24) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset + 3));
+					word(15 downto 8) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset) + 1);
+					word(23 downto 16) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset) + 2);
+					word(31 downto 24) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset) + 3);
+					ch_ready <= '1'; --debug
 				end if;
 			end loop;
 			ch_bdata <= word;

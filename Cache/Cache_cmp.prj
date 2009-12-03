@@ -1,3 +1,0 @@
-vhdl work "Global.vhd"
-vhdl work "Cache_lib.vhd"
-vhdl work "Cache_cmp.vhd"

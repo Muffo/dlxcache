@@ -29,6 +29,8 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.all;
 USE ieee.numeric_std.ALL;
+use work.CacheLibrary.all;
+use work.Global.all;
  
 ENTITY Cache_test IS
 END Cache_test;
@@ -41,7 +43,7 @@ ARCHITECTURE behavior OF Cache_test IS
     PORT(
          ch_memrd : IN  std_logic;
          ch_memwr : IN  std_logic;
-         ch_baddr : IN  std_logic_vector(31 downto 2);
+         ch_baddr : IN  std_logic_vector(31 downto 0);
          ch_bdata : INOUT  std_logic_vector(31 downto 0);
          ch_reset : IN  std_logic;
          ch_ready : OUT  std_logic;
@@ -50,7 +52,8 @@ ARCHITECTURE behavior OF Cache_test IS
          ch_inv : IN  std_logic;
          ch_eads : IN  std_logic;
 			ch_wtwb : in STD_LOGIC;
-         ch_flush : IN  std_logic
+         ch_flush : IN  std_logic;
+			ch_debug_cache : out cache_type(0 to 2**INDEX_BIT - 1)
         );
     END COMPONENT;
     
@@ -58,7 +61,7 @@ ARCHITECTURE behavior OF Cache_test IS
    --Inputs
    signal ch_memrd : std_logic := '0';
    signal ch_memwr : std_logic := '0';
-   signal ch_baddr : std_logic_vector(31 downto 2) := (others => '0');
+   signal ch_baddr : std_logic_vector(31 downto 0) := (others => '0');
    signal ch_reset : std_logic := '0';
    signal ch_inv : std_logic := '0';
    signal ch_eads : std_logic := '0';
@@ -72,6 +75,7 @@ ARCHITECTURE behavior OF Cache_test IS
    signal ch_ready : std_logic;
    signal ch_hit : std_logic;
    signal ch_hitm : std_logic;
+	signal ch_debug_cache : cache_type (0 to 2**INDEX_BIT - 1);
  
 BEGIN
  
@@ -88,36 +92,24 @@ BEGIN
           ch_inv => ch_inv,
           ch_eads => ch_eads,
 			 ch_wtwb => ch_wtwb,
-          ch_flush => ch_flush
-        );
- 
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
- 
---   constant <clock>_period := 1ns;
--- 
---   <clock>_process :process
---   begin
---		<clock> <= '0';
---		wait for <clock>_period/2;
---		<clock> <= '1';
---		wait for <clock>_period/2;
---   end process;
- 
+          ch_flush => ch_flush,
+			 ch_debug_cache => ch_debug_cache
+        ); 
  
    -- Stimulus process
    stim_proc: process
    begin		
-      -- hold reset state for 100ms.
       wait for 10 ns;	
-
-      -- wait for <clock>_period*10;
-
-      -- insert stimulus here 
-
-
 		ch_reset <= '1';
-      wait;
+      wait for 5 ns;
+		ch_reset <= '0';
+		
+		wait for 10 ns;
+		
+		ch_baddr <= (others => '0');
+		ch_memrd <= '1';
+		
+		wait;
    end process;
 
 END;

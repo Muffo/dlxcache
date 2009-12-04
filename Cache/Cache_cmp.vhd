@@ -83,18 +83,67 @@ begin
 	
 	cache_read: process(ch_memrd) is
 		variable word : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+		variable curr_index : natural := 0;
+		variable curr_offset : natural := 0;
+		variable hit : boolean := false;
+		
 	begin
 		if(ch_memrd = '1') then
-			for i in 0 to NWAY - 1 loop
-				if((cache(conv_integer(addr_index))(i).status /= MESI_I) and (cache(conv_integer(addr_index))(i).tag = addr_tag)) then -- HIT
+			curr_index := conv_integer(addr_index); -- salvo direttamente i valori convertiti così il codice è più leggibile
+			curr_offset := conv_integer(addr_offset);
+			
+			hit := false; -- lo uso come flag per terminare...da chiarire
+		
+			for way in 0 to NWAY - 1 loop
+				if((cache(curr_index)(way).status /= MESI_I) and (cache(curr_index)(way).tag = addr_tag)) then -- HIT
 		      --NON FUNZIONA		if(line_status(addr_index, i) /= MESI_I) and (cache(conv_integer(addr_index))(i).tag = addr_tag)) then -- HIT	
-					word(7 downto 0) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset));
-					word(15 downto 8) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset) + 1);
-					word(23 downto 16) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset) + 2);
-					word(31 downto 24) := cache(conv_integer(addr_index))(i).data(conv_integer(addr_offset) + 3);
-					ch_ready <= '1'; --debug
+					word(7 downto 0) := cache(curr_index)(way).data(curr_offset);
+					word(15 downto 8) := cache(curr_index)(way).data(curr_offset + 1);
+					word(23 downto 16) := cache(curr_index)(way).data(curr_offset + 2);
+					word(31 downto 24) := cache(curr_index)(way).data(curr_offset + 3);
+					hit := true;
+					exit; -- esce dal ciclo quando ha trovato un dato
 				end if;
 			end loop;
+			
+			if (not hit) then -- MISS
+				for way in 0 to NWAY - 1 loop
+					if(cache(curr_index)(way).status = MESI_I) then -- trovata una linea libera
+						
+						-- TODO: caricare il dato dalla RAM e metterlo nel posto giusto
+						-- Note: bisogna tralasciare i bit di offset
+						
+						word(7 downto 0) := cache(curr_index)(way).data(curr_offset);
+						word(15 downto 8) := cache(curr_index)(way).data(curr_offset + 1);
+						word(23 downto 16) := cache(curr_index)(way).data(curr_offset + 2);
+						word(31 downto 24) := cache(curr_index)(way).data(curr_offset + 3);
+						hit := true;
+						exit; 
+					end if;
+				end loop;			
+			end if;
+			
+			
+			if (not hit) then -- MISS ma con rimpiazzamento
+				for way in 0 to NWAY - 1 loop
+					if(cache(curr_index)(way).status = MESI_I) then -- trovata una linea libera
+						
+						
+						-- TODO: scaricare il dato più vecchio sulla RAM e caricare il nuovo
+						
+						word(7 downto 0) := cache(curr_index)(way).data(curr_offset);
+						word(15 downto 8) := cache(curr_index)(way).data(curr_offset + 1);
+						word(23 downto 16) := cache(curr_index)(way).data(curr_offset + 2);
+						word(31 downto 24) := cache(curr_index)(way).data(curr_offset + 3);
+						hit := true;
+						exit; 
+					end if;
+				end loop;			
+			end if;
+			
+			-- TODO: operazioni per la politica di invecchiamento
+			
+			ch_ready <= '1'; --debug
 			ch_bdata <= word;
 		end if;
 	end process cache_read;

@@ -109,6 +109,15 @@ BEGIN
 		ch_baddr <= (others => '0');
 		ch_memrd <= '1';
 		
+		wait for 20 ns;
+		
+		ch_memrd <= '0';
+		
+		wait for 20 ns;
+		
+		ch_baddr <= "00000000000000000000000000100100";
+		ch_memrd <= '1';
+		
 		wait;
    end process;
 

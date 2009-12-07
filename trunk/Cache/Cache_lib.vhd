@@ -27,12 +27,6 @@ TYPE cache_line IS
 	END RECORD;
 
 TYPE set_ways IS ARRAY (0 to NWAY - 1) of cache_line;
---
---TYPE cache_set IS 
---		RECORD
---			index : STD_LOGIC_VECTOR (INDEX_BIT-1 downto 0);
---			ways	: set_ways;
---		END RECORD;
 		
 TYPE cache_type IS ARRAY (natural range <>) of set_ways;
 	

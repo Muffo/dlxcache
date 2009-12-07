@@ -85,6 +85,8 @@ begin
 		variable word : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 		variable curr_index : natural := 0;
 		variable curr_offset : natural := 0;
+		
+		variable curr_way : natural := 0;
 		variable hit : boolean := false;
 		
 	begin
@@ -92,31 +94,35 @@ begin
 			curr_index := conv_integer(addr_index); -- salvo direttamente i valori convertiti così il codice è più leggibile
 			curr_offset := conv_integer(addr_offset);
 			
-			hit := false; -- lo uso come flag per terminare...da chiarire
+			hit := false; -- lo uso come flag per gestire il flusso di elaborazione
+			curr_way := 0;
 		
 			for way in 0 to NWAY - 1 loop
 				if((cache(curr_index)(way).status /= MESI_I) and (cache(curr_index)(way).tag = addr_tag)) then -- HIT
-		      --NON FUNZIONA		if(line_status(addr_index, i) /= MESI_I) and (cache(conv_integer(addr_index))(i).tag = addr_tag)) then -- HIT	
-					word(7 downto 0) := cache(curr_index)(way).data(curr_offset);
-					word(15 downto 8) := cache(curr_index)(way).data(curr_offset + 1);
-					word(23 downto 16) := cache(curr_index)(way).data(curr_offset + 2);
-					word(31 downto 24) := cache(curr_index)(way).data(curr_offset + 3);
+					curr_way := way;
 					hit := true;
 					exit; -- esce dal ciclo quando ha trovato un dato
 				end if;
 			end loop;
 			
-			if (not hit) then -- MISS
+			if (hit = false) then -- MISS
 				for way in 0 to NWAY - 1 loop
 					if(cache(curr_index)(way).status = MESI_I) then -- trovata una linea libera
+						
+						-- IL CODICE QUI SOTTO CAUSA UN ERRORE: da controllare
 						
 						-- TODO: caricare il dato dalla RAM e metterlo nel posto giusto
-						-- Note: bisogna tralasciare i bit di offset
+						-- Note: per calcolare l'indirizzo iniziale bisogna tralasciare i bit di offset
 						
-						word(7 downto 0) := cache(curr_index)(way).data(curr_offset);
-						word(15 downto 8) := cache(curr_index)(way).data(curr_offset + 1);
-						word(23 downto 16) := cache(curr_index)(way).data(curr_offset + 2);
-						word(31 downto 24) := cache(curr_index)(way).data(curr_offset + 3);
+						-- cache(curr_index)(way).status <= MESI_E; -- si deve guardare WTWB per decidere tra S ed E?
+						-- cache(curr_index)(way).tag(TAG_BIT-1 downto 0) <= addr_tag;
+						
+						-- for data_i in 0 to 2**OFFSET_BIT - 1 loop
+							-- 5 zeri perché ci sono 5 bit di offset
+							-- cache(curr_index)(way).data(data_i)(7 downto 0) <= RAM_inst(conv_integer(addr_tag & addr_index & "00000") + data_i);
+						-- end loop;
+								
+						curr_way := way;
 						hit := true;
 						exit; 
 					end if;
@@ -124,23 +130,17 @@ begin
 			end if;
 			
 			
-			if (not hit) then -- MISS ma con rimpiazzamento
-				for way in 0 to NWAY - 1 loop
-					if(cache(curr_index)(way).status = MESI_I) then -- trovata una linea libera
-						
-						
-						-- TODO: scaricare il dato più vecchio sulla RAM e caricare il nuovo
-						
-						word(7 downto 0) := cache(curr_index)(way).data(curr_offset);
-						word(15 downto 8) := cache(curr_index)(way).data(curr_offset + 1);
-						word(23 downto 16) := cache(curr_index)(way).data(curr_offset + 2);
-						word(31 downto 24) := cache(curr_index)(way).data(curr_offset + 3);
-						hit := true;
-						exit; 
-					end if;
-				end loop;			
+			if (hit = false) then -- MISS ma con rimpiazzamento
+				-- TODO: scaricare il dato più vecchio sulla RAM e caricare il nuovo
+				hit := true;
 			end if;
 			
+			
+			word(7 downto 0) := cache(curr_index)(curr_way).data(curr_offset);
+			word(15 downto 8) := cache(curr_index)(curr_way).data(curr_offset + 1);
+			word(23 downto 16) := cache(curr_index)(curr_way).data(curr_offset + 2);
+			word(31 downto 24) := cache(curr_index)(curr_way).data(curr_offset + 3);
+
 			-- TODO: operazioni per la politica di invecchiamento
 			
 			ch_ready <= '1'; --debug

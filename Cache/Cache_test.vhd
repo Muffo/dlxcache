@@ -98,25 +98,34 @@ BEGIN
  
    -- Stimulus process
    stim_proc: process
-   begin		
-      wait for 10 ns;	
+   begin			
 		ch_reset <= '1';
-      wait for 5 ns;
+      wait for 20 ns;
 		ch_reset <= '0';
 		
-		wait for 10 ns;
-		
-		ch_baddr <= (others => '0');
+		wait for 100 ns;
+		ch_baddr <= "00000000000000000000000000000000";
 		ch_memrd <= '1';
-		
-		wait for 20 ns;
-		
+		wait for 100 ns;
 		ch_memrd <= '0';
 		
 		wait for 20 ns;
-		
 		ch_baddr <= "00000000000000000000000000100100";
 		ch_memrd <= '1';
+		wait for 100 ns;
+		ch_memrd <= '0';
+		
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000010000100";
+		ch_memrd <= '1';
+		wait for 100 ns;
+		ch_memrd <= '0';
+		
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000100001100";
+		ch_memrd <= '1';
+		wait for 100 ns;
+		ch_memrd <= '0';
 		
 		wait;
    end process;

@@ -60,13 +60,56 @@ begin
 	end loop;
 end procedure cache_reset;
 
+procedure cache_replace_line(signal cache : inout cache_type; signal RAM : inout ram_type; selected_way : out natural; data_block : inout data_line) is
+	variable curr_index : natural := 0;
+	variable data_block_addr : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
+begin
+	curr_index := conv_integer(addr_index);
+	for way in 0 to NWAY - 1 loop
+		-- lru_counter = NWAY-1 -> se ci sono linee invalide trova una di queste, altrimenti trova la linee più vecchia
+		if(cache(curr_index)(way).lru_counter = NWAY - 1) then
+			selected_way := way;	
+			
+			-- Se modificato, scarico il dato più vecchio sulla RAM
+			if(cache(curr_index)(way).status = MESI_M) then
+				data_block_addr(TAG_BIT + INDEX_BIT + OFFSET_BIT - 1 downto OFFSET_BIT) := cache(curr_index)(way).tag & addr_index;
+				for i in 0 to 2**OFFSET_BIT - 1 loop
+					RAM(conv_integer(data_block_addr) + i) <= cache(curr_index)(way).data(i);
+				end loop;
+			end if;
+			
+			-- Carico il blocco nuovo
+			data_block_addr(TAG_BIT + INDEX_BIT + OFFSET_BIT - 1 downto OFFSET_BIT) := addr_tag & addr_index;
+			for i in 0 to 2**OFFSET_BIT - 1 loop
+				data_block(i) := RAM(conv_integer(data_block_addr) + i);
+			end loop;
+			
+			-- Sovrascrivo il vecchio blocco con il nuovo
+			cache(curr_index)(way).tag <= addr_tag;
+			cache(curr_index)(way).data <= data_block;
+			cache(curr_index)(way).status <= MESI_E; -- Incompleto: bisogna verificare se lo stato è E oppure S
+			exit; 
+		end if;
+	end loop;
+end procedure cache_replace_line;
+
+procedure cache_hit_on(signal cache : inout cache_type; hit_index : in natural; hit_way : in natural) is
+begin
+	-- Operazioni per la politica di invecchiamento
+	for way in 0 to NWAY - 1 loop
+		if(way /= hit_way and cache(hit_index)(way).lru_counter < cache(hit_index)(hit_way).lru_counter) then
+			cache(hit_index)(way).lru_counter <= cache(hit_index)(way).lru_counter + 1;
+		end if;
+	end loop;
+	cache(hit_index)(hit_way).lru_counter <= 0;
+end procedure cache_hit_on;
+
 procedure cache_read(signal cache : inout cache_type; signal RAM : inout ram_type; word : out STD_LOGIC_VECTOR) is
 	variable curr_index : natural := 0;
 	variable curr_offset : natural := 0;
 	variable curr_way : natural := 0;
 	variable hit : boolean := false;
 	variable data_block : data_line := (others => "00000000");
-	variable data_block_addr : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 begin
 	curr_index := conv_integer(addr_index);
 	curr_offset := conv_integer(addr_offset);	
@@ -86,54 +129,61 @@ begin
 	end loop;
 	
 	-- In caso di MISS applico la politica di rimpiazzamento
-	if (not hit) then 
-		for way in 0 to NWAY - 1 loop
-			if(cache(curr_index)(way).lru_counter = NWAY - 1) then -- lru_counter = NWAY-1 -> se ci sono linee invalide trova una di queste, altrimenti trova la linee più vecchia
-				curr_way := way;	
-				
-				-- Se modificato, scarico il dato più vecchio sulla RAM
-				if(cache(curr_index)(way).status = MESI_M) then
-					data_block_addr(TAG_BIT + INDEX_BIT + OFFSET_BIT - 1 downto OFFSET_BIT) := cache(curr_index)(way).tag & addr_index;
-					for i in 0 to 2**OFFSET_BIT - 1 loop
-						RAM(conv_integer(data_block_addr) + i) <= cache(curr_index)(way).data(i);
-					end loop;
-				end if;
-				
-				-- Carico il blocco nuovo
-				data_block_addr(TAG_BIT + INDEX_BIT + OFFSET_BIT - 1 downto OFFSET_BIT) := addr_tag & addr_index;
-				for i in 0 to 2**OFFSET_BIT - 1 loop
-					data_block(i) := RAM(conv_integer(data_block_addr) + i);
-				end loop;
-				
-				-- Seleziono il dato richiesto
-				word(7 downto 0) := data_block(curr_offset);
-				word(15 downto 8) := data_block(curr_offset + 1);
-				word(23 downto 16) := data_block(curr_offset + 2);
-				word(31 downto 24) := data_block(curr_offset + 3);
-				
-				-- Sovrascrivo il vecchio blocco con il nuovo
-				cache(curr_index)(way).tag <= addr_tag;
-				cache(curr_index)(way).data <= data_block;
-				cache(curr_index)(way).status <= MESI_E; -- Incompleto: bisogna verificare se lo stato è E oppure S
-				exit; 
-			end if;
-		end loop;			
-	end if;
+	if (not hit) then 			
+		cache_replace_line(cache, RAM, curr_way, data_block);
+		
+		-- Seleziono il dato richiesto
+		word(7 downto 0) := data_block(curr_offset);
+		word(15 downto 8) := data_block(curr_offset + 1);
+		word(23 downto 16) := data_block(curr_offset + 2);
+		word(31 downto 24) := data_block(curr_offset + 3);
+	end if;	
 	
-	-- Operazioni per la politica di invecchiamento
+	cache_hit_on(cache, curr_index, curr_way);
+end procedure cache_read;
+
+procedure cache_write(signal cache : inout cache_type; signal RAM : inout ram_type) is
+	variable curr_index : natural := 0;
+	variable curr_offset : natural := 0;
+	variable curr_way : natural := 0;
+	variable hit : boolean := false;
+	variable data_block : data_line := (others => "00000000");
+begin
+	curr_index := conv_integer(addr_index);
+	curr_offset := conv_integer(addr_offset);	
+	hit := false;
+
 	for way in 0 to NWAY - 1 loop
-		if(way /= curr_way and cache(curr_index)(way).lru_counter < cache(curr_index)(curr_way).lru_counter) then
-			cache(curr_index)(way).lru_counter <= cache(curr_index)(way).lru_counter + 1;
+		if((cache(curr_index)(way).status /= MESI_I) and (cache(curr_index)(way).tag = addr_tag)) then -- HIT
+			curr_way := way;
+			hit := true;
+			cache(curr_index)(way).data(curr_offset) <= ch_bdata(7 downto 0);
+			cache(curr_index)(way).data(curr_offset + 1) <= ch_bdata(15 downto 8);
+			cache(curr_index)(way).data(curr_offset + 2) <= ch_bdata(23 downto 16);
+			cache(curr_index)(way).data(curr_offset + 3) <= ch_bdata(31 downto 24);
+			cache(curr_index)(way).status <= MESI_M;
+			exit;
 		end if;
 	end loop;
-	cache(curr_index)(curr_way).lru_counter <= 0;
-end procedure cache_read;
+	
+	-- In caso di MISS applico la politica di rimpiazzamento
+	if (not hit) then 
+		cache_replace_line(cache, RAM, curr_way, data_block);
+		cache(curr_index)(curr_way).data(curr_offset) <= ch_bdata(7 downto 0);
+		cache(curr_index)(curr_way).data(curr_offset + 1) <= ch_bdata(15 downto 8);
+		cache(curr_index)(curr_way).data(curr_offset + 2) <= ch_bdata(23 downto 16);
+		cache(curr_index)(curr_way).data(curr_offset + 3) <= ch_bdata(31 downto 24);
+		cache(curr_index)(curr_way).status <= MESI_M;
+	end if;	
+	
+	cache_hit_on(cache, curr_index, curr_way);
+end procedure cache_write;
 
 begin
 
 	ch_debug_cache <= cache;
 
-	cache_process: process (ch_reset, ch_memrd) is
+	cache_process: process (ch_reset, ch_memrd, ch_memwr) is
 		variable word : STD_LOGIC_VECTOR (31 downto 0) := (others => '0');
 	begin
 		if (ch_reset = '1') then -- reset
@@ -146,6 +196,8 @@ begin
 		elsif(ch_memrd = '1') then -- memrd
 			cache_read(cache, RAM, word);
 			ch_bdata <= word;
+		elsif(ch_memwr = '1') then -- memwr
+			cache_write(cache, RAM);
 		end if;
 	end process cache_process;
 

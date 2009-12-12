@@ -102,31 +102,70 @@ BEGIN
 		ch_reset <= '1';
       wait for 20 ns;
 		ch_reset <= '0';
-		
-		wait for 100 ns;
+		--significato bit:T:tag,I:index
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		wait for 100 ns; 
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000000000000";
 		ch_memrd <= '1';
 		wait for 100 ns;
-		ch_memrd <= '0';
+		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"
 		
 		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000000100100";
 		ch_memrd <= '1';
 		wait for 100 ns;
-		ch_memrd <= '0';
+		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "01"
 		
 		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000010000100";
 		ch_memrd <= '1';
 		wait for 100 ns;
-		ch_memrd <= '0';
+		ch_memrd <= '0';-- mi aspetto seconda via occupata per indice "00"
 		
 		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000100001100";
 		ch_memrd <= '1';
 		wait for 100 ns;
-		ch_memrd <= '0';
+		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"(replacement)
 		
+		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		ch_baddr <= "00000000000000000000000100001110";
+		ch_memrd <= '1';
+		wait for 100 ns;
+		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
+		
+		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		ch_baddr <= "00000000000000000000000100011110";
+		ch_memrd <= '1';
+		wait for 100 ns;
+		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
+		-- fin qui OK!
+		-- il pezzo seguente d'ha il seguente errore ISIM:
+		-- ...
+		-- ERROR: Index 32 out of bound 0 to 31. 
+		-- ERROR: In process Cache_cmp.vhd:cache_process 
+		-- ...
+		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		ch_baddr <= "00000000000000000000000100001110";
+		ch_bdata <= "11111111111111111111111111111111";
+		ch_memwr <= '1';
+		wait for 100 ns;
+		ch_memwr <= '0';-- mi aspetto prima via occupata con contatore a 0 e stato in M(11) e dato agiornato per indice "00"
+		
+		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		ch_baddr <= "00000000000000000000000101000110";
+		ch_bdata <= "11111111111111111111111111111111";
+		ch_memwr <= '1';
+		wait for 100 ns;
+		ch_memwr <= '0';-- mi aspetto prima via occupata con contatore a 0 e stato in M(11) e dato agiornato per indice "10"
 		wait;
    end process;
 

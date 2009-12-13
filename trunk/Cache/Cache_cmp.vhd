@@ -179,6 +179,42 @@ begin
 	cache_hit_on(cache, curr_index, curr_way);
 end procedure cache_write;
 
+procedure cache_snoop(signal cache : inout cache_type) is
+	variable curr_index : natural := 0;
+	variable curr_offset : natural := 0;
+	variable curr_way : natural := 0;
+	variable hit : boolean := false;
+begin
+	curr_index := conv_integer(addr_index);
+	curr_offset := conv_integer(addr_offset);	
+	hit := false;
+
+	for way in 0 to NWAY - 1 loop
+		if((cache(curr_index)(way).status /= MESI_I) and (cache(curr_index)(way).tag = addr_tag)) then -- HIT
+			curr_way := way;
+			hit := true;
+			
+			if(cache(curr_index)(way).status /= MESI_M) then
+				ch_hit <= '1'; -- quando lo resettiamo questo bit?
+			else
+				ch_hit <= '1';
+			end if;
+			
+			if (ch_inv = '1') then  -- ricevuto comando di invalidazione (lo mettiamo qui?)
+				cache(curr_index)(way).status <= MESI_I;
+			end if;
+			exit;
+		end if;
+	end loop;
+	
+	-- In caso di MISS cosa facciamo?? Max aveva proposto un altro segnale in out per segnalare questa condizione
+--	if (not hit) then 
+--		
+--	end if;	
+--	
+	cache_hit_on(cache, curr_index, curr_way);
+end procedure cache_snoop;
+
 begin
 
 	ch_debug_cache <= cache;
@@ -198,6 +234,8 @@ begin
 			ch_bdata <= word;
 		elsif(ch_memwr = '1') then -- memwr
 			cache_write(cache, RAM);
+		elsif(ch_eads = '1') then -- snoop
+			cache_snoop(cache);
 		end if;
 	end process cache_process;
 

@@ -169,10 +169,10 @@ begin
 	-- In caso di MISS applico la politica di rimpiazzamento
 	if (not hit) then 
 		cache_replace_line(cache, RAM, curr_way, data_block);
-		cache(curr_index)(curr_way).data(curr_offset) <= ch_bdata(7 downto 0);
-		cache(curr_index)(curr_way).data(curr_offset + 1) <= ch_bdata(15 downto 8);
-		cache(curr_index)(curr_way).data(curr_offset + 2) <= ch_bdata(23 downto 16);
-		cache(curr_index)(curr_way).data(curr_offset + 3) <= ch_bdata(31 downto 24);
+--		cache(curr_index)(curr_way).data(curr_offset) <= ch_bdata(7 downto 0);
+--		cache(curr_index)(curr_way).data(curr_offset + 1) <= ch_bdata(15 downto 8);
+--		cache(curr_index)(curr_way).data(curr_offset + 2) <= ch_bdata(23 downto 16);
+--		cache(curr_index)(curr_way).data(curr_offset + 3) <= ch_bdata(31 downto 24);
 		cache(curr_index)(curr_way).status <= MESI_M;
 	end if;	
 	

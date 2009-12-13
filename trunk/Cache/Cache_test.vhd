@@ -1,4 +1,5 @@
 --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Company: 
 -- Engineer:
 --
@@ -111,6 +112,30 @@ BEGIN
 		wait for 100 ns;
 		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"
 		
+--		wait for 100 ns;
+--		ch_baddr <= "00000000000000000000000000000000";
+--		ch_memrd <= '1';
+--		wait for 100 ns;
+--		ch_memrd <= '0';
+--		
+--		wait for 20 ns;
+--		ch_baddr <= "00000000000000000000000000100100";
+--		ch_memrd <= '1';
+--		wait for 100 ns;
+--		ch_memrd <= '0';
+--		
+--		wait for 20 ns;
+--		ch_baddr <= "00000000000000000000000010000100";
+--		ch_memrd <= '1';
+--		wait for 100 ns;
+--		ch_memrd <= '0';
+--		
+--		wait for 20 ns;
+--		ch_baddr <= "00000000000000000000000100001100";
+--		ch_memrd <= '1';
+--		wait for 100 ns;
+--		ch_memrd <= '0';
+		
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000000100100";
@@ -128,9 +153,11 @@ BEGIN
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000100001100";
-		ch_memrd <= '1';
+		ch_bdata <= "11111111000000001111111100000000";
+		ch_memwr <= '1';
 		wait for 100 ns;
 		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"(replacement)
+		ch_memwr <= '0';
 		
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
@@ -169,4 +196,5 @@ BEGIN
 		wait;
    end process;
 
+END;
 END;

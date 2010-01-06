@@ -100,6 +100,7 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin			
+		wait for 10 ns;
 		ch_reset <= '1';
       wait for 20 ns;
 		ch_reset <= '0';
@@ -196,5 +197,4 @@ BEGIN
 		wait;
    end process;
 
-END;
 END;

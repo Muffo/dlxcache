@@ -152,24 +152,24 @@ BEGIN
 		ch_memrd <= '0';-- mi aspetto seconda via occupata per indice "00"
 		
 		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100001100";
-		ch_bdata <= "11111111000000001111111100000000";
-		ch_memwr <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"(replacement)
-		ch_memwr <= '0';
+--		--		       TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+--		ch_baddr <= "00000000000000000000000100001100";
+--		ch_bdata <= "11111111000000001111111100000000";
+--		ch_memwr <= '1';
+--		wait for 100 ns;
+--		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"(replacement)
+--		ch_memwr <= '0';
 		
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100001110";
+		ch_baddr <= "00000000000000000000000100001100";
 		ch_memrd <= '1';
 		wait for 100 ns;
 		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
 		
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100011110";
+		ch_baddr <= "00000000000000000000000100011100";
 		ch_memrd <= '1';
 		wait for 100 ns;
 		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
@@ -181,7 +181,7 @@ BEGIN
 		-- ...
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100001110";
+		ch_baddr <= "00000000000000000000000100001100";
 		ch_bdata <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
 		wait for 100 ns;
@@ -189,7 +189,7 @@ BEGIN
 		
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000101000110";
+		ch_baddr <= "00000000000000000000000101000100";
 		ch_bdata <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
 		wait for 100 ns;

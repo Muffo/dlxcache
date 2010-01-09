@@ -75,8 +75,8 @@ begin
 			if(cache(curr_index)(way).status = MESI_M) then
 				data_block_addr(PARALLELISM - 1 downto OFFSET_BIT) := cache(curr_index)(way).tag & addr_index;
 				for i in 0 to 2**OFFSET_BIT - 1 loop
-					-- in questa linea c'è un warning perché la RAM ha 1023 locazioni ma l'indirizzo ne ha potenzialmente molte di più
-					RAM((conv_integer(data_block_addr) + i) mod 1023) <= cache(curr_index)(way).data(i);
+					-- in questa linea c'è un warning perché la RAM ha 1024 locazioni ma l'indirizzo ne ha potenzialmente molte di più
+					RAM((conv_integer(data_block_addr) + i) mod 1024) <= cache(curr_index)(way).data(i);
 				end loop;
 			end if;
 			
@@ -240,15 +240,22 @@ begin
 			for i in 0 to 1023 loop
 				RAM(i) <= conv_std_logic_vector(i mod 256, 8);
 			end loop;
-		elsif(ch_memrd = '1') then -- memrd
-			cache_read(cache, RAM, word);
-			ch_bdata <= word;
-		elsif(ch_memwr = '1') then -- memwr
-			word := ch_bdata;
-			cache_write(cache, RAM, word);
-		elsif(ch_eads = '1') then -- snoop
-			cache_snoop(cache, hit);
-			ch_hit <= hit;
+		else
+			if(ch_memrd = '1' and ch_memwr = '0') then -- memrd
+				cache_read(cache, RAM, word);
+				ch_bdata <= word;
+			elsif(ch_memrd = '0') then -- fine memrd
+				ch_bdata <= (others => 'Z');
+			end if;
+				
+			if(ch_memwr = '1' and ch_memrd = '0') then -- memwr
+				word := ch_bdata;
+				cache_write(cache, RAM, word);
+			end if;
+				
+--			if(ch_eads = '1') then -- snoop
+--				cache_snoop(cache, hit);
+--				ch_hit <= hit;
 		end if;
 	end process cache_process;
 

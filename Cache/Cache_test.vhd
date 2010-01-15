@@ -45,7 +45,8 @@ ARCHITECTURE behavior OF Cache_test IS
          ch_memrd : IN  std_logic;
          ch_memwr : IN  std_logic;
          ch_baddr : IN  std_logic_vector(31 downto 0);
-         ch_bdata : INOUT  std_logic_vector(31 downto 0);
+         ch_bdata_in : IN  std_logic_vector(31 downto 0);
+			ch_bdata_out : OUT  std_logic_vector(31 downto 0);
          ch_reset : IN  std_logic;
          ch_ready : OUT  std_logic;
          ch_hit : OUT  std_logic;
@@ -70,8 +71,8 @@ ARCHITECTURE behavior OF Cache_test IS
 	signal ch_wtwb : std_logic := '0';
 
 	--BiDirs
-   signal ch_bdata : std_logic_vector(31 downto 0);
-
+   signal ch_bdata_in : std_logic_vector(31 downto 0);
+	signal ch_bdata_out : std_logic_vector(31 downto 0);
  	--Outputs
    signal ch_ready : std_logic;
    signal ch_hit : std_logic;
@@ -85,7 +86,8 @@ BEGIN
           ch_memrd => ch_memrd,
           ch_memwr => ch_memwr,
           ch_baddr => ch_baddr,
-          ch_bdata => ch_bdata,
+          ch_bdata_in => ch_bdata_in,
+			 ch_bdata_out => ch_bdata_out,
           ch_reset => ch_reset,
           ch_ready => ch_ready,
           ch_hit => ch_hit,
@@ -113,30 +115,6 @@ BEGIN
 		wait for 100 ns;
 		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"
 		
---		wait for 100 ns;
---		ch_baddr <= "00000000000000000000000000000000";
---		ch_memrd <= '1';
---		wait for 100 ns;
---		ch_memrd <= '0';
---		
---		wait for 20 ns;
---		ch_baddr <= "00000000000000000000000000100100";
---		ch_memrd <= '1';
---		wait for 100 ns;
---		ch_memrd <= '0';
---		
---		wait for 20 ns;
---		ch_baddr <= "00000000000000000000000010000100";
---		ch_memrd <= '1';
---		wait for 100 ns;
---		ch_memrd <= '0';
---		
---		wait for 20 ns;
---		ch_baddr <= "00000000000000000000000100001100";
---		ch_memrd <= '1';
---		wait for 100 ns;
---		ch_memrd <= '0';
-		
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000000100100";
@@ -152,15 +130,6 @@ BEGIN
 		ch_memrd <= '0';-- mi aspetto seconda via occupata per indice "00"
 		
 		wait for 20 ns;
---		--		       TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
---		ch_baddr <= "00000000000000000000000100001100";
---		ch_bdata <= "11111111000000001111111100000000";
---		ch_memwr <= '1';
---		wait for 100 ns;
---		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"(replacement)
---		ch_memwr <= '0';
-		
-		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000100001100";
 		ch_memrd <= '1';
@@ -173,16 +142,12 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 100 ns;
 		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
-		-- fin qui OK!
-		-- il pezzo seguente d'ha il seguente errore ISIM:
-		-- ...
-		-- ERROR: Index 32 out of bound 0 to 31. 
-		-- ERROR: In process Cache_cmp.vhd:cache_process 
-		-- ...
+		
+		-- SCRITTURE
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100001100";
-		ch_bdata <= "11111111111111111111111111111111";
+		ch_baddr <= "00000000000000000000000100000000";
+		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
 		wait for 100 ns;
 		ch_memwr <= '0';-- mi aspetto prima via occupata con contatore a 0 e stato in M(11) e dato agiornato per indice "00"
@@ -190,7 +155,7 @@ BEGIN
 		wait for 20 ns;
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000101000100";
-		ch_bdata <= "11111111111111111111111111111111";
+		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
 		wait for 100 ns;
 		ch_memwr <= '0';-- mi aspetto prima via occupata con contatore a 0 e stato in M(11) e dato agiornato per indice "10"

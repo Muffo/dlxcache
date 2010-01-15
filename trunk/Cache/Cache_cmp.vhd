@@ -29,7 +29,8 @@ entity Cache_cmp is
     port ( ch_memrd : in  STD_LOGIC;
            ch_memwr : in  STD_LOGIC;
            ch_baddr : in  STD_LOGIC_VECTOR (31 downto 0);
-           ch_bdata : inout  STD_LOGIC_VECTOR (31 downto 0);
+           ch_bdata_in : in  STD_LOGIC_VECTOR (31 downto 0);
+			  ch_bdata_out : out  STD_LOGIC_VECTOR (31 downto 0);
            ch_reset : in  STD_LOGIC;
            ch_ready : out  STD_LOGIC;
 			  ch_hit : out STD_LOGIC;
@@ -161,11 +162,7 @@ begin
 		if((cache(curr_index)(way).status /= MESI_I) and (cache(curr_index)(way).tag = addr_tag)) then -- HIT
 			curr_way := way;
 			hit := true;
---			cache(curr_index)(way).data(curr_offset) <= ch_bdata(7 downto 0);
---			cache(curr_index)(way).data(curr_offset + 1) <= ch_bdata(15 downto 8);
---			cache(curr_index)(way).data(curr_offset + 2) <= ch_bdata(23 downto 16);
---			cache(curr_index)(way).data(curr_offset + 3) <= ch_bdata(31 downto 24);
---			cache(curr_index)(way).status <= MESI_M;
+			data_block := cache(curr_index)(way).data;
 			exit;
 		end if;
 	end loop;
@@ -173,17 +170,14 @@ begin
 	-- In caso di MISS applico la politica di rimpiazzamento
 	if (not hit) then 
 		cache_replace_line(cache, RAM, curr_way, data_block);
---		cache(curr_index)(curr_way).data(curr_offset) <= ch_bdata(7 downto 0);
---		cache(curr_index)(curr_way).data(curr_offset + 1) <= ch_bdata(15 downto 8);
---		cache(curr_index)(curr_way).data(curr_offset + 2) <= ch_bdata(23 downto 16);
---		cache(curr_index)(curr_way).data(curr_offset + 3) <= ch_bdata(31 downto 24);
---		cache(curr_index)(curr_way).status <= MESI_M;
 	end if;	
 	
-	cache(curr_index)(curr_way).data(curr_offset) <= word(7 downto 0);
-	cache(curr_index)(curr_way).data(curr_offset + 1) <= word(15 downto 8);
-	cache(curr_index)(curr_way).data(curr_offset + 2) <= word(23 downto 16);
-	cache(curr_index)(curr_way).data(curr_offset + 3) <= word(31 downto 24);
+	data_block(curr_offset) := word(7 downto 0);
+	data_block(curr_offset + 1) := word(15 downto 8);
+	data_block(curr_offset + 2) := word(23 downto 16);
+	data_block(curr_offset + 3) := word(31 downto 24);
+	
+	cache(curr_index)(curr_way).data <= data_block;
 	cache(curr_index)(curr_way).status <= MESI_M;
 	
 	cache_hit_on(cache, curr_index, curr_way);
@@ -217,12 +211,6 @@ begin
 		end if;
 	end loop;
 	
-	-- !!!! In caso di MISS cosa facciamo?? Max aveva proposto un altro segnale in out per segnalare questa condizione
---	if (not hit_flag) then 
---		
---	end if;	
---	
-	-- !!!! cosa ci fa questo qui? > cache_hit_on(cache, curr_index, curr_way);
 end procedure cache_snoop;
 
 begin
@@ -243,13 +231,13 @@ begin
 		else
 			if(ch_memrd = '1' and ch_memwr = '0') then -- memrd
 				cache_read(cache, RAM, word);
-				ch_bdata <= word;
+				ch_bdata_out <= word;
 			elsif(ch_memrd = '0') then -- fine memrd
-				ch_bdata <= (others => 'Z');
+				ch_bdata_out <= (others => null);
 			end if;
 				
 			if(ch_memwr = '1' and ch_memrd = '0') then -- memwr
-				word := ch_bdata;
+				word := ch_bdata_in;
 				cache_write(cache, RAM, word);
 			end if;
 				

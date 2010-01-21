@@ -106,6 +106,9 @@ BEGIN
 		ch_reset <= '1';
       wait for 20 ns;
 		ch_reset <= '0';
+		
+		ch_wtwb <= '0';
+		
 		--significato bit:T:tag,I:index
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		wait for 100 ns; 

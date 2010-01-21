@@ -1,0 +1,63 @@
+Descrizione sintetica del comportamento delle funzioni
+
+cache_read(word: out)
+	> word: dato letto
+
+	1. Legge l'indirizzo separando index, tag e offset. 
+	2. Verifica se c'è un hit (attraverso get_way())
+	3. Pone il dato letto in word e lo restituisce
+	
+
+cache_replace_line(selected_way: out)
+	> selected_way: via sulla quale è stato caricato il dato rimpiazzato
+
+	1. Individua la linea da rimpiazzare, cioè quella con lru_counter max
+	2. Controlla se la linea ha stato M e se necessario fa il write-back
+	3. Carica il nuovo blocco nella cache sovrascrivendo il vecchio
+	4. Modifica il bit di stato in base al valore di WT_WB
+		
+
+cache_hit_on(hit_index: in, hit_way: in)
+	< hit_index: indice al quale si è verificato l'hit
+	< hit way: via nella quale si è verificato l'hit
+
+	1. Applica la politica di invecchiamento: aggiornamento dei contatori come da dispense (da spiegare).
+	
+
+cache_inv(inv_index: in, inv_way: in)
+	< inv_index: indice da invalidare
+	< inv way: via da invalidare
+
+	1. Pone il bit di stato a MESI_I
+	2. Applica la politica di invecchiamento: aggiornamento dei contatori come da dispense (da spiegare).
+	
+	
+
+cache_write(word: in)
+	> word: parola ad scrivere nella cache
+	
+	1. Legge l'indirizzo separando index, tag e offset. 
+	2. Verifica se c'è un hit (attraverso get_way())
+	3. Rimpiazza eventualmente la via più vecchia
+	4. Scrive il nuovo dato sulla cache
+	5. Controlla il bit di stato per fare il write-through
+	
+	
+	
+get_way(index: in, tag: in, way: out) 
+	< index: indice
+	< tag: tag da controllare
+	> way: valore di ritorno
+	
+	1. Verifica se il dato è in cache e il numero della via corrispondente
+	2. Se non è presente way = -1
+	
+	
+	
+ram_write(tag, index, way)
+	1. Costruisce l'indirizzo del blocco a partire da tag e index
+	2. Scrive il blocco sulla RAM
+	
+
+snoop
+	Da dettagliare in seguito

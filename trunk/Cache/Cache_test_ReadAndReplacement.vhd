@@ -1,31 +1,5 @@
---------------------------------------------------------------------------------
---------------------------------------------------------------------------------
--- Company: 
--- Engineer:
---
--- Create Date:   17:22:15 12/02/2009
--- Design Name:   
--- Module Name:   C:/DLXCache/Cache/Cache_test.vhd
--- Project Name:  Cache
--- Target Device:  
--- Tool versions:  
--- Description:   
--- 
--- VHDL Test Bench Created by ISE for module: Cache_cmp
--- 
--- Dependencies:
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
---
--- Notes: 
--- This testbench has been automatically generated using types std_logic and
--- std_logic_vector for the ports of the unit under test.  Xilinx recommends
--- that these types always be used for the top-level I/O of a design in order
--- to guarantee that the testbench will bind correctly to the post-implementation 
--- simulation model.
---------------------------------------------------------------------------------
+
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.std_logic_unsigned.all;
@@ -33,11 +7,11 @@ USE ieee.numeric_std.ALL;
 use work.CacheLibrary.all;
 use work.Global.all;
  
-ENTITY Cache_test IS
-END Cache_test;
- 
-ARCHITECTURE behavior OF Cache_test IS 
- 
+ENTITY Cache_test_ReadAndReplacement IS
+END Cache_test_ReadAndReplacement;
+
+  ARCHITECTURE behavior OF Cache_test_ReadAndReplacement IS 
+
     -- Component Declaration for the Unit Under Test (UUT)
  
     COMPONENT Cache_cmp
@@ -111,63 +85,71 @@ BEGIN
 		
 		--significato bit:T:tag,I:index
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		wait for 100 ns; 
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		--
+		--prima fase: 
+		--	vengono richieste dei dati presenti in diversi blocchi di memoria quindi:
+		-- occupo la prima via di ogni indice (0) (1) (2) (3)
+		wait for 10 ns; 
 		ch_baddr <= "00000000000000000000000000000000";
 		ch_memrd <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "00"
-		
+		wait for 10 ns;
+		ch_memrd <= '0';
 		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000000000000100100";
 		ch_memrd <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto prima via occupata per indice "01"
-		
+		wait for 10 ns;
+		ch_memrd <= '0';
 		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000010000100";
+		ch_baddr <= "00000000000000000000000001000000";
 		ch_memrd <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto seconda via occupata per indice "00"
-		
+		wait for 10 ns;
+		ch_memrd <= '0';
 		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100001100";
+		ch_baddr <= "00000000000000000000000001100000";
 		ch_memrd <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
+		wait for 10 ns;
 		
+		--seconda fase: occupo la seconda via di ogni indice 
+		ch_memrd <= '0';
 		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000100011100";
+		ch_baddr <= "00000000000000000000000100100100";
 		ch_memrd <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
-		
-		-- SCRITTURE
-		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 10 ns; 
 		ch_baddr <= "00000000000000000000000100000000";
-		ch_bdata_in <= "11111111111111111111111111111111";
-		ch_memwr <= '1';
-		wait for 100 ns;
-		ch_memwr <= '0';-- mi aspetto prima via occupata con contatore a 0 e stato in M(11) e dato agiornato per indice "00"
-		
-		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000101000100";
-		ch_bdata_in <= "11111111111111111111111111111111";
-		ch_memwr <= '1';
-		wait for 100 ns;
-		ch_memwr <= '0';-- mi aspetto prima via occupata con contatore a 0 e stato in M(11) e dato agiornato per indice "10"
-		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
-		ch_baddr <= "00000000000000000000000101000100";
 		ch_memrd <= '1';
-		wait for 100 ns;
-		ch_memrd <= '0';-- mi aspetto prima via occupata con contatore a 0 per indice "00"
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000101000000";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000101100000";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		
+		-- a questo punto la cache è piena se richiederò un dato presente in cache avrò un hit(in questo caso nel indice [1] e via [0]):
+		--	che implica il portare il contatore della via contenete il blocco con il dato al valore 0
+		-- mentre l'altra via andrà allo stato 1,
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000100100100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		-- se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice,
+		-- verrà rimpiazzata la via con contatore al valore 1.
+		ch_memrd <= '0';
+		wait for 20 ns;
+		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
+		ch_baddr <= "00000000000000000100001100100100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		--	problemi:
+		-- oltre l'indirizzo -->"0000000000000000011111111xxxxxxx" out of bound exception
+		--problema nella gestione del TAG
 		wait;
    end process;
 

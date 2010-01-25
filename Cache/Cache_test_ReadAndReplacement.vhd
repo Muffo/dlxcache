@@ -1,4 +1,24 @@
+----------------------------------------------------------------------------------
+-- Company: Gruppo 2
+-- Engineer: Grandi, Malaguti, Mattetti, Morlini, Ricci
+-- 
+-- Create Date:    10:29:02 12/01/2009 
+-- Design Name: 
+-- Module Name:    Cache_test_ReadAndReplacement
+-- Project Name: 	 Cache
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
 
+-- In questo file di test si vuole verificare il corretto funzinamento della politica 
+-- di rimpiazzamento mediante contatori.
+----------------------------------------------------------------------------------
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -116,7 +136,7 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		ch_memrd <= '0';
-		wait for 10 ns; 
+		wait for 20 ns; 
 		ch_baddr <= "00000000000000000000000100000000";
 		ch_memrd <= '1';
 		wait for 10 ns;
@@ -131,24 +151,68 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
+		--REPLACEMENT:
+		
 		-- a questo punto la cache è piena se richiederò un dato presente in cache avrò un hit(in questo caso nel indice [1] e via [0]):
 		--	che implica il portare il contatore della via contenete il blocco con il dato al valore 0
 		-- mentre l'altra via andrà allo stato 1,
+		
+		--caso 1: una lettura di un blocco presenti e poi di un blocco non presente:
+		
 		ch_memrd <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000100100100";
 		ch_memrd <= '1';
 		wait for 10 ns;
-		-- se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice,
-		-- verrà rimpiazzata la via con contatore al valore 1.
+		-- se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice ma non presente in cache(miss),
+		-- verrà rimpiazzata la via con contatore al valore 1 in questo caso quella con TAG="0".
 		ch_memrd <= '0';
 		wait for 20 ns;
-		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		ch_baddr <= "00000000000000000100001100100100";
 		ch_memrd <= '1';
 		wait for 10 ns;
+		
+		--caso 2: più letture di un blocco presente e poi di blocchi non presenti:
+		
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000100100100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000100100100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <=  "00000000000000000000000001100000";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000100001100100100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		-- se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice ma non presente in cache(miss),
+		-- verrà rimpiazzata la via con contatore al valore 1, che dovrebbe essere quella con TAG="0".
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000100001100100100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000101001100111100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		
+		-- osservazioni:
+		--1) gli ultimi due bit dell'offset si presumono sempre a 0 altrimenti avrei una lettura non allineate
+		--		a lato pratico si può avere un out of bound exception nel caso volgia dati a indirizzi di offset maggiori di 28.
+		
 		--	problemi:
-		-- oltre l'indirizzo -->"0000000000000000011111111xxxxxxx" out of bound exception
+		-- oltre l'indirizzo -->"0000000000000000011111111xxxxxxx" out of bound exception (0 to 1023)
 		--problema nella gestione del TAG
 		wait;
    end process;

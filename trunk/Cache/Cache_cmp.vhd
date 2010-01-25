@@ -252,6 +252,9 @@ begin
 				cache_snoop(hit, hit_m);
 				ch_hit <= hit;
 				ch_hitm <= hit_m;
+			else
+				ch_hit <= '0';
+				ch_hitm <= '0';
 			end if;
 		end if;
 		

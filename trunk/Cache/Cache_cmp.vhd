@@ -203,7 +203,7 @@ begin
 	get_way(curr_index, addr_tag, curr_way);
 	
 	if(curr_way >= 0) then
-		if(cache(curr_index)(curr_way).status /= MESI_M) then
+		if(cache(curr_index)(curr_way).status = MESI_M) then
 			hit_m := '1';
 			ram_write(addr_tag, addr_index, curr_way);
 			cache(curr_index)(curr_way).status := MESI_S;

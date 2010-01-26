@@ -26,8 +26,8 @@ entity Memory_Stage is
 		data_out: out std_logic_vector(PARALLELISM-1 downto 0);
 		
 		-- cache interface
-		ch_memrd : out  std_logic;
-      ch_memwr : out  std_logic;
+		memrd : out  std_logic;
+      memwr : out  std_logic;
 		
 		-- forwarding unit
 		dest_register: out std_logic_vector(4 downto 0);
@@ -69,7 +69,7 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 						dest_register <= a_rd_i;
 						memory_address_register <= alu_exit_buffer;
 						bdata_out <= store_memory_data_register_buffer;
-						ch_memrd <= '1';
+						memrd <= '1';
 					--	dest_register_data <= 	RAM_inst(conv_integer(alu_exit_buffer) + 3) &
 					--									RAM_inst(conv_integer(alu_exit_buffer) + 2) &
 					--									RAM_inst(conv_integer(alu_exit_buffer) + 1) &
@@ -84,7 +84,7 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 						dest_register_data <= (others => '0');
 						data_out <= alu_exit_buffer; 
 						memory_address_register <= alu_exit_buffer;
-						ch_memwr <= '1';
+						memwr <= '1';
 					when I_JALR | J_JAL => -- il registro di destinazione è sicuramente R31. Il dato è
 													-- l'uscita della alu
 						dest_register <= conv_std_logic_vector(31, REGISTER_ADDR_LEN);
@@ -125,7 +125,7 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 	--	end process;
 		-- cache read
 		
-		ch_read : process (ready)
+		cache_read : process (ready)
 		begin
 			if(ready = '1' and ready'event)
 			then
@@ -138,8 +138,8 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 		sync: process 
 		begin
 			wait until clk'event and clk = '1';
-			ch_memrd <= '0';
-			ch_memwr <= '0';
+			memrd <= '0';
+			memwr <= '0';
 			pc_buffer <= pc_in;
 			instruction_buffer <= instruction_in;
 			instruction_format_buffer <= instruction_format_in;

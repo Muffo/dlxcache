@@ -1,1 +1,0 @@
-xst -ise "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/DLXPipe.ise" -intstyle ise -ifn "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/DLXPipelined.xst" -ofn "C:/Users/Filippo/XilinxProject/DLXSourceCodeVHDL/DLX 11.1 Rewrite/DLXPipe/DLXPipelined.syr" 

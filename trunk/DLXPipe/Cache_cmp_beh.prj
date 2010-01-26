@@ -1,0 +1,3 @@
+vhdl work "Global.vhd"
+vhdl work "D:/Calcolatori Elettronici M/Mattoccia/Progetto/Cache/Cache_lib.vhd"
+vhdl work "D:/Calcolatori Elettronici M/Mattoccia/Progetto/Cache/Cache_cmp.vhd"

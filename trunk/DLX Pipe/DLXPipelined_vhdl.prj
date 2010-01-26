@@ -1,8 +1,0 @@
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\Global.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\Float_32.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\WriteBack_Stage.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\Memory_Stage.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\Fetch_Stage.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\Execute_Stage.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\Decode_Stage.vhd"
-vhdl work "C:\Users\Filippo\XilinxProject\DLXSourceCodeVHDL\DLX 11.1 Rewrite\DLXPipe\DLXPipelined.vhd"

@@ -114,12 +114,7 @@ architecture Test of DLXPipelined_Test is
 	signal exe_pc_for_jump: std_logic_vector(PC_BITS-1 downto 0);
 	
 	signal mem_instruction_format: std_logic_vector(2 downto 0);
-   signal mem_ready: std_logic;
 	signal mem_data_out: std_logic_vector(PARALLELISM-1 downto 0);
-	signal mem_load_memory_data_register: std_logic_vector(PARALLELISM-1 downto 0);
-	signal mem_store_memory_data_register: std_logic_vector(PARALLELISM-1 downto 0);
-	signal mem_memory_address_register: std_logic_vector(PARALLELISM-1 downto 0);
-   signal mem_bdata_out: std_logic_vector (31 downto 0); 
 	signal mem_dest_register: std_logic_vector(4 downto 0);
 	signal mem_dest_register_data: std_logic_vector(PARALLELISM-1 downto 0); 
 	

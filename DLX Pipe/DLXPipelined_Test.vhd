@@ -117,21 +117,21 @@ architecture Test of DLXPipelined_Test is
 	signal mem_data_out: std_logic_vector(PARALLELISM-1 downto 0);
 	signal mem_dest_register: std_logic_vector(4 downto 0);
 	signal mem_dest_register_data: std_logic_vector(PARALLELISM-1 downto 0); 
-	
-	signal cache_memrd: std_logic;
-   signal cache_memwr: std_logic;
+
 	signal cache_ready: std_logic;
-   signal cache_baddr: std_logic_vector (31 downto 0); 
    signal cache_bdata_in: std_logic_vector (31 downto 0);
    signal cache_bdata_out: std_logic_vector (31 downto 0);
-   signal cache_reset: std_logic;
    signal cache_hit: std_logic;
 	signal cache_hitm: std_logic;
-	signal cache_inv: std_logic;
-	signal cache_eads: std_logic;
-	signal cache_wtwb: std_logic;
-	signal cache_flush: std_logic;
 	signal debug_cache: cache_type(0 to 2**INDEX_BIT - 1);
+	signal cache_memrd: std_logic:= '0';
+   signal cache_memwr: std_logic:= '0';
+   signal cache_baddr: std_logic_vector(31 downto 0):= (others => '0');
+   signal cache_reset: std_logic:= '0';
+   signal cache_inv: std_logic:= '0';
+   signal cache_eads: std_logic:= '0';
+   signal cache_flush: std_logic:= '0';
+	signal cache_wtwb: std_logic:= '0';
 	
 	signal wb_dest_register: std_logic_vector(4 downto 0);
 	signal wb_dest_register_data: std_logic_vector(PARALLELISM-1 downto 0);

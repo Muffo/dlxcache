@@ -1,0 +1,6 @@
+set -tmpdir "C:/Users/Massimiliano/Desktop/DLX/DLX 11.1 Rewrite/DLXPipe/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Massimiliano/Desktop/DLX/DLX 11.1 Rewrite/DLXPipe/xst"
+elaborate
+-lso C:/Users/Massimiliano/Desktop/DLX/DLX 11.1 Rewrite/DLXPipe/Memory_Stage.lso
+-ifn Memory_Stage.prj
+-ifmt mixed

@@ -1,0 +1,27 @@
+ISim log file
+Running: C:\Users\Massimiliano\Desktop\DLX\DLX 11.1 Rewrite\DLXPipe\Cache_cmp_isim_beh.exe -gui -tclbatch isim.cmd -wdb C:/Users/Massimiliano/Desktop/DLX/DLX 11.1 Rewrite/DLXPipe/Cache_cmp_isim_beh.wdb 
+----------------------------------------------------------------------
+INFO:Security:61 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:63 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68 - Please run the Xilinx License Configuration Manager
+       (xlcm or "Manage Xilinx Licenses")
+       to assist in obtaining a license.
+ERROR:Security:13 - A feature for ISIM was found but is expired.
+ERROR:Security:14 - No feature was available for 'ISIM'.
+
+Feature has expired.
+Feature:       ISIM
+Expire date:   11-nov-2009
+License path:  C:/.Xilinx\Xilinx.lic;C:\Xilinx\11.1\ISE/data\*.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\can_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\can_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\cpri_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\ethernet_statistics_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\ethernet_statistics_v3_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\eth_avb_endpoint_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\fibre_channel_v3_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\gfp_v1_3_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\gfp_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\gig_eth_mac_v8_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\gig_eth_pcs_pma_v10_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\gig_eth_pcs_pma_v9_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\obsai_v3_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pci32_v4_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pci64_v4_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pcie_blk_plus_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pcie_pipe_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pcix_v6_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pci_express_v3_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pktq_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pl4_lite_v4_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pl4_v8_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\pl4_v9_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\rio_log_io_v4_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\rio_log_io_v5_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\spi3_link_v5_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\spi3_phy_v5_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\srio_phy_v4_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\srio_phy_v5_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\ten_gig_eth_mac_v8_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\ten_gig_eth_mac_v9_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\tri_mode_eth_mac_v3_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\tri_mode_eth_mac_v4_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\vlynq_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_ccm_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_cfa_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_gamma_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_ipipe_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_rgb2ycrcb_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_spc_v1_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\v_ycrcb2rgb_v2_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\xaui_v7_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\xaui_v8_flexlm.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\Xilinx.lic;C:\Xilinx\11.1\ISE/coregen/core_licenses\XilinxFree.lic;
+FLEXnet Licensing error:-10,32
+For further information, refer to the FLEXnet Licensing documentation,
+available at "www.acresso.com".
+----------------------------------------------------------------------
+WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.

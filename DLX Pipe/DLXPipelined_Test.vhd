@@ -72,7 +72,6 @@ architecture Test of DLXPipelined_Test is
       cache_bdata_in: inout  std_logic_vector (31 downto 0);
 		cache_bdata_out: inout  std_logic_vector (31 downto 0);
       cache_reset: in  std_logic;
-		cache_ready: inout std_logic;
 		cache_hit: out std_logic;
 		cache_hitm: out std_logic;
 		cache_inv: in std_logic;
@@ -130,7 +129,6 @@ architecture Test of DLXPipelined_Test is
 	
 	signal cache_memrd: std_logic;
    signal cache_memwr: std_logic;
-   signal cache_ready: std_logic;
    signal cache_baddr: std_logic_vector (31 downto 0); 
    signal cache_bdata_in: std_logic_vector (31 downto 0);
    signal cache_bdata_out: std_logic_vector (31 downto 0);
@@ -200,7 +198,6 @@ architecture Test of DLXPipelined_Test is
 				cache_bdata_in  => cache_bdata_in,
 				cache_bdata_out  => cache_bdata_out,
 				cache_reset => cache_reset,
-				cache_ready => cache_ready,
 				cache_hit => cache_hit,
 				cache_hitm => cache_hitm,
 				cache_inv => cache_inv,

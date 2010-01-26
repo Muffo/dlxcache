@@ -56,22 +56,18 @@ architecture Test of DLXPipelined_Test is
 		
 		-- stadio di memory
 		mem_instruction_format: inout std_logic_vector(2 downto 0);
-		mem_ready: inout std_logic;
 		mem_data_out: inout std_logic_vector(PARALLELISM-1 downto 0);
-		mem_store_memory_data_register: inout  std_logic_vector (PARALLELISM-1 downto 0);
-		mem_load_memory_data_register: inout std_logic_vector(PARALLELISM-1 downto 0);
-		mem_memory_address_register: inout std_logic_vector(PARALLELISM-1 downto 0);
-		mem_bdata_out: inout std_logic_vector(PARALLELISM-1 downto 0);
 		mem_dest_register: inout std_logic_vector(4 downto 0); -- numero rd per forwarding unit
 		mem_dest_register_data: inout std_logic_vector(PARALLELISM-1 downto 0); -- dati registro destinazione per 
 																										-- forwarding unit
 		-- cache
-		cache_memrd: inout  std_logic;
-      cache_memwr: inout  std_logic;
-      cache_baddr: inout  std_logic_vector (31 downto 0);   -- indirizzi allineati (ultimi due bit non emessi)
-      cache_bdata_in: inout  std_logic_vector (31 downto 0);
-		cache_bdata_out: inout  std_logic_vector (31 downto 0);
-      cache_reset: in  std_logic;
+		cache_memrd: inout std_logic;
+		cache_memwr: inout std_logic;
+		cache_ready: inout std_logic;
+		cache_baddr: inout std_logic_vector (31 downto 0);  -- indirizzi allineati (ultimi due bit non emessi)
+		cache_bdata_in: inout std_logic_vector (31 downto 0);
+		cache_bdata_out: inout std_logic_vector (31 downto 0);
+		cache_reset: in std_logic;
 		cache_hit: out std_logic;
 		cache_hitm: out std_logic;
 		cache_inv: in std_logic;
@@ -129,6 +125,7 @@ architecture Test of DLXPipelined_Test is
 	
 	signal cache_memrd: std_logic;
    signal cache_memwr: std_logic;
+	signal cache_ready: std_logic;
    signal cache_baddr: std_logic_vector (31 downto 0); 
    signal cache_bdata_in: std_logic_vector (31 downto 0);
    signal cache_bdata_out: std_logic_vector (31 downto 0);
@@ -183,20 +180,16 @@ architecture Test of DLXPipelined_Test is
 				exe_pc_for_jump => exe_pc_for_jump,
 				
 				mem_instruction_format => mem_instruction_format,
-				mem_ready => mem_ready,
 				mem_data_out => mem_data_out,
-				mem_store_memory_data_register => mem_store_memory_data_register,
-				mem_load_memory_data_register => mem_load_memory_data_register,
-				mem_memory_address_register => mem_memory_address_register,
-				mem_bdata_out => mem_bdata_out,
 				mem_dest_register => mem_dest_register,
 				mem_dest_register_data => mem_dest_register_data,
 				
 				cache_memrd => cache_memrd,
-				cache_memwr  => cache_memwr,
-				cache_baddr  => cache_baddr,
-				cache_bdata_in  => cache_bdata_in,
-				cache_bdata_out  => cache_bdata_out,
+				cache_memwr => cache_memwr,
+				cache_baddr => cache_baddr,
+				cache_bdata_in => cache_bdata_in,
+				cache_bdata_out => cache_bdata_out,
+				cache_ready => cache_ready,
 				cache_reset => cache_reset,
 				cache_hit => cache_hit,
 				cache_hitm => cache_hitm,

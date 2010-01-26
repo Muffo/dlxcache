@@ -62,7 +62,7 @@ begin
 end procedure cache_reset;
 
 -- In caso di MISS restituisce un valore negativo
-procedure get_way(index : in natural; tag : in STD_LOGIC_VECTOR; selected_way : out natural) is
+procedure get_way(index : in natural; tag : in STD_LOGIC_VECTOR; selected_way : out integer) is
 begin
 	selected_way := -1;
 	for way in 0 to NWAY - 1 loop
@@ -239,6 +239,7 @@ begin
 			if(ch_memrd = '1' and ch_memwr = '0') then -- memrd
 				cache_read(word);
 				ch_bdata_out <= word;
+				ch_ready <= '1';
 			elsif(ch_memrd = '0' and not ch_memwr'event and not ch_reset'event) then -- fine memrd
 				ch_bdata_out <= (others => 'Z');
 			end if;
@@ -246,6 +247,11 @@ begin
 			if(ch_memwr = '1' and ch_memrd = '0') then -- memwr
 				word := ch_bdata_in;
 				cache_write(word);
+				ch_ready <= '1';
+			end if;
+			
+			if(ch_memrd = '0' and ch_memwr = '0') then
+				ch_ready <= '0';
 			end if;
 				
 			if(ch_eads = '1') then -- snoop

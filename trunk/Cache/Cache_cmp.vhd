@@ -30,7 +30,6 @@ entity Cache_cmp is
            ch_memwr : in  STD_LOGIC;
            ch_baddr : in  STD_LOGIC_VECTOR (31 downto 0);
            ch_bdata_in : in  STD_LOGIC_VECTOR (31 downto 0);
-           ch_bdata_in : in  STD_LOGIC_VECTOR (31 downto 0);
 			  ch_bdata_out : out  STD_LOGIC_VECTOR (31 downto 0);
            ch_reset : in  STD_LOGIC;
 			  ch_ready : out  STD_LOGIC;

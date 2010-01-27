@@ -47,7 +47,7 @@ Infine, in caso di invalidazione di una linea, si porta al valore massimo il con
 
 
 \section{Struttura e interfacce}
-La memoria cache si interfaccia con i dispositivi esterni attraverso 4 tipi di interfacce, come mostrato in Fig. \ref{fig:int_gen}.
+La memoria cache si interfaccia con i dispositivi esterni attraverso 4 tipi di interfacce, come mostrato in Fig. \ref{fig:int_gen}.\\
 
 \begin{figure}[h!]
 \centering
@@ -57,7 +57,7 @@ La memoria cache si interfaccia con i dispositivi esterni attraverso 4 tipi di i
 \end{figure}
 
 
-L'interfaccia verso il micropocessore, mostrata in Fig. \ref{fig:int_dlx}, consente a quest'ultimo di accedere ai dati memorizzati all'interno della cache. 
+L'interfaccia verso il microprocessore, mostrata in Fig. \ref{fig:int_dlx}, consente a quest'ultimo di accedere ai dati memorizzati all'interno della cache. \\
 
 \begin{figure}[h!]
 \centering
@@ -75,9 +75,9 @@ In particolare sono presenti i seguenti segnali:
 \item \textbf{ch\_ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
 \end{itemize}
 
-Per quanto riguarda gli scambi di dati tra processore e memoria cache, si ipotizza che siano sempre lette e scritte parole di lunghezza fissa a 32 bit.
+Per quanto riguarda gli scambi di dati tra processore e memoria cache, si ipotizza che siano sempre lette e scritte parole di lunghezza fissa a 32 bit.\\
 
-L'interfaccia verso il controllore di memoria (segnali di controllo?), mostrata in Fig. \ref{fig:int_cnt}, consente di testare e modificare lo stato delle linee.
+L'interfaccia verso il controllore di memoria, mostrata in Fig. \ref{fig:int_cnt}, consente di testare e modificare lo stato delle linee.\\
 
 \begin{figure}[h!]
 \centering
@@ -89,12 +89,16 @@ L'interfaccia verso il controllore di memoria (segnali di controllo?), mostrata 
 In particolare sono presenti i seguenti segnali:
 \begin{itemize} %i nomi dei comandi non sono esatti: vanno sostituiti
 \item \textbf{ch\_eads}: inizia il ciclo di snoop
-\item \textbf{ch\_hit}: la linea richiesta \`e presente in memoria
-\item \textbf{ch\_hitm}: la linea richiesta \`e presente in memoria in stato modified
-\item \textbf{ch\_flush}: la linea richiesta \`e presente in memoria in stato modified
+\item \textbf{ch\_inv}: invalida la linea
+\item \textbf{ch\_hit}: indica che la linea richiesta \`e presente in memoria
+\item \textbf{ch\_hitm}: indica che la linea richiesta \`e presente in memoria in stato modified
+\item \textbf{ch\_flush}: scarica il contenuto della cache sulla RAM (tutto o solo un blocco?, funziona?)
 \end{itemize}
 
-L'interfaccia verso la RAM, mostrata in Fig. \ref{fig:int_ram}, consente alla cache di recuperare i blocchi dal livello sottostante.
+
+Per semplificare la realizzazione del componente Cache, si \`e ipotizzato che la RAM fosse incapsulata all'interno dello stesso. In questo modo si riduce notevolmente il numero dei segnali esterni.\\
+
+Una possibile interfaccia verso la RAM (non realmente implementata) \`e mostrata in Fig. \ref{fig:int_ram} e consente alla cache di recuperare i blocchi dal livello sottostante.\\
 
 \begin{figure}[h!]
 \centering
@@ -112,10 +116,18 @@ In particolare sono presenti i seguenti segnali:
 \item \textbf{Ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
 \end{itemize}
 
-Si noti che la cache non \`e a conoscenza del componente posto al livello superiore. Vista la simmetria delle due interfacce \`e quindi possibile sostituire la RAM con un ulteriore livello di cache. inserendo quindi pi\`u livelli di cache all'interno del processore.\\
+%Si noti che la cache non \`e a conoscenza del componente posto al livello superiore. Vista la simmetria delle due interfacce \`e quindi possibile sostituire la RAM con un ulteriore livello di cache. inserendo quindi pi\`u livelli di cache all'interno del processore.\\
+
+
+
+\emph{In realt\`a a livello di codice la RAM \`e integrata all'interno del componente Cache.}
+
+
 \`E presente infine una terza interfaccia verso l'esterno, utilizzata per monitorare lo stato interno della cache e poter quindi eseguire il debug.
 I segnali disponibili verranno definiti nel seguito.\\
-Si ipotizza che la memoria cache progettata non sia impiegata in sistemi multimaster. Per tale motivo non si considereranno problematiche inerenti alla presenza di un controllore di memoria come ad esempio l'invalidazione delle linee e lo snooping dei dati presenti in cache..
+
+
+Anche se la memoria cache progettata non verr\`a impiegata in sistemi multimaster, si \`e comunque deciso di affrontare alcune delle problematiche inerenti alla presenza di un controllore di memoria. Tramite l'opportuna interfaccia \`e ad esempio possibile effettuare l'invalidazione delle linee e lo snooping dei dati presenti in cache.
 
 
 

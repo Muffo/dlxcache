@@ -4,3 +4,7 @@
 \contentsline {chapter}{\numberline {1}Caratteristiche della memoria cache}{7}{chapter.1}
 \contentsline {section}{\numberline {1}Politica di rimpiazzamento}{8}{section.1.1}
 \contentsline {section}{\numberline {2}Struttura e interfacce}{9}{section.1.2}
+\contentsline {chapter}{\numberline {2}Realizzazione e collaudo}{15}{chapter.2}
+\contentsline {chapter}{\numberline {3}Integrazione con DLX}{17}{chapter.3}
+\contentsline {chapter}{\numberline {4}Block RAM}{19}{chapter.4}
+\contentsline {chapter}{Bibliografia}{21}{chapter*.3}

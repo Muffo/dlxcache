@@ -17,6 +17,11 @@
 \usepackage[colorlinks=false]{hyperref}%<--inserisce segnalibri e riferimenti indice
 \usepackage{longtable}
 
+
+\renewcommand{\rmdefault}{pag}
+\renewcommand{\sfdefault}{pag}
+\renewcommand{\ttdefault}{pcr}
+
 \renewcommand{\thesection}{\arabic{section}}
 \addtolength{\voffset}{-0,5cm}
 \addtolength{\textheight}{1cm}
@@ -216,11 +221,14 @@
 % Intro alle memorie cache
 \input{cap1}
 
-%% premessa e universibo
-%\input{cap2}
+% Realizzazione e test
+\input{cap2}
 
-%% intro axis e WSS4J
-%\input{cap3}
+% Integrazione con progetto DLX
+\input{cap3}
+
+% Block RAM
+\input{cap4}
 
 %% sviluppo progetto ws server e client e test
 %\input{cap4}
@@ -243,9 +251,9 @@
 
 %\input{app_e}
 
-%\addtolength{\parskip}{5pt}
+\addtolength{\parskip}{5pt}
 
-%\input{bibliografia}
+\input{bibliografia}
 
 %\input{ringraziamenti}
 

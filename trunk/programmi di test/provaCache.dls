@@ -1,0 +1,5 @@
+l1: addi r1,r0,0 ; azzera r1
+l2: addi r2,r0,1 ; imposta a 1 r2
+l3: sw 10(r1),r2 ; memorizzza il valore 1 all'indirizzo 10
+l4: lw r3,10(r1) ; porta in r3 il valore 1
+l5: j l3         ; salta a l3

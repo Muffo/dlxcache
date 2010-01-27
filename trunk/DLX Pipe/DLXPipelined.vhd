@@ -1,8 +1,8 @@
 
 library IEEE;
-use IEEE.std_logic_1164.ALL;
-use IEEE.std_logic_ARITH.ALL;
-use IEEE.std_logic_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use work.Global.all;
 use work.CacheLibrary.all;
 
@@ -44,28 +44,23 @@ entity DLXPipelined is
 		-- stadio di memory
 		mem_instruction_format: inout std_logic_vector(2 downto 0);
 		mem_data_out: inout std_logic_vector(PARALLELISM-1 downto 0);
-		mem_store_memory_data_register: inout  std_logic_vector (PARALLELISM-1 downto 0);
-		mem_load_memory_data_register: inout  std_logic_vector (PARALLELISM-1 downto 0);
-		mem_memory_address_register: inout  std_logic_vector (PARALLELISM-1 downto 0);
-		mem_bdata_out: inout std_logic_vector(PARALLELISM-1 downto 0);
+		mem_load_memory_data_register: inout std_logic_vector (PARALLELISM-1 downto 0);
+		mem_memory_address_register: inout std_logic_vector (PARALLELISM-1 downto 0);
+		mem_store_memory_data_register: inout std_logic_vector(PARALLELISM-1 downto 0);
 		mem_dest_register: inout std_logic_vector(4 downto 0); -- numero rd per forwarding unit
 		mem_dest_register_data: inout std_logic_vector(PARALLELISM-1 downto 0); -- dati registro destinazione per 
-																										-- forwarding unit
+							
 		-- cache
-      cache_baddr: inout std_logic_vector(PARALLELISM-1 downto 0); 
-      cache_bdata_in: inout std_logic_vector(PARALLELISM-1 downto 0);
-		cache_bdata_out: inout std_logic_vector(PARALLELISM-1 downto 0);
 		cache_memrd: inout std_logic;
 		cache_memwr: inout std_logic;
 		cache_ready: inout std_logic;
-      cache_reset: in std_logic;
 		cache_hit: out std_logic;
 		cache_hitm: out std_logic;
 		cache_inv: in std_logic;
 		cache_eads: in std_logic;
 		cache_wtwb: in std_logic;
 		cache_flush: in std_logic;
-		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);
+		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);																			-- forwarding unit
 		
 		-- stadio di writeback
 		wb_instruction_format: inout std_logic_vector(2 downto 0);
@@ -152,11 +147,11 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 			instruction_format_in: in std_logic_vector(2 downto 0);
 			instruction_format_out: out std_logic_vector(2 downto 0);
 			instruction_in: in std_logic_vector(PARALLELISM-1 downto 0);
-			instruction_out: out std_logic_vector(PARALLELISM-1 downto 0);		
-			store_memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
+			instruction_out: out std_logic_vector(PARALLELISM-1 downto 0);			
+			store_memory_data_register: out std_logic_vector(PARALLELISM-1 downto 0);
 			load_memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
 			memory_address_register: out std_logic_vector(PARALLELISM-1 downto 0);
-			bdata_out: out std_logic_vector(PARALLELISM-1 downto 0);
+			memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
 			alu_exit_in: in std_logic_vector(PARALLELISM-1 downto 0);
 			data_out: out std_logic_vector(PARALLELISM-1 downto 0);
 			
@@ -167,7 +162,8 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 	end component;
 	
 	component Cache_cmp is
-    port ( ch_memrd: in  std_logic;
+    port ( 
+			  ch_memrd: in  std_logic;
            ch_memwr: in  std_logic;
            ch_baddr: in  std_logic_vector (31 downto 0); 
            ch_bdata_in: in  std_logic_vector (31 downto 0);
@@ -273,11 +269,12 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				instruction_format_out => mem_instruction_format,
 				instruction_in => instruction_execute,
 				instruction_out => instruction_memory,	
-				store_memory_data_register => exe_register_b,
+				store_memory_data_register => mem_store_memory_data_register,
 				load_memory_data_register => mem_load_memory_data_register,
 				memory_address_register => mem_memory_address_register,
+				memory_data_register => exe_register_b,
 				alu_exit_in => exe_alu_exit,
-				bdata_out => mem_bdata_out,
+				data_out => mem_data_out,
 				
 				-- forwarding unit
 				dest_register => mem_dest_register,
@@ -289,7 +286,7 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				ch_memrd => cache_memrd,
 				ch_memwr => cache_memwr,
 				ch_baddr => mem_memory_address_register,
-				ch_bdata_in => mem_bdata_out,
+				ch_bdata_in => mem_store_memory_data_register,
 				ch_bdata_out => mem_load_memory_data_register,
 				ch_ready => cache_ready,
 				ch_reset => reset,
@@ -299,9 +296,9 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				ch_eads => cache_eads,
 				ch_wtwb => cache_wtwb,
 				ch_flush => cache_flush,
-			   ch_debug_cache =>  debug_cache
+			   ch_debug_cache => debug_cache
 			);
-			
+		
 		WriteBack_Stage_inst: WriteBack_Stage
 		port map (
 			clk => clk,

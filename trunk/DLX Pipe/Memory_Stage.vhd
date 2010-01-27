@@ -106,19 +106,19 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 		end process;
 		
 		-- cache read
-	   data_load : process (ready)
-		begin
-			if(ready = '1' and ready'event)then
-				if(memory_read)then
-					dest_register <= load_dest_register;
-					dest_register_data <= load_memory_data_register;
-					data_out <= load_memory_data_register;
-					memrd <= '0';
-				else
-					memwr <= '0';
-				end if;
-			end if;
-	   end process;
+	--   data_load : process (ready)
+	--	begin
+	--		if(ready = '1' and ready'event)then
+	--			if(memory_read)then
+	--				dest_register <= load_dest_register;
+	--				dest_register_data <= load_memory_data_register;
+	--				data_out <= load_memory_data_register;
+	--				memrd <= '0';
+	--			else
+	--				memwr <= '0';
+	--			end if;
+	--		end if;
+	--   end process;
 		
 		-- campionamento degli ingressi
 		sync: process 

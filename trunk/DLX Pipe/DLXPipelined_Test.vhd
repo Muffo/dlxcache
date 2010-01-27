@@ -211,10 +211,10 @@ architecture Test of DLXPipelined_Test is
 		
 		stimulus_process: process begin
 			reset <= '1';
-			cache_reset<='1';
+		--	cache_reset<='1';
 			wait for TIME_UNIT*2.25;
 			reset <= '0';
-			cache_reset<='0';
+		--	cache_reset<='0';
 			wait;
 		end process;
 		

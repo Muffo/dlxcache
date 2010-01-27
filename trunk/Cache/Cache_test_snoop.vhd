@@ -157,7 +157,7 @@ BEGIN
 		ch_eads<='0';
 		wait for 20 ns;
 		
-		--quarta fase scrittura su blocco in stato MESI_S
+		--quarta fase scrittura su blocco in stato MESI_S-> scrittura su livello superiore(invalidazione..) e si porta blocco in stato MESI_E
 		ch_baddr <= "00000000000000000000000000000000";
 		ch_bdata_in <= "11000111111111100011111111111111";
 		ch_memwr <= '1';

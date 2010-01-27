@@ -1,0 +1,2 @@
+l2: lw r3,10(r1) ; porta in r3 il valore 0
+l3: j l1         ; salta a l1

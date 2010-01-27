@@ -19,7 +19,7 @@ architecture Test of Decode_Stage_Test is
 			pc_out: out std_logic_vector(PC_BITS-1 downto 0);
 			instruction_in: in std_logic_vector(PARALLELISM-1 downto 0);
 			instruction_out: out std_logic_vector(PARALLELISM-1 downto 0);
-			instruction_format: out std_logic_vector(1 downto 0);
+			instruction_format: out std_logic_vector(2 downto 0);
 			register_a: out std_logic_vector(PARALLELISM-1 downto 0);
 			register_b: out std_logic_vector(PARALLELISM-1 downto 0);
 		

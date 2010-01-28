@@ -48,66 +48,53 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 	
 	begin
 		
-		async: process(a_opcode_high, alu_exit_buffer, memory_data_register_buffer, instruction_format_buffer, 
-							instruction_buffer,ready) is
-							variable v_memrd: std_logic;
-							variable v_memwr: std_logic;
-							variable memory_read: boolean:= false;
-		begin
-			v_memrd:= '0';
-			v_memwr:= '0';
-			if(ready = '1' and ready'event)then
-				if(memory_read)then
-					dest_register <= a_rd_i;
-					dest_register_data <= load_memory_data_register;
-					data_out <= load_memory_data_register;
-				end if;
-			else
+		async: process
+		begin			
+				wait on a_opcode_high, alu_exit_buffer, memory_data_register_buffer, instruction_format_buffer, instruction_buffer;
+				memrd <= '0';
+				memwr <= '0';
 				-- esecuzione istruzioni di load e store + forwarding unit
 				if instruction_format_buffer = IF_R or instruction_format_buffer = IF_F then -- nessuna operazione di memoria
 					dest_register <= a_rd_r;
 					dest_register_data <= alu_exit_buffer;
 					data_out <= alu_exit_buffer;
-				elsif instruction_format_buffer = IF_I or instruction_format_buffer = IF_J
-					or instruction_format_buffer = IF_IF then -- istruzioni I, IF e J
-						case a_opcode_high is
-							when I_LW | IF_LF =>  -- Load Word e Load Float. Forwarding del dato appena letto
-								memory_address_register <= alu_exit_buffer;
-								v_memrd:= '1';	
-							when I_SW | IF_SF => -- Store Word e Store Float. il register file resta inalterato, non è necessario il forwarding
-												-- La scrittura viene fatta al prossimo fronte del clock (processo ram_write)
-								dest_register <= (others => '0');
-								dest_register_data <= (others => '0');
-								data_out <= alu_exit_buffer;
-								store_memory_data_register <= memory_data_register_buffer; 
-								memory_address_register <= alu_exit_buffer;
-								v_memwr:= '1';
-							when I_JALR | J_JAL => -- il registro di destinazione è sicuramente R31. Il dato è
-													-- l'uscita della alu
-								dest_register <= conv_std_logic_vector(31, REGISTER_ADDR_LEN);
-								dest_register_data <= alu_exit_buffer;
-								data_out <= alu_exit_buffer; 
-							when J_J | I_JR | I_BNEZ | I_BEQZ => -- il register file resta inalterato, forwarding non necessario
-								dest_register <= (others => '0');
-								dest_register_data <= (others => '0');
-								data_out <= alu_exit_buffer;
-							when others => -- istruzioni di tipo I diverse da quelle sopra
-								dest_register <= a_rd_i;
-								dest_register_data <= alu_exit_buffer;
-								data_out <= alu_exit_buffer;
-						end case;
-					else -- nop						
-						dest_register <= (others => '0');
-						dest_register_data <= (others => '0');
-						data_out <= (others => '0');
-					end if;
+				elsif instruction_format_buffer = IF_I or instruction_format_buffer = IF_J or instruction_format_buffer = IF_IF then -- istruzioni I, IF e J
+					case a_opcode_high is
+						when I_LW | IF_LF =>  -- Load Word e Load Float. Forwarding del dato appena letto
+							memory_address_register <= alu_exit_buffer;
+							memrd <= '1';	
+							wait until ready = '1' and ready'event;
+							dest_register <= a_rd_i;
+							dest_register_data <= load_memory_data_register;
+							data_out <= load_memory_data_register;	
+						when I_SW | IF_SF => -- Store Word e Store Float. il register file resta inalterato, non è necessario il forwarding
+													-- La scrittura viene fatta al prossimo fronte del clock (processo ram_write)
+							dest_register <= (others => '0');
+							dest_register_data <= (others => '0');
+							data_out <= alu_exit_buffer;
+							store_memory_data_register <= memory_data_register_buffer; 
+							memory_address_register <= alu_exit_buffer;
+							memwr <= '1';
+						when I_JALR | J_JAL => -- il registro di destinazione è sicuramente R31. Il dato è
+												-- l'uscita della alu
+							dest_register <= conv_std_logic_vector(31, REGISTER_ADDR_LEN);
+							dest_register_data <= alu_exit_buffer;
+							data_out <= alu_exit_buffer; 
+						when J_J | I_JR | I_BNEZ | I_BEQZ => -- il register file resta inalterato, forwarding non necessario
+							dest_register <= (others => '0');
+							dest_register_data <= (others => '0');
+							data_out <= alu_exit_buffer;
+						when others => -- istruzioni di tipo I diverse da quelle sopra
+							dest_register <= a_rd_i;
+							dest_register_data <= alu_exit_buffer;
+							data_out <= alu_exit_buffer;
+					end case;
+				else -- nop						
+					dest_register <= (others => '0');
+					dest_register_data <= (others => '0');
+					data_out <= (others => '0');
 				end if;
-			
-			memory_read:= (v_memrd = '1');
-			
-			memrd <= v_memrd;
-			memwr <= v_memwr;
-
+					
 		end process;
 		
 		-- campionamento degli ingressi

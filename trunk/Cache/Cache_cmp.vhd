@@ -236,7 +236,6 @@ begin
 				RAM(i):= conv_std_logic_vector(i mod 256, 8);
 			end loop;
 		else
-			ch_ready <= ch_memrd or ch_memwr;
 			if(ch_memrd = '1' and ch_memwr = '0') then -- memrd
 				cache_read(word);
 				ch_bdata_out <= word;
@@ -257,6 +256,9 @@ begin
 				ch_hit <= '0';
 				ch_hitm <= '0';
 			end if;
+			
+			ch_ready <= ch_memrd or ch_memwr;
+			
 		end if;
 		
 		ch_debug_cache <= cache;

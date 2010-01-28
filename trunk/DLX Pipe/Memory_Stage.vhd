@@ -64,7 +64,7 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 							memory_address_register <= alu_exit_buffer;
 							memrd <= '1';	
 							wait until ready = '1' and ready'event;
-							memrd <= '0' after 10ns;
+							memrd <= '0' after TIME_UNIT/3;
 							dest_register <= a_rd_i;
 							dest_register_data <= load_memory_data_register;
 							data_out <= load_memory_data_register;	
@@ -77,7 +77,7 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 							memory_address_register <= alu_exit_buffer;
 							memwr <= '1';
 							wait until ready = '1' and ready'event;
-							memwr <= '0' after 10ns;
+							memwr <= '0' after TIME_UNIT/3;
 						when I_JALR | J_JAL => -- il registro di destinazione è sicuramente R31. Il dato è
 												-- l'uscita della alu
 							dest_register <= conv_std_logic_vector(31, REGISTER_ADDR_LEN);

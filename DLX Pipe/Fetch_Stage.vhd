@@ -26,13 +26,13 @@ constant PC_INIT: std_logic_vector(PC_BITS-1 downto 0) := (others => '0');
 
 -- La memoria con il codice macchina del DLX
 constant EPROM_inst: eprom_type(0 to 9) := (
-	X"20010000",
-X"20020001",
-X"20030001",
-X"AC22000A",
-												X"20620001",
-												X"8C23000A",
-												X"0BFFFFF0",
+												X"20010000", --l1: addi r1,r0,0 ; azzera r1
+												X"20020001", --l2: addi r2,r0,1 ; imposta a 1 r2
+												X"20030001", --l3: addi r3,r0,1 ; imposta a 1 r3
+												X"AC22000A", --l4: sw 10(r1),r2 ; memorizzza il valore di r2 all'indirizzo 10
+												X"20620001", --l5: addi r2,r3,1 ; assegna a r2 il valore di r3 incrementato
+												X"8C23000A", --l6: lw r3,10(r1) ; carica in r3 il valore di r2 prima dell'incremento
+												X"0BFFFFF0", --l7: j l4         ; salta a l4
 												X"FFFFFFFF",
 												X"FFFFFFFF",
 												X"FFFFFFFF"

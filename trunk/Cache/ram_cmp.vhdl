@@ -9,7 +9,7 @@ entity ram_cmp is
     );
     port (
         address :in    std_logic_vector (ADDR_WIDTH-1 downto 0);  -- address Input
-        data    :inout data_line;											-- data bi-directional
+        data    :inout data_line;				  -- data bi-directional
         we      :in    std_logic;                                 -- Write Enable/Read Enable
         oe      :in    std_logic;                                 -- Output Enable
 		  ready	 :out	  std_logic

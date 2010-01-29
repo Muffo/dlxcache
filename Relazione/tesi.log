@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  27 JAN 2010 16:10
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  29 JAN 2010 14:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -289,6 +289,31 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count113
 \LT@p@ftn=\toks23
 )
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count114
+\lst@gtempboxa=\box32
+\lst@token=\toks24
+\lst@length=\count115
+\lst@currlwidth=\dimen120
+\lst@column=\count116
+\lst@pos=\count117
+\lst@lostspace=\dimen121
+\lst@width=\dimen122
+\lst@newlines=\count118
+\lst@lineno=\count119
+\lst@maxwidth=\dimen123
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
+\lst@framebox=\box33
+)
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
 (/usr/local/texlive/2009/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
@@ -321,150 +346,156 @@ Package hyphenat Warning: *******************************
 
 \langwohyphens=\language57
 LaTeX Info: Redefining \_ on input line 46.
-) (./tesi.aux)
+) (./tesi.aux
+
+LaTeX Warning: Label `DescriptiveLabel' multiply defined.
+
+)
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 168.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 168.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 170.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 170.
 
  (/usr/local/texlive/2009/texmf-dist/tex/latex/cbfonts/lgrcmr.fd
 File: lgrcmr.fd 2008/01/04 v1.0 Greek Computer Modern
 )
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Try loading font information for OT1+pag on input line 168.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Try loading font information for OT1+pag on input line 170.
+
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pag.fd
 File: ot1pag.fd 2001/06/04 font definitions for OT1/pag.
 )
 (/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
-\scratchdimen=\dimen120
-\scratchbox=\box32
-\nofMPsegments=\count115
-\nofMParguments=\count116
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count117
-\MPscratchDim=\dimen121
-\MPnumerator=\count118
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count122
+\scratchdimen=\dimen124
+\scratchbox=\box34
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen125
+\MPnumerator=\count126
+\everyMPtoPDFconversion=\toks26
 )
-Package hyperref Info: Link coloring OFF on input line 168.
+Package hyperref Info: Link coloring OFF on input line 170.
  (/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count119
+\c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 168.
-LaTeX Info: Redefining \pageref on input line 168.
+LaTeX Info: Redefining \ref on input line 170.
+LaTeX Info: Redefining \pageref on input line 170.
 
 (./tesi.out) (./tesi.out)
 \@outlinefile=\write3
 \openout3 = `tesi.out'.
 
-\AtBeginShipoutBox=\box33
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 168.
+\AtBeginShipoutBox=\box35
+\c@lstlisting=\count128
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 170.
 
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sl' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sc' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 168.
+(Font)              using `OT1/pcr/m/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/it' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 168.
+(Font)              using `OT1/pcr/sb/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sl' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 168.
+(Font)              using `OT1/pcr/sb/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sc' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 168.
+(Font)              using `OT1/pcr/sb/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 168.
+(Font)              using `OT1/pcr/m/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/it' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 168.
+(Font)              using `OT1/pcr/c/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sl' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 168.
+(Font)              using `OT1/pcr/c/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sc' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 168.
+(Font)              using `OT1/pcr/c/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 168.
+(Font)              using `OT1/pcr/m/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/it' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 168.
+(Font)              using `OT1/pcr/l/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sl' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 168.
+(Font)              using `OT1/pcr/l/n' instead on input line 170.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sc' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 168.
+(Font)              using `OT1/pcr/l/n' instead on input line 170.
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 170.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 168.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
 
 LaTeX Font Warning: Font shape `OT1/pcr/m/In' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 168.
+(Font)              using `OT1/pcr/m/n' instead on input line 170.
 
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/b/n' tried instead on input line 188.
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 190.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/db/n' tried instead on input line 188.
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 190.
 [1
 
 
@@ -509,7 +540,7 @@ i un com-po-nent VHDL
 
 ) (./cap1.tex [6]
 Capitolo 1.
-<img/set-associative.jpg, id=82, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=142, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg>
@@ -534,7 +565,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/01-interfacce_schema_generale.jpg, id=96, 226.59656pt x 337.26pt>
+<img/01-interfacce_schema_generale.jpg, id=156, 226.59656pt x 337.26pt>
 File: img/01-interfacce_schema_generale.jpg Graphic file (type jpg)
 
 <use img/01-interfacce_schema_generale.jpg>
@@ -543,7 +574,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
  []
 
 [9 <./img/01-interfacce_schema_generale.jpg>]
-<img/dlx-cache.jpg, id=103, 467.49657pt x 280.04625pt>
+<img/dlx-cache.jpg, id=163, 467.49657pt x 280.04625pt>
 File: img/dlx-cache.jpg Graphic file (type jpg)
  <use img/dlx-cache.jpg>
 Underfull \hbox (badness 10000) in paragraph at lines 78--79
@@ -570,7 +601,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-<img/cache-ram.jpg, id=112, 413.29407pt x 297.36093pt>
+<img/cache-ram.jpg, id=172, 413.29407pt x 297.36093pt>
 File: img/cache-ram.jpg Graphic file (type jpg)
  <use img/cache-ram.jpg>
 
@@ -586,67 +617,104 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
 ]
 Capitolo 2.
+(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 14.
+LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `OMS/pag/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
+ [15
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
+]
+LaTeX Font Info:    Try loading font information for OML+pag on input line 38.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omlpag.fd
+File: omlpag.fd 
+)
+LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 38.
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-) (./cap3.tex [15
+LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/pag/m/sl' tried instead on input line 75.
+[17]
+LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 115.
+LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 115.
+ [18] [19]
+Overfull \hbox (10.00314pt too wide) in paragraph at lines 199--200
+[]\OT1/pag/m/n/12 Aggiorna il bit di sta-to ed ese-gue even-tual-men-te il writ
+e-through. 
+ []
 
-] [16
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+) (./cap3.tex [21] [22
 
 
 ]
 Capitolo 3.
-) (./cap4.tex [17
+) (./cap4.tex [23
 
-] [18
+] [24
 
 
 ]
 Capitolo 4.
-) (./bibliografia.tex [19
+) (./bibliografia.tex [25
 
-] [20
+] [26
 
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 9.
 
-) [21
+) [27
 
 ] (./tesi.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 6145 strings out of 493848
- 86319 string characters out of 3149206
- 159743 words of memory out of 3000000
- 9146 multiletter control sequences out of 15000+200000
- 27261 words of font info for 57 fonts, out of 3000000 for 9000
+ 8047 strings out of 493848
+ 111263 string characters out of 3149206
+ 306726 words of memory out of 3000000
+ 10913 multiletter control sequences out of 15000+200000
+ 35329 words of font info for 71 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
- 38i,11n,43p,425b,395s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,12n,43p,425b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2009/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/2
-009/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2009/tex
-mf-dist/fonts/type1/urw/avantgar/uagko8a.pfb>
-Output written on tesi.pdf (21 pages, 180572 bytes).
+exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2009/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/20
+09/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2009/texm
+f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
+/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on tesi.pdf (27 pages, 236297 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 396 PDF objects out of 1000 (max. 8388607)
+ 154 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

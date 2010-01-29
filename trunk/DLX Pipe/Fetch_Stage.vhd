@@ -25,34 +25,19 @@ signal pc_reg: std_logic_vector(PC_BITS-1 downto 0) := (others => '0');
 constant PC_INIT: std_logic_vector(PC_BITS-1 downto 0) := (others => '0');
 
 -- La memoria con il codice macchina del DLX
-constant EPROM_inst: eprom_type(0 to 9) := (
-								--	cod1: ok
-											--	X"20010000", --l1: addi r1,r0,0 ; azzera r1
-											--	X"20020001", --l2: addi r2,r0,1 ; imposta a 1 r2
-											--	X"20030001", --l3: addi r3,r0,1 ; imposta a 1 r3
-											--	X"AC22000A", --l4: sw 10(r1),r2 ; memorizzza il valore di r2 all'indirizzo 10
-											--	X"20620001", --l5: addi r2,r3,1 ; assegna a r2 il valore di r3 incrementato
-											--	X"8C23000A", --l6: lw r3,10(r1) ; carica in r3 il valore di r2 prima dell'incremento
-											--	X"0BFFFFF0", --l7: j l4         ; salta a l4
-											--cod2: sw+lw 
-												--		X"20010000", -- l1: addi r1,r0,0 ; azzera r1
-												--	 	X"20020001", -- l2: addi r2,r0,1 ; imposta a 1 r2
-												--		X"AC22000A", -- l3: sw 10(r1),r2 ; memorizzza il valore 1 all'indirizzo 10 
-												--		X"8C23000A", -- l4: lw r3,10(r1) ; porta in r3 il valore 1
-												--		X"0BFFFFF4", -- l5: j l3         ; salta a l3
-												--		X"FFFFFFFF",
-												--		X"FFFFFFFF",
-														--cod3: 2sw+2lw
-															X"20010000", -- l1: addi r1,r0,0 ; azzera r1
-															X"20420001", -- l2: addi r2,r2,1 ; incrementa r2
-															X"AC22000A", -- l3: sw 10(r1),r2 ; memorizzza il valore di r2 all'indirizzo 10
-															X"AC22000E", -- l4: sw 14(r1),r2 ; memorizzza il valore di r2 all'indirizzo 14
-															X"8C23000A", -- l5: lw r3,10(r1) ; porta in r3 il valore all'indirizzo 10
-															X"8C24000E", -- l6: lw r4,14(r1) ; porta in r4 il valore all'indirizzo 14
-															X"0BFFFFE8", -- l7: j l2         ; salta a l2
-												X"FFFFFFFF",
-												X"FFFFFFFF",
-												X"FFFFFFFF"
+constant EPROM_inst: eprom_type(0 to 11) := (
+X"20010000",	--l1: addi r1,r0,0 ; azzera r1
+X"20020001",	--l2: addi r2,r0,1 ; imposta a 1 r2
+X"AC220000",	--l3: sw 0(r1),r2 ; memorizzza il valore 1 all'indirizzo 0(via 1 dell index0)
+X"20420001",	--l4: addi r2,r2,1 ; incrementa r2
+X"AC220100",	--l5: sw 16#100(r1),r2 ; memorizzza il valore di r2 all'indirizzo 16#100(via 0 dell index0)
+X"20420001",	--l6: addi r2,r2,1 ; incrementa r2
+X"AC220080",	--l7: sw 16#80(r1),r2 ; memorizzza il valore di r2 all'indirizzo 16#80(replacement via 1 dell index0) 
+X"8C220000",	--l8: lw r2,0(r1) ; ripristina valore iniziale di r2 (1)
+X"20210004",	--l9: addi r1,r1,4 ; incremento di 4 indirizzo di base in r1
+X"0BFFFFE0",	--l10: j l3 ;
+X"FFFFFFFF",	--NOP 
+X"FFFFFFFF"		--NOP
 											);
 
 

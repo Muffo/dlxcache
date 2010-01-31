@@ -21,7 +21,6 @@ package Global is
 	
 	-- memoria
 	type eprom_type is array(integer range <>) of std_logic_vector(PARALLELISM-1 downto 0); -- eprom
-	type ram_type is array(natural range <>) of std_logic_vector(7 downto 0);
 	
 	-- simulazioni
 	constant TIME_UNIT: time := 30ns; -- nelle simulazioni = periodo di clock
@@ -132,6 +131,6 @@ package Global is
 	constant F_MULT: std_logic_vector(5 downto 0) := "001110";
 	constant F_DIVF: std_logic_vector(5 downto 0) := "000011";	
 
-end Global;
+end package Global;
 
 

@@ -3,8 +3,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-use work.Global.all;
 use work.CacheLibrary.all;
+use work.Global.all;
 
 
 entity DLXPipelined is
@@ -60,7 +60,16 @@ entity DLXPipelined is
 		cache_eads: in std_logic;
 		cache_wtwb: in std_logic;
 		cache_flush: in std_logic;
-		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);																			-- forwarding unit
+		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);	
+
+		-- ram
+		ram_bdata_in: inout data_line;
+		ram_bdata_out: inout data_line;
+		ram_baddr: inout std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT);
+      ram_write: inout std_logic;
+		ram_read: inout std_logic;
+      ram_ready: inout std_logic;
+		debug_ram: out work.CacheLibrary.ram_type;
 		
 		-- stadio di writeback
 		wb_instruction_format: inout std_logic_vector(2 downto 0);
@@ -176,8 +185,26 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 			  ch_eads: in std_logic;
 			  ch_wtwb: in std_logic;
 			  ch_flush: in std_logic;
+			  ch_bdata_ram_in: in data_line;
+			  ch_bdata_ram_out: out data_line;
+			  ch_baddr_ram: out std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT);
+		 	  ch_ramwr: out std_logic;
+			  ch_ramrd: out std_logic;
+		 	  ch_ram_ready: in std_logic;
 			  ch_debug_cache: out cache_type(0 to 2**INDEX_BIT - 1)
 		);
+	end component;
+	
+	component Ram_cmp is
+    port (
+        address : in std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT); 
+        bdata_in : in data_line;				  		
+        bdata_out : out data_line;		
+        write_enable : in std_logic;                               
+        read_enable : in std_logic;
+		  ram_ready : out std_logic;
+		  ram_debug : out work.CacheLibrary.ram_type (0 to RAM_DEPTH)
+    );
 	end component;
 
 	component WriteBack_Stage
@@ -296,9 +323,26 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				ch_eads => cache_eads,
 				ch_wtwb => cache_wtwb,
 				ch_flush => cache_flush,
+				ch_bdata_ram_in => ram_bdata_out,
+				ch_bdata_ram_out => ram_bdata_in,
+			   ch_baddr_ram => ram_baddr,
+            ch_ramwr => ram_write,
+			   ch_ramrd => ram_read,
+            ch_ram_ready => ram_ready,
 			   ch_debug_cache => debug_cache
 			);
 		
+		Ram_cmp_inst: Ram_cmp
+			port map(
+			  address => ram_baddr,
+			  bdata_in => ram_bdata_in,
+			  bdata_out => ram_bdata_out,
+           write_enable => ram_write,                             
+           read_enable => ram_read,
+		     ram_ready => ram_ready,
+		     ram_debug => debug_ram 
+			);
+			
 		WriteBack_Stage_inst: WriteBack_Stage
 		port map (
 			clk => clk,

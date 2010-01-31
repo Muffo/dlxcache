@@ -76,7 +76,16 @@ architecture Test of DLXPipelined_Test is
 		cache_wtwb: in std_logic;
 		cache_flush: in std_logic;
 		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);
-		
+
+		-- ram
+		ram_bdata_in: inout data_line;
+		ram_bdata_out: inout data_line;
+		ram_baddr: inout std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT);
+      ram_write: inout std_logic;
+		ram_read: inout std_logic;
+      ram_ready: inout std_logic;
+		debug_ram: out work.CacheLibrary.ram_type (0 to RAM_DEPTH);
+		  
 		-- stadio di writeback
 		wb_dest_register: inout std_logic_vector(4 downto 0);
 		wb_dest_register_data: inout std_logic_vector(PARALLELISM-1 downto 0);
@@ -132,6 +141,14 @@ architecture Test of DLXPipelined_Test is
    signal cache_eads: std_logic:= '0';
    signal cache_flush: std_logic:= '0';
 	signal cache_wtwb: std_logic:= '0';
+	
+	signal ram_bdata_in: data_line;
+	signal ram_bdata_out: data_line;
+	signal ram_baddr: std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT);
+   signal ram_write: std_logic;
+	signal ram_read: std_logic;
+   signal ram_ready: std_logic;
+	signal debug_ram: work.CacheLibrary.ram_type (0 to RAM_DEPTH);
 	
 	signal wb_dest_register: std_logic_vector(4 downto 0);
 	signal wb_dest_register_data: std_logic_vector(PARALLELISM-1 downto 0);
@@ -192,6 +209,14 @@ architecture Test of DLXPipelined_Test is
 				cache_wtwb => cache_wtwb,
 				cache_flush => cache_flush,
 				debug_cache => debug_cache,
+	
+				ram_bdata_in => ram_bdata_in,
+				ram_bdata_out => ram_bdata_out,
+				ram_baddr => ram_baddr,
+				ram_write => ram_write,
+				ram_read => ram_read,
+				ram_ready => ram_ready,
+				debug_ram => debug_ram,
 				
 				wb_dest_register => wb_dest_register,
 				wb_dest_register_data => wb_dest_register_data,

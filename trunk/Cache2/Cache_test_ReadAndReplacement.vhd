@@ -69,7 +69,8 @@ END Cache_test_ReadAndReplacement;
 		data_out: out data_line;
 		we      :in    std_logic;                                 -- Write Enable/Read Enable
 		oe      :in    std_logic;                                 -- Output Enable
-		ready	 :out	  std_logic
+		ready	 :out	  std_logic;
+		ram_debug: out RAM (0 to RAM_DEPTH-1)
 	);
 	end component;
 	
@@ -97,6 +98,7 @@ END Cache_test_ReadAndReplacement;
 	signal ram_data_out: data_line;
 	signal ram_we      : std_logic := '0';
 	signal ram_oe      : std_logic := '0';
+	signal ram_debug: RAM (0 to RAM_DEPTH-1);
  
 BEGIN
  
@@ -132,7 +134,8 @@ BEGIN
 		data_out => ram_data_in,
 		we => ram_we,
 		oe => ram_oe,
-		ready => ram_ready
+		ready => ram_ready,
+		ram_debug => ram_debug
 	);
    -- Stimulus process
    stim_proc: process

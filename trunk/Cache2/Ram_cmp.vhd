@@ -54,7 +54,6 @@ begin
 			end loop;
 		elsif (we = '1' and oe = '0') then
 			mem(conv_integer(address)) := data_in;
-			ram_debug <= mem;
 			ready <= '1' after 5 ns;
 		elsif (we = '0' and oe = '1')  then
 			data_out <= mem(conv_integer(address));
@@ -62,6 +61,8 @@ begin
 		elsif (we = '0' and oe = '0') then
 			ready <= '0' after 5 ns;
 		end if;
+		
+		ram_debug <= mem;
 	end process;
 
 end architecture;

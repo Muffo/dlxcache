@@ -69,7 +69,8 @@ ARCHITECTURE behavior OF Cache_test_ReadAndWrite IS
 		data_out: out data_line;
 		we      :in    std_logic;                                 -- Write Enable/Read Enable
 		oe      :in    std_logic;                                 -- Output Enable
-		ready	 :out	  std_logic
+		ready	 :out	  std_logic;
+		ram_debug: out RAM (0 to RAM_DEPTH-1)
 	);
 	end component;
 	
@@ -97,6 +98,7 @@ ARCHITECTURE behavior OF Cache_test_ReadAndWrite IS
 	signal ram_data_out: data_line;
 	signal ram_we      : std_logic := '0';
 	signal ram_oe      : std_logic := '0';
+	signal ram_debug: RAM (0 to RAM_DEPTH-1);
  
 BEGIN
  
@@ -132,12 +134,13 @@ BEGIN
 		data_out => ram_data_in,
 		we => ram_we,
 		oe => ram_oe,
-		ready => ram_ready
+		ready => ram_ready,
+		ram_debug => ram_debug
 	);
    -- Stimulus process
    stim_proc: process
    begin			
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_reset <= '1';
       wait for 20 ns;
 		ch_reset <= '0';
@@ -150,15 +153,15 @@ BEGIN
 		--prima fase LETTURE: 
 		--	vengono richieste dei dati presenti in diversi blocchi di memoria quindi:
 		-- occupo la prima via degli indici (0) (1)
-		wait for 10 ns; 
+		wait for 20 ns; 
 		ch_baddr <= "00000000000000000000000000000000";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000000100100";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		
@@ -168,7 +171,7 @@ BEGIN
 		ch_baddr <= "00000000000000000000000000100000";
 		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memwr <= '0';
 		wait for 20 ns;
 		--caso 2: dato contenuto in blocco non ancora presente in cache, il dato verrà caricato dalla RAM e a quel punto
@@ -176,7 +179,7 @@ BEGIN
 		ch_baddr <= "00000000000000000000000100000110";
 		ch_bdata_in <= "11111111111110001110011010010111";
 		ch_memwr <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memwr <= '0';
 		ch_memwr <= '0';
 		wait for 20 ns;
@@ -185,30 +188,30 @@ BEGIN
 		--           rileggo i dati  scritti per verificre l'effettiva scrittura in cache
 		ch_baddr <= "00000000000000000000000000101100";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000100000000";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		-- quarta fase Letture dato salvato in ram:
 		--oblligo a far salvare in memoria blocco modificato
 		ch_baddr <= "00000000000000000000000100101100";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000110101100";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		--ricarico blocco precendetemente modificato
 		ch_baddr <= "00000000000000000000000000100000";
 		ch_memrd <= '1';
-		wait for 10 ns;
+		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
 		wait;

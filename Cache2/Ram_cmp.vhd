@@ -1,3 +1,25 @@
+----------------------------------------------------------------------------------
+-- Company: Gruppo 2
+-- Engineer: Grandi, Malaguti, Mattetti, Morlini, Ricci
+-- 
+-- Create Date:    10:29:02 12/01/2009 
+-- Design Name: 
+-- Module Name:    Ram_cmp - Behavioral 
+-- Project Name: 	 Cache
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
@@ -22,8 +44,6 @@ architecture Behavioral of ram_cmp is
     shared variable mem : RAM (0 to RAM_DEPTH-1);
 
 begin
-
-    ----------------Code Starts Here------------------
 
 	process (we, oe, reset) begin
 		if(reset = '1') then

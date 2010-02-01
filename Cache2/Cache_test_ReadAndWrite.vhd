@@ -169,7 +169,7 @@ BEGIN
 		--seconda fase: SCRITTURE
 		--caso 1: il dato è contenuto in un blocco già presente in cache,viene aggiornato il blocco e lo stato(-> MESI_M(11))
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000000000000101100";
+		ch_baddr <= "00000000000000000000000000100000";
 		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
 		wait for 10 ns;
@@ -177,7 +177,7 @@ BEGIN
 		wait for 20 ns;
 		--caso 2: dato contenuto in blocco non ancora presente in cache, il dato verrà caricato dalla RAM e a quel punto
 		--			il dato verra modificato e il blocco posto in stato MESI_M(11)
-		ch_baddr <= "00000000000000000000000100000000";
+		ch_baddr <= "00000000000000000000000100000110";
 		ch_bdata_in <= "11111111111110001110011010010111";
 		ch_memwr <= '1';
 		wait for 10 ns;
@@ -197,7 +197,24 @@ BEGIN
 		wait for 10 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
-		
+		-- quarta fase Letture dato salvato in ram:
+		--oblligo a far salvare in memoria blocco modificato
+		ch_baddr <= "00000000000000000000000100101100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000110101100";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
+		--ricarico blocco precendetemente modificato
+		ch_baddr <= "00000000000000000000000000100000";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
 		wait;
 		
 		

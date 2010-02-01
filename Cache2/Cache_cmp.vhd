@@ -106,21 +106,38 @@ begin
 end procedure cache_inv_on;
 	
 	-- segnali interni:
-	signal line_ready : std_logic := '0';
 	signal replace_line : std_logic := '0';
-	signal selected_way : integer;
+	signal write_through: std_logic := '0';
+	signal wt_way : integer;
+	
+	signal line_ready : std_logic := '0';
 	signal replace_write : std_logic := '0';
-	signal write_line: std_logic := '0';
+	signal replace_read: std_logic := '0';
+	signal replace_way : integer;
+	
+	signal selected_way : integer;
 	signal read_line: std_logic := '0';
+	signal write_line: std_logic := '0';
 	signal rdwr_done: std_logic := '0';
+	
+	signal snoop_write: std_logic := '0';
+	signal snoop_way : integer;
 	
 begin
 	
-	write_line <= replace_write;
+	write_line <= '1' when (replace_write = '1' or snoop_write = '1' or write_through = '1') else '0';
 	
-	cache_dlx_process : process (ch_memrd, ch_memwr, ch_reset, line_ready) is
+	read_line <= '1' when (replace_read = '1') else '0';
+	
+	selected_way <= replace_way when (replace_write = '1' or read_line = '1') else
+						 snoop_way   when (snoop_write = '1') else
+						 wt_way   when (write_through = '1') else
+						 -1;		
+	
+	cache_dlx_process : process (ch_memrd, ch_memwr, ch_reset, line_ready, rdwr_done) is
 		variable way: integer;
-		variable waiting: boolean := false;
+		variable waiting_replace: boolean := false;
+		variable waiting_wt: boolean := false;
 		variable word: std_logic_vector(31 downto 0);
 	begin
 		if (ch_reset = '1') then
@@ -129,13 +146,13 @@ begin
 		elsif (ch_memrd = '1' and ch_memwr = '0') then
 			--lettura
 			way := -1;
-			if(waiting and line_ready = '1') then
+			if(waiting_replace and line_ready = '1') then
 				way := selected_way;
-				waiting := false;
-			elsif(not waiting) then 
+				waiting_replace := false;
+			elsif(not waiting_replace) then 
 				get_way(conv_integer(addr_index), addr_tag, way);
 				if(way < 0) then --not hit
-					waiting := true;
+					waiting_replace := true;
 					replace_line <= '1'; -- attiva il rimpiazzamento di una linea
 				end if;
 			end if;
@@ -151,28 +168,40 @@ begin
 		elsif (ch_memrd = '0' and ch_memwr = '1') then
 			-- scrittura
 			way := -1;
-			if(waiting and line_ready = '1') then
+			if(waiting_wt and rdwr_done = '1') then
+				cache(conv_integer(addr_index))(way).status := MESI_E;
+				waiting_wt := false;
+				ch_ready <= '1';
+			elsif(waiting_replace and line_ready = '1') then
 				way := selected_way;
-				waiting := false;
-			elsif(not waiting) then 
+				waiting_replace := false;
+			elsif(not waiting_replace) then 
 				get_way(conv_integer(addr_index), addr_tag, way);
 				if(way < 0) then --not hit
-					waiting := true;
+					waiting_replace := true;
 					replace_line <= '1'; -- attiva il rimpiazzamento di una linea
 				end if;
 			end if;
 			if (way >= 0) then
 				cache_hit_on(conv_integer(addr_index), way);
-				cache(conv_integer(addr_index))(way).status := MESI_M;
 				cache(conv_integer(addr_index))(way).data(conv_integer(addr_offset)) := ch_bdata_in(7 downto 0);
 				cache(conv_integer(addr_index))(way).data(conv_integer(addr_offset) + 1) := ch_bdata_in(15 downto 8);
 				cache(conv_integer(addr_index))(way).data(conv_integer(addr_offset) + 2) := ch_bdata_in(23 downto 16);
 				cache(conv_integer(addr_index))(way).data(conv_integer(addr_offset) + 3) := ch_bdata_in(31 downto 24);
-				ch_ready <= '1';
+				
+				if(cache(conv_integer(addr_index))(way).status = MESI_S) then
+					waiting_wt := true;
+					wt_way <= way;
+					write_through <= '1';
+				else
+					cache(conv_integer(addr_index))(way).status := MESI_M;
+					ch_ready <= '1';
+				end if;
 			end if;
 		elsif (ch_memrd = '0' and ch_memwr = '0') then
 			ch_ready <= '0';
 			replace_line <= '0';
+			write_through <= '0';
 		end if;
 		
 		ch_debug_cache <= cache;
@@ -184,32 +213,30 @@ begin
 		if(replace_line = '0') then
 			step := 0;
 			line_ready <= '0';
-			
-		-- !!!! Qui è un problema ordinare gli step da step=0 a step=3? Forse è più chiaro capire la sequenza...	
-		elsif(step = 2 and rdwr_done = '1') then
-			line_ready <= '1';
-			step := 3;
-			read_line <= '0';
-		elsif(step = 1 and rdwr_done = '1') then
-			step := 2;
-			replace_write <= '0';
-		elsif (step = 2 and rdwr_done = '0') then
-			read_line <= '1';
 		elsif(step = 0 and replace_line = '1') then
 			for way in 0 to NWAY - 1 loop
 				-- lru_counter = NWAY-1 -> se ci sono linee invalide trova una di queste, altrimenti trova la linee più vecchia
 				if(cache(conv_integer(addr_index))(way).lru_counter = NWAY - 1) then
-					selected_way <= way;
+					replace_way <= way;
 					if(cache(conv_integer(addr_index))(way).status = MESI_M) then
 						step := 1;
 						replace_write <= '1';
 					else
 						step := 2;
-						read_line <= '1';
+						replace_read <= '1';
 						exit; 
 					end if;
 				end if;
 			end loop;
+		elsif(step = 1 and rdwr_done = '1') then
+			step := 2;
+			replace_write <= '0';
+		elsif (step = 2 and rdwr_done = '0') then
+			replace_read <= '1';
+		elsif(step = 2 and rdwr_done = '1') then
+			line_ready <= '1';
+			step := 3;
+			replace_read <= '0';
 		end if;
 	end process cache_replace;
 	
@@ -251,5 +278,39 @@ begin
 			end if;
 		end if;
 	end process cache_ram;
+	
+	cache_snoop: process(ch_eads, rdwr_done)
+		variable way: integer;
+		variable waiting_write: boolean := false;
+	begin
+		if(ch_eads = '1') then
+			snoop_write <= '0';
+		elsif(waiting_write and rdwr_done = '1') then
+			ch_hitm <= '1';
+			waiting_write := false;
+		elsif(not waiting_write and ch_eads = '1') then
+			get_way(conv_integer(addr_index), addr_tag, way);
+
+			if(way >= 0) then
+				if(cache(conv_integer(addr_index))(way).status = MESI_M) then
+					waiting_write := false;
+					snoop_way <= way;
+					snoop_write <= '1';
+				else
+					ch_hit <= '1';
+				end if;
+				cache(conv_integer(addr_index))(way).status:= MESI_S;
+			else
+				ch_hit <= '0';
+				ch_hitm <= '0';
+			end if;
+
+			if(ch_inv = '1') then
+				cache(conv_integer(addr_index))(way).status:= MESI_I;				
+				--Aggiornamento dei contatori
+				cache_inv_on(conv_integer(addr_index), way);
+			end if;
+		end if;
+	end process cache_snoop;
 
 end Behavioral;	

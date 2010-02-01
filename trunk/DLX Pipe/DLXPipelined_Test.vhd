@@ -84,7 +84,7 @@ architecture Test of DLXPipelined_Test is
       ram_write: inout std_logic;
 		ram_read: inout std_logic;
       ram_ready: inout std_logic;
-		debug_ram: out work.CacheLibrary.ram_type (0 to RAM_DEPTH);
+		debug_ram: out RamType (0 to RAM_DEPTH);
 		  
 		-- stadio di writeback
 		wb_dest_register: inout std_logic_vector(4 downto 0);
@@ -148,7 +148,7 @@ architecture Test of DLXPipelined_Test is
    signal ram_write: std_logic;
 	signal ram_read: std_logic;
    signal ram_ready: std_logic;
-	signal debug_ram: work.CacheLibrary.ram_type (0 to RAM_DEPTH);
+	signal debug_ram: RamType (0 to RAM_DEPTH);
 	
 	signal wb_dest_register: std_logic_vector(4 downto 0);
 	signal wb_dest_register_data: std_logic_vector(PARALLELISM-1 downto 0);

@@ -63,12 +63,13 @@ entity DLXPipelined is
 		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);	
 
 		-- ram
-      ram_address : inout std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);  -- address Input
+      ram_address : inout std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
       ram_data_in: inout data_line;
 		ram_data_out: inout data_line;
-      ram_we: inout std_logic;                                 -- Write Enable/Read Enable
-      ram_oe: inout std_logic;                                 -- Output Enable
+      ram_we: inout std_logic; 
+      ram_oe: inout std_logic; 
 		ram_ready: inout std_logic;
+		ram_debug: out RAM (0 to RAM_DEPTH-1);
 		
 		-- stadio di writeback
 		wb_instruction_format: inout std_logic_vector(2 downto 0);
@@ -202,7 +203,8 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 		  data_out: out data_line;
         we: in std_logic;                                
         oe: in std_logic;                              
-		  ready: out std_logic
+		  ready: out std_logic;
+		  ram_debug: out RAM (0 to RAM_DEPTH-1)
     );
 	end component;
 
@@ -339,7 +341,8 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				data_in => ram_data_in,
 				we => ram_we,
 				oe => ram_oe,
-				ready => ram_ready
+				ready => ram_ready,
+				ram_debug => ram_debug
 			);
 			
 		WriteBack_Stage_inst: WriteBack_Stage

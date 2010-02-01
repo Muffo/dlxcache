@@ -16,7 +16,7 @@ CONSTANT MESI_E : natural := 2;
 CONSTANT MESI_S : natural := 1;
 CONSTANT MESI_I : natural := 0;
 
-CONSTANT RAM_DEPTH :integer := 127;    
+CONSTANT RAM_DEPTH :integer := 128;    --numero di linee che costituiscono la ram
 
 TYPE data_line IS ARRAY (0 to 2**OFFSET_BIT - 1) of STD_LOGIC_VECTOR (7 downto 0);
 TYPE RAM IS ARRAY  (integer range <>)of data_line;

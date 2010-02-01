@@ -63,12 +63,9 @@ ARCHITECTURE behavior OF Cache_test_snoop IS
     END COMPONENT;
    
 	component ram_cmp is
-	generic(
-		ADDR_WIDTH: integer
-	);
 	port (
 		reset : in std_logic;
-		address :in    std_logic_vector (ADDR_WIDTH-1 downto 0);  -- address Input
+		address :in    std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);  -- address Input
 		data_in: in data_line;
 		data_out: out data_line;
 		we      :in    std_logic;                                 -- Write Enable/Read Enable
@@ -129,10 +126,9 @@ BEGIN
 	); 
 		  
 	ram_inst: Ram_cmp 
-	generic map(ADDR_WIDTH => 10)
 	port map (
 		reset => ch_reset,
-		address => ram_address(9 downto 0),
+		address => ram_address,
 		data_in => ram_data_out,
 		data_out => ram_data_in,
 		we => ram_we,

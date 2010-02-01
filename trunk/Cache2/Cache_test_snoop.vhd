@@ -184,7 +184,7 @@ BEGIN
 		--terza fase snoop: 
 		
 		--caso 1: blocco non presente in cache-> nessuna modifica in cache
-		ch_baddr <= "00000000000000001111110000001100";
+		ch_baddr <= "00000000000000000001111110001100";
 		ch_eads<='1';
 		wait for 10 ns;
 		ch_eads<='0';

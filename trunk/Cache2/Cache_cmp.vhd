@@ -169,7 +169,7 @@ begin
 			-- scrittura
 			way := -1;
 			if(waiting_wt and rdwr_done = '1') then
-				cache(conv_integer(addr_index))(way).status := MESI_E;
+				cache(conv_integer(addr_index))(wt_way).status := MESI_E;
 				waiting_wt := false;
 				ch_ready <= '1';
 			elsif(waiting_replace and line_ready = '1') then
@@ -283,7 +283,7 @@ begin
 		variable way: integer;
 		variable waiting_write: boolean := false;
 	begin
-		if(ch_eads = '1') then
+		if(ch_eads = '0') then
 			snoop_write <= '0';
 		elsif(waiting_write and rdwr_done = '1') then
 			ch_hitm <= '1';
@@ -293,7 +293,7 @@ begin
 
 			if(way >= 0) then
 				if(cache(conv_integer(addr_index))(way).status = MESI_M) then
-					waiting_write := false;
+					waiting_write := true;
 					snoop_way <= way;
 					snoop_write <= '1';
 				else

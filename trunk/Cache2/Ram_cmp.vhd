@@ -5,12 +5,9 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use work.CacheLibrary.all;
 
 entity ram_cmp is
-    generic (
-        ADDR_WIDTH :integer := 8
-    );
     port (
 		  reset: in std_logic;
-        address :in    std_logic_vector (ADDR_WIDTH-1 downto 0);  -- address Input
+        address :in    std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);  -- address Input
         data_in: in data_line;
 		  data_out: out data_line;
         we      :in    std_logic;                                 -- Write Enable/Read Enable
@@ -20,11 +17,9 @@ entity ram_cmp is
 end entity;
 
 architecture Behavioral of ram_cmp is
-    ----------------Internal variables----------------
-    constant RAM_DEPTH :integer := 2**ADDR_WIDTH;
 
-    type RAM is array (integer range <>)of data_line;
     shared variable mem : RAM (0 to RAM_DEPTH-1);
+
 begin
 
     ----------------Code Starts Here------------------

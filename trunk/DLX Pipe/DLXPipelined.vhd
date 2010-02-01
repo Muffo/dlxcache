@@ -63,13 +63,12 @@ entity DLXPipelined is
 		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);	
 
 		-- ram
-		ram_bdata_in: inout data_line;
-		ram_bdata_out: inout data_line;
-		ram_baddr: inout std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT);
-      ram_write: inout std_logic;
-		ram_read: inout std_logic;
-      ram_ready: inout std_logic;
-		debug_ram: out RamType;
+      ram_address : inout std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);  -- address Input
+      ram_data_in: inout data_line;
+		ram_data_out: inout data_line;
+      ram_we: inout std_logic;                                 -- Write Enable/Read Enable
+      ram_oe: inout std_logic;                                 -- Output Enable
+		ram_ready: inout std_logic;
 		
 		-- stadio di writeback
 		wb_instruction_format: inout std_logic_vector(2 downto 0);
@@ -172,38 +171,38 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 	
 	component Cache_cmp is
     port ( 
-			  ch_memrd: in  std_logic;
-           ch_memwr: in  std_logic;
-           ch_baddr: in  std_logic_vector (31 downto 0); 
-           ch_bdata_in: in  std_logic_vector (31 downto 0);
-			  ch_bdata_out: out  std_logic_vector (31 downto 0);
-			  ch_ready: out  std_logic;
-           ch_reset: in  std_logic;
+			  ch_memrd: in std_logic;
+           ch_memwr: in std_logic;
+           ch_baddr: in std_logic_vector (31 downto 0); 
+           ch_bdata_in: in std_logic_vector (31 downto 0);
+			  ch_bdata_out: out std_logic_vector (31 downto 0);
+			  ch_ready: out std_logic;
+           ch_reset: in std_logic;
 			  ch_hit: out std_logic;
 			  ch_hitm: out std_logic;
 			  ch_inv: in std_logic;
 			  ch_eads: in std_logic;
 			  ch_wtwb: in std_logic;
 			  ch_flush: in std_logic;
-			  ch_bdata_ram_in: in data_line;
-			  ch_bdata_ram_out: out data_line;
-			  ch_baddr_ram: out std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT);
-		 	  ch_ramwr: out std_logic;
-			  ch_ramrd: out std_logic;
-		 	  ch_ram_ready: in std_logic;
+			  ram_address: out std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
+			  ram_data_out: out data_line;
+	 	     ram_data_in : in data_line;
+		     ram_we: out std_logic;
+		     ram_oe: out std_logic;
+		     ram_ready: in std_logic;
 			  ch_debug_cache: out cache_type(0 to 2**INDEX_BIT - 1)
 		);
 	end component;
 	
 	component Ram_cmp is
     port (
-        address : in std_logic_vector (PARALLELISM - 1 downto OFFSET_BIT); 
-        bdata_in : in data_line;				  		
-        bdata_out : out data_line;		
-        write_enable : in std_logic;                               
-        read_enable : in std_logic;
-		  ram_ready : out std_logic;
-		  ram_debug : out RamType (0 to RAM_DEPTH)
+        reset: in std_logic;
+        address: in std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
+        data_in: in data_line;
+		  data_out: out data_line;
+        we: in std_logic;                                
+        oe: in std_logic;                              
+		  ready: out std_logic
     );
 	end component;
 
@@ -323,24 +322,24 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				ch_eads => cache_eads,
 				ch_wtwb => cache_wtwb,
 				ch_flush => cache_flush,
-				ch_bdata_ram_in => ram_bdata_out,
-				ch_bdata_ram_out => ram_bdata_in,
-			   ch_baddr_ram => ram_baddr,
-            ch_ramwr => ram_write,
-			   ch_ramrd => ram_read,
-            ch_ram_ready => ram_ready,
+				ram_address => ram_address,
+				ram_data_out => ram_data_in,
+				ram_data_in => ram_data_out,
+				ram_we => ram_we,
+				ram_oe => ram_oe,
+				ram_ready => ram_ready,
 			   ch_debug_cache => debug_cache
 			);
 		
 		Ram_cmp_inst: Ram_cmp
 			port map(
-			  address => ram_baddr,
-			  bdata_in => ram_bdata_in,
-			  bdata_out => ram_bdata_out,
-           write_enable => ram_write,                             
-           read_enable => ram_read,
-		     ram_ready => ram_ready,
-		     ram_debug => debug_ram 
+			   reset => reset,
+				address => ram_address,
+				data_out => ram_data_out,
+				data_in => ram_data_in,
+				we => ram_we,
+				oe => ram_oe,
+				ready => ram_ready
 			);
 			
 		WriteBack_Stage_inst: WriteBack_Stage

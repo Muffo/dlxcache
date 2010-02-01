@@ -28,8 +28,7 @@ use work.Global.all;
  
 ENTITY Cache_test_ReadAndReplacement IS
 END Cache_test_ReadAndReplacement;
- 
-ARCHITECTURE behavior OF Cache_test_ReadAndReplacement IS 
+ ARCHITECTURE behavior OF Cache_test_ReadAndReplacement IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
@@ -135,7 +134,6 @@ BEGIN
 		oe => ram_oe,
 		ready => ram_ready
 	);
- 
    -- Stimulus process
    stim_proc: process
    begin			

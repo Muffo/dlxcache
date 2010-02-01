@@ -184,6 +184,8 @@ begin
 		if(replace_line = '0') then
 			step := 0;
 			line_ready <= '0';
+			
+		-- !!!! Qui è un problema ordinare gli step da step=0 a step=3? Forse è più chiaro capire la sequenza...	
 		elsif(step = 2 and rdwr_done = '1') then
 			line_ready <= '1';
 			step := 3;

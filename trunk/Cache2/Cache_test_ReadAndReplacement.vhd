@@ -212,11 +212,11 @@ BEGIN
 		-- verrà rimpiazzata la via con contatore al valore 1 in questo caso quella con TAG="0".
 		ch_memrd <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000100001100100100";
+		ch_baddr <= "00000000000000000000000110100100";
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
-		--caso 2: più letture di un blocco presente e poi di blocchi non presenti:
+		--caso 2: più letture di blocchi presenti: 
 		
 		ch_memrd <= '0';
 		wait for 20 ns;
@@ -225,7 +225,7 @@ BEGIN
 		wait for 10 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000000000100100100";
+		ch_baddr <= "00000000000000000000000001000000";
 		ch_memrd <= '1';
 		wait for 10 ns;
 		ch_memrd <= '0';
@@ -235,29 +235,27 @@ BEGIN
 		wait for 10 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000100001100100100";
+		ch_baddr <= "00000000000000000000000000000000";
 		ch_memrd <= '1';
 		wait for 10 ns;
-		-- se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice ma non presente in cache(miss),
+		-- e poi di blocchi non presenti: se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice ma non presente in cache(miss),
 		-- verrà rimpiazzata la via con contatore al valore 1, che dovrebbe essere quella con TAG="0".
 		ch_memrd <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000100001100100100";
+		ch_baddr <= "00000000000000000000011100100100";
 		ch_memrd <= '1';
 		wait for 10 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000101001100111100";
+		ch_baddr <= "00000000000000000000111111111100";
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
 		-- osservazioni:
 		--1) gli ultimi due bit dell'offset si presumono sempre a 0 altrimenti avrei una lettura non allineate
 		--		a lato pratico si può avere un out of bound exception nel caso volgia dati a indirizzi di offset maggiori di 28.
-		
-		--	problemi:
-		-- oltre l'indirizzo -->"0000000000000000011111111xxxxxxx" out of bound exception (0 to 1023)
-		--problema nella gestione del TAG
+		-- 2) oltre l'indirizzo -->"0000000000000000000011111xxxxxxx" out of bound exception (0 to 127)
+		--		in quanto la RAM nel nostro caso ha dimensione limitata a 128 linee(128*32Byte=4KB).
 		wait;
    end process;
 

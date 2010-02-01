@@ -19,7 +19,7 @@ CONSTANT MESI_I : natural := 0;
 CONSTANT RAM_DEPTH :integer := 127;
 
 TYPE data_line IS ARRAY (0 to 2**OFFSET_BIT - 1) of STD_LOGIC_VECTOR (7 downto 0);
-TYPE ram_type IS ARRAY (natural range<>) of data_line;
+TYPE RamType IS ARRAY (natural range<>) of data_line;
 
 TYPE cache_line IS 
 	RECORD

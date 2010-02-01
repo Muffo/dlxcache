@@ -69,7 +69,7 @@ entity DLXPipelined is
       ram_write: inout std_logic;
 		ram_read: inout std_logic;
       ram_ready: inout std_logic;
-		debug_ram: out work.CacheLibrary.ram_type;
+		debug_ram: out RamType;
 		
 		-- stadio di writeback
 		wb_instruction_format: inout std_logic_vector(2 downto 0);
@@ -203,7 +203,7 @@ architecture Arch1_DLXPipelined of DLXPipelined is
         write_enable : in std_logic;                               
         read_enable : in std_logic;
 		  ram_ready : out std_logic;
-		  ram_debug : out work.CacheLibrary.ram_type (0 to RAM_DEPTH)
+		  ram_debug : out RamType (0 to RAM_DEPTH)
     );
 	end component;
 

@@ -19,36 +19,36 @@
 ----------------------------------------------------------------------------------
 
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.std_logic_1164.ALL;
+use IEEE.std_logic_ARITH.ALL;
+use IEEE.std_logic_UNSIGNED.ALL;
 use work.CacheLibrary.all;
 use work.Global.all;
 
 entity Cache_cmp is
 	port ( 
 		-- segnali di comunicazione con il DLX
-		ch_memrd: in  STD_LOGIC;
-		ch_memwr: in  STD_LOGIC;
-		ch_baddr: in  STD_LOGIC_VECTOR (31 downto 0);
-		ch_bdata_in: in  STD_LOGIC_VECTOR (31 downto 0);
-		ch_bdata_out: out  STD_LOGIC_VECTOR (31 downto 0);
-		ch_reset: in  STD_LOGIC;
-		ch_ready: out  STD_LOGIC;
+		ch_memrd: in std_logic;
+		ch_memwr: in std_logic;
+		ch_baddr: in std_logic_vector (31 downto 0);
+		ch_bdata_in: in std_logic_vector (31 downto 0);
+		ch_bdata_out: out std_logic_vector (31 downto 0);
+		ch_reset: in std_logic;
+		ch_ready: out std_logic;
 		-- segnali di comunicazione con il controllore di memoria
-		ch_hit: out STD_LOGIC;
-		ch_hitm: out STD_LOGIC;
-		ch_inv: in STD_LOGIC;
-		ch_eads: in STD_LOGIC;
-		ch_wtwb: in STD_LOGIC;
-		ch_flush: in STD_LOGIC;
+		ch_hit: out std_logic;
+		ch_hitm: out std_logic;
+		ch_inv: in std_logic;
+		ch_eads: in std_logic;
+		ch_wtwb: in std_logic;
+		ch_flush: in std_logic;
 		-- segnali di comunicazione con la RAM
-		ram_address : out    std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
-		ram_data_out: out    data_line;
-		ram_data_in : in    data_line;
-		ram_we      : out    std_logic;
-		ram_oe      : out    std_logic;
-		ram_ready	: in	 std_logic;
+		ram_address: out std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
+		ram_data_out: out data_line;
+		ram_data_in: in data_line;
+		ram_we: out std_logic;
+		ram_oe: out std_logic;
+		ram_ready: in std_logic;
 		-- segnali di debug
 		ch_debug_cache: out cache_type(0 to 2**INDEX_BIT - 1)
 	);
@@ -73,7 +73,7 @@ begin
 end procedure cache_reset;
 
 -- In caso di MISS restituisce un valore negativo
-procedure get_way(index: in natural; tag: in STD_LOGIC_VECTOR; selected_way: out integer) is
+procedure get_way(index: in natural; tag: in std_logic_vector; selected_way: out integer) is
 begin
 	selected_way:= -1;
 	for way in 0 to NWAY - 1 loop

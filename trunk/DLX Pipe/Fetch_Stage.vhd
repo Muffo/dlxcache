@@ -28,16 +28,17 @@ constant PC_INIT: std_logic_vector(PC_BITS-1 downto 0) := (others => '0');
 constant EPROM_inst: eprom_type(0 to 11) := (
 X"20010000",	--l1: addi r1,r0,0 ; azzera r1
 X"20020001",	--l2: addi r2,r0,1 ; imposta a 1 r2
-X"AC220000",	--l3: sw 0(r1),r2 ; memorizzza il valore 1 all'indirizzo 0(via 1 dell index0)
+X"AC220000",	--l3: sw 0(r1),r2 ; memorizzza il valore di r2 all'indirizzo 0+r1(via 1 dell index0)
 X"20420001",	--l4: addi r2,r2,1 ; incrementa r2
-X"AC220100",	--l5: sw 16#100(r1),r2 ; memorizzza il valore di r2 all'indirizzo 16#100(via 0 dell index0)
+X"AC220100",	--l5: sw 16#100(r1),r2 ; memorizzza il valore di r2 all'indirizzo 16#100+r1(via 0 dell index0)
 X"20420001",	--l6: addi r2,r2,1 ; incrementa r2
-X"AC220080",	--l7: sw 16#80(r1),r2 ; memorizzza il valore di r2 all'indirizzo 16#80(replacement via 1 dell index0) 
+X"AC220080",	--l7: sw 16#80(r1),r2 ; memorizzza il valore di r2 all'indirizzo 16#80+r1(replacement via 1 dell index0) 
 X"8C220000",	--l8: lw r2,0(r1) ; ripristina valore iniziale di r2 (1)
 X"20210004",	--l9: addi r1,r1,4 ; incremento di 4 indirizzo di base in r1
 X"0BFFFFE0",	--l10: j l3 ;
 X"FFFFFFFF",	--NOP 
 X"FFFFFFFF"		--NOP
+
 											);
 
 

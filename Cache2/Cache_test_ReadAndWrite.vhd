@@ -166,7 +166,7 @@ BEGIN
 		ch_memrd <= '0';
 		ch_wtwb <= '1';
 		wait for 20 ns;
-		----caso wt) carico blocchi in modalità write through
+		----caso wt) carico blocchi in modalità write through(MESI_S)
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000001000100";
 		ch_memrd <= '1';
@@ -192,7 +192,8 @@ BEGIN
 		wait for 20 ns;
 		ch_memwr <= '0';
 		wait for 20 ns;
-		--caso 3: dato contenuto in blocco in modalità write through, devo riscriverlo sul livello superiore(RAM) e mi mantengo in stato MESI_S
+		--caso 3: dato contenuto in blocco in modalità write through, devo riscriverlo sul livello superiore(RAM) e mipongo in MESI_E
+		--(e mi mantengo in stato MESI_S)
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000001000110";
 		ch_memwr <= '1';

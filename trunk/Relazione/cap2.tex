@@ -57,6 +57,16 @@ Per ogni \texttt{cache\_line} si tiene inoltre traccia di:
   \item \texttt{lru\_counter}: contatore usato dalla politica di rimpiazzamento.
 \end{itemize}
 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/cacheType.png}
+\caption{Schematizzazione delle strutture dati della cache}
+\label{fig:c_type}
+\end{figure}
+
+In Fig. \ref{fig:c_type} \`e mostrata una schematizzazione delle strutture dati utilizzate all'interno del componente.
+
 \section{Implementazione}
 
 All'interno del componente \`e presente un unico process detto \texttt{cache\_process}, il quale risponde alle variazioni dei segnali di comando \texttt{ch\_reset}, \texttt{ch\_memrd}, \texttt{ch\_memwr}, \texttt{ch\_eads}.\\

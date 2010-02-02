@@ -18,4 +18,8 @@
 \BOOKMARK [1][-]{section.2.4}{Problematiche principali affrontate}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{Integrazione con DLX}{}
 \BOOKMARK [0][-]{chapter.4}{Block RAM}{}
+\BOOKMARK [1][-]{section.4.1}{Caratteristiche e segnali della Block Ram}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Configurazione della Block Ram}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{Conflitti d'accesso in Block Ram Dual-Port}{chapter.4}
+\BOOKMARK [1][-]{section.4.4}{Possibili utilizzai della Block Ram in un progetto su FPGA}{chapter.4}
 \BOOKMARK [0][-]{chapter*.3}{Bibliografia}{}

@@ -7,16 +7,20 @@
 \contentsline {chapter}{\numberline {2}Realizzazione e collaudo}{15}{chapter.2}
 \contentsline {section}{\numberline {1}Strutture dati}{15}{section.2.1}
 \contentsline {section}{\numberline {2}Implementazione}{17}{section.2.2}
-\contentsline {subsection}{\numberline {2.1}cache\_read}{18}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.1}cache\_read}{19}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2}cache\_replace\_line}{19}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.3}cache\_hit\_on}{19}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.3}cache\_hit\_on}{20}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.4}cache\_inv\_on}{20}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.5}cache\_write}{20}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.6}get\_way}{20}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.6}get\_way}{21}{subsection.2.2.6}
 \contentsline {subsection}{\numberline {2.7}ram\_write}{21}{subsection.2.2.7}
 \contentsline {subsection}{\numberline {2.8}snoop}{21}{subsection.2.2.8}
-\contentsline {section}{\numberline {3}Diagrammi temporali}{21}{section.2.3}
-\contentsline {section}{\numberline {4}Problematiche principali affrontate}{21}{section.2.4}
+\contentsline {section}{\numberline {3}Diagrammi temporali}{22}{section.2.3}
+\contentsline {section}{\numberline {4}Problematiche principali affrontate}{22}{section.2.4}
 \contentsline {chapter}{\numberline {3}Integrazione con DLX}{23}{chapter.3}
 \contentsline {chapter}{\numberline {4}Block RAM}{25}{chapter.4}
-\contentsline {chapter}{Bibliografia}{27}{chapter*.3}
+\contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{25}{section.4.1}
+\contentsline {section}{\numberline {2}Configurazione della Block Ram}{28}{section.4.2}
+\contentsline {section}{\numberline {3}Conflitti d'accesso in Block Ram Dual-Port}{35}{section.4.3}
+\contentsline {section}{\numberline {4}Possibili utilizzai della Block Ram in un progetto su FPGA}{37}{section.4.4}
+\contentsline {chapter}{Bibliografia}{39}{chapter*.3}

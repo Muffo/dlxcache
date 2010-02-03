@@ -21,6 +21,8 @@
 \contentsline {chapter}{\numberline {4}Block RAM}{25}{chapter.4}
 \contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{25}{section.4.1}
 \contentsline {section}{\numberline {2}Configurazione della Block Ram}{28}{section.4.2}
-\contentsline {section}{\numberline {3}Conflitti d'accesso in Block Ram Dual-Port}{35}{section.4.3}
-\contentsline {section}{\numberline {4}Possibili utilizzai della Block Ram in un progetto su FPGA}{37}{section.4.4}
-\contentsline {chapter}{Bibliografia}{39}{chapter*.3}
+\contentsline {section}{\numberline {3}Operazioni della Block Ram}{32}{section.4.3}
+\contentsline {section}{\numberline {4}Conflitti d'accesso in Block Ram Dual-Port}{35}{section.4.4}
+\contentsline {section}{\numberline {5}Possibili utilizzai della Block Ram in un progetto su FPGA}{37}{section.4.5}
+\contentsline {chapter}{Conclusioni}{39}{chapter*.3}
+\contentsline {chapter}{Bibliografia}{41}{chapter*.4}

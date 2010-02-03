@@ -51,17 +51,17 @@ La memoria cache si interfaccia con i dispositivi esterni attraverso 4 tipi di i
 
 \begin{figure}[h!]
 \centering
-\includegraphics{img/01-interfacce_schema_generale.jpg}
+\includegraphics[width=\textwidth]{img/cache/general.png}
 \caption{Interfacce della memoria cache}
 \label{fig:int_gen}
 \end{figure}
 
 
-L'interfaccia verso il microprocessore, mostrata in Fig. \ref{fig:int_dlx}, consente a quest'ultimo di accedere ai dati memorizzati all'interno della cache. \\
+L'interfaccia verso il microprocessore, mostrata in Fig. \ref{fig:int_dlx}, consente a quest'ultimo di accedere ai dati memorizzati all'interno della cache.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{img/dlx-cache.jpg}
+\includegraphics[width=\textwidth]{img/cache/dlx.png}
 \caption{Interfaccia della memoria cache verso il processore DLX}
 \label{fig:int_dlx}
 \end{figure}
@@ -77,57 +77,64 @@ In particolare sono presenti i seguenti segnali:
 
 Per quanto riguarda gli scambi di dati tra processore e memoria cache, si ipotizza che siano sempre lette e scritte parole di lunghezza fissa a 32 bit.\\
 
+Anche se la memoria cache progettata non verr\`a impiegata in sistemi multimaster, si \`e comunque deciso di affrontare alcune delle problematiche inerenti alla presenza di un controllore di memoria. Tramite l'opportuna interfaccia \`e ad esempio possibile effettuare l'invalidazione delle linee e lo snooping dei dati presenti in cache.\\
+
 L'interfaccia verso il controllore di memoria, mostrata in Fig. \ref{fig:int_cnt}, consente di testare e modificare lo stato delle linee.\\
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{img/dlx-cache.jpg} %immagine da fare
+\includegraphics[width=\textwidth]{img/cache/control.png}
 \caption{Interfaccia della memoria cache verso il controllore di memoria}
 \label{fig:int_cnt}
 \end{figure}
 
 In particolare sono presenti i seguenti segnali:
-\begin{itemize} %i nomi dei comandi non sono esatti: vanno sostituiti
+\begin{itemize}
 \item \textbf{ch\_eads}: inizia il ciclo di snoop
-\item \textbf{ch\_inv}: invalida la linea
+\item \textbf{ch\_inv}: richiede l'invalidazione della linea
 \item \textbf{ch\_hit}: indica che la linea richiesta \`e presente in memoria
 \item \textbf{ch\_hitm}: indica che la linea richiesta \`e presente in memoria in stato modified
 \item \textbf{ch\_flush}: scarica il contenuto della cache sulla RAM (tutto o solo un blocco?, funziona?)
 \end{itemize}
 
 
-Per semplificare la realizzazione del componente Cache, si \`e ipotizzato che la RAM fosse incapsulata all'interno dello stesso. In questo modo si riduce notevolmente il numero dei segnali esterni.\\
-
-Una possibile interfaccia verso la RAM (non realmente implementata) \`e mostrata in Fig. \ref{fig:int_ram} e consente alla cache di recuperare i blocchi dal livello sottostante.\\
+L'interfaccia verso la RAM \`e mostrata in Fig. \ref{fig:int_ram} e consente alla cache di recuperare i blocchi dal livello sottostante.\\
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{img/cache-ram.jpg}
+\includegraphics[width=\textwidth]{img/cache/ram.png}
 \caption{Interfaccia della memoria cache verso la RAM}
 \label{fig:int_ram}
 \end{figure}
 
 In particolare sono presenti i seguenti segnali:
-\begin{itemize} %i nomi dei comandi non sono esatti: vanno sostituiti
-\item \textbf{Address[31-2]}: indirizzi a 32 bit emessi dalla cache
-\item \textbf{Data[32-0]}: bus dati con parallelismo 32bit 
-\item \textbf{Write}: segnale per il comando di scrittura in RAM
-\item \textbf{Read}: segnale per il comando di lettura dalla RAM
-\item \textbf{Ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
+\begin{itemize} % attenzione alle dimensioni dei bus
+\item \textbf{ram\_address[31-2]}: indirizzi a 32 bit emessi dalla cache
+\item \textbf{ram\_data\_out[32-0]}: bus dati di uscita con parallelismo pari alla dimensione di una linea
+\item \textbf{ram\_data\_in[32-0]}: bus dati di ingresso con parallelismo pari alla dimensione di una linea
+\item \textbf{ram\_we}: segnale per il comando di scrittura in RAM
+\item \textbf{ram\_oe}: segnale per il comando di lettura dalla RAM
+\item \textbf{ram\_ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
 \end{itemize}
 
-%Si noti che la cache non \`e a conoscenza del componente posto al livello superiore. Vista la simmetria delle due interfacce \`e quindi possibile sostituire la RAM con un ulteriore livello di cache. inserendo quindi pi\`u livelli di cache all'interno del processore.\\
+Si noti che la cache non \`e a conoscenza del componente posto al livello superiore. Vista la simmetria delle due interfacce \`e quindi teoricamente possibile sostituire la RAM con un ulteriore livello di cache, inserendo pi\`u livelli di cache all'interno del processore.\\
 
 
 
-\emph{In realt\`a a livello di codice la RAM \`e integrata all'interno del componente Cache.}
+\`E presente infine una quarta interfaccia verso l'esterno, utilizzata per monitorare lo stato interno della cache e poter quindi eseguire il debug.\\
+Tale interfaccia, mostrata in Fig. \ref{fig:int_deb}, non \`e indispensabile per il corretto funzionamento del dispositivo.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/cache/debug.png}
+\caption{Interfaccia utilizzata per il debug della memoria cache}
+\label{fig:int_deb}
+\end{figure}
 
 
-\`E presente infine una terza interfaccia verso l'esterno, utilizzata per monitorare lo stato interno della cache e poter quindi eseguire il debug.
-I segnali disponibili verranno definiti nel seguito.\\
 
 
-Anche se la memoria cache progettata non verr\`a impiegata in sistemi multimaster, si \`e comunque deciso di affrontare alcune delle problematiche inerenti alla presenza di un controllore di memoria. Tramite l'opportuna interfaccia \`e ad esempio possibile effettuare l'invalidazione delle linee e lo snooping dei dati presenti in cache.
+
 
 
 

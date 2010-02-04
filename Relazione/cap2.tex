@@ -7,7 +7,7 @@ In questo capitolo saranno mostrate le caratteristiche principali di tale compon
 
 \section{Strutture dati}
 
-Le strutture dati impiegate nel componente sono definite nel file \texttt{Cache\_lib.vhd}.
+I tipi di dati utilizzati sono definiti nel file \texttt{Cache\_lib.vhd}.
 
 \lstset{language=VHDL, caption=Costanti e tipi di dato definiti nel file \texttt{Cache\_lib.vhd}, label=DescriptiveLabel, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
@@ -41,7 +41,7 @@ TYPE cache_type IS ARRAY (natural range <>) of set_ways;
 
 Il numero di bit di offset, indice e tag \`e stato parametrizzato per rendere pi\`u flessibile l'utilizzo del componente.
 
-Sono stati inoltre definiti i seguenti tipi di dati:
+All'interno di \texttt{Cache\_lib.vhd} sono poi stati definiti i seguenti tipi di dati:
 \begin{itemize}
   \item \texttt{data\_line}: contiene i dati per una linea della cache, la cui dimensione \`e calcolata in base al numero di bit di offset;
   \item \texttt{cache\_line}: record contenente le informazioni su dati e stato di una linea;
@@ -49,7 +49,7 @@ Sono stati inoltre definiti i seguenti tipi di dati:
   \item \texttt{cache\_type}: array di vie, costituisce l'intera cache ??? (non so come scrivere... :S).
 \end{itemize}
 
-Per ogni \texttt{cache\_line} si tiene inoltre traccia di:
+Per ogni \texttt{cache\_line} si tiene quindi traccia di:
 \begin{itemize}
   \item \texttt{data}: \texttt{data\_line} relativa alla linea corrente;
   \item \texttt{status}: indica lo stato MESI della linea;
@@ -65,80 +65,96 @@ Per ogni \texttt{cache\_line} si tiene inoltre traccia di:
 \label{fig:c_type}
 \end{figure}
 
-In Fig. \ref{fig:c_type} \`e mostrata una schematizzazione delle strutture dati utilizzate all'interno del componente.
+In Fig. \ref{fig:c_type} \`e mostrata una schematizzazione delle strutture dati utilizzate all'interno della cache.
 
 \section{Implementazione}
 
-All'interno del componente \`e presente un unico process detto \texttt{cache\_process}, il quale risponde alle variazioni dei segnali di comando \texttt{ch\_reset}, \texttt{ch\_memrd}, \texttt{ch\_memwr}, \texttt{ch\_eads}.\\
+Il componente \texttt{Cache\_cmp} pu\`o concettualmente essere diviso in tre parti, ognuna delle quali si interfaccia rispettivamente con DLX, RAM e controllore di memoria.\\
+Per questo motivo si \`e deciso di implementare il componente con 3 process indipendenti, i quali utilizzano segnali interni per sincronizzarsi, pi\`u un quarto processo che si occupa nello specifico di eseguire il rimpiazzamento delle linee.\\
 
-All'interno del process vengono invocate le opportune procedure, tramite le quali si realizzano tutti i meccanismi per l'accesso e la modifica dei dati contenuti nella cache.\\
+\subsection{cache\_dlx\_process}
+
+Il process \texttt{cache\_dlx\_process} si occupa dell'interfacciamento con il DLX eseguendo le operazioni di lettura e scrittura richieste attraverso gli opportuni segnali di controllo .
+I compiti di questo process riguardano quindi i seguenti aspetti:
+\begin{itemize}
+  \item gestione della lettura di dati dalla cache;
+  \item gestione della scrittura dei dati provenienti dal DLX nella cache;
+  \item attivazione del meccanismo di rimpiazzamento di una linea;
+  \item generazione del segnale di ready per il DLX;
+\end{itemize}
+
+La sensitivity list del processo comprende sia segnali esterni provenienti dal DLX, che segnali interni utilizzati per la sincronizzazione tra i diversi process.\\
+In particolare sono preseti:
+\begin{itemize}
+  \item \texttt{ch\_memrd}: segnale esterno per una richiesta di lettura;
+  \item \texttt{ch\_memwr}: segnale esterno per una richiesta di scrittura;
+  \item \texttt{ch\_reset}: segnale esterno per effettuare il reset del contenuto della cache;
+  \item \texttt{line\_ready}: segnale interno che indica il termine di un rimpiazzamento;
+  \item \texttt{rdwr\_done}: segnale interno che indica, in caso di write-through, il completamento della scrittura in RAM.
+\end{itemize}
+ 
+I passi seguito durante una lettura sono:
+\begin{enumerate}
+  \item Lettura dell'indirizzo dal bus separando index, tag e offset;
+  \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
+  \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
+  \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
+  \item Lettura del dato dalla cache ed emissione sul bus \texttt{ch\_bdata\_out}.
+\end{enumerate}	
+
+Per quanto riguarda invece la scrittura, si eseguono le seguenti operazioni:
+\begin{enumerate}
+  \item Lettura dell'indirizzo dal bus separando index, tag e offset; 
+  \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
+  \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
+  \item Scrittura del dato presente in \texttt{ch\_bdata\_in} nella cache;
+  \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
+  \item Aggiornamento del bit di stato ed eventuale write-through.
+\end{enumerate}
 
 
 \lstset{caption=Codice VHDL del process \texttt{cache\_process}, label=DescriptiveLabel}
 
 \begin{lstlisting}
-cache_process: process (ch_reset, ch_memrd, ch_memwr, ch_eads) is
-	variable word: STD_LOGIC_VECTOR (31 downto 0):= (others => '0');
-	variable hit: STD_LOGIC;
-	variable hit_m: STD_LOGIC;
-begin
-	if (ch_reset = '1') then -- reset
-		ch_ready <= '0';
-		cache_reset;
-		-- Inizializzazione cache e ram per il debug			
-		for i in 0 to 1023 loop
-			RAM(i):= conv_std_logic_vector(i mod 256, 8);
-		end loop;
-	else
-		if(ch_memrd = '1' and ch_memwr = '0') then -- memrd
-			cache_read(word);
-			ch_bdata_out <= word;
-		elsif(ch_memrd = '0' and not ch_memwr'event and not ch_reset'event) then -- fine memrd
-			ch_bdata_out <= (others => 'Z');
-		end if;
-				
-		if(ch_memwr = '1' and ch_memrd = '0') then -- memwr
-			word:= ch_bdata_in;
-			cache_write(word);
-		end if;
-		
-		if(ch_eads = '1') then -- snoop
-			cache_snoop(hit, hit_m);
-			ch_hit <= hit;
-			ch_hitm <= hit_m;
-		else
-			ch_hit <= '0';
-			ch_hitm <= '0';
-		end if;
-		
-		ch_ready <= ch_memrd or ch_memwr;
-			
-	end if;
-		
-	ch_debug_cache <= cache;
-end process cache_process;
+Codice del process? Forse diventa un po' lungo...
 \end{lstlisting}
 
-Di seguito saranno brevemente descritte le procedure invocate all'interno del process.
+
+\subsection{cache\_ram}
+
+Questo process si occupa dell'intefacciamento con la RAM. In particolare, attraverso segnali interni di controllo, possono essere attivati i meccanismi di scrittura e di lettura di un dato.\\
+
+Durante la realizzazione si \`e ipotizzato che fosse disponibile un segnale di \texttt{ram\_ready} proveniente dall'esterno per indicare il completamento dell'operazione richiesta. Tale segnale \`e importante poich\`e le istruzioni all'interno di uno stesso process vengono eseguite in modo parallelo. Nel nostro caso non sarebbe quindi possibile emettere l'indirizzo per la RAM e leggere immediatamente di seguito i dati sul bus \texttt{ram\_data\_in}.\\
+
+Nel nostro progetto si \`e supposto che tutti i componenti, compresa la RAM, eseguissero le operazioni in tempo nullo. Tuttavia il segnale \texttt{ram\_ready} diviene indispensabile nel caso in cui si decida di tenere in considerazione i ritardi introdotti da una RAM reale.
 
 
-\subsection{cache\_read} %(word: out)}
+\subsection{cache\_snoop}
 
-Parametri di output:
-\begin{itemize}
-  \item \texttt{word}: dato letto
-\end{itemize}
+Il process \texttt{cache\_snoop} si attiva con il segnale esterno \texttt{ch\_eads} proveniente dal controllore di memoria e consente a quest'ultimo di operare sullo stato delle linee.\\
+In particolare \`e possibile sapere se una determinata linea si trova in cache e se il suo stato \`e MESI\_M.\\
+Tramite il segnale \texttt{ch\_inv} il controllore di memoria pu\`o inoltre forzare l'invalidazione di una particolare linea.\\
 
+\emph{Qualche riga sulle ipotesi che abbiamo fatto...}
 
-Descrizione:
+\subsection{cache\_replace}
+
+I meccasmi per il rimpiazzamento delle linee sono eseguiti dal process \texttt{cache\_replace}. In particolare questo process implementa la politica rimpiazzamento basata sui contatori, stabilendo di volta in volta quale linea rimpiazzare.\\
+
+Il meccanismo non pu\`o eseguire tutte le operazioni in un unico ciclo, quindi per poter effettuare la sostituzione di una linea in cache con dei dati presenti in RAM \`e stato realizzato un \emph{sequencer} che compie le seguenti operazioni:
 \begin{enumerate}
-  \item Legge l'indirizzo dal bus separando index, tag e offset
-  \item Verifica se c'\`e un hit attraverso \texttt{get\_way()}
-  \item In caso di MISS applica la politica di rimpiazzamento richiamando \texttt{cache\_replace\_line()}
-  \item Legge il dato dalla cache
-  \item Aggiorna i contatori attraverso \texttt{cache\_hit\_on()}
-  \item Pone il dato letto in \texttt{word} e lo restituisce 
-\end{enumerate}	
+  \item determina la riga da sostituire;
+  \item nel caso in cui tale linea sia in stato MESI\_M effettua il write-back sulla RAM;
+  \item attende eventualmente il termine della scrittura;
+  \item attiva il process per la lettura della nuova linea dalla RAM;
+  \item attende il termine della lettura;
+  \item comunica attraverso il segnale interno \texttt{line\_ready} che il rimpiazzamento \`e terminato.
+\end{enumerate}
+
+\section{Procedure interne}
+
+Di seguito saranno brevemente descritte le procedure invocate all'interno dei diversi process. \emph{(alcune non ci sono pi\`u e saranno da cavare)}
+
 
 \subsection{cache\_replace\_line} %(selected\_way: out)}
 
@@ -189,27 +205,6 @@ Applica la politica di invecchiamento aggiornando i contatori, in particolare:
   \item porta al valore massimo il contatore della via corrente
 \end{enumerate}	
 	
-
-\subsection{cache\_write} %(word: in)}
-
-Parametri di input:
-\begin{itemize}
-  \item \texttt{word}: parola ad scrivere nella cache
-
-\end{itemize}
-
-Descrizione:	
-\begin{enumerate}
-  \item Legge l'indirizzo dal bus separando index, tag e offset. 
-  
-  \item Verifica se c'\`e un hit attraverso \texttt{get\_way()}
-  \item In caso di MISS applica la politica di rimpiazzamento richiamando \texttt{cache\_replace\_line()}
-  \item Scrive il nuovo dato sulla cache
-  \item Aggiorna i contatori attraverso \texttt{cache\_hit\_on()}
-  \item Aggiorna il bit di stato ed esegue eventualmente il write-through.
-\end{enumerate}
-		
-
 
 \subsection{get\_way} %(index: in, tag: in, way: out) }
 

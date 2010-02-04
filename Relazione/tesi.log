@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  3 FEB 2010 10:09
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  4 FEB 2010 11:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -563,7 +563,7 @@ i un com-po-nent VHDL
 
 ) (./cap1.tex [6]
 Capitolo 1.
-<img/set-associative.jpg, id=172, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=207, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg>
@@ -588,13 +588,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/cache/general.png, id=187, 801.99625pt x 648.4225pt>
+<img/cache/general.png, id=222, 1002.74625pt x 811.03pt>
 File: img/cache/general.png Graphic file (type png)
 
 <use img/cache/general.png>
-Underfull \vbox (badness 2027) has occurred while \output is active []
+Underfull \vbox (badness 2005) has occurred while \output is active []
 
- [9 <./img/cache/general.png>] <img/cache/dlx.png, id=196, 1002.74625pt x 766.8
+ [9 <./img/cache/general.png>] <img/cache/dlx.png, id=231, 1002.74625pt x 766.8
 65pt>
 File: img/cache/dlx.png Graphic file (type png)
 
@@ -613,7 +613,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<img/cache/control.png, id=204, 1002.74625pt x 766.865pt>
+<img/cache/control.png, id=239, 1002.74625pt x 766.865pt>
 File: img/cache/control.png Graphic file (type png)
 
 <use img/cache/control.png> [11 <./img/cache/control.png>]
@@ -621,7 +621,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-<img/cache/ram.png, id=212, 1002.74625pt x 766.865pt>
+<img/cache/ram.png, id=247, 1002.74625pt x 766.865pt>
 File: img/cache/ram.png Graphic file (type png)
  <use img/cache/ram.png>
 [12 <./img/cache/ram.png>]
@@ -629,7 +629,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-<img/cache/debug.png, id=220, 1002.74625pt x 766.865pt>
+<img/cache/debug.png, id=255, 1002.74625pt x 766.865pt>
 File: img/cache/debug.png Graphic file (type png)
 
 <use img/cache/debug.png>) (./cap2.tex [13 <./img/cache/debug.png>] [14
@@ -659,69 +659,90 @@ File: omlpag.fd
 LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 38.
 
-<img/cacheType.png, id=249, 1002.74625pt x 513.92pt>
+<img/cacheType.png, id=285, 1002.74625pt x 513.92pt>
 File: img/cacheType.png Graphic file (type png)
  <use img/cacheType.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Overfull \hbox (1.23299pt too wide) in paragraph at lines 72--74
+\OT1/pag/m/n/12 par-ti, ognu-na del-le qua-li si in-ter-fac-cia ri-spet-ti-va-m
+en-te con DLX, RAM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/pag/m/sl' tried instead on input line 85.
-[17 <./img/cacheType.png>]
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pag/b/n' tried instead on input line 125.
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/pag/db/n' tried instead on input line 125.
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 75.
+ [17 <./img/cacheType.png>]
+Overfull \hbox (3.79086pt too wide) in paragraph at lines 93--94
+[]\OT1/pcr/l/n/12 rdwr[]-do-ne\OT1/pag/m/n/12 : se-gna-le in-ter-no che in-di-c
+a, in ca-so di write-through,
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
- [18]
-[19] [20]
-Overfull \hbox (10.00314pt too wide) in paragraph at lines 209--210
-[]\OT1/pag/m/n/12 Aggiorna il bit di sta-to ed ese-gue even-tual-men-te il writ
-e-through. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-) (./cap3.tex [21] [22]
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--137
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+
+ []
+
+[20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
+
+ []
+
+) (./cap3.tex [22] [23] [24
+
+
+]
 Capitolo 3.
-) (./cap4.tex [23
 
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
+ []
 
-] [24
+) (./cap4.tex [25
+
+] [26
 
 
 ]
 Capitolo 4.
-[25
+[27
 
-] <img/blockRam/pinoutPorte.jpg, id=379, 487.06969pt x 311.66437pt>
+] <img/blockRam/pinoutPorte.jpg, id=387, 487.06969pt x 311.66437pt>
 File: img/blockRam/pinoutPorte.jpg Graphic file (type jpg)
 
 <use img/blockRam/pinoutPorte.jpg>
-<img/blockRam/segnali.jpg, id=380, 462.97969pt x 342.5297pt>
+<img/blockRam/segnali.jpg, id=388, 462.97969pt x 342.5297pt>
 File: img/blockRam/segnali.jpg Graphic file (type jpg)
 
 <use img/blockRam/segnali.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26 <./img/blockRam/pinoutPorte.jpg>] [27 <./img/blockRam/segnali.jpg>]
+[28 <./img/blockRam/pinoutPorte.jpg>] [29 <./img/blockRam/segnali.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
@@ -731,18 +752,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
-<img/blockRam/organInterna.jpg, id=391, 375.65344pt x 486.31688pt>
+<img/blockRam/organInterna.jpg, id=399, 375.65344pt x 486.31688pt>
 File: img/blockRam/organInterna.jpg Graphic file (type jpg)
 
 <use img/blockRam/organInterna.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28]
+[30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29 <./img/blockRam/organInterna.jpg>]
-<img/blockRam/tabTipiRam.jpg, id=401, 439.6425pt x 126.4725pt>
+ [31 <./img/blockRam/organInterna.jpg>]
+<img/blockRam/tabTipiRam.jpg, id=410, 439.6425pt x 126.4725pt>
 File: img/blockRam/tabTipiRam.jpg Graphic file (type jpg)
 
 <use img/blockRam/tabTipiRam.jpg>
@@ -755,22 +776,100 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
-<img/blockRam/init.jpg, id=402, 348.55219pt x 103.88812pt>
+<img/blockRam/init.jpg, id=411, 348.55219pt x 103.88812pt>
 File: img/blockRam/init.jpg Graphic file (type jpg)
 
-<use img/blockRam/init.jpg> [30 <./img/blockRam/tabTipiRam.jpg>]
+<use img/blockRam/init.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 86--97
+
+ []
+
+[32 <./img/blockRam/tabTipiRam.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
-<img/blockRam/writeFirst.jpg, id=408, 496.85625pt x 205.5178pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+ []
+
+[33 <./img/blockRam/init.jpg>]
+<img/blockRam/writeFirst.jpg, id=422, 496.85625pt x 205.5178pt>
 File: img/blockRam/writeFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/writeFirst.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<img/blockRam/readFirst.jpg, id=409, 511.15968pt x 212.29312pt>
+<img/blockRam/readFirst.jpg, id=423, 511.15968pt x 212.29312pt>
 File: img/blockRam/readFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/readFirst.jpg>
@@ -783,48 +882,57 @@ Overfull \hbox (2.78123pt too wide) in paragraph at lines 121--122
 n-
  []
 
-[31 <./img/blockRam/init.jpg>]
-<img/blockRam/noChange.jpg, id=418, 521.69907pt x 215.30438pt>
+<img/blockRam/noChange.jpg, id=424, 521.69907pt x 215.30438pt>
 File: img/blockRam/noChange.jpg Graphic file (type jpg)
 
 <use img/blockRam/noChange.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[32 <./img/blockRam/writeFirst.jpg> <./img/blockRam/readFirst.jpg>] [33 <./img/
-blockRam/noChange.jpg>]
-<img/blockRam/operazioni.jpg, id=428, 324.46219pt x 317.68687pt>
+
+Underfull \vbox (badness 1270) has occurred while \output is active []
+
+ [34 <./img/blockRam/writeFirst.jpg>] [35 <./img/blockRam/readFirst.jpg> <./img
+/blockRam/noChange.jpg>] <img/blockRam/operazioni.jpg, id=436, 324.46219pt x 31
+7.68687pt>
 File: img/blockRam/operazioni.jpg Graphic file (type jpg)
 
 <use img/blockRam/operazioni.jpg>
-Underfull \vbox (badness 6428) has occurred while \output is active []
-
- [34 <./img/blockRam/operazioni.jpg>]
-<img/blockRam/conflittiTemp.jpg, id=433, 435.87843pt x 302.63063pt>
-File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
-
-<use img/blockRam/conflittiTemp.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35] <img/blockRam/conflittiScritture.jpg, id=440, 464.4853pt x 225.84375pt>
+[36] [37 <./img/blockRam/operazioni.jpg>]
+<img/blockRam/conflittiTemp.jpg, id=448, 435.87843pt x 302.63063pt>
+File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
+
+<use img/blockRam/conflittiTemp.jpg>
+<img/blockRam/conflittiScritture.jpg, id=449, 464.4853pt x 225.84375pt>
 File: img/blockRam/conflittiScritture.jpg Graphic file (type jpg)
 
-<use img/blockRam/conflittiScritture.jpg> [36 <./img/blockRam/conflittiTemp.jpg
-> <./img/blockRam/conflittiScritture.jpg>]) (./conclusioni.tex [37] [38
+<use img/blockRam/conflittiScritture.jpg> [38 <./img/blockRam/conflittiTemp.jpg
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+
+ []
+
+[39 <./img/blockRam/conflittiScritture.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+[40]) (./conclusioni.tex [41] [42
 
 
-])
-(./bibliografia.tex [39
+]) (./bibliografia.tex [43
 
-] [40
+] [44
 
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 9.
 
-) [41
+) [45
 
 ] (./tesi.aux)
 
@@ -835,24 +943,23 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8171 strings out of 493848
- 113553 string characters out of 3149206
- 314988 words of memory out of 3000000
- 10981 multiletter control sequences out of 15000+200000
- 35329 words of font info for 71 fonts, out of 3000000 for 9000
+ 8139 strings out of 493848
+ 112918 string characters out of 3149206
+ 252977 words of memory out of 3000000
+ 10968 multiletter control sequences out of 15000+200000
+ 33323 words of font info for 69 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
- 38i,12n,48p,656b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,12n,48p,1607b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texli
-ve/2009/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/2009
-/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2009/texmf-
-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist/f
-onts/type1/urw/courier/ucrr8a.pfb>
-Output written on tesi.pdf (41 pages, 1021132 bytes).
+live/2009/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/20
+09/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2009/texm
+f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
+/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on tesi.pdf (45 pages, 1054818 bytes).
 PDF statistics:
- 536 PDF objects out of 1000 (max. 8388607)
- 190 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 172 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 

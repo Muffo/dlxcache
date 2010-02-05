@@ -1,6 +1,6 @@
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-\chapter{Realizzazione e collaudo}
+\chapter{Realizzazione del componente}
 
 La cache \`e stata realizzata come componente indipendente, detto \texttt{Cache\_cmp}.\\
 In questo capitolo saranno mostrate le caratteristiche principali di tale componente.
@@ -72,9 +72,9 @@ In Fig. \ref{fig:c_type} \`e mostrata una schematizzazione delle strutture dati 
 Il componente \texttt{Cache\_cmp} pu\`o concettualmente essere diviso in tre parti, ognuna delle quali si interfaccia rispettivamente con DLX, RAM e controllore di memoria.\\
 Per questo motivo si \`e deciso di implementare il componente con 3 process indipendenti, i quali utilizzano segnali interni per sincronizzarsi, pi\`u un quarto processo che si occupa nello specifico di eseguire il rimpiazzamento delle linee.\\
 
-\subsection{cache\_dlx\_process}
+\subsection{cache\_dlx}
 
-Il process \texttt{cache\_dlx\_process} si occupa dell'interfacciamento con il DLX eseguendo le operazioni di lettura e scrittura richieste attraverso gli opportuni segnali di controllo .
+Il process \texttt{cache\_dlx} si occupa dell'interfacciamento con il DLX eseguendo le operazioni di lettura e scrittura richieste attraverso gli opportuni segnali di controllo .
 I compiti di questo process riguardano quindi i seguenti aspetti:
 \begin{itemize}
   \item gestione della lettura di dati dalla cache;
@@ -135,7 +135,14 @@ Il process \texttt{cache\_snoop} si attiva con il segnale esterno \texttt{ch\_ea
 In particolare \`e possibile sapere se una determinata linea si trova in cache e se il suo stato \`e MESI\_M.\\
 Tramite il segnale \texttt{ch\_inv} il controllore di memoria pu\`o inoltre forzare l'invalidazione di una particolare linea.\\
 
-\emph{Qualche riga sulle ipotesi che abbiamo fatto...}
+Il process \texttt{cache\_snoop} ha il seguente comportamento: se l'indirizzo richiesto non \`e presente in cache i segnali \texttt{ch\_hit} e \texttt{ch\_hitm} vengono portati al valore logico '0'. In caso contrario il comportamento varia in base allo stato della linea che contiene l'indirizzo:
+\begin{itemize}
+  \item stato MESI\_E: ch\_hit viene portato al valore '1' e la linea passa in stato MESI\_S;
+  \item stato MESI\_S: ch\_hit viene portato al valore '1' e lo stato della linea resta invariato;
+  \item stato MESI\_M: sia ch\_hit che ch\_hitm vengono portati al valore '1', viene forzata la scrittura della linea in RAM e il suo stato vien portato a MESI\_S.
+\end{itemize}
+
+Nel caso in cui il segnale ch\_inv sia attivo il comportamento resta invariato, ma lo stato della linea diventa sempre MESI\_I. 
 
 \subsection{cache\_replace}
 
@@ -150,6 +157,35 @@ Il meccanismo non pu\`o eseguire tutte le operazioni in un unico ciclo, quindi p
   \item attende il termine della lettura;
   \item comunica attraverso il segnale interno \texttt{line\_ready} che il rimpiazzamento \`e terminato.
 \end{enumerate}
+
+\subsection{Comunicazione tra processi}
+
+I quattro processi si scambiano segnali che consentono la sincronizzazione delle operazioni da svolgere.\\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/cache/collegamenti1.png}
+\caption{Collegamenti tra processi}
+\label{fig:colleg1}
+\end{figure}
+
+La Fig. \ref{fig:colleg1} mostra come sono collegati i seguenti segnali:
+\begin{itemize}
+  \item \texttt{replace\_line}: attiva il processo che gestisce il rimpiazzamento di una linea;
+  \item \texttt{write\_through}: attiva la scrittura di una linea in stato \texttt{MESI\_S} in memoria RAM;
+  \item \texttt{replace\_write}: attiva la scrittura di una linea da rimpiazzare in stato \texttt{MESI\_M} in memoria RAM;
+  \item \texttt{snoop\_write}: attiva la scrittura di una linea in stato \texttt{MESI\_S} in memoria RAM in seguito ad uno snoop.
+\end{itemize}
+
+Ogni processo notifica il completamento dell'operazione richiesta attivando un opportuno segnale di ready, come mostrato in Fig. \ref{fig:colleg2}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/cache/collegamenti2.png}
+\caption{Collegamenti tra processi}
+\label{fig:colleg2}
+\end{figure}
+
 
 \section{Procedure interne}
 
@@ -227,24 +263,20 @@ Descrizione:
 \end{enumerate}
 	
 	
-	
-\subsection{ram\_write} %(tag, index, way)}
+%	
+%\subsection{ram\_write} %(tag, index, way)}
 
-Parametri di input:
-\begin{itemize}
-  \item \texttt{tag}: tag della linea da scrivere
-  \item \texttt{index}: index della linea da scrivere
-  \item \texttt{way}: numero di via in cui si trova la linea da scrivere
-\end{itemize}
+%Parametri di input:
+%\begin{itemize}
+%  \item \texttt{tag}: tag della linea da scrivere
+%  \item \texttt{index}: index della linea da scrivere
+%  \item \texttt{way}: numero di via in cui si trova la linea da scrivere
+%\end{itemize}
 
-Descrizione:
-	1. Costruisce l'indirizzo del blocco a partire da \texttt{tag} e \texttt{index}
-	2. Scrive i dati contenuti nel blocco sulla RAM
-	
+%Descrizione:
+%	1. Costruisce l'indirizzo del blocco a partire da \texttt{tag} e \texttt{index}
+%	2. Scrive i dati contenuti nel blocco sulla RAM
 
-\subsection{snoop}
-	Da dettagliare in seguito ????
-	
 
 \section{Diagrammi temporali}
 

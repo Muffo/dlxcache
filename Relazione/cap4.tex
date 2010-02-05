@@ -1,216 +1,267 @@
 \clearpage{\pagestyle{empty}\cleardoublepage}
-\chapter{Block RAM}
+
+\chapter{Testbench}
+
+Per morlins
+
+\section{Testbench del componente}
+
+I tipi di dati utilizzati sono definiti nel file \texttt{Cache\_lib.vhd}.
+
+\lstset{language=VHDL, caption=Costanti e tipi di dato definiti nel file \texttt{Cache\_lib.vhd}, label=DescriptiveLabel, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
+
+\begin{lstlisting}
+
+codice...
+
+\end{lstlisting}
 
 
-Mentre nel nostro progetto per semplicit\`a  abbiamo considerato nulli i tempi d'accesso alla cache e alla memoria principale, ovviamente ci\`o non accade nella realt\`a dove la struttura gerarchica delle memorie impone vincoli di dimensione e tempi d'accesso per i vari livelli di memoria. Per tale motivo abbiamo voluto approfondire le problematiche relative alle temporizzazioni per gli accessi in memoria che un progetto tradizionale impone. Per far ci\`o abbiamo considerato ci\`o che una tipica FPGA d\`a a disposizione ad un progettista per implementare una memoria ram e gestirne gli accessi in lettura e scrittura.
-\\
-Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia Spartan-3E di Xilinx, che per gestire la memorizzazione di dati utilizza le Block Ram.
-
-\section{Caratteristiche e segnali della Block Ram}
-
-La memoria RAM presente su una FPGA Spartan-3 viene implementata tramite una serie di Block Ram ripartite in colonne il cui numero e capacit\`a dipende dalle caratteristiche stesse della scheda utilizzata. Dal punto di vista implementativo le Block Ram sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
-L'accesso alla block ram pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati (A o B) oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura su zone diverse del dispositivo.
-
-\begin{figure}[!h]
-\centering
-% \includegraphics[scale=0.8]{img/blockRam/pinoutPorte.jpg}
-\includegraphics[width=\textwidth]{img/blockRam/pinoutPorte.jpg}
-\caption{Pinout Block Ram Single-Port e Dual-Port}
-\label{fig:set_ass}
-\end{figure}
+\section{Assembler per DLX}
 
 
-Ogni  porta della block ram si interfaccia con due bus dati (distinti per l'input e per l'output),  con il bus degli indirizzi e dispone di una serie di segnali di comando atti ad abilitare il dispositivo (EN in Single-Port) e a gestire operazioni di lettura (EN) o scrittura (WE). La seguente tabella racchiude i principali segnali illustrati nella figura precedente sia in Single-Port che in Dual-Port.
+%Il numero di bit di offset, indice e tag \`e stato parametrizzato per rendere pi\`u flessibile l'utilizzo del componente.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/segnali.jpg}
-\caption{Segnali della Block Ram Single-Port e Dual-Port}
-\label{fig:set_ass}
-\end{figure}
+%All'interno di \texttt{Cache\_lib.vhd} sono poi stati definiti i seguenti tipi di dati:
+%\begin{itemize}
+%  \item \texttt{data\_line}: contiene i dati per una linea della cache, la cui dimensione \`e calcolata in base al numero di bit di offset;
+%  \item \texttt{cache\_line}: record contenente le informazioni su dati e stato di una linea;
+%  \item \texttt{set\_ways}: array di \texttt{NWAY} linee che compongono una via;
+%  \item \texttt{cache\_type}: array di vie, costituisce l'intera cache ??? (non so come scrivere... :S).
+%\end{itemize}
 
-Segnali di comando:
+%Per ogni \texttt{cache\_line} si tiene quindi traccia di:
+%\begin{itemize}
+%  \item \texttt{data}: \texttt{data\_line} relativa alla linea corrente;
+%  \item \texttt{status}: indica lo stato MESI della linea;
+%  \item \texttt{tag}: bit dell'indirizzo che rappresentano il tag della linea;
+%  \item \texttt{lru\_counter}: contatore usato dalla politica di rimpiazzamento.
+%\end{itemize}
 
-\begin{itemize}
-  \item \texttt{EN} = Enable consente di abilitare il dispositivo e qualora non siano asseriti WE(write enable) o SSR (reset), il 	segnale comanda a default la lettura della cella di memoria all'indirizzo specificato sul bus degli indirizzi ADDR sul 		fronte positivo del clock.
-  \item \texttt{WE} = Write Enable consente di comandare un ciclo di scrittura in memoria all'indirizzo specificato sul bus degli indirizzi ADDR (con EN asserito), tale operazione in base al valore settato nell'attributo WRITE\_MODE pu\`o essere affiancata da una lettura contemporanea del dato alla stessa locazione di memoria che viene portato nel buffer di output sul bus DO (della stessa porta). 
-  \item \texttt{SSR} = Syncronous Set/Reset consente di settare '1' o resettare '0' i registri di ouput sul bus dati in accordo col valore dell'attributo SRVAL.
-  \item \texttt{REGCE} = Output Register Enable consente in fase di  lettura da ram di salvare il dato letto in un output register.
-  \item \texttt{CLK} =  \`e il clock e si pu\`o configurare se la memoria debba essere sensibile ai fronti di salita o di discesa.
-\item \texttt{GSR} = Global Set/Reset segnale di sistema utilizzato per in fase di inizializzazione del sistema (non disponibile all'esterno su un pin).
-\end{itemize}
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=\textwidth]{img/cacheType.png}
+%\caption{Schematizzazione delle strutture dati della cache}
+%\label{fig:c_type}
+%\end{figure}
 
-C'\'e inoltre la possibilit\`a di configurare le polarit\`a di ogni segnale di comando se da considerarsi asserito alto o basso.
-\\
-Interfacciamento ai bus:\\
+%In Fig. \ref{fig:c_type} \`e mostrata una schematizzazione delle strutture dati utilizzate all'interno della cache.
 
-\begin{itemize}
-  \item \texttt{ADDR} = bus degli indirizzi la cui larghezza [\#:0] dipende dalla configurazione della block ram.
-  \item \texttt{DI} = Data Input Bus [\#:0] (l'ampiezza del dato da trasferire dipende dalla configurazione della block ram).
-  \item \texttt{DO} = Data Output Bus
-  \item \texttt{DIP} = Data Input Parity Bus (nei bit pi\`u significative del Bus Dati di Input)
-  \item \texttt{DOP} = Data Output Parity Bus (nei bit pi\`u significative del Bus Dati di Output)
-\end{itemize}
+%\section{Implementazione}
 
-Possibili configurazioni e organizzazioni della Block Ram:\\
+%Il componente \texttt{Cache\_cmp} pu\`o concettualmente essere diviso in tre parti, ognuna delle quali si interfaccia rispettivamente con DLX, RAM e controllore di memoria.\\
+%Per questo motivo si \`e deciso di implementare il componente con 3 process indipendenti, i quali utilizzano segnali interni per sincronizzarsi, pi\`u un quarto processo che si occupa nello specifico di eseguire il rimpiazzamento delle linee.\\
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/organInterna.jpg}
-\caption{Possibili organizzazioni interne della Block Ram}
-\label{fig:set_ass}
-\end{figure}
+%\subsection{cache\_dlx}
 
-Nel nostro caso, dal momento che il DLX \`e un processore a 32 bit, la configurazione necessaria per la block ram \`e la 512x36. Tale configurazione da la possibilit\'a di accedere fino a 36 bit di dato contemporaneamente, di cui 32 bit di dato veri e 4 di parit\`a posti sui bit pi\`u significativi del bus dati. Con tale configurazione la block ram (di 18 Kbit) conterr\`a 512 entry (memory-depth) da 36 bit (infatti 512x36 bit = 18 Kbits).
+%Il process \texttt{cache\_dlx} si occupa dell'interfacciamento con il DLX eseguendo le operazioni di lettura e scrittura richieste attraverso gli opportuni segnali di controllo .
+%I compiti di questo process riguardano quindi i seguenti aspetti:
+%\begin{itemize}
+%  \item gestione della lettura di dati dalla cache;
+%  \item gestione della scrittura dei dati provenienti dal DLX nella cache;
+%  \item attivazione del meccanismo di rimpiazzamento di una linea;
+%  \item generazione del segnale di ready per il DLX;
+%\end{itemize}
 
-\section{Configurazione della Block Ram}
+%La sensitivity list del processo comprende sia segnali esterni provenienti dal DLX, che segnali interni utilizzati per la sincronizzazione tra i diversi process.\\
+%In particolare sono preseti:
+%\begin{itemize}
+%  \item \texttt{ch\_memrd}: segnale esterno per una richiesta di lettura;
+%  \item \texttt{ch\_memwr}: segnale esterno per una richiesta di scrittura;
+%  \item \texttt{ch\_reset}: segnale esterno per effettuare il reset del contenuto della cache;
+%  \item \texttt{line\_ready}: segnale interno che indica il termine di un rimpiazzamento;
+%  \item \texttt{rdwr\_done}: segnale interno che indica, in caso di write-through, il completamento della scrittura in RAM.
+%\end{itemize}
+% 
+%I passi seguito durante una lettura sono:
+%\begin{enumerate}
+%  \item Lettura dell'indirizzo dal bus separando index, tag e offset;
+%  \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
+%  \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
+%  \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
+%  \item Lettura del dato dalla cache ed emissione sul bus \texttt{ch\_bdata\_out}.
+%\end{enumerate}	
 
-La configurazione della Block Ram avviene tramite una serie di attributi propri dei componenti ram disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna, la dimensione e diverse altre modalità di funzionamento che la Block Ram offre all'utente.\\
-Generalmente il numero di porte della ram e la sua organizzazione interna possono essere specificati utilizzando Xilinx Core Generator che consente di configurare tramite un wizard la Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato oppure si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a.
+%Per quanto riguarda invece la scrittura, si eseguono le seguenti operazioni:
+%\begin{enumerate}
+%  \item Lettura dell'indirizzo dal bus separando index, tag e offset; 
+%  \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
+%  \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
+%  \item Scrittura del dato presente in \texttt{ch\_bdata\_in} nella cache;
+%  \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
+%  \item Aggiornamento del bit di stato ed eventuale write-through.
+%\end{enumerate}
 
-\begin{figure}[!h]
-\centering
-%\includegraphics[width=\textwidth]{img/blockRam/tabTipiRam.jpg}
- \includegraphics[scale=0.5]{img/blockRam/tabTipiRam.jpg}
-\caption{La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata}
-\label{fig:set_ass}
-\end{figure}
+%
+%\lstset{caption=Codice VHDL del process \texttt{cache\_process}, label=DescriptiveLabel}
 
-\begin{itemize}
-  \item \texttt{INIT\_xx - INITP\_xx}
-A default la block ram \`e inizializzata a tutti 0, ma \`e possibile in inizializzarne il contenuto in diversi modi o direttamente tramite Core Generator al momento della configurazione del componente oppure tramite opportuni attributi VHDL come INIT\_xx e INITP\_xx (per inizializzare i bit di parit\`a). 
-Nel primo caso si passa direttamente un file di coefficienti (.coe) che definisce in primo luogo la base numerica dei dati da inserire e in seguito l'elenco dei dati elencati a partire dalla parte bassa della memoria fino agli indirizzi alti. Un esempio della struttura di tale file \`e il seguente:\\\\
-	memory\_inizialization\_radix=16;\\
-	memory\_inizialization\_vector=80, 0F, 00, 0B, ..., 82;\\
+%\begin{lstlisting}
+%Codice del process? Forse diventa un po' lungo...
+%\end{lstlisting}
 
-Altrimenti si utilizzano direttamente 64 attributi VHDL INIT\_xx (da INIT\_00 a INIT\_3F) che consentono di inizializzare le 64 zone da 256bit con cui \`e ripartita la memoria. Gli indirizzi del blocco di memoria da inizializzare identificati da xx sono calcolabili nel seguente modo dopo aver convertito l'indirizzo esadecimale xx nel corrispondente indirizzo decimale yy:
-\\
-indirizzo iniziale del blocco xx = [(yy+1)*256] - 1\\
-indirizzo finale del blocco xx = yy*256\\
-\\
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/init.jpg}
-\caption{Attributi di Inizializzazione del contenuto della Block Ram}
-\label{fig:set_ass}
-\end{figure}
+%
+%\subsection{cache\_ram}
 
-INITP\_xx sono attributi analoghi che consentono di inizializzare i bit di parit \`a presenti in memoria (da INITP\_00 a INITP\_07).
-\item \texttt{INIT}  \`e l'attributo utilizzato in fase di inizializzazione per settare il valore iniziale del registro di output quando viene asserito il segnale GSR.
-\\
-\item \texttt{WRITE\_MODE}  \`e l'attributo che consente di settare il comportamento dei registri in output (relativamente ad una porta) che forniscono il dato sull'Output Data Bus durante un ciclo di scrittura in memoria.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%Questo process si occupa dell'intefacciamento con la RAM. In particolare, attraverso segnali interni di controllo, possono essere attivati i meccanismi di scrittura e di lettura di un dato.\\
 
-\begin{enumerate}
-\item \texttt{WRITE\_FIRST} \`e  il valore di default e comporta un comportamento Read after Write della memoria, ovvero durante un ciclo di scrittura il dato in input viene contemporaneamente scritto alla locazione di memoria indicata dall'indirizzo e portato nel registro di output. 
-Nel caso di utilizzo in Dual-Port si ha l'invalidazione del contenuto del registro di output dell'altra porta.
+%Durante la realizzazione si \`e ipotizzato che fosse disponibile un segnale di \texttt{ram\_ready} proveniente dall'esterno per indicare il completamento dell'operazione richiesta. Tale segnale \`e importante poich\`e le istruzioni all'interno di uno stesso process vengono eseguite in modo parallelo. Nel nostro caso non sarebbe quindi possibile emettere l'indirizzo per la RAM e leggere immediatamente di seguito i dati sul bus \texttt{ram\_data\_in}.\\
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/writeFirst.jpg}
-\label{fig:set_ass}
-\end{figure}
+%Nel nostro progetto si \`e supposto che tutti i componenti, compresa la RAM, eseguissero le operazioni in tempo nullo. Tuttavia il segnale \texttt{ram\_ready} diviene indispensabile nel caso in cui si decida di tenere in considerazione i ritardi introdotti da una RAM reale.
 
-\item \texttt{READ\_FIRST} determina un comportamento Read before Write, ovvero prima si carica nel buffer di output il dato (passato) presente alla locazione di memoria specificata dall'indirizzo e poi si sovrascrive tale zona di memoria col dato in ingresso (si effettua la scrittura in memoria). 
+%
+%\subsection{cache\_snoop}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/readFirst.jpg}
-\label{fig:set_ass}
-\end{figure}
+%Il process \texttt{cache\_snoop} si attiva con il segnale esterno \texttt{ch\_eads} proveniente dal controllore di memoria e consente a quest'ultimo di operare sullo stato delle linee.\\
+%In particolare \`e possibile sapere se una determinata linea si trova in cache e se il suo stato \`e MESI\_M.\\
+%Tramite il segnale \texttt{ch\_inv} il controllore di memoria pu\`o inoltre forzare l'invalidazione di una particolare linea.\\
 
-\item \texttt{NO\_CHANGE} determina un comportamento classico di scrittura in memoria senza alcun aggiornamento del dato contenuto nel registro in output. Nel caso di utilizzo in Dual-Port si ha come side-effect l'invalidazione del contenuto del registro di output dell'altra porta.
-\end{enumerate}
+%Il process \texttt{cache\_snoop} ha il seguente comportamento: se l'indirizzo richiesto non \`e presente in cache i segnali \texttt{ch\_hit} e \texttt{ch\_hitm} vengono portati al valore logico '0'. In caso contrario il comportamento varia in base allo stato della linea che contiene l'indirizzo:
+%\begin{itemize}
+%  \item stato MESI\_E: ch\_hit viene portato al valore '1' e la linea passa in stato MESI\_S;
+%  \item stato MESI\_S: ch\_hit viene portato al valore '1' e lo stato della linea resta invariato;
+%  \item stato MESI\_M: sia ch\_hit che ch\_hitm vengono portati al valore '1', viene forzata la scrittura della linea in RAM e il suo stato vien portato a MESI\_S.
+%\end{itemize}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/noChange.jpg}
-\label{fig:set_ass}
-\end{figure}
+%Nel caso in cui il segnale ch\_inv sia attivo il comportamento resta invariato, ma lo stato della linea diventa sempre MESI\_I. 
 
-\end{itemize}
+%\subsection{cache\_replace}
 
-\section{Operazioni della Block Ram}
+%I meccasmi per il rimpiazzamento delle linee sono eseguiti dal process \texttt{cache\_replace}. In particolare questo process implementa la politica rimpiazzamento basata sui contatori, stabilendo di volta in volta quale linea rimpiazzare.\\
 
-Di seguito viene riportato l'elenco delle operazioni che la Block Ram  \`e in grado di gestire e dei relativi segnali impiegati:
+%Il meccanismo non pu\`o eseguire tutte le operazioni in un unico ciclo, quindi per poter effettuare la sostituzione di una linea in cache con dei dati presenti in RAM \`e stato realizzato un \emph{sequencer} che compie le seguenti operazioni:
+%\begin{enumerate}
+%  \item determina la riga da sostituire;
+%  \item nel caso in cui tale linea sia in stato MESI\_M effettua il write-back sulla RAM;
+%  \item attende eventualmente il termine della scrittura;
+%  \item attiva il process per la lettura della nuova linea dalla RAM;
+%  \item attende il termine della lettura;
+%  \item comunica attraverso il segnale interno \texttt{line\_ready} che il rimpiazzamento \`e terminato.
+%\end{enumerate}
 
-\begin{itemize}
-  \item Global Set/Reset: segue la fase di inizializzazione iniziale del contenuto della Block Ram in cui si inizializza la ram o a tutti zeri (default) o ai valori impostati con gli attributi \texttt{INIT\_xx}. Tale segnale serve per inizializzare lo stato dei flipflop e registri di output che vengono settati in base al valore specificato dall'attributo \texttt{INIT} (0 a default). 
+%\subsection{Comunicazione tra processi}
 
-\item RAM Disabled: se il segnale \texttt{EN} non  \`e asserito la ram mantiene il proprio stato. Ogni operazione prevede che EN venga asserito affinch\`e la ram sia attiva.
+%I quattro processi si scambiano segnali che consentono la sincronizzazione delle operazioni da svolgere.\\
 
-\item Synchronous Set/Reset: \`e l'operazione conseguente all'asserzione contemporanea dei segnali \texttt{EN} e \texttt{SSR}. Tale operazione comporta la re inizializzazione dei registri di output al valore specificato dall'attributo\texttt{ SRVAL}.
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=\textwidth]{img/cache/collegamenti1.png}
+%\caption{Collegamenti tra processi}
+%\label{fig:colleg1}
+%\end{figure}
 
-\item \texttt{WE} + \texttt{SSR} comporta un ciclo di scrittura in cui il dato in input viene salvato in memoria all'indirizzo presente sul bus degli indirizzi, mentre il registro di output viene impostate al valore SRVAL.
+%La Fig. \ref{fig:colleg1} mostra come sono collegati i seguenti segnali:
+%\begin{itemize}
+%  \item \texttt{replace\_line}: attiva il processo che gestisce il rimpiazzamento di una linea;
+%  \item \texttt{write\_through}: attiva la scrittura di una linea in stato \texttt{MESI\_S} in memoria RAM;
+%  \item \texttt{replace\_write}: attiva la scrittura di una linea da rimpiazzare in stato \texttt{MESI\_M} in memoria RAM;
+%  \item \texttt{snoop\_write}: attiva la scrittura di una linea in stato \texttt{MESI\_S} in memoria RAM in seguito ad uno snoop.
+%\end{itemize}
 
-\item READ: la lettura sulla block ram avviene in modo sincrono, quindi sul fronte positivo del clock qualora sia asserito il solo segnale di \texttt{EN}.
+%Ogni processo notifica il completamento dell'operazione richiesta attivando un opportuno segnale di ready, come mostrato in Fig. \ref{fig:colleg2}
 
-\item WRITE: la scrittura sulla block ram avviene in modo sincrono sul fronte positivo del clock e qualora siano asseriti contemporaneamente \texttt{EN} + \texttt{WE}. La scrittura del dato in input sui pin dell'Input Data Bus avviene all'indirizzo specificato e tale operazione  \`e affiancata contemporaneamente dalla lettura del dato alla stessa locazione di memoria che viene reso disponibile in lettura e caricato sui registri di output (naturalmente la politica con la quale avviene tale operazione di scrittura e lettura simultanea  \`e definita dal valore dell'attributo WRITE\_MODE visto in precedenza).
-\end{itemize}
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=\textwidth]{img/cache/collegamenti2.png}
+%\caption{Collegamenti tra processi}
+%\label{fig:colleg2}
+%\end{figure}
 
-La seguente tabella racchiude quanto detto in precedenza e associa ad ogni operazione i valori dei segnali associati.
+%
+%\section{Procedure interne}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/operazioni.jpg}
-\label{fig:set_ass}
-\end{figure}
+%Di seguito saranno brevemente descritte le procedure invocate all'interno dei diversi process. \emph{(alcune non ci sono pi\`u e saranno da cavare)}
 
-\section{Conflitti d'accesso in Block Ram Dual-Port}
-Utilizzando la block ram in modalit\`a Dual-Port  si ha la possibilit\`a di utilizzare contemporaneamente le due porte per accedere alla memoria sia in lettura e scrittura e mentre da un lato ci\`o consente di aumentare lo throughput complessivo dei dati trasferiti, dall'altro vi sono potenziali problemi di conflitto negli accessi simultanei alle stesse celle di memoria.
-\\
-Le condizioni di potenziale conflitto si hanno nei seguenti casi:
+%
+%\subsection{cache\_replace\_line} %(selected\_way: out)}
 
-\begin{enumerate}
-	\item Scrittura simultanea sulle due porte alla stessa locazione di memoria.\\
-	Tale situazione non ha un meccanismo di arbitraggio per far fronte ad accessi in scrittura simultanei, ma l'effetto prodotto è quello di comportare l'invalidazione del contenuto dell'area di memoria coinvolta.
-	\item Conflitti per temporizzazioni clock-to-clock tra le due porte.\\
-Ci\`o accade a causa dei clock diversi che comandano le operazioni tra le due porte che sono troppo ravvicinati tra loro e il clock della porta in lettura non rispetta i tempi di setup per l'accesso in scrittura al dispositivo (arriva troppo presto quando ancora non la scrittura in memoria non ha terminato). Un esempio \`e il seguente:
+%Parametri di output:
+%\begin{itemize}
+%  \item selected\_way: via sulla quale \`e stato caricato il dato rimpiazzato
+%\end{itemize}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/conflittiTemp.jpg}
-\label{fig:set_ass}
-\end{figure} 
+%Descrizione:
+%\begin{enumerate}
+%  \item Individua la linea da rimpiazzare, cio\`e quella con \texttt{lru\_counter} massimo
+%  \item Controlla se la linea ha stato MESI\_M e in tal caso ne fa il write-back invocando \texttt{ram\_write()}
+%  \item Carica il nuovo blocco nella cache sovrascrivendo il vecchio
+%  \item Modifica il bit di stato in base al valore di WT\_WB
+%  \item Restituisce il numero della via sulla quale \`e presente il dato appena caricato
+%\end{enumerate}
+%		
 
-Nel primo caso, la porta B inizia la scrittura in memoria all'indirizzo aa del dato 3333 e poco dopo, prima che la scrittura abbia terminato, arriva il fronte del CLK\_A che fa iniziare la lettura allo stesso indirizzo aa violando il tempo di setup necessario per scrivere il dato in memoria. Nel secondo caso invece si ha la scrittura da parte della porta B all'indirizzo bb del dato 4444 e in questo caso CLK\_A rispetta le temporizzazioni di scrittura e la porta A legge il dato correttamente scritto in memoria.
+%\subsection{cache\_hit\_on} %(hit\_index: in, hit\_way: in)}
 
-	\item Scrittura e Lettura contemporanea sulla stessa zona di memoria in funzione del WRITE\_MODE impostato.\\
-Nei casi di scrittura su una porta e lettura sull'altra, se si utilizza WRITE\_MODE= NO\_CHANGE o WRITE\_FIRST, la scrittura su una porta invalida automaticamente il contenuto del registro di output (in lettura) dell'altra porta, per tale motivo  \`e consigliabile la modalit \`a di scrittura READ\_FIRST per evitare conflitti sulla porta in lettura.
+%Parametri di input:
+%\begin{enumerate}
+%  \item \texttt{hit\_index}: indice al quale si \`e verificato l'hit
+%  \item \texttt{hit\_way}: via nella quale si \`e verificato l'hit
+%\end{enumerate}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=\textwidth]{img/blockRam/conflittiScritture.jpg}
-\label{fig:set_ass}
-\end{figure}
+%Descrizione:
 
-\end{enumerate}
+%Applica la politica di invecchiamento aggiornando i contatori, in particolare:
+%\begin{enumerate}
+%  \item incrementa i contatori di valore pi\`u basso della via corrente specificata da \texttt{hit\_way}
+%  \item resetta il contatore della via corrente
+%\end{enumerate}	
 
-Per semplicit\`a implementativa la Block Ram non implementa un sistema di arbitraggio per gestire tali conflitti che sono lasciati a cura del progettista e comunque in caso di conflitto dovuto a scritture contemporanee non si verificano danni fisici al dispositivo di memoria. 
+%\subsection{cache\_inv\_on} %(inv\_index: in, inv\_way: in)}
 
-\section{Possibili utilizzi della Block Ram in un progetto su FPGA}
-La Block Ram pu\`o essere utilizzata in un progetto su FPGA per implementare una serie di funzionalit\`a che coinvolgano la memorizzazione di dati. I principali possibili utilizzi sono i seguenti:
-\begin{enumerate}
-\item RAM utilizzata da un microprocessore integrato sull'FPGA per memorizzare dati accessibili in lettura e scrittura.
-\item ROM realizzata attraverso l'inizializzazione del suo contenuto all'avvio del sistema e accessibile in sola lettura.
-\item Memorie FIFO.
-\end{enumerate}
+%Parametri di input:
+%\begin{itemize}
+%  \item \texttt{inv\_index}: indice da invalidare
+%  \item \texttt{inv\_way}: via da invalidare
+%\end{itemize}
 
-\section{Realizzazione di un progetto d'esempio}
+%Descrizione:
 
-Tipicamente per utilizzare la block ram all'interno di un progetto si procede come segue:\\
-\begin{enumerate}
-\item Si crea un componente Block Ram configurandolo in base alle specifiche di progetto, settando il numero di porte volute, l'ampiezza dei dati da trasferire, la dimensione della ram voluta, etc. Tale operazione pu\`o essere fatta o ricorrendo ad una serie di template presenti tra i Language Templates Ram di ISE oppure tramite una configurazione ad hoc tramite Xilinx Core Generator che tramite un wizard consente di personalizzare il componente Ram di cui si ottiene infine il codice VHDL.
-\item Si integra il componente all'interno del progetto dichiarandolo nell'Architecture del componente finale e creandone un istanza tramite il \texttt{port mapping}.
-\item Si utilizza il componente che rappresenta la Block Ram comandando i segnali di input e gestendo opportunamente i valori in output.
-\end{enumerate}
+%Applica la politica di invecchiamento aggiornando i contatori, in particolare:
+%\begin{enumerate}
+%  \item decrementa i contatori di valore pi\`u alto della via corrente specificata da \texttt{inv\_way}
+%  \item porta al valore massimo il contatore della via corrente
+%\end{enumerate}	
+%	
 
-Al fine di testare il funzionamento della Block Ram e approfondire le problematiche che vi sarebbero state nel progettare una cache reale che si interfaccia con una Ram esterna il cui tempo di accesso non \`e nullo, abbiamo realizzato un componente Ram ad hoc. Tale componente rappresenta una memoria Ram sincrona (il cui funzionamento \`e scandito dal clock in ingressso) realizzato con lo scopo di interfacciarsi con il nostro componente cache. Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp}, si interfacci alla cache sempre tramite un bus dati dell'ampiezza della linea di memoria da trasferire. Tale ipotesi che ovviamente \`e semplificativa e porta ad una potenziale complessit\`a del cablaggio del bus dati \`e tuttavia lecita dal momento che i trasferimenti tra cache e ram coinvolgono sempre linee di memoria. Ci\`o detto, il nuovo componente prevede l'utilizzo al suo interno di un componente \texttt{BRAM16\_s9} capace di leggere e scrivere sulla Block Ram dati da 8 bit (+ 1 bit di parit\`a che non abbiamo considerato). La scelta di tale componente Block Ram è derivata dall'ipotesi che le linee di memoria sono di dimensione sempre multipla di 1 Byte e quindi il componente \texttt{BlockRam\_cmp} ad ogni operazione di lettura o scrittura di una linea dovrà provvedere ad un ciclo di trasferimento dei singoli Byte costitutivi la linea a partire dall'indirizzo specificato in ingresso sul bus degli indirizzi che ad ogni accesso dovr\`a essere incrementato opportunamente. In particolare i casi gestiti sono due:\\
+%\subsection{get\_way} %(index: in, tag: in, way: out) }
 
-\begin{enumerate}
-\item Scrittura di una linea in Block Ram: deve prevedere il campionamento della linea in ingresso al bus dati di input e provvedere al trasferimento della linea byte per byte su block ram tramite una serie di scritture.
-\item Lettura di una linea da Block Ram: deve prevedere un buffer (una variabile VHDL \texttt{mem\_line}) che viene riempito man mano attraverso n letture di byte dalla Block Ram (dove n \`e il numero di byte che compongono una linea); Al termine la linea letta deve essere data in uscita sul bus dati di output verso la cache.
-\end{enumerate}
+%Parametri di input:
+%\begin{enumerate}
+%  \item \texttt{index}: indice
+%  \item \texttt{tag}: tag da controllare
+%\end{enumerate}	
 
-Naturalmente l'accesso alla Block Ram non \`e istantaneo ma comporta un tempo d'accesso necessario che deve essere considerato per generare opportunamento il segnale di \texttt{ready} laddove l'operazione di scrittura/lettura dell'intera linea di memoria ha terminato, segnalando ci\`o al processore e alla cache.
+%Parametri di output:
+%\begin{itemize}
+%  \item \texttt{way}: via nella quale \`e presente il dato
+%\end{itemize}
 
+%Descrizione:	
+%\begin{enumerate}
+%  \item Verifica se il dato \`e in cache, cio\`e se esiste una linea con tag uguale a quello specificato il cui stato \`e diverso da \texttt{MESI\_I}
+%  \item Se il dato non \`e presente restituisce way = -1
+%  \item Se il dato \`e presente restituisce il numero della via
+%\end{enumerate}
+%	
+%	
+%%	
+%%\subsection{ram\_write} %(tag, index, way)}
+
+%%Parametri di input:
+%%\begin{itemize}
+%%  \item \texttt{tag}: tag della linea da scrivere
+%%  \item \texttt{index}: index della linea da scrivere
+%%  \item \texttt{way}: numero di via in cui si trova la linea da scrivere
+%%\end{itemize}
+
+%%Descrizione:
+%%	1. Costruisce l'indirizzo del blocco a partire da \texttt{tag} e \texttt{index}
+%%	2. Scrive i dati contenuti nel blocco sulla RAM
+
+%
+%\section{Diagrammi temporali}
+
+%\section{Problematiche principali affrontate}
+
+%(metteri anche tutti i problemi relativi al bus bidirezionale)\\
 

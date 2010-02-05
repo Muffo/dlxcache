@@ -35,7 +35,7 @@
 \newlabel{fig:int_ram}{{1.5}{12}{Interfaccia della memoria cache verso la RAM\relax }{figure.1.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces Interfaccia utilizzata per il debug della memoria cache}}{13}{figure.1.6}}
 \newlabel{fig:int_deb}{{1.6}{13}{Interfaccia utilizzata per il debug della memoria cache\relax }{figure.1.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Realizzazione e collaudo}{15}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Realizzazione del componente}{15}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Strutture dati}{15}{section.2.1}}
@@ -44,51 +44,61 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematizzazione delle strutture dati della cache}}{17}{figure.2.1}}
 \newlabel{fig:c_type}{{2.1}{17}{Schematizzazione delle strutture dati della cache\relax }{figure.2.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Implementazione}{17}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}cache\_dlx\_process}{17}{subsection.2.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}cache\_dlx}{17}{subsection.2.2.1}}
 \newlabel{DescriptiveLabel}{{2.2}{19}{Codice VHDL del process \texttt {cache\_process}\relax }{lstlisting.2.2}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {2.2}Codice VHDL del process \texttt  {cache\_process}}{19}{lstlisting.2.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}cache\_ram}{19}{subsection.2.2.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}cache\_snoop}{19}{subsection.2.2.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}cache\_replace}{20}{subsection.2.2.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Procedure interne}{20}{section.2.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}cache\_replace\_line}{20}{subsection.2.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}cache\_hit\_on}{21}{subsection.2.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}cache\_inv\_on}{21}{subsection.2.3.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}get\_way}{22}{subsection.2.3.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}ram\_write}{22}{subsection.2.3.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}snoop}{22}{subsection.2.3.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Diagrammi temporali}{23}{section.2.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Problematiche principali affrontate}{23}{section.2.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Comunicazione tra processi}{21}{subsection.2.2.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Collegamenti tra processi}}{21}{figure.2.2}}
+\newlabel{fig:colleg1}{{2.2}{21}{Collegamenti tra processi\relax }{figure.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Collegamenti tra processi}}{22}{figure.2.3}}
+\newlabel{fig:colleg2}{{2.3}{22}{Collegamenti tra processi\relax }{figure.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Procedure interne}{22}{section.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}cache\_replace\_line}{23}{subsection.2.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}cache\_hit\_on}{23}{subsection.2.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}cache\_inv\_on}{24}{subsection.2.3.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}get\_way}{24}{subsection.2.3.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Diagrammi temporali}{24}{section.2.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Problematiche principali affrontate}{24}{section.2.5}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Integrazione con DLX}{25}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Ram\_cmp}{25}{section.3.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Schemi a blocchi}{25}{section.3.2}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Diagrammi temporali}{25}{section.3.3}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Block RAM}{27}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Testbench}{27}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{27}{section.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Pinout Block Ram Single-Port e Dual-Port}}{28}{figure.4.1}}
-\newlabel{fig:set_ass}{{4.1}{28}{Pinout Block Ram Single-Port e Dual-Port\relax }{figure.4.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Segnali della Block Ram Single-Port e Dual-Port}}{29}{figure.4.2}}
-\newlabel{fig:set_ass}{{4.2}{29}{Segnali della Block Ram Single-Port e Dual-Port\relax }{figure.4.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Configurazione della Block Ram}{30}{section.4.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Possibili organizzazioni interne della Block Ram}}{31}{figure.4.3}}
-\newlabel{fig:set_ass}{{4.3}{31}{Possibili organizzazioni interne della Block Ram\relax }{figure.4.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata}}{32}{figure.4.4}}
-\newlabel{fig:set_ass}{{4.4}{32}{La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata\relax }{figure.4.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Attributi di Inizializzazione del contenuto della Block Ram}}{33}{figure.4.5}}
-\newlabel{fig:set_ass}{{4.5}{33}{Attributi di Inizializzazione del contenuto della Block Ram\relax }{figure.4.5}{}}
-\newlabel{fig:set_ass}{{1}{34}{Configurazione della Block Ram\relax }{Item.39}{}}
-\newlabel{fig:set_ass}{{2}{35}{Configurazione della Block Ram\relax }{Item.40}{}}
-\newlabel{fig:set_ass}{{2}{35}{Configurazione della Block Ram\relax }{Item.41}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Operazioni della Block Ram}{35}{section.4.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conflitti d'accesso in Block Ram Dual-Port}{36}{section.4.4}}
-\newlabel{fig:set_ass}{{3}{37}{Operazioni della Block Ram\relax }{section.4.3}{}}
-\newlabel{fig:set_ass}{{2}{38}{Conflitti d'accesso in Block Ram Dual-Port\relax }{Item.43}{}}
-\newlabel{fig:set_ass}{{3}{39}{Conflitti d'accesso in Block Ram Dual-Port\relax }{Item.44}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Possibili utilizzi della Block Ram in un progetto su FPGA}{39}{section.4.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Realizzazione di un progetto d'esempio}{40}{section.4.6}}
-\@writefile{toc}{\contentsline {chapter}{Conclusioni}{43}{chapter*.3}}
-\@writefile{toc}{\contentsline {chapter}{Bibliografia}{45}{chapter*.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Testbench del componente}{27}{section.4.1}}
+\newlabel{DescriptiveLabel}{{4.1}{27}{Costanti e tipi di dato definiti nel file \texttt {Cache\_lib.vhd}\relax }{lstlisting.4.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.1}Costanti e tipi di dato definiti nel file \texttt  {Cache\_lib.vhd}}{27}{lstlisting.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Assembler per DLX}{27}{section.4.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Block RAM}{29}{chapter.5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{29}{section.5.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Pinout Block Ram Single-Port e Dual-Port}}{30}{figure.5.1}}
+\newlabel{fig:set_ass}{{5.1}{30}{Pinout Block Ram Single-Port e Dual-Port\relax }{figure.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Segnali della Block Ram Single-Port e Dual-Port}}{31}{figure.5.2}}
+\newlabel{fig:set_ass}{{5.2}{31}{Segnali della Block Ram Single-Port e Dual-Port\relax }{figure.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Configurazione della Block Ram}{32}{section.5.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Possibili organizzazioni interne della Block Ram}}{33}{figure.5.3}}
+\newlabel{fig:ram_org}{{5.3}{33}{Possibili organizzazioni interne della Block Ram\relax }{figure.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata}}{34}{figure.5.4}}
+\newlabel{fig:set_ass}{{5.4}{34}{La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata\relax }{figure.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Attributi di Inizializzazione del contenuto della Block Ram}}{35}{figure.5.5}}
+\newlabel{fig:set_ass}{{5.5}{35}{Attributi di Inizializzazione del contenuto della Block Ram\relax }{figure.5.5}{}}
+\newlabel{fig:set_ass}{{1}{36}{Configurazione della Block Ram\relax }{Item.39}{}}
+\newlabel{fig:set_ass}{{2}{37}{Configurazione della Block Ram\relax }{Item.40}{}}
+\newlabel{fig:set_ass}{{2}{37}{Configurazione della Block Ram\relax }{Item.41}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Operazioni della Block Ram}{37}{section.5.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conflitti d'accesso in Block Ram Dual-Port}{38}{section.5.4}}
+\newlabel{fig:set_ass}{{3}{39}{Operazioni della Block Ram\relax }{section.5.3}{}}
+\newlabel{fig:set_ass}{{2}{40}{Conflitti d'accesso in Block Ram Dual-Port\relax }{Item.43}{}}
+\newlabel{fig:set_ass}{{3}{41}{Conflitti d'accesso in Block Ram Dual-Port\relax }{Item.44}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Possibili utilizzi della Block Ram in un progetto su FPGA}{41}{section.5.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Realizzazione di un progetto d'esempio}{42}{section.5.6}}
+\@writefile{toc}{\contentsline {chapter}{Conclusioni}{45}{chapter*.3}}
+\@writefile{toc}{\contentsline {chapter}{Bibliografia}{47}{chapter*.4}}

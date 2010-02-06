@@ -194,16 +194,24 @@ BEGIN
 		ch_baddr <= "00000000000000000000000101100000";
 		ch_memrd <= '1';
 		wait for 10 ns;
+		ch_memrd <= '0';
+		wait for 20 ns;
 		
-		--REPLACEMENT:
+		--INVALIDAZIONE:
+		ch_baddr <= "00000000000000000000000101000000";
+		ch_eads<='1';
+		ch_inv<='1';
+		wait for 10 ns;
+		
+		--RIMPIAZZAMENTO:
 		
 		-- a questo punto la cache è piena se richiederò un dato presente in cache avrò un hit(in questo caso nel indice [1] e via [0]):
 		--	che implica il portare il contatore della via contenete il blocco con il dato al valore 0
 		-- mentre l'altra via andrà allo stato 1,
 		
-		--caso 1: una lettura di un blocco presenti e poi di un blocco non presente:
-		
-		ch_memrd <= '0';
+		--caso 1: una lettura di un blocco presente e poi di un blocco non presente(RIMPIAZZAMENTO):
+		ch_eads<='0';
+		ch_inv <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000100100100";
 		ch_memrd <= '1';
@@ -216,7 +224,7 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
-		--caso 2: più letture di blocchi presenti: 
+		--caso 2: più letture di blocchi presenti per verificare il funzionamento dei contatori: 
 		
 		ch_memrd <= '0';
 		wait for 20 ns;
@@ -250,6 +258,14 @@ BEGIN
 		ch_baddr <= "00000000000000000000111111111100";
 		ch_memrd <= '1';
 		wait for 10 ns;
+		
+		--caso 3: se richiedo un dato contenuto in un blocco non presente in cache ma nel quale set c'è una via invalidata
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000001101000000";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		
 		
 		-- osservazioni:
 		--1) gli ultimi due bit dell'offset si presumono sempre a 0 altrimenti avrei una lettura non allineate

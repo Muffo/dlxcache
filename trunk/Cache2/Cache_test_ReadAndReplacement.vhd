@@ -197,7 +197,7 @@ BEGIN
 		ch_memrd <= '0';
 		wait for 20 ns;
 		
-		--INVALIDAZIONE:
+		--INVALIDAZIONE di un blocco:
 		ch_baddr <= "00000000000000000000000101000000";
 		ch_eads<='1';
 		ch_inv<='1';
@@ -259,7 +259,8 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
-		--caso 3: se richiedo un dato contenuto in un blocco non presente in cache ma nel quale set c'è una via invalidata
+		--caso 3: se richiedo un dato contenuto in un blocco non presente in cache 
+		-- ma nel quale set c'è una via invalidata
 		ch_memrd <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000001101000000";

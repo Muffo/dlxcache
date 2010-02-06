@@ -1,0 +1,12 @@
+X"AC22000A",  --l1: sw 10(r1),r2  ; salva il contenuto di r2
+X"8C23000A",  --l2: lw r3,10(r1)  ; porta in r3 il valore presente in r2
+X"20620001",  --l3: addi r2,r3,1  ; incrementa r2
+X"0BFFFFF0",  --l4: j l1          ; salta a l1
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF"

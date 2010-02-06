@@ -206,12 +206,12 @@ BEGIN
 		--terza fase LETTURE: 
 		
 		--           rileggo i dati  scritti per verificre l'effettiva scrittura in cache
-		ch_baddr <= "00000000000000000000000000101100";
+		ch_baddr <= "00000000000000000000000000100000";
 		ch_memrd <= '1';
 		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000000000100000000";
+		ch_baddr <= "00000000000000000000000100000110";
 		ch_memrd <= '1';
 		wait for 20 ns;
 		ch_memrd <= '0';

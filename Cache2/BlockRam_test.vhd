@@ -2,13 +2,14 @@
 
   LIBRARY ieee;
   USE ieee.std_logic_1164.ALL;
+  USE ieee.std_logic_unsigned.ALL;
   USE ieee.numeric_std.ALL;
   USE work.BlockRamLibrary.all;
 	
-  ENTITY testbench IS
-  END testbench;
+  ENTITY BlockRam_test IS
+  END BlockRam_test;
 
-  ARCHITECTURE behavior OF testbench IS 
+  ARCHITECTURE behavior OF BlockRam_test IS 
 
   --- Component Declaration for the Unit Under Test (UUT)
  
@@ -92,16 +93,11 @@ BEGIN
 		-- insert stimulus here 
 		en<='1';
       wait for clk_period;
-		--lettura
-		--memwr <= '0';
-		--memrd <= '1';
-		--addr <= "00000000000";
 		--scrittura linea in memoria
 		memwr <= '1';
 		memrd <= '0';
 		addr <= "00000000000";
-		bdata_in <= (0=>"00000001",1=>"00000010",2=>"00000011", others=>"00000000");
-		
+		bdata_in <= (0=>"00000001",1=>"00000010",2=>"00000011", 3=>"00000100", 4=>"00000101", 5=>"00000110", 6=>"00000111", 7=>"00001000");
       wait for clk_period;
 		memwr <= '0';
 		memrd <= '0';
@@ -115,11 +111,10 @@ BEGIN
 		memrd <= '1';
 		addr <= "00000000000";
 		bdata_in <= (others => "UUUUUUUU");
-		
-		wait for clk_period;
+		wait for clk_period*3;
+		en <= '0';
 		memwr <= '0';
 		memrd <= '0';
-		en <= '0';
       wait;
    end process;
 

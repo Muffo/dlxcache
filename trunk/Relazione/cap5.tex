@@ -162,7 +162,7 @@ Le condizioni di potenziale conflitto si hanno nei seguenti casi:
 
 \begin{enumerate}
 	\item Scrittura simultanea sulle due porte alla stessa locazione di memoria.\\
-	Tale situazione non ha un meccanismo di arbitraggio per far fronte ad accessi in scrittura simultanei, ma l'effetto prodotto Ã¨ quello di comportare l'invalidazione del contenuto dell'area di memoria coinvolta.
+	Tale situazione non ha un meccanismo di arbitraggio per far fronte ad accessi in scrittura simultanei, ma l'effetto prodotto \acute{e} quello di comportare l'invalidazione del contenuto dell'area di memoria coinvolta.
 	\item Conflitti per temporizzazioni clock-to-clock tra le due porte.\\
 Ci\`o accade a causa dei clock diversi che comandano le operazioni tra le due porte che sono troppo ravvicinati tra loro e il clock della porta in lettura non rispetta i tempi di setup per l'accesso in scrittura al dispositivo (arriva troppo presto quando ancora non la scrittura in memoria non ha terminato). Un esempio \`e il seguente:
 
@@ -187,13 +187,32 @@ Nei casi di scrittura su una porta e lettura sull'altra, se si utilizza WRITE\_M
 
 Per semplicit\`a implementativa la Block Ram non implementa un sistema di arbitraggio per gestire tali conflitti che sono lasciati a cura del progettista e comunque in caso di conflitto dovuto a scritture contemporanee non si verificano danni fisici al dispositivo di memoria. 
 
-\section{Possibili utilizzi della Block Ram in un progetto su FPGA}
+\section{Utilizzo della Block Ram in un progetto su FPGA}
 La Block Ram pu\`o essere utilizzata in un progetto su FPGA per implementare una serie di funzionalit\`a che coinvolgano la memorizzazione di dati. I principali possibili utilizzi sono i seguenti:
 \begin{enumerate}
 \item RAM utilizzata da un microprocessore integrato sull'FPGA per memorizzare dati accessibili in lettura e scrittura.
 \item ROM realizzata attraverso l'inizializzazione del suo contenuto all'avvio del sistema e accessibile in sola lettura.
 \item Memorie FIFO.
 \end{enumerate}
+
+Tipicamente per utilizzare la block ram all’interno di un progetto si
+procede come segue:\\
+\begin{enumerate}
+\item Si crea un componente Block Ram configurandolo in base alle
+specifiche di progetto, settando il numero di porte volute,
+l’ampiezza dei dati da trasferire, la dimensione della ram voluta,
+etc. Tale operazione pu`o essere fatta o ricorrendo ad una
+serie di template presenti tra i Language Templates Ram di ISE
+oppure tramite una configurazione ad hoc tramite Xilinx Core
+Generator che tramite un wizard consente di personalizzare il
+componente Ram di cui si ottiene infine il codice VHDL.
+\item Si integra il componente all’interno del progetto dichiarandolo
+nell’Architecture del componente finale e creandone un
+istanza tramite il port mapping.
+\item Si utilizza il componente che rappresenta la Block Ram comandando
+i segnali di input e gestendo opportunamente i valori in
+output.
+\end{enumerate}}
 
 \section{Realizzazione di un progetto d'esempio}
 
@@ -208,13 +227,50 @@ Al fine di testare il funzionamento della Block Ram e approfondire le problemati
 \end{itemize}
 
 \subsection{Implementazione}
-Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp}, si interfacci alla cache sempre tramite un bus dati dell'ampiezza della linea di memoria da trasferire. Tale ipotesi che ovviamente \`e semplificativa e porta ad una potenziale complessit\`a del cablaggio del bus dati \`e tuttavia lecita dal momento che i trasferimenti tra cache e ram coinvolgono sempre linee di memoria. Ci\`o detto, il nuovo componente prevede l'utilizzo al suo interno di un componente \texttt{BRAM16\_S9} capace di leggere e scrivere sulla Block Ram dati da 8 bit (+ 1 bit di parit\`a che non abbiamo considerato). La scelta di tale componente Block Ram deriva dall'ipotesi che le linee di memoria sono di dimensione sempre multipla di 1 Byte e quindi il componente \texttt{BlockRam\_cmp} ad ogni operazione di lettura o scrittura di una linea dove  provvedere ad un ciclo di trasferimento dei singoli Byte costitutivi la linea a partire dall'indirizzo specificato in ingresso sul bus degli indirizzi che ad ogni accesso dovr\`a essere incrementato opportunamente. In particolare i casi gestiti sono due:\\
+Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp}, si interfacci alla cache sempre tramite un bus dati dell'ampiezza della linea di memoria da trasferire. Tale ipotesi che ovviamente \`e semplificativa e porta ad una potenziale complessit\`a del cablaggio del bus dati \`e tuttavia lecita dal momento che i trasferimenti tra cache e ram coinvolgono sempre linee di memoria. Ci\`o detto, il nuovo componente prevede l'utilizzo al suo interno di un componente \texttt{RAMB16\_S9} capace di leggere e scrivere sulla Block Ram dati da 8 bit (+ 1 bit di parit\`a che non abbiamo considerato). La scelta di tale organizzazione della Block Ram deriva dall'ipotesi che le linee di memoria sono di dimensione sempre multipla di 1 Byte e quindi il componente \texttt{BlockRam\_cmp} ad ogni operazione di lettura o scrittura di una linea dove provvedere ad un ciclo di trasferimento dei singoli Byte costitutivi la linea a partire dall'indirizzo specificato in ingresso sul bus degli indirizzi che ad ogni accesso dovr\`a essere incrementato opportunamente. Altrimenti si sarebbero potuti trasferire dati anche maggiori (fino a 32 bit) ma l'effetto sarebbe stato quello di avere un vincolo ulteriore sulla dimensione della linea che avrebbe dovuto essere multiplo di un maggiore numero di byte (4 byte nel caso di trasferimenti a 32 bit in Block Ram).\\
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{img/blockRam/rambInit.jpg}
+\label{fig:br_init}
+\end{figure}
+
+
+Di seguito vengono riportati i process utilizzati per gestire le funzionalità sopra descritte:\\
+
+\subsubsection{main}
+ Il process \texttt{main} è il processo principale che gestisce in modo sincrono (al clock \texttt{clk} che scandisce il funzionamento di BlockRam_cmp) le richieste di trasferimento di linee di memoria provenienti dalla cache. Tale processo sulla base dei segnali di comando ricevuti (\texttt{en}, \texttt{memrd} e \texttt{memwr}) asserisce i segnali interni di sincronizzazione, abilitando le seguenti operazioni:
 \begin{enumerate}
-\item Scrittura di una linea in Block Ram: deve prevedere il campionamento della linea in ingresso al bus dati di input e provvedere al trasferimento della linea byte per byte su block ram tramite una serie di scritture.
-\item Lettura di una linea da Block Ram: deve prevedere un buffer (una variabile VHDL \texttt{mem\_line}) che viene riempito man mano attraverso n letture di byte dalla Block Ram (dove n \`e il numero di byte che compongono una linea); Al termine la linea letta deve essere data in uscita sul bus dati di output verso la cache.
+\item \texttt{write_line}: la scrittura di una linea in Block Ram deve prevedere il campionamento della linea (\texttt{mem\_line}) in ingresso a \texttt{bdata\_in} (bus dati di input) e provvedere al trasferimento della linea byte per byte sulla Block Ram tramite una serie di \texttt{nbyte\_line} scritture consecutive.
+\item \texttt{read_line}: la lettura di una linea da Block Ram deve prevedere un buffer (una variabile VHDL \texttt{line} di tipo \texttt{mem\_line}) che viene riempito man mano attraverso \texttt{nbyte\_line} letture di byte dalla Block Ram. Al termine la linea letta deve essere restituita in uscita al richiedente su \texttt{bdata\_out} (bus dati di output).
 \end{enumerate}
 
-Naturalmente l'accesso alla Block Ram non \`e istantaneo ma comporta un tempo d'accesso necessario che deve essere considerato per generare opportunamento il segnale di \texttt{ready} qualora l'operazione di scrittura/lettura dell'intera linea di memoria ha terminato, segnalando ci\`o al processore e alla cache.
+\subsubsection{blockram\_sequential\_access}
+Il process \texttt{blockram_sequential_access} si occupa di gestire tramite un contatore interno gli accessi sequenziali alla Block Ram, scanditi dal clock \texttt{br_clk}. Tali accessi in sequenza saranno in lettura qualora \texttt{read_line} \`e asserito, in scrittura se \`e asserito il segnale \texttt{write_line}. Per tale motivo questo process ha la responsabilit\`a di incrementare l'indirizzo di memoria dopo ogni accesso e comandare tramite opportuni segnali interni le operazioni di lettura e scrittura di singoli byte sulla Block Ram RAMB16\_S9, di cui si riporta il port mapping in Fig.\ref{fig:port_map}.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{img/blockRam/portMap.jpg}
+\caption{Port Mapping del componente RAMB16\_S9 con i segnali interni gestiti dal process blockram\_sequential\_access.}
+\label{fig:port_map}
+\end{figure}
 
+\subsubsection{lettura\_byte}
+Mentre in scrittura il processo \texttt{blockram_sequential_access} gestisce correttamente la sequenza di scritture in quanto il contatore degli accessi aggiorna a ogni clock l'indirizzo in scrittura e il byte della linea da scrivere a tale indirizzo, in caso di lettura ciò non è altrettanto immediato. Il motivo è che per leggere un byte a ogni ciclo di clock si fornisce alla Block Ram l'indirizzo a cui leggere il dato, ma tale dato non è immediatamente disponibile sul bus dati in uscita dalla Block Ram (\texttt{br_data_out}) inquanto bisogna attendere un tempo d'accesso per avere il dato richiesto.
+Il process \texttt{lettura\_byte} si occupa di tale problema ed è realizzato come un processo asincrono che ha nella sensitivity list il segnale \texttt{br_data_out} in modo che appena sul bus dati di output della Block Ram viene portato il dato richiesto in lettura, si completa l'operazione di lettura e si procede con la lettura successiva qualora la linea richiesta non sia stata ancora letta tutta.
+
+\subsubsection{end\_blockram\_access}
+Il process \texttt{end\_blockram\_access} gestisce la fase finale del trasferimento di una linea di memoria, occupandosi di attivare il segnale di \tetxttt{ready} e in caso di lettura fornisce la linea letta all'esterno portandola in output sul bus dati \texttt{bdata\_out}.\\
+
+\subsection{Testbench}
+Per verificare il funzionamento del componente abbiamo realizzato un semplice testbench nel quale si scrive all'indirizzo 0000h della Block Ram la linea di 8 byte passata in ingresso sul bus \texttt{bdata\_in} e successivamente si effettua una lettura allo stesso indirizzo. Il diagramma della simulazione mostrato in Fig.\ref{fig:simulaz_blockram}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{img/blockRam/scritturaLettura.jpg}
+\caption{Simulazione di scrittura seguita da lettura linea allo stesso indirizzo sulla Block Ram.}
+\label{fig:simulaz_blockram}
+\end{figure}Da notare \`e che dopo l'operazione di scrittura della linea in Block Ram, oltre all'attivazione del segnale di ready, si porta in uscita sul bus dati di output \texttt{bdata_out} una linea di tutti zeri. Ciò trova spiegazione dal fatto che si sono voluti testare anche i valori dei dati disponibili in uscita alla Block Ram durante le operazioni di scrittura sulla base dei vari comportamenti possibili che si possono ottenere modificando il valore dell'attributo WRITE\_MODE, che nella simulazione illustrata era settato a NO\_CHANGE e pertanto non aveva alcun cambiamento rispetto al valore di iniziale del registro di output inizializzato a tutti zeri tramite il parametro \texttt{INIT} (Fig.\ref{fig:br_init}).
+
+\section{Considerazioni sul progetto d'esempio}
+Il componente BlockRam_cmp rappresenta una memoria RAM a tutti gli effetti che prevede dei tempi d'accesso non nulli sia in scrittura che in lettura. Ci\`o comporta la necessità di calcolare i tempi d'accesso alla memoria al fine di segnalare opportunamente (segnale di \texttt{ready}) alla cache quando possa leggere il dato richiesto (nel caso del nostro progetto che prevede il ready in ingresso alla cache per la sincronizzazione). Lo stesso vale ovviamente per il processore DLX che qualora dovesse gestire tali problematiche legate alle temporizzazioni, dovrebbe prevedere il segnale di \texttt{ready} in ingresso in modo da essere informato del completamento di un ciclo d'accesso alla memoria. L'aggiunta di tale segnale significherebbe dover introdurre esternamente un contatore che, a ogni accesso in memoria sulla base dei tempi d'accesso e dei ritardi presenti sulla rete, conti quanti stati di wait sono necessari al fine di completare l'accesso e generi opportunamente il ready da inviare al processore. Dal punto di vista dell'implementazione interna del DLX ci\`o comporterebbe la necessit\`a di stallare la pipeline qualora il ready non sia asserito.

@@ -55,10 +55,10 @@ component RAMB16_S9 --DATA_WIDTH=8 RAM_DEPTH=2048
 --configurazione attributi della Block Ram
 generic (
 	
-	WRITE_MODE : string := "READ_FIRST" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
+	WRITE_MODE : string := "NO_CHANGE" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
 	
 	-- valore in output dopo inizializzazione
-	INIT : bit_vector(35 downto 0) := X"101010101";
+	INIT : bit_vector(35 downto 0) := X"000000000";
 	
 	-- valore letto in caso di asserimento del segnale SSR
 	SRVAL : bit_vector(35 downto 0) := X"000000002";
@@ -157,13 +157,13 @@ end component;
 	shared variable counter : natural := 0;       -- contatore per gli accessi in block ram per letture e scritture di linee
 	shared variable line: mem_line;
 	shared variable written_line: mem_line;       -- per il debug della WRITE_MODE
-	shared variable stato_ready: std_logic := '0';
-	shared variable byte_read : boolean := false; 
+	shared variable line_ready: std_logic := '0'; -- variabile che segnala la fine di una lettura/scrittura di linea di memoria
+	shared variable byte_read : boolean := false; -- variabile utilizzata per sincronizzare l'avvio della lettura di un byte dalla Block Ram e
+																 -- la fine, quando il byte letto è disponibile sul bus di output della Block Ram.
 	
-	--Segnali di sincronizzazione tra processi
-	signal line_ready: std_logic :='0';           -- segnale di sincronizzazione che segnala la fine di una lettura/scrittura di linea di memoria
-	signal blockRam_read: std_logic := '0';		 -- segnale asserito in caso di lettura di linea da memoria
-	signal blockRam_write: std_logic := '0';      -- segnale asserito in caso di scrittura di linea in memoria
+	--Segnali di sincronizzazione tra processi      
+	signal read_line: std_logic := '0';		 -- segnale asserito in caso di lettura di linea da memoria
+	signal write_line: std_logic := '0';      -- segnale asserito in caso di scrittura di linea in memoria
 
 	
 	begin
@@ -190,31 +190,31 @@ end component;
 		if(en='1') then
 			if(memwr='1' and memrd='0') then --scrittura su block ram di una linea
 				line := bdata_in;
-				blockRam_write <= '1';
+				write_line <= '1';
 			elsif(memwr='0' and memrd='1') then -- lettura da block ram di una linea
-				blockRam_read <= '1';
+				read_line <= '1';
 			else -- attivi o disattivi entrambi i segnali di lettura e scrittura
-				blockRam_write <= '0';
-				blockRam_read <= '0';
+				write_line <= '0';
+				read_line <= '0';
 			end if;
 		else --en=0
-			blockRam_write <= '0';
-			blockRam_read <= '0';
+			write_line <= '0';
+			read_line <= '0';
 		end if;
 	end if;
 	
 	end process main;
 	
 	--Processo che gestisce gli accessi sequenziali alla Block Ram in sincronia col clock br_clk.
-	blockram_access_seq : process(br_clk)
+	blockram_sequential_access : process(br_clk)
 	begin
 		if(br_clk'event and br_clk='1') then
-			if(line_ready='0' and (blockRam_read='1' xor blockRam_write='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
+			if(line_ready = '0' and (read_line='1' xor write_line='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
 				
 				br_addr <= addr + counter;
-				addr_m <= addr + counter;
+				addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug
 	
-				if(blockRam_write='1') then --scrittura su Block Ram
+				if(write_line='1') then    --scrittura su Block Ram
 					br_en <= '1';
 					br_we <= '1';
 					br_ssr <= '0';
@@ -224,7 +224,7 @@ end component;
 					
 					counter := counter + 1;
 					
-				elsif(blockRam_read='1' and not byte_read) then --lettura da Block Ram
+				elsif(read_line='1' and not byte_read) then --lettura da Block Ram
 					br_en <= '1';
 					br_we <= '0';
 					br_ssr <= '0';
@@ -233,25 +233,24 @@ end component;
 				end if;
 				
 				
-				if(counter = nbyte_line) then
-					line_ready <= '1';
+				if(counter = nbyte_line) then -- verifica terminazione trasferimento di nbyte_line bytes (una linea)
+				
+					line_ready := '1';
+				
 				end if;
 				
 			else -- quando line_ready=1 o non è in corso nessun accesso alla Block Ram, devo togliere eneable alla Block Ram
+				
 				br_en <= '0';
 				br_we <= '0';
 				br_ssr <= '0';
-				if(stato_ready = '1') then
-					line_ready<='0';
-					stato_ready := '0';
-				end if;
+				
 			end if;
 	
 		end if;
-	end process blockram_access_seq;
+	end process blockram_sequential_access;
 	
-	lettura_byte:process(br_data_out) 
-	variable c:natural:=0;
+	lettura_byte : process(br_data_out) 
 	begin
 	
 	if(byte_read and counter < nbyte_line) then 
@@ -271,20 +270,18 @@ end component;
 	end_blockram_access : process(clk)
 	begin
 	if(clk'event and clk='1') then
-		if(line_ready='1') then
+		if(line_ready = '1') then
 		
 			counter := 0; --azzero contatore degli accessi alla block ram
 
-			if(blockRam_read='1') then --lettura su block ram
+			if(read_line='1') then --lettura su block ram
 				bdata_out <= line; --devo fornire linea letta a cache
-			
-			elsif(blockRam_write='1') then --scrittura su block ram
+			elsif(write_line='1') then --scrittura su block ram
 				bdata_out <= written_line; --[per debug] utilizzando la WRITE_MODE = WRITE_FIRST ad ogni scrittura in Block Ram si ha il dato scritto in memoria in output su DO (bus dati di output)
 			end if;
 			
-			--line_ready <= '0';
-			stato_ready := '1';
 			ready <= '1';--operazione completata
+			line_ready := '0';
 			
 		end if;
 	else

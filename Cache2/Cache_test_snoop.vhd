@@ -49,7 +49,7 @@ ARCHITECTURE behavior OF Cache_test_snoop IS
 			ch_inv: in STD_LOGIC;
 			ch_eads: in STD_LOGIC;
 			ch_wtwb: in STD_LOGIC;
-			ch_flush: in STD_LOGIC;
+			ch_snoop_addr: in std_logic_vector (31 downto 0);
 			-- segnali di comunicazione con la RAM
 			ram_address : out    std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
 			ram_data_out: out    data_line;
@@ -82,7 +82,7 @@ ARCHITECTURE behavior OF Cache_test_snoop IS
    signal ch_reset : std_logic := '0';
    signal ch_inv : std_logic := '0';
    signal ch_eads : std_logic := '0';
-   signal ch_flush : std_logic := '0';
+   signal ch_snoop_addr: std_logic_vector (31 downto 0);
 	signal ch_wtwb : std_logic := '0';
 	signal ram_data_in : data_line;
 	signal ram_ready	: std_logic := '0';
@@ -117,7 +117,7 @@ BEGIN
 		ch_inv => ch_inv,
 		ch_eads => ch_eads,
 		ch_wtwb => ch_wtwb,
-		ch_flush => ch_flush,
+		ch_snoop_addr => ch_snoop_addr,
 		ch_debug_cache => ch_debug_cache,
 		ram_address => ram_address,
 		ram_data_out => ram_data_out,
@@ -184,27 +184,27 @@ BEGIN
 		--terza fase snoop: 
 		
 		--caso 1: blocco non presente in cache-> nessuna modifica in cache
-		ch_baddr <= "00000000000000000001111110001100";
+		ch_snoop_addr <= "00000000000000000001111110001100";
 		ch_eads<='1';
 		wait for 10 ns;
 		ch_eads<='0';
 		wait for 20 ns;
 		
 		--caso 2: blocco presente in cache in MESI_E(10)-> si porta in MESI_S (01)
-		ch_baddr <= "00000000000000000000000000000000";
+		ch_snoop_addr <= "00000000000000000000000000000000";
 		ch_eads<='1';
 		wait for 10 ns;
 		ch_eads<='0';
 		wait for 20 ns;
 		--caso 3: blocco presente in stato MESI_M(11) -> scrittura in livello superiore e si porta in MESI_S (01)
-		ch_baddr <= "00000000000000000000000000101100";
+		ch_snoop_addr <= "00000000000000000000000000101100";
 		ch_eads<='1';
 		wait for 10 ns;
 		ch_eads<='0';
 		wait for 20 ns;
 		
 		--caso 1: blocco non presente in cache-> nessuna modifica in cache
-		ch_baddr <= "00000000000000000001111111101100";
+		ch_snoop_addr <= "00000000000000000001111111101100";
 		ch_eads<='1';
 		wait for 10 ns;
 		ch_eads<='0';

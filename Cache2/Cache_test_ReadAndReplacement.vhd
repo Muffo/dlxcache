@@ -48,7 +48,7 @@ END Cache_test_ReadAndReplacement;
 			ch_inv: in STD_LOGIC;
 			ch_eads: in STD_LOGIC;
 			ch_wtwb: in STD_LOGIC;
-			ch_flush: in STD_LOGIC;
+			ch_snoop_addr: in std_logic_vector (31 downto 0);
 			-- segnali di comunicazione con la RAM
 			ram_address : out    std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
 			ram_data_out: out    data_line;
@@ -81,7 +81,7 @@ END Cache_test_ReadAndReplacement;
    signal ch_reset : std_logic := '0';
    signal ch_inv : std_logic := '0';
    signal ch_eads : std_logic := '0';
-   signal ch_flush : std_logic := '0';
+	signal ch_snoop_addr: std_logic_vector (31 downto 0);
 	signal ch_wtwb : std_logic := '0';
 	signal ram_data_in : data_line;
 	signal ram_ready	: std_logic := '0';
@@ -116,7 +116,7 @@ BEGIN
 		ch_inv => ch_inv,
 		ch_eads => ch_eads,
 		ch_wtwb => ch_wtwb,
-		ch_flush => ch_flush,
+		ch_snoop_addr => ch_snoop_addr,
 		ch_debug_cache => ch_debug_cache,
 		ram_address => ram_address,
 		ram_data_out => ram_data_out,

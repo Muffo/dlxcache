@@ -41,7 +41,7 @@ entity Cache_cmp is
 		ch_inv: in std_logic;
 		ch_eads: in std_logic;
 		ch_wtwb: in std_logic;
-		ch_flush: in std_logic;
+		ch_snoop_addr: in std_logic_vector (31 downto 0);
 		-- segnali di comunicazione con la RAM
 		ram_address: out std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
 		ram_data_out: out data_line;
@@ -61,6 +61,9 @@ shared variable cache: cache_type (0 to 2**INDEX_BIT - 1);
 alias addr_tag is ch_baddr(PARALLELISM - 1 downto OFFSET_BIT + INDEX_BIT);
 alias addr_index is ch_baddr(OFFSET_BIT + INDEX_BIT - 1 downto OFFSET_BIT);
 alias addr_offset is ch_baddr(OFFSET_BIT - 1 downto 0);
+
+alias snoop_tag is ch_snoop_addr(PARALLELISM - 1 downto OFFSET_BIT + INDEX_BIT);
+alias snoop_index is ch_snoop_addr(OFFSET_BIT + INDEX_BIT - 1 downto OFFSET_BIT);
 
 procedure cache_reset is
 begin
@@ -116,6 +119,7 @@ end procedure cache_inv_on;
 	signal replace_way : integer;
 	
 	signal selected_way : integer;
+	signal selected_index : std_logic_vector(INDEX_BIT - 1 downto 0);
 	signal read_line: std_logic := '0';
 	signal write_line: std_logic := '0';
 	signal rdwr_done: std_logic := '0';
@@ -133,6 +137,9 @@ begin
 						 snoop_way   when (snoop_write = '1') else
 						 wt_way   when (write_through = '1') else
 						 -1;		
+						 
+	selected_index <= snoop_index when (snoop_write = '1') else
+							addr_index;
 	
 	cache_dlx_process : process (ch_memrd, ch_memwr, ch_reset, line_ready, rdwr_done) is
 		variable way: integer;
@@ -256,24 +263,24 @@ begin
 			rdwr_done <= '1';
 			waiting_write := false;
 		elsif(waiting_read and ram_ready = '1') then
-			cache(conv_integer(addr_index))(selected_way).data := ram_data_in;
-			cache(conv_integer(addr_index))(selected_way).tag:= addr_tag;
+			cache(conv_integer(selected_index))(selected_way).data := ram_data_in;
+			cache(conv_integer(selected_index))(selected_way).tag:= addr_tag;
 			if(ch_wtwb = '1') then
-				cache(conv_integer(addr_index))(selected_way).status:= MESI_S;
+				cache(conv_integer(selected_index))(selected_way).status:= MESI_S;
 			else
-				cache(conv_integer(addr_index))(selected_way).status:= MESI_E;
+				cache(conv_integer(selected_index))(selected_way).status:= MESI_E;
 			end if;
 			rdwr_done <= '1';
 			waiting_read := false;
 		elsif(not waiting_write and not waiting_read) then
 			if(write_line = '1') then
 				waiting_write := true;
-				ram_address <= cache(conv_integer(addr_index))(selected_way).tag & addr_index;
-				ram_data_out <= cache(conv_integer(addr_index))(selected_way).data;
+				ram_address <= cache(conv_integer(selected_index))(selected_way).tag & selected_index;
+				ram_data_out <= cache(conv_integer(selected_index))(selected_way).data;
 				ram_we <= '1';
 			elsif(read_line = '1') then
 				waiting_read := true;
-				ram_address <= addr_tag & addr_index;
+				ram_address <= addr_tag & selected_index;
 				ram_oe <= '1';
 			end if;
 		end if;
@@ -289,26 +296,26 @@ begin
 			ch_hitm <= '1';
 			waiting_write := false;
 		elsif(not waiting_write and ch_eads = '1') then
-			get_way(conv_integer(addr_index), addr_tag, way);
+			get_way(conv_integer(snoop_index), snoop_tag, way);
 
 			if(way >= 0) then
-				if(cache(conv_integer(addr_index))(way).status = MESI_M) then
+				if(cache(conv_integer(snoop_index))(way).status = MESI_M) then
 					waiting_write := true;
 					snoop_way <= way;
 					snoop_write <= '1';
 				else
 					ch_hit <= '1';
 				end if;
-				cache(conv_integer(addr_index))(way).status:= MESI_S;
+				cache(conv_integer(snoop_index))(way).status:= MESI_S;
 			else
 				ch_hit <= '0';
 				ch_hitm <= '0';
 			end if;
 
 			if(ch_inv = '1') then
-				cache(conv_integer(addr_index))(way).status:= MESI_I;				
+				cache(conv_integer(snoop_index))(way).status:= MESI_I;				
 				--Aggiornamento dei contatori
-				cache_inv_on(conv_integer(addr_index), way);
+				cache_inv_on(conv_integer(snoop_index), way);
 			end if;
 		end if;
 	end process cache_snoop;

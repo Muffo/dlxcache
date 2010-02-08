@@ -15,8 +15,8 @@
 -- Revision: 
 -- Revision 0.01 - File Created
 -- Additional Comments: 
--- in questo file di test si vuole verificare il corretto funzionamento del meccanismo MESI in caso 
--- di eventuale scritture in memoria
+--in questo file si verifica il corretto funzionamento delle scritture, 
+-- in primo luogo dentro la cache e poi anche nella RAM.
 ----------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

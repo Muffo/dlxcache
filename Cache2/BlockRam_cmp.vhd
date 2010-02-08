@@ -34,7 +34,7 @@ port(
 	reset: in std_logic;
    addr:in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 	clk:in 	std_logic;
-	br_clk:in std_logic;
+	--br_clk:in std_logic;
    bdata_in: in mem_line;
 	memrd:in std_logic;                                 
    memwr:in std_logic; 
@@ -157,14 +157,14 @@ end component;
 	shared variable counter : natural := 0;       -- contatore per gli accessi in block ram per letture e scritture di linee
 	shared variable line: mem_line;
 	shared variable written_line: mem_line;       -- per il debug della WRITE_MODE
-	shared variable line_ready: std_logic := '0'; -- variabile che segnala la fine di una lettura/scrittura di linea di memoria
 	shared variable byte_read : boolean := false; -- variabile utilizzata per sincronizzare l'avvio della lettura di un byte dalla Block Ram e
 																 -- la fine, quando il byte letto è disponibile sul bus di output della Block Ram.
 	
 	--Segnali di sincronizzazione tra processi      
 	signal read_line: std_logic := '0';		 -- segnale asserito in caso di lettura di linea da memoria
 	signal write_line: std_logic := '0';      -- segnale asserito in caso di scrittura di linea in memoria
-
+	signal line_ready: std_logic := '0'; -- segnale che indica la fine di una lettura/scrittura di linea di memoria
+	
 	
 	begin
 	
@@ -178,15 +178,15 @@ end component;
 		ADDR => br_addr (ADDR_BIT-1 downto 0),
 		WE => br_we,
 		EN => br_en,
-		CLK => br_clk,
+		CLK => clk,
 		SSR => br_ssr
 		);
 	
 	--processo che gestisce i segnali che arrivano al componente BlockRam_cmp e comanda l'avvio 
 	--delle operazioni corrispondenti con accessi in sequenza alla Block Ram BRAM16_S9 (lettura/scrittura di singoli byte).
-	main : process(clk)
+	main : process(memrd, memwr)
 	begin
-	if(clk'event and clk='1') then
+	--if(clk'event and clk='1') then
 		if(en='1') then
 			if(memwr='1' and memrd='0') then --scrittura su block ram di una linea
 				line := bdata_in;
@@ -201,45 +201,47 @@ end component;
 			write_line <= '0';
 			read_line <= '0';
 		end if;
-	end if;
+	--end if;
 	
 	end process main;
 	
 	--Processo che gestisce gli accessi sequenziali alla Block Ram in sincronia col clock br_clk.
-	blockram_sequential_access : process(br_clk)
+	blockram_sequential_access : process(clk)
 	begin
-		if(br_clk'event and br_clk='1') then
-			if(line_ready = '0' and (read_line='1' xor write_line='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
-				
-				br_addr <= addr + counter;
-				addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug
-	
-				if(write_line='1') then    --scrittura su Block Ram
-					br_en <= '1';
-					br_we <= '1';
-					br_ssr <= '0';
-					
-					br_data_in <= line(counter);
-					written_line(counter) := br_data_out;
-					
-					counter := counter + 1;
-					
-				elsif(read_line='1' and not byte_read) then --lettura da Block Ram
-					br_en <= '1';
-					br_we <= '0';
-					br_ssr <= '0';
-					byte_read := true;-- serve per sincronizzare il processo lettura_byte con la lettura in corso
-					
-				end if;
-				
+		if(clk'event and clk='1') then
+			if((read_line='1' xor write_line='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
 				
 				if(counter = nbyte_line) then -- verifica terminazione trasferimento di nbyte_line bytes (una linea)
 				
-					line_ready := '1';
-				
+					line_ready <= '1';
+			
+				elsif(counter < nbyte_line) then
+					
+					line_ready <= '0';
+					
+					br_addr <= addr + counter;
+					addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug
+	
+					if(write_line='1') then    --scrittura su Block Ram
+						br_en <= '1';
+						br_we <= '1';
+						br_ssr <= '0';
+					
+						br_data_in <= line(counter);
+						written_line(counter) := br_data_out;
+					
+						counter := counter + 1;
+					
+					elsif(read_line='1' and not byte_read) then --lettura da Block Ram (byte_read=true indica che è in corso una lettura di un byte che ancora non è terminata)
+						br_en <= '1';
+						br_we <= '0';
+						br_ssr <= '0';
+						byte_read := true;-- serve per sincronizzare il processo lettura_byte con la lettura in corso
+					
+					end if;
 				end if;
 				
-			else -- quando line_ready=1 o non è in corso nessun accesso alla Block Ram, devo togliere eneable alla Block Ram
+			elsif(not(read_line='1' xor write_line='1')) then -- quando line_ready=1 o non è in corso nessun accesso alla Block Ram, devo togliere eneable alla Block Ram
 				
 				br_en <= '0';
 				br_we <= '0';
@@ -267,10 +269,10 @@ end component;
 	--Processo che gestisce la terminazione di un ciclo d'accesso sequenziale alla Block Ram.
 	--Il processo asserisce il segnale di ready per indicare il termine di un'operazione e in
    --caso di lettura trasmette la linea appena letta sul bus dati di output (bdata_out).
-	end_blockram_access : process(clk)
+	end_blockram_access : process(line_ready)
 	begin
-	if(clk'event and clk='1') then
-		if(line_ready = '1') then
+	
+		if(counter = nbyte_line) then
 		
 			counter := 0; --azzero contatore degli accessi alla block ram
 
@@ -281,12 +283,9 @@ end component;
 			end if;
 			
 			ready <= '1';--operazione completata
-			line_ready := '0';
-			
+			ready <= '0' after 50ns;
 		end if;
-	else
-		ready <= '0';
-	end if;
+		
 	end process end_blockram_access;
 
 	

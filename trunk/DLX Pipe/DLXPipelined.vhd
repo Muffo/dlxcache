@@ -59,7 +59,7 @@ entity DLXPipelined is
 		cache_inv: in std_logic;
 		cache_eads: in std_logic;
 		cache_wtwb: in std_logic;
-		cache_flush: in std_logic;
+		cache_snoop_addr: in std_logic_vector (31 downto 0);
 		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);	
 
 		-- ram
@@ -184,7 +184,7 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 			  ch_inv: in std_logic;
 			  ch_eads: in std_logic;
 			  ch_wtwb: in std_logic;
-			  ch_flush: in std_logic;
+			  ch_snoop_addr: in std_logic_vector (31 downto 0);
 			  ram_address: out std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
 			  ram_data_out: out data_line;
 	 	     ram_data_in : in data_line;
@@ -323,7 +323,7 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 				ch_inv => cache_inv,
 				ch_eads => cache_eads,
 				ch_wtwb => cache_wtwb,
-				ch_flush => cache_flush,
+				ch_snoop_addr => cache_snoop_addr,
 				ram_address => ram_address,
 				ram_data_out => ram_data_in,
 				ram_data_in => ram_data_out,

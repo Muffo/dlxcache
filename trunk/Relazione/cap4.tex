@@ -2,28 +2,29 @@
 
 \chapter{Testbench}
 
-Per morlins
-
 \section{Testbench del componente}
 
-I tipi di dati utilizzati sono definiti nel file \texttt{Cache\_lib.vhd}.
+Per testare nello specifico il funzionamento della cache e i meccanismi di comunicazione con la ram, sono stati realizzati 3 file:
+ 
+\begin{itemize}
+ \item \texttt{Cache_test_ReadAndWrite.vhd}: nel quale si verifica il corretto funzionamento delle scritture, in primo luogo dentro la cache e poi anche nella RAM.
+ \item \texttt{Cache_test_ReadAndReplacement.vhd}: nel quale si verifica il corretto funzinamento della politica di rimpiazzamento mediante contatori.
+ \item \texttt{Cache_test_snoop.vhd}: nel quale si verifica il corretto funzionamento del meccanismo MESI in caso di eventuali snoop.
+\end{itemize}
 
-\lstset{language=VHDL, caption=Costanti e tipi di dato definiti nel file \texttt{Cache\_lib.vhd}, label=DescriptiveLabel, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
+\subsection{Cache_test_ReadAndWrite.vhd}
+% descrizione a parole più scrennshot a risoluzione massima..
+\subsection{Cache_test_ReadAndReplacement.vhd}
 
-\begin{lstlisting}
-
-codice...
-
-\end{lstlisting}
-
+\subsection{Cache_test_snoop.vhd}
 
 \section{Assembler per DLX}
 
 Dopo avere testato individualmente il funzionamento dei componenti cache e RAM, si \`e passati al test del corretto funzionamento della cache inserita all'interno del progetto del processore DLX.\\
 Per far ci\`o sono stati realizzati una serie di programmi in assembler, della quale mostreremo solo i due maggiormente significativi:
 \begin{itemize}
- \item \texttt{provaReplacement123}:nel quale si verifica la corretta comunicazione tra cache e DLX e il meccanismo di rimpiazzamento.
- \item \texttt{provaFU}:nel quale si verifica il corretto funzionamento della Forwarding unit. 
+ \item \texttt{provaReplacement123}: nel quale si verifica la corretta comunicazione tra cache e DLX e il meccanismo di rimpiazzamento.
+ \item \texttt{provaFU}: nel quale si verifica il corretto funzionamento della Forwarding unit. 
 \end{itemize}
 
 \subsection{Dal codice all'escuzione}
@@ -32,7 +33,11 @@ In primo luogo \`e necessario scrivere il codice in assembler all'interno di un 
 
 \texttt{dasm -a -l <nome\_file>.dls}\\
 
-Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a essere convertito mediante la classe java \texttt{DLXConv}, per avere un file  \texttt{<nome\_file>.dlx.txt} contenente il codice in un formato direttamente inseribile all'interno del progetto del DLX.\\
+Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a essere convertito mediante la classe java \texttt{DLXConv},eseguendo dal prompt di comandi Windows:
+
+\texttt{java DLXConv <nome\_file>.dlx}\\
+
+ per avere un file  \texttt{<nome\_file>.dlx.txt} contenente il codice in un formato direttamente inseribile all'interno del progetto del DLX.\\
 
 In particolare quest'ultimo dovr\`a essere inserito nel file \texttt{Fetch\_Stage.vhd} all'interno dell'array che sostituisce la EPROM contenente le istruzioni in linguaggio macchina, da dare in pasto al processore:\\
 
@@ -50,7 +55,7 @@ constant EPROM_inst: eprom_type(0 to 11) := (
 In questo paragrafo si analizzeranno nel dettaglio i codici assembler dei due test pi\`u significativi.
 Per comodit\`a si riporter\`a il codice contenuto nella \texttt{EPROM\_inst} corredato di commento e codice assembler relativo.
 
-% \subsection{provaReplacement123}
+ \subsubsection{provaReplacement123}
 \lstset{language={[x86masm]Assembler}, caption=Codice assembler per il test del meccanismo di rimpiazzamento, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
 \begin{lstlisting}
@@ -70,7 +75,8 @@ X"FFFFFFFF" 	--NOP
 \end{lstlisting} 
 
 
-% \subsection{provaFU}
+\subsubsection{provaFU}
+
 \lstset{language={[x86masm]Assembler}, caption=Codice assembler per il test della Forwarding Unit, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
 \begin{lstlisting}

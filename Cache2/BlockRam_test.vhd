@@ -48,7 +48,7 @@
 
    -- Clock period definitions
    constant clk_period : time := 100ns;
-   constant br_clk_period : time := 10ns;
+   constant br_clk_period : time := 5ns;
  
 BEGIN
  

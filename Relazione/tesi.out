@@ -1,0 +1,46 @@
+\BOOKMARK [0][-]{chapter*.2}{Introduzione}{}
+\BOOKMARK [1][-]{section.0.1}{Obiettivi del progetto}{chapter*.2}
+\BOOKMARK [0][-]{chapter.1}{Caratteristiche della memoria cache}{}
+\BOOKMARK [1][-]{section.1.1}{Politica di rimpiazzamento}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Struttura e interfacce}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Realizzazione del componente}{}
+\BOOKMARK [1][-]{section.2.1}{Strutture dati}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Implementazione}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.2.1}{cache\137dlx}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.2}{cache\137ram}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.3}{cache\137snoop}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.4}{cache\137replace}{section.2.2}
+\BOOKMARK [2][-]{subsection.2.2.5}{Comunicazione tra processi}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{Procedure interne}{chapter.2}
+\BOOKMARK [2][-]{subsection.2.3.1}{cache\137replace\137line}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{cache\137hit\137on}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.3}{cache\137inv\137on}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.4}{get\137way}{section.2.3}
+\BOOKMARK [1][-]{section.2.4}{Diagrammi temporali}{chapter.2}
+\BOOKMARK [1][-]{section.2.5}{Problematiche principali affrontate}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Integrazione con DLX}{}
+\BOOKMARK [1][-]{section.3.1}{Ram\137cmp}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Schemi a blocchi}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Diagrammi temporali}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Testbench}{}
+\BOOKMARK [1][-]{section.4.1}{Testbench del componente}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Assembler per DLX}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Dal codice all'escuzione}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{Codice assembler}{section.4.2}
+\BOOKMARK [0][-]{chapter.5}{Block RAM}{}
+\BOOKMARK [1][-]{section.5.1}{Caratteristiche e segnali della Block Ram}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Configurazione della Block Ram}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{Operazioni della Block Ram}{chapter.5}
+\BOOKMARK [1][-]{section.5.4}{Conflitti d'accesso in Block Ram Dual-Port}{chapter.5}
+\BOOKMARK [1][-]{section.5.5}{Utilizzo della Block Ram in un progetto su FPGA}{chapter.5}
+\BOOKMARK [1][-]{section.5.6}{Realizzazione di un progetto d'esempio}{chapter.5}
+\BOOKMARK [2][-]{subsection.5.6.1}{Specifiche del progetto}{section.5.6}
+\BOOKMARK [2][-]{subsection.5.6.2}{Implementazione}{section.5.6}
+\BOOKMARK [3][-]{section*.3}{main}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.4}{blockram\137sequential\137access}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.5}{lettura\137byte}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.6}{end\137blockram\137access}{subsection.5.6.2}
+\BOOKMARK [2][-]{subsection.5.6.3}{Testbench}{section.5.6}
+\BOOKMARK [1][-]{section.5.7}{Considerazioni sul progetto d'esempio}{chapter.5}
+\BOOKMARK [0][-]{chapter*.7}{Conclusioni}{}
+\BOOKMARK [0][-]{chapter*.8}{Bibliografia}{}

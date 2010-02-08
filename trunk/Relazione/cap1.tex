@@ -94,7 +94,7 @@ In particolare sono presenti i seguenti segnali:
 \item \textbf{ch\_inv}: richiede l'invalidazione della linea
 \item \textbf{ch\_hit}: indica che la linea richiesta \`e presente in memoria
 \item \textbf{ch\_hitm}: indica che la linea richiesta \`e presente in memoria in stato modified
-\item \textbf{ch\_flush}: scarica il contenuto della cache sulla RAM (tutto o solo un blocco?, funziona?)
+\item \textbf{ch\_snoop\_addr}: indirizzo al quale effettuare lo snoop
 \end{itemize}
 
 
@@ -118,7 +118,6 @@ In particolare sono presenti i seguenti segnali:
 \end{itemize}
 
 Si noti che la cache non \`e a conoscenza del componente posto al livello superiore. Vista la simmetria delle due interfacce \`e quindi teoricamente possibile sostituire la RAM con un ulteriore livello di cache, inserendo pi\`u livelli di cache all'interno del processore.\\
-
 
 
 \`E presente infine una quarta interfaccia verso l'esterno, utilizzata per monitorare lo stato interno della cache e poter quindi eseguire il debug.\\

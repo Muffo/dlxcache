@@ -34,7 +34,6 @@ port(
 	reset: in std_logic;
    addr:in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 	clk:in 	std_logic;
-	--br_clk:in std_logic;
    bdata_in: in mem_line;
 	memrd:in std_logic;                                 
    memwr:in std_logic; 

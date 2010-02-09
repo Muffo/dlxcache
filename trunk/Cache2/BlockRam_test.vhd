@@ -18,7 +18,6 @@
 		reset : in std_logic;
 		addr : in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 		clk : in std_logic;
-		--br_clk : in std_logic;
 		bdata_in : in mem_line;
 		memrd : in std_logic;                                 
 		memwr : in std_logic; 
@@ -48,7 +47,7 @@
 
    -- Clock period definitions
    constant clk_period : time := 30ns;
-   --constant br_clk_period : time := 5ns;
+
  
 BEGIN
  
@@ -58,7 +57,6 @@ BEGIN
           addr => addr,
 			 addr_m => addr_m,
           clk => clk,
-          --br_clk => br_clk,
           bdata_in => bdata_in,
           bdata_out => bdata_out,
           memrd => memrd,

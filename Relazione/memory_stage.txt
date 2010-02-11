@@ -1,0 +1,56 @@
+Nella realizzazione del componente si è supposto che gli accessi alla cache avvengano in un unico ciclo di clock, 
+così facendo si è potuto evitare di modificare la pipiline del dlx per inserire degli stalli ogni qualvolta si 
+trovasse nello stadio di memory una  operzione di load o una di store. Le modifiche da apportare al dlx si sono rivelate 
+in questa maniera più esigue e si sono concentrate nel solo stadio di memory essendo la nostra una cache dati.
+In particolare sono stati aggiunti al componente Memory_Stage i seguenti segnali:
+
+ready: in std_logic;
+memrd: out std_logic;
+memwr: out std_logic;
+memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
+load_memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
+memory_address_register: out std_logic_vector(PARALLELISM-1 downto 0);
+
+mentre il segnale memory_data_register è stato sostituito da:
+store_memory_data_register: out std_logic_vector(PARALLELISM-1 downto 0);
+
+è stata inoltre eliminata la variabile Ram.
+
+I segnali store_memory_data_register e load_memory_data_register sono connessi rispettivamente al ch_bdata_in e 
+al ch_bdata_out della cache mentre il memory_data_register è collegato al bus indirizzi della cache (ch_baddr).
+Il segnale ready (connesso al ch_ready della cache) viene asserito alla fine di ogni ciclo di lettura e scrittura ed indica al processore
+che il dato proveniente dalla cache è disponibile per la lettura o che la scrittura è terminata e può avere luogo un nuovo ciclo di bus.
+I rimanenti due segnali memrd e memwr sono rispettivamente collegati ai segnail della cache ch_memrd e ch_memwr.
+A livello di codice nel processo async sono stati modificati i rami del "case a_opcode_high is" inerenti la load e la store. 
+Nel primo caso il codice è stato modificato come illustrato di seguito:
+
+memory_address_register <= alu_exit_buffer;
+memrd <= '1';	
+wait until ready = '1' and ready'event;
+memrd <= '0' after TIME_UNIT/3;
+dest_register <= a_rd_i;
+dest_register_data <= load_memory_data_register;
+data_out <= load_memory_data_register;	
+
+L'uscita dell'alu viene inviata al bus indirizzi e viene attivato il segnale memrd che sveglia il processo cache_dlx_process 
+della cache, dopodiche l'istruzzione wait until pone il processo in attesa di un fronte del segnale ready. 
+Appena il ready viene attivato il dato proveniente dalla cache viene inviato alla bariera dei registri dello stadio 
+di Write-Back. In fine il segnale memrd viene riportato a 0, ma con un ritardo di TIME_UNIT/3 necessario per poter rendere
+visibile l'impulso del segnale in fase di simulazione.
+
+L'utilizzo dell'istruzzione wait until si è resa necessaria in alternativa alla realizzazione di un processo separato che sul fronte 
+del ready effettuase la scrittura dei dati provenienti dal bus sui registri di uscita, in quanto con quest'ultima soluzione si avrebbero
+due processi distinti ingrado di modificare i valori dei segnali data_out e dest_register_data cosa che da luogo a dei confliti in fase di simulazione.
+Impiegare la wait until ha comportato come unico effetto collaterale lo spostamento dei segnali presenti nella sesitivity list del processo async
+nella lista dei parametri della wait on posta come prima istruzione del processo.
+
+La strutture della store risulta simile a quella della load:
+
+store_memory_data_register <= memory_data_register_buffer; 
+memory_address_register <= alu_exit_buffer;
+memwr <= '1';
+wait until ready = '1' and ready'event;
+memwr <= '0' after TIME_UNIT/3;
+
+In questo caso oltre all'indirizzo viene mandato sul bus dati verso la cache il dato da memorizzare e viene attivato il memwr. 
+Come in precedenza anche qui il processo attende il fronte del ready e riporta a zero memwr con un ritardo di TIME_UNIT/3.

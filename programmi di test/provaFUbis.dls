@@ -1,0 +1,5 @@
+l1: addi r2,r2,1  ; porta a 1 il valore di r2
+l2: sw 10(r1),r2  ; salva il contenuto di r2
+l3: lw r3,10(r1)  ; porta in r3 il valore presente in r2
+l4: addi r2,r3,1  ; incrementa r2
+l5: j l2          ; salta a l1

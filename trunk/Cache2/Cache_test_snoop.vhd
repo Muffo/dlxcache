@@ -151,7 +151,7 @@ BEGIN
 		--significato bit:T:tag,I:index
 		--           TTTTTTTTTTTTTTTTTTTTTTTTTiiOOOOO
 		--
-		--prima fase LETTURE: 
+		--prima fase: LETTURE: 
 		--	vengono richieste dei dati presenti in diversi blocchi di memoria quindi:
 		-- occupo la prima via degli indici (0) (1)
 		wait for 10 ns; 
@@ -167,7 +167,7 @@ BEGIN
 		ch_memrd <= '0';
 		wait for 20 ns;
 		
-		--seconda fase: SCRITTURE
+		--SCRITTURA
 		--il dato è contenuto in un blocco già presente in cache,viene aggiornato il blocco e lo stato(-> MESI_M(11))
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000000101100";
@@ -181,7 +181,7 @@ BEGIN
 		
 		
 		
-		--terza fase snoop: 
+		--seconda fase snoop: 
 		
 		--caso 1: blocco non presente in cache-> nessuna modifica in cache
 		ch_snoop_addr <= "00000000000000000001111110001100";
@@ -203,14 +203,10 @@ BEGIN
 		ch_eads<='0';
 		wait for 20 ns;
 		
-		--caso 1: blocco non presente in cache-> nessuna modifica in cache
-		ch_snoop_addr <= "00000000000000000001111111101100";
-		ch_eads<='1';
-		wait for 10 ns;
-		ch_eads<='0';
-		wait for 20 ns;
 		
-		--quarta fase scrittura su blocco in stato MESI_S-> scrittura su livello superiore(invalidazione..) e si porta blocco in stato MESI_E
+		
+		
+		--terza fase scrittura su blocco in stato MESI_S-> scrittura su livello superiore(invalidazione..) e si porta blocco in stato MESI_E
 		ch_baddr <= "00000000000000000000000000000000";
 		ch_bdata_in <= "11000111111111100011111111111111";
 		ch_memwr <= '1';

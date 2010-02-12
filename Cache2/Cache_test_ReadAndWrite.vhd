@@ -176,15 +176,7 @@ BEGIN
 		wait for 20 ns;
 		
 		--seconda fase: SCRITTURE
-		--caso 1: il dato è contenuto in un blocco già presente in cache,viene aggiornato il blocco e lo stato(-> MESI_M(11))
-		wait for 20 ns;
-		ch_baddr <= "00000000000000000000000000100000";
-		ch_bdata_in <= "11111111111111111111111111111111";
-		ch_memwr <= '1';
-		wait for 20 ns;
-		ch_memwr <= '0';
-		wait for 20 ns;
-		--caso 2: dato contenuto in blocco non ancora presente in cache, il dato verrà caricato dalla RAM e a quel punto
+		--caso 1: dato contenuto in blocco non ancora presente in cache, il dato verrà caricato dalla RAM e a quel punto
 		--			il dato verra modificato e il blocco posto in stato MESI_M(11)
 		ch_baddr <= "00000000000000000000000100000110";
 		ch_bdata_in <= "11111111111110001110011010010111";
@@ -192,20 +184,29 @@ BEGIN
 		wait for 20 ns;
 		ch_memwr <= '0';
 		wait for 20 ns;
-		--caso 3: dato contenuto in blocco in modalità write through, devo riscriverlo sul livello superiore(RAM) e mipongo in MESI_E
-		--(e mi mantengo in stato MESI_S)
+		--caso 2: il dato è contenuto in un blocco già presente in cache,viene aggiornato il blocco e lo stato(-> MESI_M(11))
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000000000001000110";
+		ch_baddr <= "00000000000000000000000000100000";
+		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
-		ch_wtwb <= '1';
 		wait for 20 ns;
 		ch_memwr <= '0';
-		ch_wtwb <= '0';
 		wait for 20 ns;
 		
-		--terza fase LETTURE: 
+		--caso 3: dato contenuto in blocco in modalità write through, devo riscriverlo sul livello superiore(RAM) e mi pongo in MESI_E
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000000001000110";
+		ch_bdata_in <= "11111111111111111111111111111111";
+		ch_memwr <= '1';
+	--	ch_wtwb <= '1'; 	--(e mi mantengo in stato MESI_S)
+		wait for 20 ns;
+		ch_memwr <= '0';
+	--	ch_wtwb <= '0';
+		wait for 20 ns;
 		
-		--           rileggo i dati  scritti per verificre l'effettiva scrittura in cache
+		--quarta fase LETTURE: 
+		
+		-- caso 1:   rileggo i dati  scritti per verificre l'effettiva scrittura in cache
 		ch_baddr <= "00000000000000000000000000100000";
 		ch_memrd <= '1';
 		wait for 20 ns;
@@ -216,7 +217,7 @@ BEGIN
 		wait for 20 ns;
 		ch_memrd <= '0';
 		wait for 20 ns;
-		-- quarta fase Letture dato salvato in ram:
+		-- caso 2: Letture dato salvato in ram:
 		--oblligo a far salvare in memoria blocco modificato
 		ch_baddr <= "00000000000000000000000100101100";
 		ch_memrd <= '1';

@@ -173,7 +173,7 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
-		--seconda fase: occupo la seconda via di ogni indice 
+		-- occupo la seconda via di ogni indice 
 		ch_memrd <= '0';
 		wait for 20 ns;
 		ch_baddr <= "00000000000000000000000100100100";
@@ -197,13 +197,13 @@ BEGIN
 		ch_memrd <= '0';
 		wait for 20 ns;
 		
-		--INVALIDAZIONE di un blocco:
-		ch_baddr <= "00000000000000000000000101000000";
+		-- seconda fase: INVALIDAZIONE di un blocco:
+		ch_snoop_addr <= "00000000000000000000000101000000";
 		ch_eads<='1';
 		ch_inv<='1';
 		wait for 10 ns;
 		
-		--RIMPIAZZAMENTO:
+		-- terza fase: RIMPIAZZAMENTO:
 		
 		-- a questo punto la cache è piena se richiederò un dato presente in cache avrò un hit(in questo caso nel indice [1] e via [0]):
 		--	che implica il portare il contatore della via contenete il blocco con il dato al valore 0
@@ -213,7 +213,7 @@ BEGIN
 		ch_eads<='0';
 		ch_inv <= '0';
 		wait for 20 ns;
-		ch_baddr <= "00000000000000000000000100100100";
+		ch_baddr <= "00000000000000000000000000100100";
 		ch_memrd <= '1';
 		wait for 10 ns;
 		-- se faccio quindi la richiestà di un dato presente in un blocco avente stesso indice ma non presente in cache(miss),
@@ -224,7 +224,15 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
-		--caso 2: più letture di blocchi presenti per verificare il funzionamento dei contatori: 
+		--caso 2: se richiedo un dato contenuto in un blocco non presente in cache 
+		-- ma nel quale set c'è una via invalidata
+		ch_memrd <= '0';
+		wait for 20 ns;
+		ch_baddr <= "00000000000000000000001101000000";
+		ch_memrd <= '1';
+		wait for 10 ns;
+		
+		--caso 3: più letture di blocchi presenti per verificare il funzionamento dei contatori: 
 		
 		ch_memrd <= '0';
 		wait for 20 ns;
@@ -259,13 +267,7 @@ BEGIN
 		ch_memrd <= '1';
 		wait for 10 ns;
 		
-		--caso 3: se richiedo un dato contenuto in un blocco non presente in cache 
-		-- ma nel quale set c'è una via invalidata
-		ch_memrd <= '0';
-		wait for 20 ns;
-		ch_baddr <= "00000000000000000000001101000000";
-		ch_memrd <= '1';
-		wait for 10 ns;
+		
 		
 		
 		-- osservazioni:

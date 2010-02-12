@@ -16,15 +16,25 @@ Per testare nello specifico il funzionamento della cache e i meccanismi di comun
 \subsection{Cache_test_ReadAndWrite.vhd}
 Con questo test si verifica il funzionamento della scritture attraverso 3 fasi:
 \subsubsection{Fase1: Letture d' inizializzazione}
-Si caricano in Cache 3 blocchi da 32 byte, 2 in modalità write-back (\texttt{ch_wtwb='0'}\\) e uno in modalità write-throght (\texttt{ch_wtwb='1'}\\). occupando rispettivamente la via [0] del primo, secondo e terzo set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch_wtwb}\\, porti lo stato del terzo blocco a 1 ovvero a MESI_S, mentre nei altri due casi è uguale a 10 ovvero MESI_E.
+Si caricano in Cache 3 blocchi da 32 byte, 2 in modalità write-back (\texttt{ch_wtwb='0'}\\) e uno in modalità write-throght (\texttt{ch_wtwb='1'}\\). occupando rispettivamente la via [0] del primo(di indice [0]), secondo(di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch_wtwb}\\, porti lo stato del terzo blocco a 1 ovvero a MESI_S, mentre nei altri due casi \`e uguale a "10" ovvero MESI_E.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase1.jpg}
+\includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase1.JPG}
 \caption{screenshot ISIM fase1}
 \label{fig:c_type}
 \end{figure}
 \subsubsection{Fase2: Scritture}
-Nella prima scrittura avviene un miss in quanto il blocco di TAG=10 non è ancora presente in cache
+Nella prima scrittura (evidenziata in verde nell'immagine) avviene un miss in quanto il blocco di TAG=*10 non è ancora presente in cache, verrà quindi effettuata prima una lettura in RAM per leggere il blocco contenente il dato e portarlo nella seconda([0]) via del primo set , aggiornati i valori dei contatori che gestiscono l'invecchiamento per il meccanismo di rimpiazzamento,e quindi effettuata una scrittura in cache aggiornando il valore della word di offset "00110" (ovvero il byte dalla posizione [6] alla [9]), e lo stato della via viene posto a MESI_M ("11").
+Nella seconda scrittura avviene una scrittura su di un già blocco presente in cache, quindi si modifica semplicemente il dato e si aggiorna lo stato come nel caso precedente.
+Nella terza scrittura  (evidenziata in azzurro nell'immagine) invece a differenza dei due casi precedenti, la via e in modalita write-throught e non write-back di conseguenza, la scrittura oltre ad avvenire in cache, avviene anche in RAM, ed essendo il nostro caso a monoprocessore la anzichè porsi in stato MESI_M, come negli altri casi si pone in MESI_E in quanto il contenuto del blocco in cache è uguale a quello a ciò che c'\`e al livello superiore (nel nostro caso la RAM).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase2.JPG}
+\caption{screenshot ISIM fase1}
+\label{fig:c_type}
+\end{figure}
+\subsubsection{Fase2: Scritture}
 \subsection{Cache_test_ReadAndReplacement.vhd}
 
 %\begin{figure}[h!]

@@ -166,18 +166,32 @@ l7-> 16#80(r1)= "001 00 00000"->prima([1]) via rimpiazzata nel primo set, quindi
 
 A questo punto si effettua il caricamento in r2 del primo valore (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]). infine si incrementa in valore di r1 di quattro unita in modo da scrivere non pi\`u nella word di offset "00000" ma di "00010", ovvero la word successiva di ogni blocco.
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/testbench/DLX123.JPG}
+\caption{evidenziato in verde le store e in giallo le load}
+\label{fig:DLX123}
+\end{figure}
+
 \subsubsection{provaFU}
 
 \lstset{language={[x86masm]Assembler}, caption=Codice assembler per il test della Forwarding Unit, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
 \begin{lstlisting}
-X"AC22000A",  --l1: sw 10(r1),r2  ; salva il contenuto di r2
-X"8C23000A",  --l2: lw r3,10(r1)  ; porta in r3 il valore presente in r2
-X"20620001",  --l3: addi r2,r3,1  ; incrementa r2
-X"0BFFFFF0",  --l4: j l1          ; salta a l1
-X"FFFFFFFF",  --NOP
+X"20420001",  --l1: addi r2,r2,1  ; porta a 1 il valore di r2
+X"AC220000",  --l2: sw 0(r1),r2  ; salva il contenuto di r2
+X"8C230000",  --l3: lw r3,0(r1)  ; porta in r3 il valore presente in r2
+X"20620001",  --l4: addi r2,r3,1  ; incrementa r2
+X"0BFFFFF0",  --l5: j l2          ; salta a l1
 X"FFFFFFFF",  --NOP
 
 \end{lstlisting} 
 
-In questo programma si testa il corretto funzionamento della Forwarding Unit, infatti nel xx clock si nota che l'istruzione nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla CACHE nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornirà il dato presente nello stadio di MEM allo stadio di EXE.
+In questo programma si testa il corretto funzionamento della Forwarding Unit, infatti nel quinto ciclo di clock si nota che l'istruzione(X"20620001") nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla CACHE nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornirà il dato presente nello stadio di MEM attraverso i segnali mem\_dest\_register e mem\_dest\_register\_data allo stadio di EXE.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/testbench/DLXFU.JPG}
+\caption{evidenziato l'istruzione che senza FU porterebbe a degli stalli}
+\label{fig:DLXFU}
+\end{figure}

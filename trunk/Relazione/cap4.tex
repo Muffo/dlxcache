@@ -164,7 +164,8 @@ l3-> 0(r1)=0+0= "000 00 00000"->prima([1]) via occupata nel primo set
 l5-> 16#100(r1)="010 00 00000"->seconda([0]) via occupata nel primo set
 l7-> 16#80(r1)= "001 00 00000"->prima([1]) via rimpiazzata nel primo set, quindi si ha una scrittura in RAM del blocco modificato e caricamento del nuovo blocco.
 
-A questo punto si effettua il caricamento in r2 del primo valore (ovvero "1"), ma il blocco che contiene la word di indirizzo 
+A questo punto si effettua il caricamento in r2 del primo valore (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]). infine si incrementa in valore di r1 di quattro unita in modo da scrivere non pi\`u nella word di offset "00000" ma di "00010", ovvero la word successiva di ogni blocco.
+
 \subsubsection{provaFU}
 
 \lstset{language={[x86masm]Assembler}, caption=Codice assembler per il test della Forwarding Unit, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
@@ -174,7 +175,9 @@ X"AC22000A",  --l1: sw 10(r1),r2  ; salva il contenuto di r2
 X"8C23000A",  --l2: lw r3,10(r1)  ; porta in r3 il valore presente in r2
 X"20620001",  --l3: addi r2,r3,1  ; incrementa r2
 X"0BFFFFF0",  --l4: j l1          ; salta a l1
-X"FFFFFFFF",
-X"FFFFFFFF",
+X"FFFFFFFF",  --NOP
+X"FFFFFFFF",  --NOP
 
 \end{lstlisting} 
+
+In questo programma si testa il corretto funzionamento della Forwarding Unit, infatti nel xx clock si nota che l'istruzione nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla CACHE nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornirà il dato presente nello stadio di MEM allo stadio di EXE.

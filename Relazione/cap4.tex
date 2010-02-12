@@ -105,7 +105,7 @@ per verificare che la CACHE scrivi effetivamente i dati in RAM.
 
 \section{Assembler per DLX}
 
-Dopo avere testato individualmente il funzionamento dei componenti cache e della RAM, si \`e passati al test del corretto funzionamento della cache inserita all'interno del progetto del processore DLX.\\
+Dopo avere testato individualmente il funzionamento dei componenti CACHE e della RAM, si \`e passati al test del corretto funzionamento della cache inserita all'interno del progetto del processore DLX.\\
 Per far ci\`o sono stati realizzati una serie di programmi in assembler, della quale mostreremo solo i due maggiormente significativi:
 \begin{itemize}
  \item \texttt{provaReplacement123}: nel quale si verifica la corretta comunicazione tra cache e DLX e il meccanismo di rimpiazzamento.
@@ -158,8 +158,13 @@ X"FFFFFFFF",	--NOP
 X"FFFFFFFF" 	--NOP
 
 \end{lstlisting} 
+A lato pratico questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, soltanto che ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache ad ogni iterazione di rimpiazzare un blocco sempre lavorando nel primo set, infatti ad esempio nella prima iterazione quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00".
 
+l3-> 0(r1)=0+0= "000 00 00000"->prima([1]) via occupata nel primo set
+l5-> 16#100(r1)="010 00 00000"->seconda([0]) via occupata nel primo set
+l7-> 16#80(r1)= "001 00 00000"->prima([1]) via rimpiazzata nel primo set, quindi si ha una scrittura in RAM del blocco modificato e caricamento del nuovo blocco.
 
+A questo punto si effettua il caricamento in r2 del primo valore (ovvero "1"), ma il blocco che contiene la word di indirizzo 
 \subsubsection{provaFU}
 
 \lstset{language={[x86masm]Assembler}, caption=Codice assembler per il test della Forwarding Unit, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}

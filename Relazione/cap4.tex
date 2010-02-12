@@ -51,14 +51,16 @@ Nel secondo caso(riportato in figura) si obbliga la cache ad effetture un replac
 Nella figura\ref{fig:write3} si nota inoltre la sequenza di segnali che vengono utilizzati fra RAM e CACHE per comunicare in particolare, all'attivazione del segnale ch_memrd nel primo caso per scrivere un blocco modificato presente in CACHE da rimpiazzare con un nuovo blocco(in verde) e nel secondo caso per una lettura in RAM per portare un dato in CACHE (in azzurro).
 
 \subsection{Cache_test_ReadAndReplacement.vhd}
+
 Questo file ha in comune, come tutti i file di testbench che si vedranno in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il corretto funzionamento del meccanismo dei contatori per la politica di rimpiazzamento, durante una serie di letture e si analizzera anche il caso in cui la CACHE subisca un invalidazione di una linea.
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
 Nella prima fase si effettuano 8 letture per riempire tutta la CACHE, quindi si avrà che tutti i contatori nelle vie, dei quattro set, che sn stati utilizzati per ultimi con il contatore a "0" metre le altre vie saranno a "1".
+
 \subsubsection{Fase 2: Invalidazione}
 Nella seconda fase verra eseguita un invalidazione sul blocco di TAG="*010" che con index="10", ovvero il terzo set; questo comporta il portare lo stato da MESI_E(10) a MESI_I(0) e contatore a "1" nella via che lo contiene mentre l'altra via del set sarà portatata a "0".
 
-\subsubsection{Fase 2: Verifica meccanismo contatori}
+\subsubsection{Fase 3: Verifica meccanismo contatori}
 
 Con la prima lettura si verifica che se si effetua una lettura di una word contenuto in un blocco(di TAG="0") presente in CACHE (hit)  il contatore della via dove è contenuto viene quindi resettato, mentre le altre vie con valore più basso vengono incrementate.
 
@@ -66,13 +68,44 @@ Con la seconda lettura si richiede un dato contenuto in blocco non presente in c
 
 Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache e con indice="10" , che corrisponde al terzo set sulla quale via precedentemente era stata eseguita un invalidazione, via che verra quindi rimpiazzata con il blocco con TAG="110".
 
-Inifne vengono eseguite una serie di letture su blocchi presenti e non su diversi set, per verificare che tutto nel complesso funzioni correttamente.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/testbench/ReadAndReplacementFase3.JPG}
+\caption{screenshot ISIM 3 letture}
+\label{fig:replacement3}
+\end{figure}
+
+Inifine vengono eseguite una serie di letture su blocchi presenti e non su diversi set, per verificare che tutto nel complesso funzioni correttamente.
 
 \subsection{Cache_test_snoop.vhd}
+Questo file ha sempre in comune, come tutti i file di testbench che si sono visti in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset.
+
+Quindi si procede con l'inizializzazione della cache per verificare il corretto funzionamento dello snoop. Nello specifico si porta in cache due blocchi dalla RAM e del secondo ci si esegue una scrittura per portarlo in stato MESI_M.
+
+In secondo luogo si procede con l'attivazione del segnale di snoop ovvero:\texttt{ch\_eads}\\ e impostato l'indirizzo su cui fare lo snoop:\texttt{ch\_snoop\_addr}\\. La CACHE risponderà in modo opportuno i segnali di \texttt{ch\_hit,ch\_hitm}\\ e modificando eventualmente lo stato delle vie.
+
+Nel primo caso si effettua uno snoop su di un blocco che non \`e contenuto in cache, quindi la cache risponderà con  \texttt{ch\_hit="0",ch\_hitm="0"}\\.
+
+Nel secondo caso(evidenziato in giallo in Fig.\ref{fig:snoop1}) si effettua uno snoop su di un blocco presente in cache in stato MESI_E, quindi la cache risponderà con \texttt{ch\_hit="1",ch\_hitm="0"}\\ e porterà lo stato della via in MESI_S("1").
+
+Nel terzo caso(evidenziato in verde in Fig.\ref{fig:snoop1}) si effetuer\`a uno snoop su di un blocco che \`e presente in cache in stato MESI_M("11"), la cache risponderà quindi:  
+\begin{itemize}
+\item \texttt{}\texttt{portando ch\_hit="1" e ch\_hitm="1"}\\
+\item \texttt{}\texttt{effettuando la scrittura in RAM del blocco contenuto in cache.}\\
+\item \texttt{}\texttt{portando lo stato della via in MESI_S("1")}\\
+\end{itemize}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/testbench/Snoop1.JPG}
+\caption{screenshot ISIM 3 casi di snoop}
+\label{fig:snoop1}
+\end{figure}
+Infine si effettua una scrittura sul blocco precedentetemente portato in MESI_S,
+per verificare che la CACHE scrivi effetivamente i dati in RAM.
 
 \section{Assembler per DLX}
 
-Dopo avere testato individualmente il funzionamento dei componenti cache e RAM, si \`e passati al test del corretto funzionamento della cache inserita all'interno del progetto del processore DLX.\\
+Dopo avere testato individualmente il funzionamento dei componenti cache e della RAM, si \`e passati al test del corretto funzionamento della cache inserita all'interno del progetto del processore DLX.\\
 Per far ci\`o sono stati realizzati una serie di programmi in assembler, della quale mostreremo solo i due maggiormente significativi:
 \begin{itemize}
  \item \texttt{provaReplacement123}: nel quale si verifica la corretta comunicazione tra cache e DLX e il meccanismo di rimpiazzamento.

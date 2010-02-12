@@ -14,16 +14,17 @@ Per testare nello specifico il funzionamento della cache e i meccanismi di comun
 \end{itemize}
 
 \subsection{Cache_test_ReadAndWrite.vhd}
-Con questo test si verifica il funzionamento della scritture attraverso 3 fasi:
-\subsubsection{Fase1: Letture d' inizializzazione}
+Questo File ha in comune, come tutti i file di testbench che si vedranno  in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
+\subsubsection{Fase 1: Letture d' inizializzazione}
 Si caricano in Cache 3 blocchi da 32 byte, 2 in modalità write-back (\texttt{ch_wtwb='0'}\\) e uno in modalità write-throght (\texttt{ch_wtwb='1'}\\). occupando rispettivamente la via [0] del primo(di indice [0]), secondo(di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch_wtwb}\\, porti lo stato del terzo blocco a 1 ovvero a MESI_S, mentre nei altri due casi \`e uguale a "10" ovvero MESI_E.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase1.JPG}
-\caption{screenshot ISIM fase1}
-\label{fig:c_type}
+\caption{screenshot ISIM fase 1}
+\label{fig:write1}
 \end{figure}
-\subsubsection{Fase2: Scritture}
+
+\subsubsection{Fase 2: Scritture}
 Nella prima scrittura (evidenziata in verde nell'immagine) avviene un miss in quanto il blocco di TAG=*10 non è ancora presente in cache, verrà quindi effettuata prima una lettura in RAM per leggere il blocco contenente il dato e portarlo nella seconda([0]) via del primo set , aggiornati i valori dei contatori che gestiscono l'invecchiamento per il meccanismo di rimpiazzamento,e quindi effettuata una scrittura in cache aggiornando il valore della word di offset "00110" (ovvero il byte dalla posizione [6] alla [9]), e lo stato della via viene posto a MESI_M ("11").
 Nella seconda scrittura avviene una scrittura su di un già blocco presente in cache, quindi si modifica semplicemente il dato e si aggiorna lo stato come nel caso precedente.
 Nella terza scrittura  (evidenziata in azzurro nell'immagine) invece a differenza dei due casi precedenti, la via e in modalita write-throught e non write-back di conseguenza, la scrittura oltre ad avvenire in cache, avviene anche in RAM, ed essendo il nostro caso a monoprocessore la anzichè porsi in stato MESI_M, come negli altri casi si pone in MESI_E in quanto il contenuto del blocco in cache è uguale a quello a ciò che c'\`e al livello superiore (nel nostro caso la RAM).
@@ -31,18 +32,28 @@ Nella terza scrittura  (evidenziata in azzurro nell'immagine) invece a differenz
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase2.JPG}
-\caption{screenshot ISIM fase1}
-\label{fig:c_type}
+\caption{screenshot ISIM fase 2}
+\label{fig:write2}
 \end{figure}
-\subsubsection{Fase2: Scritture}
-\subsection{Cache_test_ReadAndReplacement.vhd}
 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase1.jpg}
-%\caption{Schematizzazione delle strutture dati della cache}
-%\label{fig:c_type}
-%\end{figure}
+\subsubsection{Fase 3: Letture di verifica}
+In questa ultima fase vengono fatte delle letture; nel primo caso due letture per verifare i dati scritti nelle prime due scritture.
+Nel secondo caso(riportato in figura) si obbliga la cache ad effetture un replacement, in modo da vericare che la cache esegua correttamente il salvataggio in RAM e poi viene ricaricato il blocco originariamente modificato, e si nota che effettivamente il dato che ci viene restituito è quello che era stato originariamente scritto in cache.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/testbench/ReadAndWriteFase3.JPG}
+\caption{screenshot ISIM fase 3}
+\label{fig:write3}
+\end{figure}
+
+Nella figura\ref{fig:write3} si nota inoltre la sequenza di segnali che vengono utilizzati fra RAM e CACHE per comunicare in particolare, all'attivazione del segnale ch_memrd nel primo caso per scrivere un blocco modificato presente in CACHE da rimpiazzare con un nuovo blocco(in verde) e nel secondo caso per una lettura in RAM per portare un dato in CACHE (in azzurro).
+
+\subsection{Cache_test_ReadAndReplacement.vhd}
+Questo file ha in comune, come tutti i file di testbench che si vedranno in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il corretto funzionamento del meccanismo dei contatori per la politica di rimpiazzamento, durante una serie di letture e si analizzera anche il caso in cui la CACHE subisca un invalidazione di una linea.
+Nella prima fase si effettuano 8 letture per riempire tutta la CACHE, quindi si avrà che tutti i contatori nelle vie, dei quattro set, che sn stati utilizzati per ultimi con il contatore a "0" metre le altre vie saranno a "1".
+Nella seconda fase verra eseguita un invalidazione sul blocco di TAG="*10"
+
 \subsection{Cache_test_snoop.vhd}
 
 \section{Assembler per DLX}

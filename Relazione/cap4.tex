@@ -15,6 +15,7 @@ Per testare nello specifico il funzionamento della cache e i meccanismi di comun
 
 \subsection{Cache_test_ReadAndWrite.vhd}
 Questo File ha in comune, come tutti i file di testbench che si vedranno  in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
+
 \subsubsection{Fase 1: Letture d' inizializzazione}
 Si caricano in Cache 3 blocchi da 32 byte, 2 in modalità write-back (\texttt{ch_wtwb='0'}\\) e uno in modalità write-throght (\texttt{ch_wtwb='1'}\\). occupando rispettivamente la via [0] del primo(di indice [0]), secondo(di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch_wtwb}\\, porti lo stato del terzo blocco a 1 ovvero a MESI_S, mentre nei altri due casi \`e uguale a "10" ovvero MESI_E.
 \begin{figure}[h!]
@@ -51,8 +52,21 @@ Nella figura\ref{fig:write3} si nota inoltre la sequenza di segnali che vengono 
 
 \subsection{Cache_test_ReadAndReplacement.vhd}
 Questo file ha in comune, come tutti i file di testbench che si vedranno in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il corretto funzionamento del meccanismo dei contatori per la politica di rimpiazzamento, durante una serie di letture e si analizzera anche il caso in cui la CACHE subisca un invalidazione di una linea.
+
+\subsubsection{Fase 1: Letture d' inizializzazione}
 Nella prima fase si effettuano 8 letture per riempire tutta la CACHE, quindi si avrà che tutti i contatori nelle vie, dei quattro set, che sn stati utilizzati per ultimi con il contatore a "0" metre le altre vie saranno a "1".
-Nella seconda fase verra eseguita un invalidazione sul blocco di TAG="*10"
+\subsubsection{Fase 2: Invalidazione}
+Nella seconda fase verra eseguita un invalidazione sul blocco di TAG="*010" che con index="10", ovvero il terzo set; questo comporta il portare lo stato da MESI_E(10) a MESI_I(0) e contatore a "1" nella via che lo contiene mentre l'altra via del set sarà portatata a "0".
+
+\subsubsection{Fase 2: Verifica meccanismo contatori}
+
+Con la prima lettura si verifica che se si effetua una lettura di una word contenuto in un blocco(di TAG="0") presente in CACHE (hit)  il contatore della via dove è contenuto viene quindi resettato, mentre le altre vie con valore più basso vengono incrementate.
+
+Con la seconda lettura si richiede un dato contenuto in blocco non presente in cache (miss), viene quindi selezionato il set in base al valore dell' indice, "01" in questo caso e verrà rimpiazzato il blocco con valore del contatore più elevato che in questo caso corrisponde alla via con TAG="10" (la via [0]) nella quale si era precedentemente resettatato il contatore della via [1], senza effettuare nessuna scrittura in RAM in quanto il blocco è in stato MESI_E.
+
+Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache e con indice="10" , che corrisponde al terzo set sulla quale via precedentemente era stata eseguita un invalidazione, via che verra quindi rimpiazzata con il blocco con TAG="110".
+
+Inifne vengono eseguite una serie di letture su blocchi presenti e non su diversi set, per verificare che tutto nel complesso funzioni correttamente.
 
 \subsection{Cache_test_snoop.vhd}
 

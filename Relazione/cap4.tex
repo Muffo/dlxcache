@@ -126,7 +126,7 @@ In primo luogo \`e necessario scrivere il codice in assembler all'interno di un 
 
 \texttt{dasm -a -l <nome\_file>.dls}\\
 
-Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a essere convertito mediante la classe java \texttt{DLXConv},eseguendo dal prompt di comandi Windows:
+Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a essere convertito mediante la classe java \texttt{DLXConv},eseguendo dal prompt di comandi Windows:\\
 
 \texttt{java DLXConv <nome\_file>.dlx}\\
 
@@ -204,13 +204,13 @@ La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un alea
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{img/testbench/DLXFU.JPG}
-\caption{{screenshot ISIM di provaFU}
+\caption{Screenshot ISIM di provaFU}
 \label{fig:DLXFU}
 \end{figure}
 
-Nella Fig.\ref{fig:DLXFU}:
+Nella Fig. \ref{fig:DLXFU}:
 \begin{itemize}
-   \item \texttt{l'istruzione critica} in giallo;
-	\item \texttt{i valori forniti dalla Forwarding Unit e il risultato corretto} in verde;
-	\item \texttt{i valori forniti non aggiornati forniti dallo stadio di decode} in rosso.
+   \item \textbf{l'istruzione critica} in giallo;
+   \item \textbf{i valori forniti dalla Forwarding Unit e il risultato corretto} in verde;
+   \item \textbf{i valori forniti non aggiornati forniti dallo stadio di decode} in rosso.
 \end{itemize}

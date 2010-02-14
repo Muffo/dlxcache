@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  14 FEB 2010 16:58
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  14 FEB 2010 17:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1066,7 +1066,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  8898 strings out of 493848
  122721 string characters out of 3149206
- 348483 words of memory out of 3000000
+ 348484 words of memory out of 3000000
  11593 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
@@ -1080,7 +1080,7 @@ f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
 /fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
 /courier/ucrro8a.pfb>
-Output written on tesi.pdf (65 pages, 4147193 bytes).
+Output written on tesi.pdf (65 pages, 4147084 bytes).
 PDF statistics:
  878 PDF objects out of 1000 (max. 8388607)
  277 named destinations out of 1000 (max. 500000)

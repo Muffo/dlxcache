@@ -98,7 +98,7 @@ indirizzo finale del blocco xx = yy*256\\
 INITP\_xx sono attributi analoghi che consentono di inizializzare i bit di parit \`a presenti in memoria (da INITP\_00 a INITP\_07).
 \item \texttt{INIT}  \`e l'attributo utilizzato in fase di inizializzazione per settare il valore iniziale del registro di output quando viene asserito il segnale GSR.\\
 
-\item \texttt{WRITE\_MODE}  \`e l'attributo che consente di settare il comportamento dei registri in output (relativamente ad una porta) che forniscono il dato sull'Output Data Bus durante un ciclo di scrittura in memoria.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\item \texttt{WRITE\_MODE}  \`e l'attributo che consente di settare il comportamento dei registri in output (relativamente ad una porta) che forniscono il dato sull'Output Data Bus durante un ciclo di scrittura in memoria. %! \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 \begin{enumerate}
 \item \texttt{WRITE\_FIRST} \`e  il valore di default e comporta un comportamento Read after Write della memoria, ovvero durante un ciclo di scrittura il dato in input viene contemporaneamente scritto alla locazione di memoria indicata dall'indirizzo e portato nel registro di output. 
@@ -120,7 +120,7 @@ Nel caso di utilizzo in Dual-Port si ha l'invalidazione del contenuto del regist
 \label{fig:read_first}
 \end{figure}
 
-\item \texttt{NO\_CHANGE} determina un comportamento classico di scrittura in memoria senza alcun aggiornamento del dato contenuto nel registro in output (temporizzazioni e funzionamento in Fig.\ref{fig:no_change}). Nel caso di utilizzo in Dual-Port si ha come side-effect l'invalidazione del contenuto del registro di output dell'altra porta.\\\\
+\item \texttt{NO\_CHANGE} determina un comportamento classico di scrittura in memoria senza alcun aggiornamento del dato contenuto nel registro in output (temporizzazioni e funzionamento in Fig.\ref{fig:no_change}). Nel caso di utilizzo in Dual-Port si ha come side-effect l'invalidazione del contenuto del registro di output dell'altra porta. %\\\\
 \end{enumerate}
 
 \begin{figure}[!h]

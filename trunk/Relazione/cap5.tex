@@ -2,25 +2,29 @@
 \chapter{Block RAM}
 
 
-Mentre nel nostro progetto per semplicit\`a  abbiamo considerato nulli i tempi d'accesso alla cache e alla memoria principale, ovviamente ci\`o non accade nella realt\`a dove la struttura gerarchica delle memorie impone vincoli di dimensione e tempi d'accesso per i vari livelli di memoria. Per tale motivo abbiamo voluto approfondire le problematiche relative alle temporizzazioni per gli accessi in memoria che un progetto tradizionale impone. Per far ci\`o abbiamo considerato ci\`o che una tipica FPGA d\`a a disposizione ad un progettista per implementare una memoria ram e gestirne gli accessi in lettura e scrittura.
+Nel nostro progetto descritto in precedenza, per semplicit\`a  abbiamo considerato nulli i tempi d'accesso alla cache e alla memoria principale, ovviamente ci\`o non accadrebbe in un progetto reale che preveda l'utilizzo di cache al fine di velocizzare l'accesso ai dai evitando in caso di hit l'accesso alla memoria Ram. Per curiosità e completezza nell'affrontare le tematiche relative al nostro progetto, abbiamo voluto approfondire le problematiche riguardanti le temporizzazioni per gli accessi in memoria che un progetto reale impone. Per far ci\`o abbiamo considerato i dispositivi di memoria che una FPGA d\`a a disposizione ad un progettista per implementare una memoria ram e gestirne gli accessi in lettura e scrittura.
 \\
-Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia Spartan-3E di Xilinx, che per gestire la memorizzazione di dati utilizza le Block Ram.
+Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia Spartan-3 di Xilinx, che per gestire la memorizzazione di dati consente due possibili soluzioni:
+\begin{enumerate}
+\item  Memorie Ram distribuite sulla scheda, di piccole dimensioni e rapidissimo accesso, utilizzate tipicamente come registri temporanei d'appoggio.
+\item Le Block Ram, ovvero blocchi di memoria Ram statica con tempi d'accesso non nulli e un' ampia capacit\`a potenziale di memorizzazione, in relazione alle caratteristiche tecniche della scheda FPGA utilizzata. 
+\end{enumerate}
 
 \section{Caratteristiche e segnali della Block Ram}
 
 La memoria RAM presente su una FPGA Spartan-3 viene implementata tramite una serie di Block Ram ripartite in colonne il cui numero e capacit\`a dipende dalle caratteristiche stesse della scheda utilizzata. Dal punto di vista implementativo le Block Ram sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
-L'accesso alla block ram pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati (A o B) oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura su zone diverse del dispositivo.
+L'accesso alla block ram pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati (A o B) oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura sull'intero spazio di memoria del dispositivo (anche con sovrapposizioni).
 
 \begin{figure}[!h]
 \centering
 % \includegraphics[scale=0.8]{img/blockRam/pinoutPorte.jpg}
 \includegraphics[width=\textwidth]{img/blockRam/pinoutPorte.jpg}
-\caption{Pinout Block Ram Single-Port e Dual-Port}
+\caption{Block Ram Single-Port e Dual-Port}
 \label{fig:operaz}
 \end{figure}
 
 
-Ogni  porta della block ram si interfaccia con due bus dati (distinti per l'input e per l'output),  con il bus degli indirizzi e dispone di una serie di segnali di comando atti ad abilitare il dispositivo (EN in Single-Port) e a gestire operazioni di lettura (EN) o scrittura (WE). La seguente tabella racchiude i principali segnali illustrati nella figura precedente sia in Single-Port che in Dual-Port.
+Ogni  porta della block ram si interfaccia con due bus dati (distinti per l'input e per l'output),  con il bus degli indirizzi e dispone di una serie di segnali di comando atti ad abilitare il dispositivo e a gestire operazioni di lettura (EN) o scrittura (WE). La tabella in Fig.\ref{fig:segnaliBlockRam} racchiude i principali segnali in input e output sulla Block Ram sia in Single-Port che in Dual-Port.
 
 \begin{figure}[!h]
 \centering
@@ -34,10 +38,10 @@ Segnali di comando:
 \begin{itemize}
   \item \texttt{EN} = Enable consente di abilitare il dispositivo e qualora non siano asseriti WE(write enable) o SSR (reset), il 	segnale comanda a default la lettura della cella di memoria all'indirizzo specificato sul bus degli indirizzi ADDR sul 		fronte positivo del clock.
   \item \texttt{WE} = Write Enable consente di comandare un ciclo di scrittura in memoria all'indirizzo specificato sul bus degli indirizzi ADDR (con EN asserito), tale operazione in base al valore settato nell'attributo WRITE\_MODE pu\`o essere affiancata da una lettura contemporanea del dato alla stessa locazione di memoria che viene portato nel buffer di output sul bus DO (della stessa porta). 
-  \item \texttt{SSR} = Syncronous Set/Reset consente di settare '1' o resettare '0' i registri di ouput sul bus dati in accordo col valore dell'attributo SRVAL.
+  \item \texttt{SSR} = Syncronous Set/Reset consente di settare '1' o resettare '0' i registri di ouput sul bus dati in accordo col valore dell'attributo \texttt{SRVAL} specificato in fase di inizializzazione (X"00000" a default).
   \item \texttt{REGCE} = Output Register Enable consente in fase di  lettura da ram di salvare il dato letto in un output register.
   \item \texttt{CLK} =  \`e il clock e si pu\`o configurare se la memoria debba essere sensibile ai fronti di salita o di discesa.
-\item \texttt{GSR} = Global Set/Reset segnale di sistema utilizzato per in fase di inizializzazione del sistema (non disponibile all'esterno su un pin).
+\item \texttt{GSR} = Global Set/Reset segnale di sistema utilizzato in fase di inizializzazione del sistema per inizializzare la Block Ram (non disponibile all'esterno su un pin).
 \end{itemize}
 
 C'\'e inoltre la possibilit\`a di configurare le polarit\`a di ogni segnale di comando se da considerarsi asserito alto o basso.
@@ -61,9 +65,9 @@ Possibili configurazioni e organizzazioni della Block Ram sono illustrate in Fig
 \label{fig:ram_org}
 \end{figure}
 
-Nel nostro caso, dal momento che il DLX \`e un processore a 32 bit, la configurazione necessaria per la block ram \`e la 512x36. Tale configurazione da la possibilit\'a di accedere fino a 36 bit di dato contemporaneamente, di cui 32 bit di dato veri e 4 di parit\`a posti sui bit pi\`u significativi del bus dati. Con tale configurazione la block ram (di 18 Kbit) conterr\`a 512 entry (memory-depth) da 36 bit (infatti 512x36 bit = 18 Kbits).
+Ad esempio, se si volesse utilizzare la Block Ram con un processore DLX, la configurazione necessaria sarebbe la 512x36. Tale configurazione da la possibilit\'a di accedere al dispositivo fino a 36 bit contemporaneamente, di cui 32 bit di dato e 4 bit di parit\`a posti sui bit pi\`u significativi del bus dati. Con tale configurazione la Block Ram (di 18 Kbit) conterr\`a 512 entry (memory-depth) da 36 bit (infatti 512x36 bit = 18 Kbits).
 
-\section{Configurazione della Block Ram}
+\section{Inizializzazione della Block Ram}
 
 La configurazione della Block Ram avviene tramite una serie di attributi propri dei componenti ram disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna, la dimensione e diverse altre modalitÃ  di funzionamento che la Block Ram offre all'utente.\\
 Generalmente il numero di porte della ram e la sua organizzazione interna possono essere specificati utilizzando Xilinx Core Generator che consente di configurare tramite un wizard la Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato oppure si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a (Fig.\ref{fig:tipi_br}).
@@ -90,7 +94,7 @@ indirizzo finale del blocco xx = yy*256\\
 
 \begin{figure}[!h]
 \centering
-\includegraphics{img/blockRam/init.jpg}
+\includegraphics[scale=0.8]{img/blockRam/init.jpg}
 \caption{Attributi di Inizializzazione del contenuto della Block Ram}
 \label{fig:attrInit_br}
 \end{figure}
@@ -155,6 +159,7 @@ La seguente tabella in Fig.\ref{fig:operazioniBlockRam} racchiude quanto detto i
 \begin{figure}[!h]
 \centering
 \includegraphics{img/blockRam/operazioni.jpg}
+\caption{Tabella delle operazioni ed dei segnali utilizzati sulla Block Ram}
 \label{fig:operazioniBlockRam}
 \end{figure}
 
@@ -172,6 +177,7 @@ Ci\`o accade a causa dei clock diversi che comandano le operazioni tra le due po
 \begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth]{img/blockRam/conflittiTemp.jpg}
+\caption{Conflitti per temporizzazioni d'accesso a Block Ram Dual-Port}
 \label{fig:conflittiTemp}
 \end{figure} 
 
@@ -182,7 +188,8 @@ Nei casi di scrittura su una porta e lettura sull'altra, se si utilizza WRITE\_M
 
 \begin{figure}[!h]
 \centering
-\includegraphics{img/blockRam/conflittiScritture.jpg}
+\includegraphics[scale=0.8]{img/blockRam/conflittiScritture.jpg}
+\caption{Conflitti in lettura e scrittura simultanea come side-effect della WRITE\_MODE selezionata.}
 \label{fig:conflittiScritture}
 \end{figure}
 
@@ -233,7 +240,7 @@ Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp
 
 \begin{figure}[!h]
 \centering
-\includegraphics{img/blockRam/rambInit.jpg}
+\includegraphics[width=\textwidth]{img/blockRam/rambInit.jpg}
 \caption{Il codice mostra un esempio di inizializzazione del contenuto interno della Block Ram tramite gli attributi INIT\_xx e dei registri RSVAL e INIT}
 \label{fig:br_init}
 \end{figure}
@@ -278,4 +285,5 @@ Per verificare il funzionamento del componente abbiamo realizzato un semplice te
 Da notare \`e che dopo l'operazione di scrittura della linea in Block Ram, oltre all'attivazione del segnale di ready, si porta in uscita sul bus dati di output \texttt{bdata\_out} una linea di tutti zeri. Ciò trova spiegazione dal fatto che si sono voluti testare anche i valori dei dati disponibili in uscita alla Block Ram durante le operazioni di scrittura sulla base dei vari comportamenti possibili che si possono ottenere modificando il valore dell'attributo WRITE\_MODE, che nella simulazione illustrata era settato a NO\_CHANGE e pertanto non aveva alcun cambiamento rispetto al valore di iniziale del registro di output inizializzato a tutti zeri tramite il parametro \texttt{INIT} (Fig.\ref{fig:br_init}).
 
 \section{Considerazioni sul progetto d'esempio}
-Il componente BlockRam\_cmp rappresenta una memoria RAM a tutti gli effetti che prevede dei tempi d'accesso non nulli sia in scrittura che in lettura. Ci\`o comporta la necessit\`a di tenere in conto i tempi d'accesso alla memoria al fine di segnalare opportunamente (segnale di \texttt{ready}) alla cache quando possa leggere il dato richiesto (nel caso del nostro progetto che prevede il ready in ingresso alla cache per la sincronizzazione). Lo stesso vale ovviamente per il processore DLX che qualora dovesse gestire tali problematiche legate alle temporizzazioni, dovrebbe prevedere il segnale di \texttt{ready} in ingresso in modo da essere informato del completamento di un ciclo d'accesso alla memoria. L'aggiunta di tale segnale significherebbe dover introdurre esternamente un contatore che, a ogni accesso in memoria sulla base dei tempi d'accesso e dei ritardi presenti sulla rete, conti quanti stati di wait sono necessari al fine di completare l'accesso e generi opportunamente il ready da inviare al processore. Dal punto di vista dell'implementazione interna del DLX ci\`o comporterebbe la necessit\`a di stallare la pipeline qualora il ready non sia asserito.
+Il componente BlockRam\_cmp rappresenta una memoria RAM a tutti gli effetti che 
+prevede dei tempi d'accesso non nulli sia in scrittura che in lettura. Ci\`o comporta la necessit\`a di tenere in conto i tempi d'accesso alla memoria al fine di segnalare opportunamente (segnale di \texttt{ready}) alla cache quando possa leggere il dato richiesto (nel caso del nostro progetto che prevede il ready in ingresso alla cache per la sincronizzazione). Lo stesso vale ovviamente per il processore DLX che qualora dovesse gestire tali problematiche legate alle temporizzazioni, dovrebbe prevedere il segnale di \texttt{ready} in ingresso in modo da essere informato del completamento di un ciclo d'accesso alla memoria. L'aggiunta di tale segnale significherebbe dover introdurre esternamente un contatore che, a ogni accesso in memoria sulla base dei tempi d'accesso e dei ritardi presenti sulla rete, conti quanti stati di wait sono necessari al fine di completare l'accesso e generi opportunamente il ready da inviare al processore. Dal punto di vista dell'implementazione interna del DLX ci\`o comporterebbe la necessit\`a di stallare la pipeline qualora il ready non sia asserito.

@@ -9,7 +9,7 @@ Nella realizzazione del componente si \`e supposto che gli accessi alla cache av
 
 In particolare sono stati aggiunti al componente \texttt{Memory\_Stage} i seguenti segnali:\\
 
-\lstset{language=VHDL,  breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
+\lstset{language=VHDL,  caption=Segnali aggiunti allo stadio di Memory, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 \begin{lstlisting}
 ready: in std_logic;
 memrd: out std_logic;
@@ -38,7 +38,7 @@ A livello di codice nel processo async sono stati modificati i rami del "case a\
 
 Nel caso di un'istruzione load, il codice \`e stato modificato come illustrato di seguito:\\
 
-\lstset{language=VHDL,  breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
+\lstset{language=VHDL, caption=Codice dell'istruzione load, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
 \begin{lstlisting}
 memory_address_register <= alu_exit_buffer;
@@ -61,7 +61,7 @@ Impiegare la wait until ha comportato come unico effetto collaterale lo spostame
 
 La strutture della store risulta simile a quella della load:
 
-\lstset{language=VHDL,  breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
+\lstset{language=VHDL, caption=Codice dell'istruzione store,  breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
 \begin{lstlisting}
 store_memory_data_register <= memory_data_register_buffer; 

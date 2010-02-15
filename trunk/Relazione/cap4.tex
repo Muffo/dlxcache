@@ -17,7 +17,7 @@ Per testare nello specifico il funzionamento della cache e i meccanismi di comun
 Questo File ha in comune, come tutti i file di testbench che si vedranno  in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
-Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back (\texttt{ch\_wtwb='0'}\\) e uno in modalit\`a write-throght (\texttt{ch\_wtwb='1'}\\). occupando rispettivamente la via [0] del primo (di indice [0]), secondo(di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}\\, porti lo stato(\texttt{.status}\\) del terzo blocco a 1 ovvero a MESI\_S, mentre nei altri due casi \`e uguale a "10" ovvero MESI\_E.
+Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back (\texttt{ch\_wtwb='0'}) e uno in modalit\`a write-throght (\texttt{ch\_wtwb='1'}). occupando rispettivamente la via [0] del primo (di indice [0]), secondo (di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}, porti lo stato(\texttt{.status}) del terzo blocco a 1 ovvero a MESI\_S, mentre nei altri due casi \`e uguale a "10" ovvero MESI\_E.
 
 \begin{figure}[h!]
 \centering
@@ -27,14 +27,14 @@ Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back (\texttt{c
 \end{figure}
 
 \subsubsection{Fase 2: Scritture}
-Nella prima scrittura (evidenziata in verde nell'immagine) avviene un miss, in quanto il blocco di TAG="10" non è ancora presente in cache, verrà quindi effettuato:
+Nella prima scrittura (evidenziata in verde nella figura \ref{fig:write3}) avviene un miss, in quanto il blocco di TAG="10" non è ancora presente in cache. Verr\`a quindi effettuato:
 \begin{itemize}
 \item \texttt{}una lettura in RAM per leggere il blocco contenente il dato e portarlo nella seconda([0]) via del primo set;
 \item \texttt{}l'aggiornamento valori dei contatori che gestiscono l'invecchiamento per il meccanismo di rimpiazzamento;
-\item \texttt{} verrà effettuato una scrittura in cache aggiornando il valore della word di offset "00110" (ovvero il byte dalla posizione [6] alla [9]), e lo stato\texttt{.status}\\ della via viene posto a MESI\_M ("11").
+\item \texttt{} verr\`a effettuato una scrittura in cache aggiornando il valore della word di offset "00110" (ovvero i byte dalla posizione [6] alla [9]), e lo stato\texttt{.status} della via viene posto a MESI\_M ("11").
 \end{itemize}
-Nella seconda, avviene una scrittura su di un già blocco presente in cache, quindi si modifica semplicemente il dato e si aggiorna lo stato come nel caso precedente.
-Nella terza scrittura  (evidenziata in azzurro nell'immagine) a differenza dei due casi precedenti, la via \`e stata portata in cache in modalita write-throught di conseguenza, la scrittura oltre ad avvenire in cache, avviene anche in RAM, ed essendo il nostro caso a monoprocessore la via anzichè porsi in stato MESI\_M, come negli altri casi si pone in MESI\_E in quanto il contenuto del blocco in cache è uguale a quello a ciò che c'\`e al livello superiore (nel nostro caso la RAM).
+Nella seconda, avviene una scrittura su di un gi\`a blocco presente in cache, quindi si modifica semplicemente il dato e si aggiorna lo stato come nel caso precedente.\\
+Nella terza scrittura  (evidenziata in azzurro nella figura\ref{fig:write3})  a differenza dei due casi precedenti, la via \`e stata portata in cache in modalita write-throught di conseguenza, la scrittura oltre ad avvenire in cache, avviene anche in RAM, ed essendo il nostro caso a monoprocessore la via anzichè porsi in stato MESI\_M, come negli altri casi si pone in MESI\_E in quanto il contenuto del blocco in cache è uguale a quello a ciò che c'\`e al livello superiore (nel nostro caso la RAM).
 
 \begin{figure}[h!]
 \centering
@@ -45,7 +45,7 @@ Nella terza scrittura  (evidenziata in azzurro nell'immagine) a differenza dei d
 
 \subsubsection{Fase 3: Letture di verifica}
 In questa ultima fase vengono eseguite delle letture; nel primo caso due letture per verifare i dati scritti nelle prime due scritture.
-Nel secondo caso(riportato in figura) si obbliga la cache ad effetture un replacement, in modo da vericare che la cache esegua correttamente il salvataggio in RAM e poi viene ricaricato il blocco originariamente modificato, e si nota che effettivamente il dato che ci viene restituito è quello che era stato originariamente scritto in cache.
+Nel secondo caso(riportato in figura) si obbliga la cache ad effetture un replacement, in modo da vericare che la cache esegua correttamente il salvataggio in RAM e poi viene ricaricato il blocco originariamente modificato Si nota che effettivamente il dato che ci viene restituito è quello che era stato originariamente scritto in cache.
 
 \begin{figure}[h!]
 \centering
@@ -54,26 +54,27 @@ Nel secondo caso(riportato in figura) si obbliga la cache ad effetture un replac
 \label{fig:write3}
 \end{figure}
 
-Nella figura\ref{fig:write3} si nota inoltre la sequenza di segnali che vengono utilizzati fra RAM e cache per comunicare all'attivazione del segnale \texttt{ch\_memrd}\\. Nel primo caso(in verde) per scrivere in RAM un blocco modificato presente in cache e nel secondo caso  (in azzurro) per una lettura in RAM per portare un blocco in cache.
+Nella figura\ref{fig:write3} si nota inoltre la sequenza di segnali che vengono utilizzati fra RAM e cache per comunicare all'attivazione del segnale \texttt{ch\_memrd}. Nel primo caso(in verde) per scrivere in RAM un blocco modificato presente in cache e nel secondo caso  (in azzurro) per una lettura in RAM per portare un blocco in cache.
 
 \subsection{Cache\_test\_ReadAndReplacement.vhd}
 
 Questo file ha in comune, come tutti i file di testbench che si vedranno in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi, con le quali si verifica il corretto funzionamento del meccanismo dei contatori per la politica di rimpiazzamento durante una serie di letture.
-Si analizzer\`a infine anche il caso in cui la cahce subisca un invalidazione di una linea.
+Si analizzer\`a infine anche il caso in cui la cache subisca un invalidazione di una linea.
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
-Nella prima fase si effettuano 8 letture per riempire tutta la cache, quindi  tutti i contatori nelle vie, dei quattro set, che sono stati caricati per ultimi con il contatore (\texttt{lru\_counter }\\) a "0",mentre le altre vie hanno il contatore a "1".
+Nella prima fase si effettuano 8 letture per riempire tutta la cache.
+Avremo quindi tutti i contatori delle vie, dei quattro set, che sono stati caricati per ultimi (\texttt{lru\_counter }) a "0" ,mentre le altre vie avranno il contatore a "1".
 
 \subsubsection{Fase 2: Invalidazione}
-Nella seconda fase si esegue un invalidazione sul blocco di TAG="010" e con index="10", ovvero il terzo set; questo comporta il portare lo stato\texttt{.status}\\ da MESI\_E(10) a MESI\_I(0) e contatore a "1" nella via che lo contiene mentre l'altra via del set si portata a "0".
+Nella seconda fase si esegue un invalidazione sul blocco di TAG="010" e con index="10", ovvero il terzo set; questo comporta il portare lo stato\texttt{.status} da MESI\_E(10) a MESI\_I(0) e contatore a "1" nella via che lo contiene mentre l'altra via del set si porta a "0".
 
 \subsubsection{Fase 3: Verifica meccanismo contatori}
 
 Con la prima lettura si verifica che se si effettua una lettura di una word contenuta in un blocco (di TAG="0") presente in CACHE (hit)  il contatore della via dove è contenuto viene resettato, mentre le altre vie con valore più basso di contatore vengono incrementate.
 
-Con la seconda lettura si richiede un dato contenuto in blocco non presente in cache (miss), viene quindi selezionato il set in base al valore dell' indice, "01" in questo caso e verrà rimpiazzato il blocco con valore del contatore più elevato che in questo caso corrisponde alla via con TAG="10" (la via [0]) nella quale si era precedentemente resettatato il contatore della via [1], senza effettuare nessuna scrittura in RAM in quanto il blocco è in stato MESI\_E, ovvero il blocco in cache non ha subito nessuna modifica rispetto a quanto presente in RAM.
+Con la seconda lettura si richiede un dato contenuto in blocco non presente in cache (miss), viene quindi selezionato il set in base al valore dell' indice, "01" in questo caso e verr\`a rimpiazzato il blocco con valore del contatore più elevato che in questo caso corrisponde alla via con TAG="10" (la via [0]) nella quale si era precedentemente resettatato il contatore della via [1], senza effettuare nessuna scrittura in RAM in quanto il blocco è in stato MESI\_E, ovvero il blocco in cache non ha subito nessuna modifica rispetto a quanto presente in RAM.
 
-Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache con indice="10", che corrisponde al terzo set nel quale una via era stata precedentemente invalidata, via che verra quindi rimpiazzata, senza scrittura in RAM, con il blocco con TAG="110".
+Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache con indice="10", che corrisponde al terzo set nel quale una via era stata precedentemente invalidata, via che verr\`a quindi rimpiazzata, senza scrittura in RAM, con il blocco con TAG="110".
 
 \begin{figure}[h!]
 \centering
@@ -87,17 +88,17 @@ Inifine vengono eseguite una serie di letture su blocchi presenti e non su diver
 \subsection{Cache\_test\_snoop.vhd}
 Questo file ha sempre in comune, come tutti i file di testbench che si sono visti in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset.
 Quindi si procede con l'inizializzazione della cache per permettere di verificare il corretto funzionamento dello snoop nei vari casi. Nello specifico si portano prima in cache due blocchi dalla RAM e sul secondo blocco si esegue una scrittura per portarlo in stato MESI\_M.
-In secondo luogo si attiva il segnale di snoop ovvero:\texttt{ch\_eads}\\ e siimpostata l'indirizzo su cui fare lo snoop:\texttt{ch\_snoop\_addr}\\. La cache risponderà in modo opportuno con i segnali di \texttt{ch\_hit,ch\_hitm}\\ e modificando se il dato \`e presente in cache lo stato delle vie.
+In secondo luogo si attiva il segnale di snoop ovvero:\texttt{ch\_eads} e si imposta l'indirizzo su cui fare lo snoop:\texttt{ch\_snoop\_addr}. La cache risponder\`a in modo opportuno con i segnali di \texttt{ch\_hit,ch\_hitm} e modificher\`a lo stato delle vie se il blocco \`e presente in cache.
 
-Nel primo caso si effettua uno snoop su di un blocco che non \`e contenuto in cache, quindi la cache risponde con  \texttt{ch\_hit="0",ch\_hitm="0"}\\.
+Nel primo caso si effettua uno snoop su di un blocco che non \`e contenuto in cache, quindi la cache risponder\`a con  \texttt{ch\_hit="0",ch\_hitm="0"}.
 
-Nel secondo caso(evidenziato in giallo in Fig.\ref{fig:snoop1}) si effettua uno snoop su di un blocco presente in cache in stato MESI\_E, quindi la cache risponde con \texttt{ch\_hit="1",ch\_hitm="0"}\\ e porta lo stato della via interessata a MESI\_S("1").
+Nel secondo caso (evidenziato in giallo in Fig.\ref{fig:snoop1}) si effettua uno snoop su di un blocco presente in cache in stato MESI\_E, quindi la cache risponde con \texttt{ch\_hit="1",ch\_hitm="0"} e porta lo stato della via interessata a MESI\_S("1").
 
-Nel terzo caso(evidenziato in verde in Fig.\ref{fig:snoop1}) si effetuer\`a uno snoop su di un blocco che \`e presente in cache in stato MESI\_M("11"), la cache  quindi:  
+Nel terzo caso (evidenziato in verde in Fig.\ref{fig:snoop1}) si effetuer\`a uno snoop su di un blocco che \`e presente in cache in stato MESI\_M("11"), la cache  quindi:  
 \begin{itemize}
-\item \texttt{}\texttt{porta ch\_hit="1" e ch\_hitm="1"}\\
-\item \texttt{}\texttt{effettua la scrittura in RAM del blocco contenuto in cache.}\\
-\item \texttt{}\texttt{portan lo stato della via in MESI\_S("1")}\\
+\item \texttt{}porta \texttt{ch\_hit="1" e ch\_hitm="1"}\\
+\item \texttt{}effettua la scrittura in RAM del blocco contenuto in cache.\\
+\item \texttt{}portan lo stato della via in MESI\_S("1")\\
 \end{itemize}
 
 \begin{figure}[h!]
@@ -166,15 +167,15 @@ X"FFFFFFFF",	--NOP
 X"FFFFFFFF" 	--NOP
 
 \end{lstlisting} 
-Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache ad ogni iterazione di rimpiazzare un blocco sempre lavorando nel primo set per un certo numero d'iterazioni , infatti ad esempio nella prima iterazione quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":
+Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache ad ogni iterazione di rimpiazzare un blocco sempre lavorando nel primo set (per un  numero limitato d'iterazioni) , infatti ad esempio nella prima iterazione quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":
 
-l3-> 0(r1)=0+0= "000 00 00000"->prima([1]) via occupata nel primo set
-l5-> 16\#100(r1)="010 00 00000"->seconda([0]) via occupata nel primo set
-l7-> 16\#80(r1)= "001 00 00000"->prima([1]) via rimpiazzata nel primo set, quindi si ha una scrittura in RAM del blocco modificato e caricamento del nuovo blocco.
+l3) 0(r1)=0+0= "000 00 00000" ovvero prima([1]) via occupata nel primo set
+l5) 16\#100(r1)="010 00 00000" ovvero seconda([0]) via occupata nel primo set
+l7) 16\#80(r1)= "001 00 00000" ovvero prima([1]) via rimpiazzata nel primo set, quindi si ha una scrittura in RAM del blocco modificato e caricamento del nuovo blocco.
 
-Si continua a operare nel primo set finch\`e il valore di r1 non supera 31, ovvero alla 32esima iterazione si passer\`a a lavorare sul secondo set.
+Si continuer\`a a operare nel primo set finch\`e il valore di r1 non supera 31, ovvero alla 32esima iterazione si passer\`a a lavorare sul secondo set, ma questo avverr\`a mai nella nostra simulazione, data la durata limitata del testbench.
 
-In seguito si effettua il caricamento in r2 del primo valore scritto in memoria (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]). infine si incrementa in valore di r1 di quattro unita in modo da scrivere non pi\`u nella word di offset "00000" ma di "00010", ovvero la word successiva di ogni blocco.
+In seguito si effettua il caricamento in r2 del primo valore scritto in memoria (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]). infine si incrementa in valore di r1 di quattro unit\`a in modo da scrivere non pi\`u nel byte di offset "00000" ma di offset "00010", ovvero la word successiva di ogni blocco.
 
 \begin{figure}[h!]
 \centering
@@ -199,7 +200,7 @@ X"FFFFFFFF",  --NOP
 
 \end{lstlisting} 
 
-La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un alea si dato. si nota che l'istruzione(X"20620001") nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla cache nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornirà il dato presente nello stadio di MEM attraverso i segnali mem\_dest\_register e mem\_dest\_register\_data allo stadio di EXE.
+La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un alea si dato. si nota che l'istruzione\texttt{X"20620001"} nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla cache nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornir\`a il dato presente nello stadio di MEM attraverso i segnali mem\_dest\_register e mem\_dest\_register\_data allo stadio di EXE.
 
 \begin{figure}[h!]
 \centering

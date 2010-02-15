@@ -88,7 +88,7 @@ BEGIN
 		addr <= "00000000000";
 		bdata_in <= (0=>"00000001",1=>"00000010",2=>"00000011", 3=>"00000100", 4=>"00000101", 5=>"00000110", 6=>"00000111", 7=>"00001000");
       
-		wait for clk_period*(nbyte_line)+clk_period;
+		wait for clk_period*(nbyte_line)*2 + clk_period;
 		memwr <= '0';
 		memrd <= '0';
 		en <= '0';
@@ -102,7 +102,7 @@ BEGIN
 		memrd <= '1';
 		addr <= "00000000000";
 		bdata_in <= (others => "UUUUUUUU");
-		wait for clk_period*nbyte_line*2 + clk_period;
+		wait for clk_period*(nbyte_line)*2 + clk_period;
 		en <= '0';
 		memwr <= '0';
 		memrd <= '0';

@@ -270,10 +270,10 @@ Mentre in scrittura il processo \texttt{blockram\_sequential\_access} gestisce c
 Il process \texttt{lettura\_byte} si occupa di tale problema ed è realizzato come un processo asincrono che ha nella sensitivity list il segnale \texttt{br\_data\_out} in modo che appena sul bus dati di output della Block Ram viene portato il dato richiesto in lettura, si completa l'operazione di lettura e si procede con la lettura successiva qualora la linea richiesta non sia stata ancora letta tutta.
 
 \subsubsection{end\_blockram\_access}
-Il process \texttt{end\_blockram\_access} gestisce la fase finale del trasferimento di una linea di memoria, occupandosi di attivare il segnale di \texttt{ready} e in caso di lettura fornisce la linea letta all'esterno portandola in output sul bus dati \texttt{bdata\_out}.\\
+Il process \texttt{end\_blockram\_access} gestisce la fase finale del trasferimento di una linea di memoria, occupandosi di attivare il segnale di \texttt{ready} e in caso di lettura fornisce la linea letta all'esterno portandola in output sul bus dati \texttt{bdata\_out}. Lo stesso accade anche in caso di scrittura al fine di testare il funzionamento della Block Ram con le diverse WRITE\_MODE.\\
 
 \subsection{Testbench}
-Per verificare il funzionamento del componente abbiamo realizzato un semplice testbench nel quale si scrive all'indirizzo 0000h della Block Ram la linea di 8 byte passata in ingresso sul bus \texttt{bdata\_in} e successivamente si effettua una lettura allo stesso indirizzo. Il diagramma della simulazione mostrato in Fig.\ref{fig:sim-blockram}
+Per verificare il funzionamento del componente abbiamo realizzato un semplice testbench nel quale si scrive all'indirizzo 0000h della Block Ram la linea di dimensione configurabile tramite parametro (8 byte nel nostro esempio) passata in ingresso sul bus \texttt{bdata\_in}. La modalit\`a di scrittura prescelta per l'esempio è la READ\_FIRST, che prevede che a ogni scrittura di un byte si porti contemporaneamente in output alla Block Ram il dato che verrà sovrascritto. Tale scelta consente quindi di verificare la presenza del contenuto iniziale settato nella Block Ram in fase di inizializzazione. Successivamente si effettua una lettura allo stesso indirizzo per verificare l'effettiva memorizzazione corretta del dato. Il diagramma della simulazione \`e mostrato in Fig.\ref{fig:sim-blockram}.
 
 \begin{figure}[!h]
 \centering
@@ -282,7 +282,14 @@ Per verificare il funzionamento del componente abbiamo realizzato un semplice te
 \label{fig:sim-blockram}
 \end{figure}
 
-Da notare \`e che dopo l'operazione di scrittura della linea in Block Ram, oltre all'attivazione del segnale di ready, si porta in uscita sul bus dati di output \texttt{bdata\_out} una linea di tutti zeri. Ciò trova spiegazione dal fatto che si sono voluti testare anche i valori dei dati disponibili in uscita alla Block Ram durante le operazioni di scrittura sulla base dei vari comportamenti possibili che si possono ottenere modificando il valore dell'attributo WRITE\_MODE, che nella simulazione illustrata era settato a NO\_CHANGE e pertanto non aveva alcun cambiamento rispetto al valore di iniziale del registro di output inizializzato a tutti zeri tramite il parametro \texttt{INIT} (Fig.\ref{fig:br_init}).
+Da notare (Fig.\ref{fig:sim-blockram2}) \`e che dopo l'operazione di scrittura della linea in Block Ram, oltre all'attivazione del segnale di ready, si porta in uscita sul bus dati di output \texttt{bdata\_out} una linea di memoria il cui contenuto sono gli 8 byte presenti sulla Block Ram che vengono sovrascritti dalla sequenza di scritture, in accordo con la politica READ\_FIRST con la quale la Block Ram \`e stata configurata.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{img/blockRam/trasferimentoLinea.jpg}
+\caption{Scrittura e Lettura in Block Ram.}
+\label{fig:sim-blockram2}
+\end{figure}
 
 \section{Considerazioni sul progetto d'esempio}
 Il componente BlockRam\_cmp rappresenta una memoria RAM a tutti gli effetti che 

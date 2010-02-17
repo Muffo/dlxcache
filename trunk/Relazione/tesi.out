@@ -41,7 +41,7 @@
 \BOOKMARK [3][-]{section*.10}{provaFU}{subsection.4.2.2}
 \BOOKMARK [0][-]{chapter.5}{Block RAM}{}
 \BOOKMARK [1][-]{section.5.1}{Caratteristiche e segnali della Block Ram}{chapter.5}
-\BOOKMARK [1][-]{section.5.2}{Configurazione della Block Ram}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Inizializzazione della Block Ram}{chapter.5}
 \BOOKMARK [1][-]{section.5.3}{Operazioni della Block Ram}{chapter.5}
 \BOOKMARK [1][-]{section.5.4}{Conflitti d'accesso in Block Ram Dual-Port}{chapter.5}
 \BOOKMARK [1][-]{section.5.5}{Utilizzo della Block Ram in un progetto su FPGA}{chapter.5}

@@ -184,7 +184,7 @@ end component;
 	
 	--processo che gestisce i segnali che arrivano al componente BlockRam_cmp e comanda l'avvio 
 	--delle operazioni corrispondenti con accessi in sequenza alla Block Ram BRAM16_S9 (lettura/scrittura di singoli byte).
-	main : process(memrd, memwr)
+	ram_cache : process(memrd, memwr)
 	begin
 	--if(clk'event and clk='1') then
 		if(en='1') then
@@ -203,7 +203,7 @@ end component;
 		end if;
 	--end if;
 	
-	end process main;
+	end process ram_cache;
 	
 	--Processo che gestisce gli accessi sequenziali alla Block Ram in sincronia col clock br_clk.
 	blockram_sequential_access : process(clk)
@@ -252,7 +252,7 @@ end component;
 		end if;
 	end process blockram_sequential_access;
 	
-   lettura_byte : process(br_data_out) is
+   read_byte : process(br_data_out) is
 	
 	variable wait_read_first : boolean := false; -- per WRITE_MODE = READ_FIRST
 	
@@ -279,7 +279,7 @@ end component;
 		
 	end if;
 	
-	end process;
+	end process read_byte;
 
 	
 	--Processo che gestisce la terminazione di un ciclo d'accesso sequenziale alla Block Ram.

@@ -2,9 +2,9 @@
 \chapter{Block RAM}
 
 
-Nel nostro progetto descritto in precedenza, per semplicit\`a  abbiamo considerato nulli i tempi d'accesso alla cache e alla memoria principale, ovviamente ci\`o non accadrebbe in un progetto reale che preveda l'utilizzo di cache al fine di velocizzare l'accesso ai dai evitando in caso di hit l'accesso alla memoria Ram. Per curiosità e completezza nell'affrontare le tematiche relative al nostro progetto, abbiamo voluto approfondire le problematiche riguardanti le temporizzazioni per gli accessi in memoria che un progetto reale impone. Per far ci\`o abbiamo considerato i dispositivi di memoria che una FPGA d\`a a disposizione ad un progettista per implementare una memoria ram e gestirne gli accessi in lettura e scrittura.
+Nel nostro progetto descritto in precedenza, per semplicit\`a  abbiamo considerato nulli i tempi d'accesso alla cache e alla memoria principale, ovviamente ci\`o non accadrebbe in un progetto reale che preveda l'utilizzo di cache al fine di velocizzare l'accesso ai dai evitando in caso di hit l'accesso alla memoria Ram. Per curiosit\`a e completezza nell'affrontare le tematiche relative al nostro progetto, abbiamo voluto approfondire le problematiche riguardanti le temporizzazioni per gli accessi in memoria che un progetto reale impone. Per far ci\`o abbiamo considerato i dispositivi di memoria che una FPGA d\`a a disposizione ad un progettista per implementare una memoria ram e gestirne gli accessi in lettura e scrittura.
 \\
-Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia Spartan-3 di Xilinx, che per gestire la memorizzazione di dati consente due possibili soluzioni:
+Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia Spartan-3 di Xilinx \cite{xil1}, che per gestire la memorizzazione di dati consente due possibili soluzioni:
 \begin{enumerate}
 \item  Memorie Ram distribuite sulla scheda, di piccole dimensioni e rapidissimo accesso, utilizzate tipicamente come registri temporanei d'appoggio.
 \item Le Block Ram, ovvero blocchi di memoria Ram statica con tempi d'accesso non nulli e un' ampia capacit\`a potenziale di memorizzazione, in relazione alle caratteristiche tecniche della scheda FPGA utilizzata. 
@@ -12,7 +12,7 @@ Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia S
 
 \section{Caratteristiche e segnali della Block Ram}
 
-La memoria RAM presente su una FPGA Spartan-3 viene implementata tramite una serie di Block Ram ripartite in colonne il cui numero e capacit\`a dipende dalle caratteristiche stesse della scheda utilizzata. Dal punto di vista implementativo le Block Ram sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
+La memoria RAM presente su una FPGA Spartan-3 \cite{xil2} viene implementata tramite una serie di Block Ram ripartite in colonne il cui numero e capacit\`a dipende dalle caratteristiche stesse della scheda utilizzata. Dal punto di vista implementativo le Block Ram sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
 L'accesso alla block ram pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati (A o B) oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura sull'intero spazio di memoria del dispositivo (anche con sovrapposizioni).
 
 \begin{figure}[!h]
@@ -24,7 +24,7 @@ L'accesso alla block ram pu\`o avvenire o in modalit\`a Single-Port utilizzando 
 \end{figure}
 
 
-Ogni  porta della block ram si interfaccia con due bus dati (distinti per l'input e per l'output),  con il bus degli indirizzi e dispone di una serie di segnali di comando atti ad abilitare il dispositivo e a gestire operazioni di lettura (EN) o scrittura (WE). La tabella in Fig.\ref{fig:segnaliBlockRam} racchiude i principali segnali in input e output sulla Block Ram sia in Single-Port che in Dual-Port.
+Ogni  porta della block ram si interfaccia con due bus dati (distinti per l'input e per l'output), con il bus degli indirizzi e dispone di una serie di segnali di comando atti ad abilitare il dispositivo e a gestire operazioni di lettura (EN) o scrittura (WE). La tabella in Fig.\ref{fig:segnaliBlockRam} racchiude i principali segnali in input e output sulla Block Ram sia in Single-Port che in Dual-Port.
 
 \begin{figure}[!h]
 \centering
@@ -246,7 +246,14 @@ Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp
 \end{figure}
 
 
-Di seguito vengono riportati i process utilizzati per gestire le funzionalità sopra descritte:\\
+Di seguito vengono riportati i process utilizzati per gestire le funzionalit\`a sopra descritte:\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{img/blockRam/blockram_cmp.png}
+\caption{Schematizzazione dei processi che gestiscono la Block Ram}
+\label{fig:br_cmp}
+\end{figure}
 
 \subsubsection{main}
  Il process \texttt{main} è il processo principale che gestisce le richieste di trasferimento di linee di memoria provenienti dalla cache. Tale processo sulla base dei segnali di comando ricevuti (\texttt{en}, \texttt{memrd} e \texttt{memwr}) asserisce i segnali interni di sincronizzazione, abilitando le seguenti operazioni:

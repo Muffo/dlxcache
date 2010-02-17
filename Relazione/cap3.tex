@@ -24,9 +24,27 @@ mentre il segnale \texttt{memory\_data\_register} \`e stato sostituito da:\\
 
 \texttt{store\_memory\_data\_register: out std\_logic\_vector(PARALLELISM-1 downto 0);}\\
 
-\`E stata inoltre eliminata la variabile Ram.
+\`E stata inoltre eliminata la variabile Ram.\\
+
+Le immagini seguenti mostrano come \`e stato modificato lo schema del DLX in seguito all'integrazione della Cache.\\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/DLX/old_dlx.png}
+\caption{Schema della pipeline del DLX originale}
+\label{fig:dlx_p1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{img/DLX/new_dlx.png}
+\caption{Schema della pipeline del DLX con cache integrata}
+\label{fig:dlx_p2}
+\end{figure}
 
 
+
+\newpage
 \section{Connessione del componente}
 
 I segnali \texttt{store\_memory\_data\_register} e \texttt{load\_memory\_data\_register} sono connessi rispettivamente al \texttt{ch\_bdata\_in} e al \texttt{ch\_bdata\_out} della cache mentre il \texttt{memory\_data\_register} \`e collegato al bus indirizzi della cache (\texttt{ch\_baddr}).\\

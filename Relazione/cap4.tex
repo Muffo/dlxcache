@@ -2,6 +2,10 @@
 
 \chapter{Testbench}
 
+%\begin{flushright}\begin{small}\textit{"Longum iter est per praecepta, breve et efficax per exempla."}\\
+%- Seneca -\\
+%\end{small}\end{flushright}
+
 \section{Testbench del componente}
 
 Per testare nello specifico il funzionamento della cache e i meccanismi di comunicazione con la ram, sono stati realizzati 3 file:
@@ -108,8 +112,7 @@ Nel terzo caso (evidenziato in verde in Fig.\ref{fig:snoop1}) si effetuer\`a uno
 \label{fig:snoop1}
 \end{figure}
 
-Infine si effettua una scrittura sul blocco precedentetemente portato in MESI\_S,
-per verificare che la cache scrivi effetivamente i dati in RAM.
+Infine si effettua una scrittura sul blocco precedentetemente portato in MESI\_S, per verificare che la cache scrivi effetivamente i dati in RAM.
 
 \section{Assembler per DLX}
 
@@ -167,15 +170,19 @@ X"FFFFFFFF",	--NOP
 X"FFFFFFFF" 	--NOP
 
 \end{lstlisting} 
-Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache ad ogni iterazione di rimpiazzare un blocco sempre lavorando nel primo set (per un  numero limitato d'iterazioni) , infatti ad esempio nella prima iterazione quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":
+Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache ad ogni iterazione di rimpiazzare un blocco sempre lavorando nel primo set (per un  numero limitato d'iterazioni) , infatti ad esempio nella prima iterazione quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":\\
 
-l3) 0(r1)=0+0= "000 00 00000" ovvero prima([1]) via occupata nel primo set
-l5) 16\#100(r1)="010 00 00000" ovvero seconda([0]) via occupata nel primo set
-l7) 16\#80(r1)= "001 00 00000" ovvero prima([1]) via rimpiazzata nel primo set, quindi si ha una scrittura in RAM del blocco modificato e caricamento del nuovo blocco.
+\begin{itemize}
+  \item l3) \texttt{0(r1)=0+0= "000 00 00000"} ovvero prima([1]) via occupata nel primo set
+  \item l5) \texttt{16\#100(r1)="010 00 00000"} ovvero seconda([0]) via occupata nel primo set
+  \item l7) \texttt{16\#80(r1)= "001 00 00000"} ovvero prima([1]) via rimpiazzata nel primo set, quindi si ha una scrittura in RAM del blocco modificato e caricamento del nuovo blocco.
+\end{itemize}
 
-Si continuer\`a a operare nel primo set finch\`e il valore di r1 non supera 31, ovvero alla 32esima iterazione si passer\`a a lavorare sul secondo set, ma questo avverr\`a mai nella nostra simulazione, data la durata limitata del testbench.
 
-In seguito si effettua il caricamento in r2 del primo valore scritto in memoria (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]). infine si incrementa in valore di r1 di quattro unit\`a in modo da scrivere non pi\`u nel byte di offset "00000" ma di offset "00010", ovvero la word successiva di ogni blocco.
+Si continuer\`a a operare nel primo set finch\`e il valore di r1 non supera 31, ovvero alla 32esima iterazione si passer\`a a lavorare sul secondo set, ma questo avverr\`a mai nella nostra simulazione, data la durata limitata del testbench.\\
+
+In seguito si effettua il caricamento in r2 del primo valore scritto in memoria (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]).\\
+Infine si incrementa in valore di r1 di quattro unit\`a in modo da scrivere non pi\`u nel byte di offset "00000" ma di offset "00010", ovvero la word successiva di ogni blocco.\\
 
 \begin{figure}[h!]
 \centering
@@ -185,8 +192,8 @@ In seguito si effettua il caricamento in r2 del primo valore scritto in memoria 
 \end{figure}
 
 \subsubsection{provaFU}
-In questo programma si testa il corretto funzionamento della Forwarding Unit per evitare un alea di dato.
-Il codice da sostituire all'interno del \texttt{EPROM\_inst}, al posto di quello dell'esempio precedente, \`e il seguente:
+In questo programma si testa il corretto funzionamento della Forwarding Unit per evitare un alea di dato.\\
+Il codice da sostituire all'interno del \texttt{EPROM\_inst}, al posto di quello dell'esempio precedente, \`e il seguente:\\
 
 \lstset{language={[x86masm]Assembler}, caption=Codice assembler per il test della Forwarding Unit, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
@@ -200,7 +207,7 @@ X"FFFFFFFF",  --NOP
 
 \end{lstlisting} 
 
-La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un alea si dato. si nota che l'istruzione\texttt{X"20620001"} nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla cache nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornir\`a il dato presente nello stadio di MEM attraverso i segnali mem\_dest\_register e mem\_dest\_register\_data allo stadio di EXE.
+La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un alea si dato. si nota che l'istruzione\texttt{X"20620001"} nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla cache nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornir\`a il dato presente nello stadio di MEM attraverso i segnali mem\_dest\_register e mem\_dest\_register\_data allo stadio di EXE.\\
 
 \begin{figure}[h!]
 \centering

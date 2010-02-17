@@ -25,6 +25,8 @@ CONSTANT MESI_I : natural := 0;
 
 TYPE data_line IS ARRAY (0 to 2**OFFSET_BIT - 1) of STD_LOGIC_VECTOR (7 downto 0);
 
+TYPE RAM IS ARRAY  (integer range <>)of data_line;
+
 TYPE cache_line IS 
 	RECORD
 		data : data_line;

@@ -48,7 +48,7 @@ All'interno di \texttt{Cache\_lib.vhd} sono poi stati definiti i seguenti tipi d
   \item \texttt{data\_line}: contiene i dati per una linea della cache, la cui dimensione \`e calcolata in base al numero di bit di offset;
   \item \texttt{cache\_line}: record contenente le informazioni su dati e stato di una linea;
   \item \texttt{set\_ways}: array di \texttt{NWAY} linee che compongono una via;
-  \item \texttt{cache\_type}: array di vie, costituisce l'intera cache ??? (non so come scrivere... :S).
+  \item \texttt{cache\_type}: array di vie, costituisce l'intera cache
 \end{itemize}
 
 Per ogni \texttt{cache\_line} si tiene quindi traccia di:
@@ -115,11 +115,11 @@ Per quanto riguarda invece la scrittura, si eseguono le seguenti operazioni:
 \end{enumerate}
 
 
-\lstset{caption=Codice VHDL del process \texttt{cache\_process}, label=DescriptiveLabel}
+%\lstset{caption=Codice VHDL del process \texttt{cache\_process}, label=DescriptiveLabel}
 
-\begin{lstlisting}
-Codice del process? Forse diventa un po' lungo...
-\end{lstlisting}
+%\begin{lstlisting}
+%Codice del process? Forse diventa un po' lungo...
+%\end{lstlisting}
 
 
 \subsection{cache\_ram}
@@ -191,7 +191,7 @@ Ogni processo notifica il completamento dell'operazione richiesta attivando un o
 
 \section{Procedure interne}
 
-Di seguito saranno brevemente descritte le procedure invocate all'interno dei diversi process. \emph{(alcune non ci sono pi\`u e saranno da cavare)}
+Di seguito saranno brevemente descritte le procedure invocate all'interno dei diversi process.% \emph{(alcune non ci sono pi\`u e saranno da cavare)}
 
 
 \subsection{cache\_replace\_line} %(selected\_way: out)}
@@ -280,9 +280,9 @@ Descrizione:
 %	2. Scrive i dati contenuti nel blocco sulla RAM
 
 
-\section{Diagrammi temporali}
+%\section{Diagrammi temporali}
 
-\section{Problematiche principali affrontate}
+%\section{Problematiche principali affrontate}
 
-(metteri anche tutti i problemi relativi al bus bidirezionale)\\
+%(metteri anche tutti i problemi relativi al bus bidirezionale)\\
 

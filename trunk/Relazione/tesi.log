@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  17 FEB 2010 11:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  17 FEB 2010 17:31
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -356,9 +356,6 @@ LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 
 LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 
-
-LaTeX Warning: Label `DescriptiveLabel' multiply defined.
-
 )
 \openout1 = `tesi.aux'.
 
@@ -549,7 +546,7 @@ i un com-po-nent VHDL
 
 ) (./cap1.tex [8]
 Capitolo 1.
-<img/set-associative.jpg, id=337, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=327, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg>
@@ -574,13 +571,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/cache/general.png, id=350, 1002.74625pt x 811.03pt>
+<img/cache/general.png, id=340, 1002.74625pt x 811.03pt>
 File: img/cache/general.png Graphic file (type png)
 
 <use img/cache/general.png>
 Underfull \vbox (badness 2005) has occurred while \output is active []
 
- [11 <./img/cache/general.png>] <img/cache/dlx.png, id=359, 1002.74625pt x 766.
+ [11 <./img/cache/general.png>] <img/cache/dlx.png, id=349, 1002.74625pt x 766.
 865pt>
 File: img/cache/dlx.png Graphic file (type png)
 
@@ -599,29 +596,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<img/cache/control.png, id=367, 1002.74625pt x 729.72626pt>
+<img/cache/control.png, id=357, 1002.74625pt x 1418.29875pt>
 File: img/cache/control.png Graphic file (type png)
 
-<use img/cache/control.png> [13 <./img/cache/control.png>]
+<use img/cache/control.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-<img/cache/ram.png, id=376, 1002.74625pt x 766.865pt>
+<img/cache/ram.png, id=359, 1002.74625pt x 766.865pt>
 File: img/cache/ram.png Graphic file (type png)
  <use img/cache/ram.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-[14 <./img/cache/ram.png>]
-<img/cache/debug.png, id=384, 1002.74625pt x 766.865pt>
+[13]
+
+LaTeX Warning: Text page 14 contains only floats.
+
+
+Overfull \vbox (5.56656pt too high) has occurred while \output is active []
+
+
+[14 <./img/cache/control.png>]
+<img/cache/debug.png, id=373, 1002.74625pt x 766.865pt>
 File: img/cache/debug.png Graphic file (type png)
 
-<use img/cache/debug.png>) (./cap2.tex [15 <./img/cache/debug.png>] [16
+<use img/cache/debug.png>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-]
+) (./cap2.tex [15 <./img/cache/ram.png>] [16 <./img/cache/debug.png>]
 Capitolo 2.
 (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
@@ -636,6 +650,8 @@ LaTeX Font Info:    Font shape `OMS/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
  [17
 
+
+
 ]
 LaTeX Font Info:    Try loading font information for OML+pag on input line 28.
 
@@ -645,7 +661,7 @@ File: omlpag.fd
 LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 28.
 
-<img/cacheType.png, id=413, 1002.74625pt x 728.7225pt>
+<img/cacheType.png, id=403, 1002.74625pt x 728.7225pt>
 File: img/cacheType.png Graphic file (type png)
  <use img/cacheType.png>
 
@@ -698,19 +714,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-<img/cache/collegamenti1.png, id=467, 1002.74625pt x 729.72626pt>
+<img/cache/collegamenti1.png, id=458, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti1.png Graphic file (type png)
 
 <use img/cache/collegamenti1.png> [23 <./img/cache/collegamenti1.png>]
-<img/cache/collegamenti2.png, id=481, 1002.74625pt x 729.72626pt>
+<img/cache/collegamenti2.png, id=469, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti2.png Graphic file (type png)
 
-<use img/cache/collegamenti2.png> [24 <./img/cache/collegamenti2.png>] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
- []
-
-) (./cap3.tex [26]
+<use img/cache/collegamenti2.png> [24 <./img/cache/collegamenti2.png>] [25])
+(./cap3.tex [26]
 Capitolo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
@@ -747,11 +759,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
-<img/DLX/old_dlx.png, id=522, 1002.74625pt x 489.83pt>
+<img/DLX/old_dlx.png, id=510, 1002.74625pt x 489.83pt>
 File: img/DLX/old_dlx.png Graphic file (type png)
 
 <use img/DLX/old_dlx.png>
-<img/DLX/new_dlx.png, id=523, 1002.74625pt x 807.015pt>
+<img/DLX/new_dlx.png, id=511, 1002.74625pt x 807.015pt>
 File: img/DLX/new_dlx.png Graphic file (type png)
 
 <use img/DLX/new_dlx.png>
@@ -788,16 +800,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 Capitolo 4.
 [33
 
-] <img/testbench/ReadAndWriteFase1.JPG, id=569, 845.40843pt x 322.95656pt>
+] <img/testbench/ReadAndWriteFase1.JPG, id=557, 845.40843pt x 322.95656pt>
 File: img/testbench/ReadAndWriteFase1.JPG Graphic file (type jpg)
 
 <use img/testbench/ReadAndWriteFase1.JPG> [34 <./img/testbench/ReadAndWriteFase
 1.JPG>]
-<img/testbench/ReadAndWriteFase2.JPG, id=578, 883.04906pt x 415.5525pt>
+<img/testbench/ReadAndWriteFase2.JPG, id=566, 883.04906pt x 415.5525pt>
 File: img/testbench/ReadAndWriteFase2.JPG Graphic file (type jpg)
 
 <use img/testbench/ReadAndWriteFase2.JPG>
-<img/testbench/ReadAndWriteFase3.JPG, id=579, 456.20438pt x 170.88844pt>
+<img/testbench/ReadAndWriteFase3.JPG, id=567, 456.20438pt x 170.88844pt>
 File: img/testbench/ReadAndWriteFase3.JPG Graphic file (type jpg)
 
 <use img/testbench/ReadAndWriteFase3.JPG>
@@ -806,7 +818,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [35 <./img/testbench/ReadAndWriteFase2.JPG>] [36 <./img/testbench/ReadAndWriteF
 ase3.JPG>]
-<img/testbench/ReadAndReplacementFase3.JPG, id=590, 814.54312pt x 139.27031pt>
+<img/testbench/ReadAndReplacementFase3.JPG, id=578, 814.54312pt x 139.27031pt>
 File: img/testbench/ReadAndReplacementFase3.JPG Graphic file (type jpg)
 
 <use img/testbench/ReadAndReplacementFase3.JPG> [37 <./img/testbench/ReadAndRep
@@ -825,7 +837,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
-<img/testbench/Snoop1.JPG, id=599, 765.6103pt x 276.28218pt>
+<img/testbench/Snoop1.JPG, id=587, 765.6103pt x 276.28218pt>
 File: img/testbench/Snoop1.JPG Graphic file (type jpg)
 
 <use img/testbench/Snoop1.JPG>
@@ -898,7 +910,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
-<img/testbench/DLX123.JPG, id=637, 779.91376pt x 305.64188pt>
+<img/testbench/DLX123.JPG, id=625, 779.91376pt x 305.64188pt>
 File: img/testbench/DLX123.JPG Graphic file (type jpg)
 
 <use img/testbench/DLX123.JPG>
@@ -911,7 +923,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
-<img/testbench/DLXFU.JPG, id=646, 863.225pt x 405.515pt>
+<img/testbench/DLXFU.JPG, id=634, 863.225pt x 405.515pt>
 File: img/testbench/DLXFU.JPG Graphic file (type jpg)
 
 <use img/testbench/DLXFU.JPG>) (./cap5.tex [43 <./img/testbench/DLXFU.JPG>]
@@ -926,11 +938,11 @@ Underfull \vbox (badness 1442) has occurred while \output is active []
  [45
 
 ]
-<img/blockRam/pinoutPorte.jpg, id=671, 487.06969pt x 311.66437pt>
+<img/blockRam/pinoutPorte.jpg, id=659, 487.06969pt x 311.66437pt>
 File: img/blockRam/pinoutPorte.jpg Graphic file (type jpg)
 
 <use img/blockRam/pinoutPorte.jpg> [46 <./img/blockRam/pinoutPorte.jpg>]
-<img/blockRam/segnali.jpg, id=679, 462.97969pt x 342.5297pt>
+<img/blockRam/segnali.jpg, id=667, 462.97969pt x 342.5297pt>
 File: img/blockRam/segnali.jpg Graphic file (type jpg)
 
 <use img/blockRam/segnali.jpg> [47 <./img/blockRam/segnali.jpg>]
@@ -943,7 +955,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-<img/blockRam/organInterna.jpg, id=686, 375.65344pt x 486.31688pt>
+<img/blockRam/organInterna.jpg, id=674, 375.65344pt x 486.31688pt>
 File: img/blockRam/organInterna.jpg Graphic file (type jpg)
 
 <use img/blockRam/organInterna.jpg>
@@ -951,7 +963,7 @@ File: img/blockRam/organInterna.jpg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [48] [49 <./img/blockRam/organInterna.jpg>]
-<img/blockRam/tabTipiRam.jpg, id=698, 587.19376pt x 168.63pt>
+<img/blockRam/tabTipiRam.jpg, id=686, 587.19376pt x 168.63pt>
 File: img/blockRam/tabTipiRam.jpg Graphic file (type jpg)
 
 <use img/blockRam/tabTipiRam.jpg>
@@ -980,7 +992,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
-<img/blockRam/init.jpg, id=705, 348.55219pt x 103.88812pt>
+<img/blockRam/init.jpg, id=693, 348.55219pt x 103.88812pt>
 File: img/blockRam/init.jpg Graphic file (type jpg)
 
 <use img/blockRam/init.jpg>
@@ -988,7 +1000,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
-<img/blockRam/writeFirst.jpg, id=707, 496.85625pt x 205.5178pt>
+<img/blockRam/writeFirst.jpg, id=695, 496.85625pt x 205.5178pt>
 File: img/blockRam/writeFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/writeFirst.jpg>
@@ -996,7 +1008,7 @@ File: img/blockRam/writeFirst.jpg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [51 <./img/blockRam/init.jpg>]
-<img/blockRam/readFirst.jpg, id=716, 511.15968pt x 212.29312pt>
+<img/blockRam/readFirst.jpg, id=704, 511.15968pt x 212.29312pt>
 File: img/blockRam/readFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/readFirst.jpg>
@@ -1006,18 +1018,18 @@ n-
  []
 
 [52 <./img/blockRam/writeFirst.jpg> <./img/blockRam/readFirst.jpg>]
-<img/blockRam/noChange.jpg, id=726, 521.69907pt x 215.30438pt>
+<img/blockRam/noChange.jpg, id=714, 521.69907pt x 215.30438pt>
 File: img/blockRam/noChange.jpg Graphic file (type jpg)
 
 <use img/blockRam/noChange.jpg> [53 <./img/blockRam/noChange.jpg>]
-<img/blockRam/operazioni.jpg, id=732, 324.46219pt x 317.68687pt>
+<img/blockRam/operazioni.jpg, id=720, 324.46219pt x 317.68687pt>
 File: img/blockRam/operazioni.jpg Graphic file (type jpg)
 
 <use img/blockRam/operazioni.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[54] <img/blockRam/conflittiTemp.jpg, id=740, 435.87843pt x 302.63063pt>
+[54] <img/blockRam/conflittiTemp.jpg, id=728, 435.87843pt x 302.63063pt>
 File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiTemp.jpg>
@@ -1025,7 +1037,7 @@ File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [55 <./img/blockRam/operazioni.jpg>]
-<img/blockRam/conflittiScritture.jpg, id=749, 464.4853pt x 225.84375pt>
+<img/blockRam/conflittiScritture.jpg, id=737, 464.4853pt x 225.84375pt>
 File: img/blockRam/conflittiScritture.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiScritture.jpg>
@@ -1045,7 +1057,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
-[59] <img/blockRam/rambInit.jpg, id=774, 587.19376pt x 341.02406pt>
+[59] <img/blockRam/rambInit.jpg, id=762, 587.19376pt x 341.02406pt>
 File: img/blockRam/rambInit.jpg Graphic file (type jpg)
 
 <use img/blockRam/rambInit.jpg>
@@ -1053,7 +1065,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 249--250
 
  []
 
-<img/blockRam/blockram_cmp.png, id=775, 1002.74625pt x 731.73375pt>
+<img/blockRam/blockram_cmp.png, id=763, 1002.74625pt x 731.73375pt>
 File: img/blockRam/blockram_cmp.png Graphic file (type png)
 
 <use img/blockRam/blockram_cmp.png>
@@ -1061,7 +1073,7 @@ File: img/blockRam/blockram_cmp.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [60 <./img/blockRam/rambInit.jpg>] [61 <./img/blockRam/blockram_cmp.png>]
-<img/blockRam/portMap.jpg, id=791, 286.82156pt x 165.61874pt>
+<img/blockRam/portMap.jpg, id=779, 286.82156pt x 165.61874pt>
 File: img/blockRam/portMap.jpg Graphic file (type jpg)
 
 <use img/blockRam/portMap.jpg> [62 <./img/blockRam/portMap.jpg>]
@@ -1069,14 +1081,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
-<img/blockRam/scritturaLettura.jpg, id=798, 768.62157pt x 304.88907pt>
+<img/blockRam/scritturaLettura.jpg, id=786, 768.62157pt x 304.88907pt>
 File: img/blockRam/scritturaLettura.jpg Graphic file (type jpg)
 
 <use img/blockRam/scritturaLettura.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/blockRam/trasferimentoLinea.jpg, id=800, 752.8125pt x 298.86656pt>
+<img/blockRam/trasferimentoLinea.jpg, id=788, 752.8125pt x 298.86656pt>
 File: img/blockRam/trasferimentoLinea.jpg Graphic file (type jpg)
 
 <use img/blockRam/trasferimentoLinea.jpg>
@@ -1113,13 +1125,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8945 strings out of 493848
- 123534 string characters out of 3149206
- 350572 words of memory out of 3000000
- 11617 multiletter control sequences out of 15000+200000
+ 8932 strings out of 493848
+ 123392 string characters out of 3149206
+ 351577 words of memory out of 3000000
+ 11608 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
  788 hyphenation exceptions out of 8191
- 38i,12n,48p,1417b,2244s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,12n,45p,1417b,2244s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -1129,9 +1141,9 @@ f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
 /fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
 /courier/ucrro8a.pfb>
-Output written on tesi.pdf (69 pages, 4539169 bytes).
+Output written on tesi.pdf (69 pages, 4532813 bytes).
 PDF statistics:
- 925 PDF objects out of 1000 (max. 8388607)
- 295 named destinations out of 1000 (max. 500000)
- 635 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 912 PDF objects out of 1000 (max. 8388607)
+ 291 named destinations out of 1000 (max. 500000)
+ 619 words of extra memory for PDF output out of 10000 (max. 10000000)
 

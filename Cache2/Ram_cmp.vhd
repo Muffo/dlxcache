@@ -25,6 +25,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use work.CacheLibrary.all;
+use work.Global.all;
 
 entity ram_cmp is
     port (
@@ -43,6 +44,7 @@ architecture Behavioral of ram_cmp is
 
     shared variable mem : RAM (0 to RAM_DEPTH-1);
 
+	 constant DELAY : time := TIME_UNIT/6;
 begin
 
 	process (we, oe, reset) begin
@@ -54,12 +56,12 @@ begin
 			end loop;
 		elsif (we = '1' and oe = '0') then
 			mem(conv_integer(address)) := data_in;
-			ready <= '1' after 5 ns;
+			ready <= '1' after DELAY;
 		elsif (we = '0' and oe = '1')  then
 			data_out <= mem(conv_integer(address));
-			ready <= '1' after 5 ns;
+			ready <= '1' after DELAY;
 		elsif (we = '0' and oe = '0') then
-			ready <= '0' after 5 ns;
+			ready <= '0' after DELAY;
 		end if;
 		
 		ram_debug <= mem;

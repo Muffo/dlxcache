@@ -60,7 +60,7 @@ entity DLXPipelined is
 		cache_eads: in std_logic;
 		cache_wtwb: in std_logic;
 		cache_snoop_addr: in std_logic_vector (31 downto 0);
-		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);	
+		debug_cache: out cache_type;	
 
 		-- ram
       ram_address : inout std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
@@ -191,7 +191,7 @@ architecture Arch1_DLXPipelined of DLXPipelined is
 		     ram_we: out std_logic;
 		     ram_oe: out std_logic;
 		     ram_ready: in std_logic;
-			  ch_debug_cache: out cache_type(0 to 2**INDEX_BIT - 1)
+			  ch_debug_cache: out cache_type
 		);
 	end component;
 	

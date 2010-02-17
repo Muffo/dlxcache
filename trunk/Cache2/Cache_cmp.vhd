@@ -58,13 +58,16 @@ architecture Behavioral of Cache_cmp is
 
 shared variable cache: cache_type (0 to 2**INDEX_BIT - 1);
 
+-- TAG, INDEX e OFFSET provenienti dal DLX.
 alias addr_tag is ch_baddr(PARALLELISM - 1 downto OFFSET_BIT + INDEX_BIT);
 alias addr_index is ch_baddr(OFFSET_BIT + INDEX_BIT - 1 downto OFFSET_BIT);
 alias addr_offset is ch_baddr(OFFSET_BIT - 1 downto 0);
 
+-- TAG e OFFSET provenienti dal controllore di memoria.
 alias snoop_tag is ch_snoop_addr(PARALLELISM - 1 downto OFFSET_BIT + INDEX_BIT);
 alias snoop_index is ch_snoop_addr(OFFSET_BIT + INDEX_BIT - 1 downto OFFSET_BIT);
 
+-- Procedura per l'inizializzazione della cache.
 procedure cache_reset is
 begin
 	for index in 0 to 2**INDEX_BIT -1 loop
@@ -75,7 +78,9 @@ begin
 	end loop;
 end procedure cache_reset;
 
--- In caso di MISS restituisce un valore negativo
+-- Procedura che ricerca una linea nella cache:
+-- 	in caso di MISS restituisce un valore negativo;
+-- 	in caso di HIT restituisce il numero della via che contiene la linea.
 procedure get_way(index: in natural; tag: in std_logic_vector; selected_way: out integer) is
 begin
 	selected_way:= -1;
@@ -87,9 +92,9 @@ begin
 	end loop;
 end procedure get_way;
 
+-- Procedura per applicare le politiche di invecchiamento in caso HIT
 procedure cache_hit_on(hit_index: in natural; hit_way: in natural) is
 begin
-	-- Operazioni per la politica di invecchiamento
 	for way in 0 to NWAY - 1 loop
 		if(way /= hit_way and cache(hit_index)(way).lru_counter < cache(hit_index)(hit_way).lru_counter) then
 			cache(hit_index)(way).lru_counter:= cache(hit_index)(way).lru_counter + 1;
@@ -98,6 +103,7 @@ begin
 	cache(hit_index)(hit_way).lru_counter:= 0;
 end procedure cache_hit_on;
 
+-- Procedura per applicare le politiche di invecchiamento in caso INVALIDAZIONE
 procedure cache_inv_on(inv_index: in natural; inv_way: in natural) is
 begin
 	for way in 0 to NWAY - 1 loop
@@ -108,7 +114,7 @@ begin
 	cache(inv_index)(inv_way).lru_counter:= NWAY - 1;
 end procedure cache_inv_on;
 	
-	-- segnali interni:
+	-- Segnali per la comunicazione interna alla cache:
 	signal replace_line : std_logic := '0';
 	signal write_through: std_logic := '0';
 	signal wt_way : integer;
@@ -126,22 +132,32 @@ end procedure cache_inv_on;
 	
 	signal snoop_write: std_logic := '0';
 	signal snoop_way : integer;
+	signal cache_debug_update : std_logic;
 	
 begin
 	
+	-- segnale di richiesta di scrittura al processo cache_ram
 	write_line <= '1' when (replace_write = '1' or snoop_write = '1' or write_through = '1') else '0';
 	
+	-- segnale di richiesta di lettura al processo cache_ram
 	read_line <= '1' when (replace_read = '1') else '0';
 	
+	-- VIA interessata nel trasferimento con la RAM
 	selected_way <= replace_way when (replace_write = '1' or read_line = '1') else
 						 snoop_way   when (snoop_write = '1') else
 						 wt_way   when (write_through = '1') else
 						 -1;		
 						 
+	-- INDEX interessato nel trasferimento con la RAM
 	selected_index <= snoop_index when (snoop_write = '1') else
 							addr_index;
 	
-	cache_dlx_process : process (ch_memrd, ch_memwr, ch_reset, line_ready, rdwr_done) is
+	-- Processo per la comunicazine con il DLX:
+	-- 	in caso di lettura restituisce il dato al DLX;
+	-- 	in caso di scrittura scrive sulla cache;
+	-- 	se necessario attiva il processo cache_replace per il rimpiazzamento
+	--		in caso di write-through attiva il processo cache_ram per la scrittura in RAM
+	cache_dlx_process : process (ch_memrd, ch_memwr, ch_reset, line_ready, rdwr_done, cache_debug_update) is
 		variable way: integer;
 		variable waiting_replace: boolean := false;
 		variable waiting_wt: boolean := false;
@@ -151,7 +167,7 @@ begin
 			ch_ready <= '0';
 			cache_reset;
 		elsif (ch_memrd = '1' and ch_memwr = '0') then
-			--lettura
+			-- Richiesta di lettura
 			way := -1;
 			if(waiting_replace and line_ready = '1') then
 				way := selected_way;
@@ -173,7 +189,7 @@ begin
 				ch_ready <= '1';
 			end if;
 		elsif (ch_memrd = '0' and ch_memwr = '1') then
-			-- scrittura
+			-- Richiesta di scrittura
 			way := -1;
 			if(waiting_wt and rdwr_done = '1') then
 				cache(conv_integer(addr_index))(wt_way).status := MESI_E;
@@ -199,7 +215,7 @@ begin
 				if(cache(conv_integer(addr_index))(way).status = MESI_S) then
 					waiting_wt := true;
 					wt_way <= way;
-					write_through <= '1';
+					write_through <= '1'; -- attiva la propagazione della modifica in RAM
 				else
 					cache(conv_integer(addr_index))(way).status := MESI_M;
 					ch_ready <= '1';
@@ -211,9 +227,13 @@ begin
 			write_through <= '0';
 		end if;
 		
+		-- DEBUG: aggiornamento del segnale cache_debug
 		ch_debug_cache <= cache;
 	end process cache_dlx_process;
 	
+	-- Processo che gestisce il rimpiazzameto di una linea nella cache:
+	-- 	richiede la lettura al processo cache_ram;
+	-- 	in caso di necessità, prima della lettura, richiede al processo cache_ram una scrittura
 	cache_replace: process(replace_line, rdwr_done) is
 		variable step : integer := 0;
 	begin
@@ -222,15 +242,16 @@ begin
 			line_ready <= '0';
 		elsif(step = 0 and replace_line = '1') then
 			for way in 0 to NWAY - 1 loop
-				-- lru_counter = NWAY-1 -> se ci sono linee invalide trova una di queste, altrimenti trova la linee più vecchia
+				-- ciclo che ricerca una lnea con lru_counter = NWAY-1 -> se ci sono linee invalide trova una di queste, 
+				-- altrimenti trova la linee più vecchia
 				if(cache(conv_integer(addr_index))(way).lru_counter = NWAY - 1) then
 					replace_way <= way;
 					if(cache(conv_integer(addr_index))(way).status = MESI_M) then
 						step := 1;
-						replace_write <= '1';
+						replace_write <= '1'; -- attiva la scrittura in RAM
 					else
 						step := 2;
-						replace_read <= '1';
+						replace_read <= '1'; -- attiva la lettura dalla RAM
 						exit; 
 					end if;
 				end if;
@@ -247,6 +268,8 @@ begin
 		end if;
 	end process cache_replace;
 	
+	-- Processo che richiede letture a scrittura alla RAM:
+	-- 	al termine dell'operazione attiva il segnale interno rdwr_done per risvegliare li processo chiamante
 	cache_ram: process(read_line, write_line, ch_reset, ram_ready) is
 		variable waiting_read : boolean := false;
 		variable waiting_write : boolean := false;
@@ -260,7 +283,7 @@ begin
 		elsif(write_line = '0' and read_line = '0' and ram_ready = '0') then
 			rdwr_done <= '0';
 		elsif(waiting_write and ram_ready = '1') then
-			rdwr_done <= '1';
+			rdwr_done <= '1'; -- comunica la terminazione dell'operazione di srittura
 			waiting_write := false;
 		elsif(waiting_read and ram_ready = '1') then
 			cache(conv_integer(selected_index))(selected_way).data := ram_data_in;
@@ -270,30 +293,33 @@ begin
 			else
 				cache(conv_integer(selected_index))(selected_way).status:= MESI_E;
 			end if;
-			rdwr_done <= '1';
+			rdwr_done <= '1'; -- comunica la terminazione dell'operazione di lettura
 			waiting_read := false;
 		elsif(not waiting_write and not waiting_read) then
 			if(write_line = '1') then
 				waiting_write := true;
 				ram_address <= cache(conv_integer(selected_index))(selected_way).tag & selected_index;
 				ram_data_out <= cache(conv_integer(selected_index))(selected_way).data;
-				ram_we <= '1';
+				ram_we <= '1'; -- attiva la scrittura in RAM
 			elsif(read_line = '1') then
 				waiting_read := true;
 				ram_address <= addr_tag & selected_index;
-				ram_oe <= '1';
+				ram_oe <= '1'; -- attiva la lettura dalla RAM
 			end if;
 		end if;
 	end process cache_ram;
 	
+	-- Processo di comunicazione con il controllore di memoria:
+	-- 	permette di eseguire cicli di snoop;
+	-- 	permette di aggiornare lo stato di linee in caso di sistemi multiprocessore;
+	-- 	permette di invalidare una linea di cache.
 	cache_snoop: process(ch_eads, rdwr_done)
 		variable way: integer;
 		variable waiting_write: boolean := false;
-	begin
+	begin	
 		if(ch_eads = '0') then
 			snoop_write <= '0';
 		elsif(waiting_write and rdwr_done = '1') then
-			ch_hitm <= '1';
 			waiting_write := false;
 		elsif(not waiting_write and ch_eads = '1') then
 			get_way(conv_integer(snoop_index), snoop_tag, way);
@@ -303,8 +329,9 @@ begin
 					waiting_write := true;
 					snoop_way <= way;
 					snoop_write <= '1';
+					ch_hitm <= '1'; -- linea presente in stato MESI_M
 				else
-					ch_hit <= '1';
+					ch_hit <= '1'; -- linea presente in stato MESI_S o MESI_E
 				end if;
 				cache(conv_integer(snoop_index))(way).status:= MESI_S;
 			else
@@ -317,6 +344,13 @@ begin
 				--Aggiornamento dei contatori
 				cache_inv_on(conv_integer(snoop_index), way);
 			end if;
+		end if;
+		
+		--DEBUG: segnale commutato per forzare l'aggiornamento del segnale cache_debug
+		if(cache_debug_update = '0')then
+			cache_debug_update <= '1';
+		else
+			cache_debug_update <= '0';
 		end if;
 	end process cache_snoop;
 

@@ -74,7 +74,7 @@ architecture Test of DLXPipelined_Test is
 		cache_eads: in std_logic;
 		cache_wtwb: in std_logic;
 		cache_snoop_addr: in std_logic_vector (31 downto 0);
-		debug_cache: out cache_type(0 to 2**INDEX_BIT - 1);
+		debug_cache: out cache_type;
 
 		-- ram
       ram_address : inout std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
@@ -135,7 +135,7 @@ architecture Test of DLXPipelined_Test is
 	signal cache_hitm: std_logic;
 	signal cache_memrd: std_logic;
    signal cache_memwr: std_logic;
-	signal debug_cache: cache_type(0 to 2**INDEX_BIT - 1);
+	signal debug_cache: cache_type;
    signal cache_inv: std_logic:= '0';
    signal cache_eads: std_logic:= '0';
    signal cache_snoop_addr: std_logic_vector (31 downto 0);

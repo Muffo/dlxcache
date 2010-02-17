@@ -50,13 +50,13 @@ entity Cache_cmp is
 		ram_oe: out std_logic;
 		ram_ready: in std_logic;
 		-- segnali di debug
-		ch_debug_cache: out cache_type(0 to 2**INDEX_BIT - 1)
+		ch_debug_cache: out cache_type
 	);
 end Cache_cmp;
 
 architecture Behavioral of Cache_cmp is
 
-shared variable cache: cache_type (0 to 2**INDEX_BIT - 1);
+shared variable cache: cache_type ;
 
 -- TAG, INDEX e OFFSET provenienti dal DLX.
 alias addr_tag is ch_baddr(PARALLELISM - 1 downto OFFSET_BIT + INDEX_BIT);

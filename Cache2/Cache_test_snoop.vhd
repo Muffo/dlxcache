@@ -58,7 +58,7 @@ ARCHITECTURE behavior OF Cache_test_snoop IS
 			ram_oe      : out    std_logic;
 			ram_ready	: in	 std_logic;
 			-- segnali di debug
-			ch_debug_cache: out cache_type(0 to 2**INDEX_BIT - 1)
+			ch_debug_cache: out cache_type
         );
     END COMPONENT;
    
@@ -94,7 +94,7 @@ ARCHITECTURE behavior OF Cache_test_snoop IS
    signal ch_ready : std_logic := '0';
    signal ch_hit : std_logic := '0';
    signal ch_hitm : std_logic := '0';
-	signal ch_debug_cache : cache_type (0 to 2**INDEX_BIT - 1);
+	signal ch_debug_cache : cache_type ;
 	signal ram_address : std_logic_vector (TAG_BIT + INDEX_BIT - 1 downto 0);
 	signal ram_data_out: data_line;
 	signal ram_we      : std_logic := '0';

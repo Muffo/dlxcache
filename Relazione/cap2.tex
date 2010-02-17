@@ -37,7 +37,7 @@ TYPE cache_line IS
 
 TYPE set_ways IS ARRAY (0 to NWAY - 1) of cache_line;
 		
-TYPE cache_type IS ARRAY (natural range <>) of set_ways;
+TYPE cache_type IS ARRAY (0 to 2**INDEX_BIT - 1) of set_ways;
 \end{lstlisting}
 
 

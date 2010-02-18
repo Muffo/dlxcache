@@ -12,10 +12,9 @@
 \BOOKMARK [2][-]{subsection.2.2.4}{cache\137replace}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.5}{Comunicazione tra processi}{section.2.2}
 \BOOKMARK [1][-]{section.2.3}{Procedure interne}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.3.1}{cache\137replace\137line}{section.2.3}
-\BOOKMARK [2][-]{subsection.2.3.2}{cache\137hit\137on}{section.2.3}
-\BOOKMARK [2][-]{subsection.2.3.3}{cache\137inv\137on}{section.2.3}
-\BOOKMARK [2][-]{subsection.2.3.4}{get\137way}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.1}{cache\137hit\137on}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.2}{cache\137inv\137on}{section.2.3}
+\BOOKMARK [2][-]{subsection.2.3.3}{get\137way}{section.2.3}
 \BOOKMARK [0][-]{chapter.3}{Integrazione con DLX}{}
 \BOOKMARK [1][-]{section.3.1}{Modifiche al Memory\137stage}{chapter.3}
 \BOOKMARK [1][-]{section.3.2}{Connessione del componente}{chapter.3}
@@ -46,9 +45,9 @@
 \BOOKMARK [1][-]{section.5.6}{Realizzazione di un progetto d'esempio}{chapter.5}
 \BOOKMARK [2][-]{subsection.5.6.1}{Specifiche del progetto}{section.5.6}
 \BOOKMARK [2][-]{subsection.5.6.2}{Implementazione}{section.5.6}
-\BOOKMARK [3][-]{section*.11}{main}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.11}{ram\137cache}{subsection.5.6.2}
 \BOOKMARK [3][-]{section*.12}{blockram\137sequential\137access}{subsection.5.6.2}
-\BOOKMARK [3][-]{section*.13}{lettura\137byte}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.13}{read\137byte}{subsection.5.6.2}
 \BOOKMARK [3][-]{section*.14}{end\137blockram\137access}{subsection.5.6.2}
 \BOOKMARK [2][-]{subsection.5.6.3}{Testbench}{section.5.6}
 \BOOKMARK [1][-]{section.5.7}{Considerazioni sul progetto d'esempio}{chapter.5}

@@ -13,10 +13,9 @@
 \contentsline {subsection}{\numberline {2.4}cache\_replace}{22}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.5}Comunicazione tra processi}{23}{subsection.2.2.5}
 \contentsline {section}{\numberline {3}Procedure interne}{24}{section.2.3}
-\contentsline {subsection}{\numberline {3.1}cache\_replace\_line}{24}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {3.2}cache\_hit\_on}{25}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {3.3}cache\_inv\_on}{25}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {3.4}get\_way}{26}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {3.1}cache\_hit\_on}{24}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {3.2}cache\_inv\_on}{25}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {3.3}get\_way}{25}{subsection.2.3.3}
 \contentsline {chapter}{\numberline {3}Integrazione con DLX}{27}{chapter.3}
 \contentsline {section}{\numberline {1}Modifiche al Memory\_stage}{27}{section.3.1}
 \contentsline {section}{\numberline {2}Connessione del componente}{29}{section.3.2}
@@ -47,9 +46,9 @@
 \contentsline {section}{\numberline {6}Realizzazione di un progetto d'esempio}{58}{section.5.6}
 \contentsline {subsection}{\numberline {6.1}Specifiche del progetto}{59}{subsection.5.6.1}
 \contentsline {subsection}{\numberline {6.2}Implementazione}{59}{subsection.5.6.2}
-\contentsline {subsubsection}{main}{60}{section*.11}
+\contentsline {subsubsection}{ram\_cache}{60}{section*.11}
 \contentsline {subsubsection}{blockram\_sequential\_access}{61}{section*.12}
-\contentsline {subsubsection}{lettura\_byte}{62}{section*.13}
+\contentsline {subsubsection}{read\_byte}{62}{section*.13}
 \contentsline {subsubsection}{end\_blockram\_access}{63}{section*.14}
 \contentsline {subsection}{\numberline {6.3}Testbench}{63}{subsection.5.6.3}
 \contentsline {section}{\numberline {7}Considerazioni sul progetto d'esempio}{64}{section.5.7}

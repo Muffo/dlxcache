@@ -21,7 +21,7 @@ Per testare nello specifico il funzionamento della cache e i meccanismi di comun
 Questo File ha in comune, come tutti i file di testbench che si vedranno  in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
-Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back (\texttt{ch\_wtwb='0'}) e uno in modalit\`a write-throght (\texttt{ch\_wtwb='1'}). occupando rispettivamente la via [0] del primo (di indice [0]), secondo (di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}, porti lo stato(\texttt{.status}) del terzo blocco a 1 ovvero a MESI\_S, mentre nei altri due casi \`e uguale a "10" ovvero MESI\_E, differenza evidenziata in verde nella figura \ref{fig:write1}) .
+Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back (\texttt{ch\_wtwb='0'}) e uno in modalit\`a write-throght (\texttt{ch\_wtwb='1'}). occupando rispettivamente la via [0] del primo (di indice [0]), secondo (di indice [1]) e terzo(di indice [2]) set. In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}, porti lo stato(\texttt{.status}) del terzo blocco a 1 ovvero a MESI\_S, mentre negli altri due casi \`e uguale a "10" ovvero MESI\_E, differenza evidenziata in verde nella figura \ref{fig:write1}) .
 
 \begin{figure}[h!]
 \centering
@@ -118,7 +118,7 @@ Infine si effettua una scrittura sul blocco precedentetemente portato in MESI\_S
 \section{Assembler per DLX}
 
 Dopo avere testato individualmente il funzionamento dei componenti cache e della RAM, si \`e passati al test del corretto funzionamento della cache inserita all'interno del progetto del processore DLX.\\
-Per far ci\`o sono stati realizzati una serie di programmi in assembler, della quale mostreremo solo i due maggiormente significativi:
+Per far ci\`o sono stati realizzati una serie di programmi in assembler, dei quali mostreremo solo i due maggiormente significativi:
 
 \begin{itemize}
  \item \texttt{provaReplacement123}: nel quale si verifica la corretta comunicazione tra cache e DLX e il meccanismo di rimpiazzamento.
@@ -131,7 +131,7 @@ In primo luogo \`e necessario scrivere il codice in assembler all'interno di un 
 
 \texttt{dasm -a -l <nome\_file>.dls}\\
 
-Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a essere convertito mediante la classe java \texttt{DLXConv},eseguendo dal prompt di comandi Windows:\\
+Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a essere convertito mediante la classe java \texttt{DLXConv}, eseguendo dal prompt di comandi Windows:\\
 
 \texttt{java DLXConv <nome\_file>.dlx}\\
 
@@ -171,7 +171,7 @@ X"FFFFFFFF",	--NOP
 X"FFFFFFFF" 	--NOP
 
 \end{lstlisting} 
-Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache ad ogni iterazione di rimpiazzare un blocco sempre lavorando nel primo set (per un  numero limitato d'iterazioni) , infatti ad esempio nella prima iterazione quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":\\
+Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache, ad ogni iterazione, a rimpiazzare un blocco, lavorando sempre nel primo set (per un  numero limitato d'iterazioni). Infatti, ad esempio nella prima iterazione, quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":\\
 
 \begin{itemize}
   \item l3) \texttt{0(r1)=0+0= "000 00 00000"} ovvero prima([1]) via occupata nel primo set( b6=0,b7=0)

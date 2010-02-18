@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.11.18)  18 FEB 2010 11:57
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.11.18)  18 FEB 2010 12:10
 entering extended mode
 **tesi.tex
 ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.tex"
@@ -361,28 +361,28 @@ LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 171.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 171.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 172.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 172.
 
  ("C:\Program Files\MiKTeX 2.8\tex\generic\babel\lgrcmr.fd"
 File: lgrcmr.fd 2008/06/17 v2.3 Greek Computer Modern
 )
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Try loading font information for OT1+pag on input line 171.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Try loading font information for OT1+pag on input line 172.
 
 
 ("C:\Program Files\MiKTeX 2.8\tex\latex\psnfss\ot1pag.fd"
@@ -401,7 +401,7 @@ File: ot1pag.fd 2001/06/04 font definitions for OT1/pag.
 \MPnumerator=\count126
 \everyMPtoPDFconversion=\toks26
 )
-Package hyperref Info: Link coloring OFF on input line 171.
+Package hyperref Info: Link coloring OFF on input line 172.
  ("C:\Program Files\MiKTeX 2.8\tex\latex\hyperref\nameref.sty"
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -410,99 +410,99 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 171.
-LaTeX Info: Redefining \pageref on input line 171.
+LaTeX Info: Redefining \ref on input line 172.
+LaTeX Info: Redefining \pageref on input line 172.
 
 ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.out")
 ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.out")
 \@outlinefile=\write3
 \AtBeginShipoutBox=\box35
 \c@lstlisting=\count128
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 171.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 172.
 
 
 ("C:\Program Files\MiKTeX 2.8\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sl' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sc' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 171.
+(Font)              using `OT1/pcr/m/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/it' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 171.
+(Font)              using `OT1/pcr/sb/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sl' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 171.
+(Font)              using `OT1/pcr/sb/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sc' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 171.
+(Font)              using `OT1/pcr/sb/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 171.
+(Font)              using `OT1/pcr/m/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/it' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 171.
+(Font)              using `OT1/pcr/c/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sl' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 171.
+(Font)              using `OT1/pcr/c/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sc' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 171.
+(Font)              using `OT1/pcr/c/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 171.
+(Font)              using `OT1/pcr/m/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/it' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 171.
+(Font)              using `OT1/pcr/l/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sl' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 171.
+(Font)              using `OT1/pcr/l/n' instead on input line 172.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sc' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 171.
+(Font)              using `OT1/pcr/l/n' instead on input line 172.
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 172.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 172.
 
 LaTeX Font Warning: Font shape `OT1/pcr/m/In' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 171.
+(Font)              using `OT1/pcr/m/n' instead on input line 172.
 
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/b/n' tried instead on input line 191.
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 192.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/db/n' tried instead on input line 191.
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 192.
 [1
 
 
@@ -1275,12 +1275,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8933 strings out of 495285
- 124460 string characters out of 3180387
- 349448 words of memory out of 3000000
+ 8934 strings out of 495285
+ 124471 string characters out of 3180387
+ 349452 words of memory out of 3000000
  11536 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
- 89 hyphenation exceptions out of 8191
+ 90 hyphenation exceptions out of 8191
  38i,12n,48p,1417b,2244s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.8/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
@@ -1290,7 +1290,7 @@ vantgar/uagk8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/avantgar/uagko8
 a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrb8a.pfb><C:/Progr
 am Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX
  2.8/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on tesi.pdf (69 pages, 4359944 bytes).
+Output written on tesi.pdf (69 pages, 4359803 bytes).
 PDF statistics:
  902 PDF objects out of 1000 (max. 8388607)
  285 named destinations out of 1000 (max. 500000)

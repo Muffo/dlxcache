@@ -7,7 +7,7 @@ In questo capitolo saranno mostrate le caratteristiche principali di tale compon
 
 \section{Strutture dati}
 
-I tipi di dati utilizzati sono definiti nel file \texttt{Cache\_lib.vhd}.
+I tipi di dato utilizzati sono definiti nel file \texttt{Cache\_lib.vhd}.
 
 \lstset{language=VHDL, caption=Costanti e tipi di dato definiti nel file \texttt{Cache\_lib.vhd}, label=DescriptiveLabel, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
@@ -95,7 +95,7 @@ In particolare sono preseti:
   \item \texttt{rdwr\_done}: segnale interno che indica, in caso di write-through, il completamento della scrittura in RAM.
 \end{itemize}
  
-I passi seguito durante una lettura sono:
+I passi seguiti durante una lettura sono:
 \begin{enumerate}
   \item Lettura dell'indirizzo dal bus separando index, tag e offset;
   \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
@@ -148,7 +148,7 @@ Nel caso in cui il segnale ch\_inv sia attivo il comportamento resta invariato, 
 
 \subsection{cache\_replace}
 
-I meccasmi per il rimpiazzamento delle linee sono eseguiti dal process \texttt{cache\_replace}. In particolare questo process implementa la politica rimpiazzamento basata sui contatori, stabilendo di volta in volta quale linea rimpiazzare.\\
+I meccasmi per il rimpiazzamento delle linee sono eseguiti dal process \texttt{cache\_replace}. In particolare questo process implementa la politica di rimpiazzamento basata sui contatori, stabilendo di volta in volta quale linea rimpiazzare.\\
 
 Il meccanismo non pu\`o eseguire tutte le operazioni in un unico ciclo, quindi per poter effettuare la sostituzione di una linea in cache con dei dati presenti in RAM \`e stato realizzato un \emph{sequencer} che compie le seguenti operazioni:
 \begin{enumerate}
@@ -174,7 +174,7 @@ I quattro processi si scambiano segnali che consentono la sincronizzazione delle
 La Fig. \ref{fig:colleg1} mostra come sono collegati i seguenti segnali:
 \begin{itemize}
   \item \texttt{replace\_line}: attiva il processo che gestisce il rimpiazzamento di una linea;
-  \item \texttt{write\_through}: attiva la scrittura di una linea in stato \texttt{MESI\_S} in memoria RAM;
+  \item \texttt{write\_through}: attiva la propagazione della modifica di una linea in stato \texttt{MESI\_S} in memoria RAM;
   \item \texttt{replace\_write}: attiva la scrittura di una linea da rimpiazzare in stato \texttt{MESI\_M} in memoria RAM;
   \item \texttt{snoop\_write}: attiva la scrittura di una linea in stato \texttt{MESI\_M} in memoria RAM in seguito ad uno snoop.
 \end{itemize}
@@ -191,25 +191,7 @@ Ogni processo notifica il completamento dell'operazione richiesta attivando un o
 
 \section{Procedure interne}
 
-Di seguito saranno brevemente descritte le procedure invocate all'interno dei diversi process.% \emph{(alcune non ci sono pi\`u e saranno da cavare)}
-
-
-\subsection{cache\_replace\_line} %(selected\_way: out)}
-
-Parametri di output:
-\begin{itemize}
-  \item selected\_way: via sulla quale \`e stato caricato il dato rimpiazzato
-\end{itemize}
-
-Descrizione:
-\begin{enumerate}
-  \item Individua la linea da rimpiazzare, cio\`e quella con \texttt{lru\_counter} massimo
-  \item Controlla se la linea ha stato MESI\_M e in tal caso ne fa il write-back invocando \texttt{ram\_write()}
-  \item Carica il nuovo blocco nella cache sovrascrivendo il vecchio
-  \item Modifica il bit di stato in base al valore di WT\_WB
-  \item Restituisce il numero della via sulla quale \`e presente il dato appena caricato
-\end{enumerate}
-		
+Di seguito saranno brevemente descritte le procedure invocate all'interno dei diversi process.% \emph{(alcune non ci sono pi\`u e saranno da cavare)}		
 
 \subsection{cache\_hit\_on} %(hit\_index: in, hit\_way: in)}
 
@@ -244,7 +226,7 @@ Applica la politica di invecchiamento aggiornando i contatori, in particolare:
 \end{enumerate}	
 	
 
-\subsection{get\_way} %(index: in, tag: in, way: out) }
+\subsection{get\_way} %(index: in, tag: in, selected_way: out) }
 
 Parametri di input:
 \begin{enumerate}
@@ -254,31 +236,15 @@ Parametri di input:
 
 Parametri di output:
 \begin{itemize}
-  \item \texttt{way}: via nella quale \`e presente il dato
+  \item \texttt{selected\_way}: via nella quale \`e presente il dato
 \end{itemize}
 
 Descrizione:	
 \begin{enumerate}
   \item Verifica se il dato \`e in cache, cio\`e se esiste una linea con tag uguale a quello specificato il cui stato \`e diverso da \texttt{MESI\_I}
-  \item Se il dato non \`e presente restituisce way = -1
+  \item Se il dato non \`e presente restituisce \texttt{selected\_way = -1}
   \item Se il dato \`e presente restituisce il numero della via
 \end{enumerate}
-	
-	
-%	
-%\subsection{ram\_write} %(tag, index, way)}
-
-%Parametri di input:
-%\begin{itemize}
-%  \item \texttt{tag}: tag della linea da scrivere
-%  \item \texttt{index}: index della linea da scrivere
-%  \item \texttt{way}: numero di via in cui si trova la linea da scrivere
-%\end{itemize}
-
-%Descrizione:
-%	1. Costruisce l'indirizzo del blocco a partire da \texttt{tag} e \texttt{index}
-%	2. Scrive i dati contenuti nel blocco sulla RAM
-
 
 %\section{Diagrammi temporali}
 

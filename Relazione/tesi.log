@@ -1,25 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  17 FEB 2010 17:31
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.11.18)  18 FEB 2010 11:57
 entering extended mode
- \write18 enabled.
- %&-line parsing enabled.
 **tesi.tex
-(./tesi.tex
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.tex"
 LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
-abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
-h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
-greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
-rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
-lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
-ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/book.cls
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman, ngerman, german-x-2009-06-19, ngerman-x-2009-06-19, french, loaded.
+("C:\Program Files\MiKTeX 2.8\tex\latex\base\book.cls"
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/fleqn.clo
+("C:\Program Files\MiKTeX 2.8\tex\latex\base\fleqn.clo"
 File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
 \mathindent=\dimen102
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/bk12.clo
+("C:\Program Files\MiKTeX 2.8\tex\latex\base\bk12.clo"
 File: bk12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -35,70 +27,81 @@ File: bk12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen103
 )
-(/usr/local/texlive/2009/texmf-dist/tex/generic/babel/babel.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\babel\babel.sty"
 Package: babel 2008/07/06 v3.8l The Babel package
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/babel/italian.ldf
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.8\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.8\tex\generic\babel\italian.ldf"
 Language: italian 2008/03/14 v1.2t Italian support from the babel system
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/babel/babel.def
+("C:\Program Files\MiKTeX 2.8\tex\generic\babel\babel.def"
 File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen104
 )
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Italian'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@italian = a dialect from \language0
 Package babel Info: Making " an active character on input line 94.
-))
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/inputenc.sty
+)) ("C:\Program Files\MiKTeX 2.8\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/latin1.def
+("C:\Program Files\MiKTeX 2.8\tex\latex\base\latin1.def"
 File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphicx.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphics.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+("C:\Program Files\MiKTeX 2.8\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/pdftex-def/pdftex.def
+("C:\Program Files\MiKTeX 2.8\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
 \Gread@gobject=\count89
 ))
 \Gin@req@height=\dimen105
 \Gin@req@width=\dimen106
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsmath.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsgen.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks17
 \ex@=\dimen107
 ))
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsbsy.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen108
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
@@ -139,48 +142,48 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+("C:\Program Files\MiKTeX 2.8\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2009/10/19 v6.79b Hypertext links for LaTeX
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode detected.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ifxetex\ifxetex.sty"
 Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/hycolor.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\oberdiek\hycolor.sty"
 Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
 O)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/xcolor-patch.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\oberdiek\xcolor-patch.sty"
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
 \@linkdim=\dimen116
 \Hy@linkcounter=\count102
 \Hy@pagecounter=\count103
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
+("C:\Program Files\MiKTeX 2.8\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2009/10/19 v6.79b Hyperref: PDFDocEncoding definition (HO)
 )
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
 )
 Package etexcmds Info: Could not find \expanded.
@@ -188,13 +191,13 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+("C:\Program Files\MiKTeX 2.8\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\kvsetkeys.sty"
 Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
 t (HO)
 ))
@@ -207,30 +210,30 @@ Package hyperref Info: Backreferencing OFF on input line 2995.
 
 Implicit mode ON; LaTeX internals redefined
 Package hyperref Info: Bookmarks ON on input line 3191.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/ltxmisc/url.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\ltxmisc\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 3428.
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/bitset.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\bitset.sty"
 Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/intcalc.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\intcalc.sty"
 Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
 )
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/bigintcalc.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\bigintcalc.sty"
 Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
  (HO)
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
 )
 )
@@ -250,7 +253,7 @@ Package hyperref Info: Link coloring OFF on input line 4397.
 Package hyperref Info: Link coloring with OCG OFF on input line 4402.
 Package hyperref Info: PDF/A mode OFF on input line 4407.
 
-(/usr/local/texlive/2009/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+("C:\Program Files\MiKTeX 2.8\tex\generic\oberdiek\atbegshi.sty"
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
 \Hy@abspage=\count105
@@ -258,11 +261,11 @@ Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 \c@Hfootnote=\count107
 )
 *hyperref using default driver hpdftex*
-(/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
+("C:\Program Files\MiKTeX 2.8\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2009/10/19 v6.79b Hyperref driver for pdfTeX
 \Fld@listcount=\count108
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/tools/longtable.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\tools\longtable.sty"
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip46
 \LTright=\skip47
@@ -280,7 +283,7 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count113
 \LT@p@ftn=\toks23
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/listings.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\listings.sty"
 \lst@mode=\count114
 \lst@gtempboxa=\box32
 \lst@token=\toks24
@@ -294,18 +297,18 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \lst@lineno=\count119
 \lst@maxwidth=\dimen123
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstmisc.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count120
 \lst@skipnumbers=\count121
 \lst@framebox=\box33
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/listings.cfg
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\listings.cfg"
 File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
 \f@ncyO@erh=\skip52
@@ -316,16 +319,17 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 \f@ncyO@olf=\skip57
 \f@ncyO@orf=\skip58
 )
-(./frontesp.sty
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/color.sty
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\frontesp.sty"
+("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/color.cfg
+("C:\Program Files\MiKTeX 2.8\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 ))
-(./atbeginend.sty) (./hyphenat.sty
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\atbeginend.sty")
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\hyphenat.sty"
 Package: hyphenat 2001/01/02 v2.3a hyphenation utilities
 
 
@@ -335,9 +339,9 @@ Package hyphenat Warning: *******************************
 (hyphenat)                * These can usually be ignored.
 (hyphenat)                *******************************.
 
-\langwohyphens=\language57
+\langwohyphens=\language8
 LaTeX Info: Redefining \_ on input line 46.
-) (./tesi.aux
+) ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.aux"
 
 LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 
@@ -357,36 +361,34 @@ LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 
 )
-\openout1 = `tesi.aux'.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 171.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 171.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 170.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 170.
-
- (/usr/local/texlive/2009/texmf-dist/tex/latex/cbfonts/lgrcmr.fd
-File: lgrcmr.fd 2008/01/04 v1.0 Greek Computer Modern
+ ("C:\Program Files\MiKTeX 2.8\tex\generic\babel\lgrcmr.fd"
+File: lgrcmr.fd 2008/06/17 v2.3 Greek Computer Modern
 )
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
-LaTeX Font Info:    ... okay on input line 170.
-LaTeX Font Info:    Try loading font information for OT1+pag on input line 170.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Try loading font information for OT1+pag on input line 171.
 
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pag.fd
+("C:\Program Files\MiKTeX 2.8\tex\latex\psnfss\ot1pag.fd"
 File: ot1pag.fd 2001/06/04 font definitions for OT1/pag.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
+("C:\Program Files\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count122
 \scratchdimen=\dimen124
@@ -399,154 +401,165 @@ File: ot1pag.fd 2001/06/04 font definitions for OT1/pag.
 \MPnumerator=\count126
 \everyMPtoPDFconversion=\toks26
 )
-Package hyperref Info: Link coloring OFF on input line 170.
- (/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/nameref.sty
+Package hyperref Info: Link coloring OFF on input line 171.
+ ("C:\Program Files\MiKTeX 2.8\tex\latex\hyperref\nameref.sty"
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/oberdiek/refcount.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\oberdiek\refcount.sty"
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 170.
-LaTeX Info: Redefining \pageref on input line 170.
+LaTeX Info: Redefining \ref on input line 171.
+LaTeX Info: Redefining \pageref on input line 171.
 
-(./tesi.out) (./tesi.out)
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.out")
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.out")
 \@outlinefile=\write3
-\openout3 = `tesi.out'.
-
 \AtBeginShipoutBox=\box35
 \c@lstlisting=\count128
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 170.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 171.
 
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+("C:\Program Files\MiKTeX 2.8\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sl' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sc' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 170.
+(Font)              using `OT1/pcr/m/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/it' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 170.
+(Font)              using `OT1/pcr/sb/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sl' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 170.
+(Font)              using `OT1/pcr/sb/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sc' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 170.
+(Font)              using `OT1/pcr/sb/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 170.
+(Font)              using `OT1/pcr/m/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/it' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 170.
+(Font)              using `OT1/pcr/c/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sl' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 170.
+(Font)              using `OT1/pcr/c/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sc' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 170.
+(Font)              using `OT1/pcr/c/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 170.
+(Font)              using `OT1/pcr/m/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/it' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 170.
+(Font)              using `OT1/pcr/l/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sl' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 170.
+(Font)              using `OT1/pcr/l/n' instead on input line 171.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sc' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 170.
+(Font)              using `OT1/pcr/l/n' instead on input line 171.
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 171.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 170.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 171.
 
 LaTeX Font Warning: Font shape `OT1/pcr/m/In' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 170.
+(Font)              using `OT1/pcr/m/n' instead on input line 171.
 
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/b/n' tried instead on input line 190.
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 191.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/db/n' tried instead on input line 190.
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 191.
 [1
 
 
-{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2
+{C:/ProgramData/MiKTeX/2.8/pdftex/config/pdftex.map}] [2
 
 
-] (./tesi.toc
+]
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.toc"
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <12> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <12> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 2.
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
- (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 3.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsb.fd
+
+("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [3
 
 ] [4])
 \tf@toc=\write4
-\openout4 = `tesi.toc'.
+ [5]
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\introduzione.tex"
+[6
 
-
-[5] (./introduzione.tex [6
-
-
-] [7
 
 ]
+Overfull \hbox (14.96022pt too wide) in paragraph at lines 15--16
+[]\OT1/pag/m/n/12 Per su-per-are tale prob-le-ma si uti-liz-zano per-tan-to del
+le mem-o-rie cache,
+ []
+
+[7
+
+]
+Overfull \hbox (0.51314pt too wide) in paragraph at lines 28--30
+[]\OT1/pag/m/n/12 Ciononnostante, []e di-mostra-to che l'hit rate e quin-di l'-
+ef-fi-cien-za delle
+ []
+
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <17.28> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 33.
 
 Overfull \hbox (6.75308pt too wide) in paragraph at lines 39--40
-[]\OT1/pag/db/n/12 Realizzazione me-mo-ria ca-che: \OT1/pag/m/n/12 pro-get-to d
-i un com-po-nent VHDL
+[]\OT1/pag/db/n/12 Realizzazione memo-ria cache: \OT1/pag/m/n/12 pro-get-to di 
+un com-po-nent VHDL
  []
 
-) (./cap1.tex [8]
+) ("C:\Users\Filippo\Repository Progetto Cache\Relazione\cap1.tex" [8]
 Capitolo 1.
-<img/set-associative.jpg, id=327, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=322, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg>
@@ -556,10 +569,11 @@ Underfull \vbox (badness 2384) has occurred while \output is active []
 
 
 
- <./img/set-associative.jpg>]
+ <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/set-associative.jpg>
+]
 LaTeX Font Info:    Try loading font information for OMS+pag on input line 30.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omspag.fd
+("C:\Program Files\MiKTeX 2.8\tex\latex\psnfss\omspag.fd"
 File: omspag.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pag/m/n' in size <12> not available
@@ -571,17 +585,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/cache/general.png, id=340, 1002.74625pt x 811.03pt>
+<img/cache/general.png, id=335, 1002.74625pt x 811.03pt>
 File: img/cache/general.png Graphic file (type png)
 
 <use img/cache/general.png>
+Overfull \hbox (13.79628pt too wide) in paragraph at lines 60--61
+\OT1/pag/m/n/12 a quest'ul-ti-mo di ac-cedere ai dati mem-o-riz-za-ti al-l'in-t
+er-no del-la cache. 
+ []
+
+<img/cache/dlx.png, id=338, 1002.74625pt x 766.865pt>
+File: img/cache/dlx.png Graphic file (type png)
+ <use img/cache/dlx.png>
 Underfull \vbox (badness 2005) has occurred while \output is active []
 
- [11 <./img/cache/general.png>] <img/cache/dlx.png, id=349, 1002.74625pt x 766.
-865pt>
-File: img/cache/dlx.png Graphic file (type png)
-
-<use img/cache/dlx.png>
+ [11 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/cache/general.pn
+g>]
 Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
@@ -591,53 +610,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
-[12 <./img/cache/dlx.png>]
+[12 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/cache/dlx.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<img/cache/control.png, id=357, 1002.74625pt x 1418.29875pt>
+<img/cache/control.png, id=352, 999.735pt x 662.475pt>
 File: img/cache/control.png Graphic file (type png)
 
 <use img/cache/control.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-<img/cache/ram.png, id=359, 1002.74625pt x 766.865pt>
+[13 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/cache/control.png
+>] <img/cache/ram.png, id=361, 1002.74625pt x 766.865pt>
 File: img/cache/ram.png Graphic file (type png)
- <use img/cache/ram.png>
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
+<use img/cache/ram.png>
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-[13]
-
-LaTeX Warning: Text page 14 contains only floats.
-
-
-Overfull \vbox (5.56656pt too high) has occurred while \output is active []
-
-
-[14 <./img/cache/control.png>]
-<img/cache/debug.png, id=373, 1002.74625pt x 766.865pt>
+[14 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/cache/ram.png>]
+<img/cache/debug.png, id=369, 1002.74625pt x 766.865pt>
 File: img/cache/debug.png Graphic file (type png)
 
-<use img/cache/debug.png>
+<use img/cache/debug.png>)
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\cap2.tex" [15 <C:/Users/
+Filippo/Repository Progetto Cache/Relazione/img/cache/debug.png>] [16
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./cap2.tex [15 <./img/cache/ram.png>] [16 <./img/cache/debug.png>]
+]
 Capitolo 2.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
@@ -650,18 +656,16 @@ LaTeX Font Info:    Font shape `OMS/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
  [17
 
-
-
 ]
 LaTeX Font Info:    Try loading font information for OML+pag on input line 28.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omlpag.fd
+("C:\Program Files\MiKTeX 2.8\tex\latex\psnfss\omlpag.fd"
 File: omlpag.fd 
 )
 LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 28.
 
-<img/cacheType.png, id=403, 1002.74625pt x 728.7225pt>
+<img/cacheType.png, id=398, 1002.74625pt x 728.7225pt>
 File: img/cacheType.png Graphic file (type png)
  <use img/cacheType.png>
 
@@ -669,8 +673,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Overfull \hbox (1.23299pt too wide) in paragraph at lines 74--76
-\OT1/pag/m/n/12 par-ti, ognu-na del-le qua-li si in-ter-fac-cia ri-spet-ti-va-m
-en-te con DLX, RAM
+\OT1/pag/m/n/12 par-ti, og-nuna delle quali si in-ter-fac-cia rispet-ti-va-ment
+e con DLX, RAM
  []
 
 
@@ -683,10 +687,40 @@ LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <14.4> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 77.
- [19 <./img/cacheType.png>]
+
+Overfull \hbox (4.41566pt too wide) in paragraph at lines 79--81
+\OT1/pag/m/n/12 op-por-tu-ni seg-nali di con-trol-lo . I com-pi-ti di questo pr
+o-cess riguardano
+ []
+
+[19 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/cacheType.png>]
+Overfull \hbox (3.58295pt too wide) in paragraph at lines 83--84
+[]\OT1/pag/m/n/12 gestione del-la scrit-tura dei dati prove-ni-en-ti dal DLX ne
+l-la cache; 
+ []
+
+
+Overfull \hbox (0.6704pt too wide) in paragraph at lines 94--95
+[]\OT1/pcr/l/n/12 line[]-ready\OT1/pag/m/n/12 : seg-nale in-ter-no che in-di-ca
+ il ter-mine di un rimpiaz-
+ []
+
+
 Overfull \hbox (3.79086pt too wide) in paragraph at lines 95--96
-[]\OT1/pcr/l/n/12 rdwr[]-do-ne\OT1/pag/m/n/12 : se-gna-le in-ter-no che in-di-c
-a, in ca-so di write-through,
+[]\OT1/pcr/l/n/12 rdwr[]-done\OT1/pag/m/n/12 : seg-nale in-ter-no che in-di-ca,
+ in ca-so di write-through,
+ []
+
+
+Overfull \hbox (1.47104pt too wide) in paragraph at lines 102--103
+[]\OT1/pag/m/n/12 In ca-so di MISS, at-ti-vazione del pro-cess per la po-lit-i-
+ca di rimpiaz-
+ []
+
+
+Overfull \hbox (1.47104pt too wide) in paragraph at lines 111--112
+[]\OT1/pag/m/n/12 In ca-so di MISS, at-ti-vazione del pro-cess per la po-lit-i-
+ca di rimpiaz-
  []
 
 [20]
@@ -695,8 +729,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
  []
 
 
+Overfull \hbox (3.80505pt too wide) in paragraph at lines 129--130
+\OT1/pag/m/n/12 ta-men-to del-l'-op-er-azione ri-chie-sta. Tale seg-nale []e im
+-por-tante poich[]e
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
+ []
+
+
+Overfull \hbox (3.44115pt too wide) in paragraph at lines 136--139
+\OT1/pag/m/n/12 Il pro-cess \OT1/pcr/l/n/12 cache[]-snoop \OT1/pag/m/n/12 si at
+-ti-va con il seg-nale es-ter-no \OT1/pcr/l/n/12 ch[]-eads \OT1/pag/m/n/12 prov
+e-
  []
 
 
@@ -709,20 +756,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
+
+Overfull \hbox (11.57568pt too wide) in paragraph at lines 160--161
+[]\OT1/pag/m/n/12 comunica at-traver-so il seg-nale in-ter-no \OT1/pcr/l/n/12 l
+ine[]-ready \OT1/pag/m/n/12 che il rimpiaz-
+ []
+
 [22]
 Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-<img/cache/collegamenti1.png, id=458, 1002.74625pt x 729.72626pt>
+<img/cache/collegamenti1.png, id=453, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti1.png Graphic file (type png)
 
-<use img/cache/collegamenti1.png> [23 <./img/cache/collegamenti1.png>]
-<img/cache/collegamenti2.png, id=469, 1002.74625pt x 729.72626pt>
+<use img/cache/collegamenti1.png> [23 <C:/Users/Filippo/Repository Progetto Cac
+he/Relazione/img/cache/collegamenti1.png>]
+<img/cache/collegamenti2.png, id=464, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti2.png Graphic file (type png)
 
-<use img/cache/collegamenti2.png> [24 <./img/cache/collegamenti2.png>] [25])
-(./cap3.tex [26]
+<use img/cache/collegamenti2.png> [24 <C:/Users/Filippo/Repository Progetto Cac
+he/Relazione/img/cache/collegamenti2.png>])
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\cap3.tex" [25] [26
+
+
+]
 Capitolo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
@@ -731,8 +789,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
 [27
 
-
-
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
@@ -740,7 +796,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
 
 Overfull \hbox (34.79987pt too wide) in paragraph at lines 25--26
-[]\OT1/pcr/l/n/12 store[]-me-mo-ry[]-da-ta[]-re-gi-ster: out std[]-lo-gic[]-vec
+[]\OT1/pcr/l/n/12 store[]-mem-o-ry[]-da-ta[]-reg-is-ter: out std[]-log-ic[]-vec
 tor(PARALLELISM-
  []
 
@@ -759,18 +815,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
-<img/DLX/old_dlx.png, id=510, 1002.74625pt x 489.83pt>
+<img/DLX/old_dlx.png, id=500, 1002.74625pt x 489.83pt>
 File: img/DLX/old_dlx.png Graphic file (type png)
 
 <use img/DLX/old_dlx.png>
-<img/DLX/new_dlx.png, id=511, 1002.74625pt x 807.015pt>
+<img/DLX/new_dlx.png, id=501, 1002.74625pt x 807.015pt>
 File: img/DLX/new_dlx.png Graphic file (type png)
 
 <use img/DLX/new_dlx.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28 <./img/DLX/old_dlx.png>]
+[28 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/DLX/old_dlx.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 50--54
 
  []
@@ -778,9 +835,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--54
 
 Underfull \vbox (badness 1297) has occurred while \output is active []
 
- [29 <./img/DLX/new_dlx.png>]
+ [29 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/DLX/new_dlx.png>
+]
 Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
+ []
+
+
+Overfull \hbox (3.34523pt too wide) in paragraph at lines 72--74
+\OT1/pag/m/n/12 Appena il ready viene at-ti-va-to il da-to prove-niente dal-la 
+cache viene
  []
 
 
@@ -793,51 +857,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-[30]) (./cap4.tex [31] [32
+[30]) ("C:\Users\Filippo\Repository Progetto Cache\Relazione\cap4.tex" [31]
+[32
 
 
 ]
 Capitolo 4.
+
+Overfull \hbox (10.174pt too wide) in paragraph at lines 21--22
+\OT1/pag/m/n/12 dran-no in ques-ta sezione, la dichiarazione dei com-po-nen-ti,
+ il portmap
+ []
+
 [33
 
-] <img/testbench/ReadAndWriteFase1.JPG, id=557, 845.40843pt x 322.95656pt>
+] <img/testbench/ReadAndWriteFase1.JPG, id=548, 845.40843pt x 322.95656pt>
 File: img/testbench/ReadAndWriteFase1.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase1.JPG> [34 <./img/testbench/ReadAndWriteFase
-1.JPG>]
-<img/testbench/ReadAndWriteFase2.JPG, id=566, 883.04906pt x 415.5525pt>
+<use img/testbench/ReadAndWriteFase1.JPG> [34 <C:/Users/Filippo/Repository Prog
+etto Cache/Relazione/img/testbench/ReadAndWriteFase1.JPG>]
+<img/testbench/ReadAndWriteFase2.JPG, id=557, 883.04906pt x 415.5525pt>
 File: img/testbench/ReadAndWriteFase2.JPG Graphic file (type jpg)
 
 <use img/testbench/ReadAndWriteFase2.JPG>
-<img/testbench/ReadAndWriteFase3.JPG, id=567, 456.20438pt x 170.88844pt>
+<img/testbench/ReadAndWriteFase3.JPG, id=559, 456.20438pt x 170.88844pt>
 File: img/testbench/ReadAndWriteFase3.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase3.JPG>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[35 <./img/testbench/ReadAndWriteFase2.JPG>] [36 <./img/testbench/ReadAndWriteF
-ase3.JPG>]
-<img/testbench/ReadAndReplacementFase3.JPG, id=578, 814.54312pt x 139.27031pt>
+<use img/testbench/ReadAndWriteFase3.JPG> [35 <C:/Users/Filippo/Repository Prog
+etto Cache/Relazione/img/testbench/ReadAndWriteFase2.JPG>] [36 <C:/Users/Filipp
+o/Repository Progetto Cache/Relazione/img/testbench/ReadAndWriteFase3.JPG>]
+<img/testbench/ReadAndReplacementFase3.JPG, id=570, 814.54312pt x 139.27031pt>
 File: img/testbench/ReadAndReplacementFase3.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndReplacementFase3.JPG> [37 <./img/testbench/ReadAndRep
-lacementFase3.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
-
- []
-
-<img/testbench/Snoop1.JPG, id=587, 765.6103pt x 276.28218pt>
+<use img/testbench/ReadAndReplacementFase3.JPG> [37 <C:/Users/Filippo/Repositor
+y Progetto Cache/Relazione/img/testbench/ReadAndReplacementFase3.JPG>]
+<img/testbench/Snoop1.JPG, id=579, 789.95125pt x 364.36125pt>
 File: img/testbench/Snoop1.JPG Graphic file (type jpg)
 
 <use img/testbench/Snoop1.JPG>
@@ -845,89 +899,110 @@ File: img/testbench/Snoop1.JPG Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 128--130
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
-[39 <./img/testbench/Snoop1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+[39 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/testbench/Snoop1.
+JPG>]
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
+Overfull \hbox (25.55653pt too wide) in paragraph at lines 140--141
+[]\OT1/pag/m/n/12 In par-ti-co-lare quest'ul-ti-mo dovr[]a es-sere in-ser-i-to 
+nel file \OT1/pcr/l/n/12 Fetch[]-Stage.vhd
+ []
+
+
+Overfull \hbox (2.98318pt too wide) in paragraph at lines 140--141
+\OT1/pag/m/n/12 al-l'in-ter-no del-l'ar-ray che sos-ti-tu-isce la EPROM con-te-
+nente le istruzioni
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/pag/m/sl' tried instead on input line 146.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+(Font)              Font shape `OT1/pag/m/sl' tried instead on input line 147.
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang2.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\lstlang2.sty"
 File: lstlang2.sty 2004/09/05 1.3 listings language file
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang3.sty
+("C:\Program Files\MiKTeX 2.8\tex\latex\listings\lstlang3.sty"
 File: lstlang3.sty 2004/09/05 1.3 listings language file
 )
-Underfull \hbox (badness 2582) in paragraph at lines 158--158
-[]\OT1/pag/m/n/12 Listing 4.2: Co-di-ce as-sem-bler per il te-st del mec-ca-ni-
-smo di
+Underfull \hbox (badness 2582) in paragraph at lines 159--159
+[]\OT1/pag/m/n/12 Listing 4.2: Codice as-sem-bler per il test del mec-ca-ni-smo
+ di
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 159.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 160.
 [40]
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 169.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 170.
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--174
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 184--186
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
-<img/testbench/DLX123.JPG, id=625, 779.91376pt x 305.64188pt>
+<img/testbench/DLX123.JPG, id=617, 779.91376pt x 305.64188pt>
 File: img/testbench/DLX123.JPG Graphic file (type jpg)
 
 <use img/testbench/DLX123.JPG>
-Underfull \hbox (badness 10000) in paragraph at lines 195--197
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
-[42 <./img/testbench/DLX123.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+[42 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/testbench/DLX123.
+JPG>]
+Overfull \hbox (2.94841pt too wide) in paragraph at lines 211--212
+[]\OT1/pag/m/n/12 La For-ward-ing Unit viene sfrut-ta-ta nel quin-to ci-clo di 
+clock per evitare
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
-<img/testbench/DLXFU.JPG, id=634, 863.225pt x 405.515pt>
+<img/testbench/DLXFU.JPG, id=626, 863.225pt x 405.515pt>
 File: img/testbench/DLXFU.JPG Graphic file (type jpg)
 
-<use img/testbench/DLXFU.JPG>) (./cap5.tex [43 <./img/testbench/DLXFU.JPG>]
-[44
+<use img/testbench/DLXFU.JPG>)
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\cap5.tex" [43 <C:/Users/
+Filippo/Repository Progetto Cache/Relazione/img/testbench/DLXFU.JPG>] [44
 
 
 ]
@@ -938,14 +1013,16 @@ Underfull \vbox (badness 1442) has occurred while \output is active []
  [45
 
 ]
-<img/blockRam/pinoutPorte.jpg, id=659, 487.06969pt x 311.66437pt>
+<img/blockRam/pinoutPorte.jpg, id=651, 487.06969pt x 311.66437pt>
 File: img/blockRam/pinoutPorte.jpg Graphic file (type jpg)
 
-<use img/blockRam/pinoutPorte.jpg> [46 <./img/blockRam/pinoutPorte.jpg>]
-<img/blockRam/segnali.jpg, id=667, 462.97969pt x 342.5297pt>
+<use img/blockRam/pinoutPorte.jpg> [46 <C:/Users/Filippo/Repository Progetto Ca
+che/Relazione/img/blockRam/pinoutPorte.jpg>]
+<img/blockRam/segnali.jpg, id=659, 462.97969pt x 342.5297pt>
 File: img/blockRam/segnali.jpg Graphic file (type jpg)
 
-<use img/blockRam/segnali.jpg> [47 <./img/blockRam/segnali.jpg>]
+<use img/blockRam/segnali.jpg> [47 <C:/Users/Filippo/Repository Progetto Cache/
+Relazione/img/blockRam/segnali.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
@@ -955,15 +1032,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-<img/blockRam/organInterna.jpg, id=674, 375.65344pt x 486.31688pt>
+<img/blockRam/organInterna.jpg, id=666, 375.65344pt x 486.31688pt>
 File: img/blockRam/organInterna.jpg Graphic file (type jpg)
 
 <use img/blockRam/organInterna.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48] [49 <./img/blockRam/organInterna.jpg>]
-<img/blockRam/tabTipiRam.jpg, id=686, 587.19376pt x 168.63pt>
+[48] [49 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/org
+anInterna.jpg>] <img/blockRam/tabTipiRam.jpg, id=678, 587.19376pt x 168.63pt>
 File: img/blockRam/tabTipiRam.jpg Graphic file (type jpg)
 
 <use img/blockRam/tabTipiRam.jpg>
@@ -977,9 +1054,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--89
  []
 
 
-Overfull \hbox (2.2033pt too wide) in paragraph at lines 90--91
-\OT1/pag/m/n/12 co-la-bi-li nel se-guen-te mo-do do-po aver con-ver-ti-to l'in-
-di-riz-zo esa-
+Overfull \hbox (25.98721pt too wide) in paragraph at lines 90--91
+\OT1/pag/m/n/12 co-la-bili nel seguente mo-do dopo aver con-ver-ti-to l'ind-i-r
+iz-zo esadec-
  []
 
 
@@ -987,12 +1064,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
-[50 <./img/blockRam/tabTipiRam.jpg>]
+[50 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/tabTipiR
+am.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
-<img/blockRam/init.jpg, id=693, 348.55219pt x 103.88812pt>
+<img/blockRam/init.jpg, id=685, 348.55219pt x 103.88812pt>
 File: img/blockRam/init.jpg Graphic file (type jpg)
 
 <use img/blockRam/init.jpg>
@@ -1000,64 +1078,116 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
-<img/blockRam/writeFirst.jpg, id=695, 496.85625pt x 205.5178pt>
+<img/blockRam/writeFirst.jpg, id=687, 496.85625pt x 205.5178pt>
 File: img/blockRam/writeFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/writeFirst.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[51 <./img/blockRam/init.jpg>]
-<img/blockRam/readFirst.jpg, id=704, 511.15968pt x 212.29312pt>
+[51 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/init.jpg
+>] <img/blockRam/readFirst.jpg, id=696, 511.15968pt x 212.29312pt>
 File: img/blockRam/readFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/readFirst.jpg>
 Overfull \hbox (2.78123pt too wide) in paragraph at lines 127--128
-\OT1/pag/m/n/12 tu-ra in me-mo-ria sen-za al-cun ag-gior-na-men-to del da-to co
-n-
+\OT1/pag/m/n/12 tura in memo-ria sen-za al-cun ag-gior-na-men-to del da-to con-
+
  []
 
-[52 <./img/blockRam/writeFirst.jpg> <./img/blockRam/readFirst.jpg>]
-<img/blockRam/noChange.jpg, id=714, 521.69907pt x 215.30438pt>
+
+Overfull \hbox (0.10567pt too wide) in paragraph at lines 127--128
+\OT1/pag/m/n/12 side-effect l'in-val-i-dazione del con-tenu-to del reg-istro di
+ out-
+ []
+
+[52 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/writeFir
+st.jpg> <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/read
+First.jpg>] <img/blockRam/noChange.jpg, id=706, 521.69907pt x 215.30438pt>
 File: img/blockRam/noChange.jpg Graphic file (type jpg)
 
-<use img/blockRam/noChange.jpg> [53 <./img/blockRam/noChange.jpg>]
-<img/blockRam/operazioni.jpg, id=720, 324.46219pt x 317.68687pt>
+<use img/blockRam/noChange.jpg>
+Overfull \hbox (17.90158pt too wide) in paragraph at lines 148--149
+[]\OT1/pag/m/n/12 Synchronous Set/Re-set: []e l'-op-er-azione con-seguente al-l
+'asserzione
+ []
+
+[53 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/noChange
+.jpg>] <img/blockRam/operazioni.jpg, id=712, 324.46219pt x 317.68687pt>
 File: img/blockRam/operazioni.jpg Graphic file (type jpg)
 
 <use img/blockRam/operazioni.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[54] <img/blockRam/conflittiTemp.jpg, id=728, 435.87843pt x 302.63063pt>
+
+Overfull \hbox (7.18486pt too wide) in paragraph at lines 167--170
+\OT1/pag/m/n/12 liz-zare con-tem-po-ranea-mente le due porte per ac-cedere al-l
+a memo-
+ []
+
+
+Overfull \hbox (16.83075pt too wide) in paragraph at lines 172--174
+[]\OT1/pag/m/n/12 Scrittura si-mul-tanea sulle due porte al-la stes-sa lo-cazio
+ne di memo-
+ []
+
+[54] <img/blockRam/conflittiTemp.jpg, id=720, 435.87843pt x 302.63063pt>
 File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiTemp.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[55 <./img/blockRam/operazioni.jpg>]
-<img/blockRam/conflittiScritture.jpg, id=737, 464.4853pt x 225.84375pt>
+[55 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/operazio
+ni.jpg>]
+<img/blockRam/conflittiScritture.jpg, id=729, 464.4853pt x 225.84375pt>
 File: img/blockRam/conflittiScritture.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiScritture.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[56 <./img/blockRam/conflittiTemp.jpg>]
+[56 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/conflitt
+iTemp.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
-[57 <./img/blockRam/conflittiScritture.jpg>]
+
+Overfull \hbox (23.76845pt too wide) in paragraph at lines 210--218
+\OT1/pag/m/n/12 speci-fiche di pro-get-to, set-tan-do il nu-mero di porte vo-lu
+te, l'ampiez-
+ []
+
+[57 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/conflitt
+iScritture.jpg>]
 Underfull \vbox (badness 1735) has occurred while \output is active []
 
  [58]
+Overfull \hbox (13.69992pt too wide) in paragraph at lines 234--235
+\OT1/pag/m/n/12 zazione in-ter-na 2Kx9, ovvero ha una depth pari a 2048 e l'amp
+iez-
+ []
+
+
+Overfull \hbox (8.68411pt too wide) in paragraph at lines 235--236
+\OT1/pag/m/n/12 ter-na-mente con la Block Ram e ge-stire una se-quen-za di \OT1
+/pcr/l/n/12 nbyte[]-
+ []
+
+
+Overfull \hbox (3.60962pt too wide) in paragraph at lines 239--240
+\OT1/pag/m/n/12 Per co-mod-it[]a ab-bi-amo ipo-tiz-za-to che il nuo-vo com-po-n
+ente, \OT1/pcr/l/n/12 Block-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
-[59] <img/blockRam/rambInit.jpg, id=762, 587.19376pt x 341.02406pt>
+[59] <img/blockRam/rambInit.jpg, id=754, 587.19376pt x 341.02406pt>
 File: img/blockRam/rambInit.jpg Graphic file (type jpg)
 
 <use img/blockRam/rambInit.jpg>
@@ -1065,38 +1195,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 249--250
 
  []
 
-<img/blockRam/blockram_cmp.png, id=763, 1002.74625pt x 731.73375pt>
+<img/blockRam/blockram_cmp.png, id=755, 1002.74625pt x 731.73375pt>
 File: img/blockRam/blockram_cmp.png Graphic file (type png)
 
 <use img/blockRam/blockram_cmp.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[60 <./img/blockRam/rambInit.jpg>] [61 <./img/blockRam/blockram_cmp.png>]
-<img/blockRam/portMap.jpg, id=779, 286.82156pt x 165.61874pt>
+
+Overfull \hbox (13.05478pt too wide) in paragraph at lines 261--262
+[]\OT1/pcr/l/n/12 write[]-line\OT1/pag/m/n/12 : la scrit-tura di una lin-ea in 
+Block Ram deve prevedere
+ []
+
+[60 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/rambInit
+.jpg>]
+Overfull \hbox (4.07912pt too wide) in paragraph at lines 262--263
+[]\OT1/pcr/l/n/12 read[]-line\OT1/pag/m/n/12 : la let-tura di una lin-ea da Blo
+ck Ram deve prevedere
+ []
+
+[61 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/blockram
+_cmp.png>] <img/blockRam/portMap.jpg, id=771, 286.82156pt x 165.61874pt>
 File: img/blockRam/portMap.jpg Graphic file (type jpg)
 
-<use img/blockRam/portMap.jpg> [62 <./img/blockRam/portMap.jpg>]
+<use img/blockRam/portMap.jpg>
+Overfull \hbox (7.77342pt too wide) in paragraph at lines 276--278
+\OT1/pag/m/n/12 Mentre in scrit-tura il pro-ces-so \OT1/pcr/l/n/12 block-ram[]-
+se-quen-tial[]-ac-cess \OT1/pag/m/n/12 gestisce
+ []
+
+[62 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/blockRam/portMap.
+jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
-<img/blockRam/scritturaLettura.jpg, id=786, 768.62157pt x 304.88907pt>
+<img/blockRam/scritturaLettura.jpg, id=778, 768.62157pt x 304.88907pt>
 File: img/blockRam/scritturaLettura.jpg Graphic file (type jpg)
 
 <use img/blockRam/scritturaLettura.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/blockRam/trasferimentoLinea.jpg, id=788, 752.8125pt x 298.86656pt>
+<img/blockRam/trasferimentoLinea.jpg, id=780, 752.8125pt x 298.86656pt>
 File: img/blockRam/trasferimentoLinea.jpg Graphic file (type jpg)
 
-<use img/blockRam/trasferimentoLinea.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [63] [64 <./img/blockRam/scritturaLettura.jpg> <./img/blockRam/trasferimentoL
-inea.jpg>] (./conclusioni.tex [65] [66
+<use img/blockRam/trasferimentoLinea.jpg> [63]) [64 <C:/Users/Filippo/Repositor
+y Progetto Cache/Relazione/img/blockRam/scritturaLettura.jpg> <C:/Users/Filippo
+/Repository Progetto Cache/Relazione/img/blockRam/trasferimentoLinea.jpg>]
+("C:\Users\Filippo\Repository Progetto Cache\Relazione\conclusioni.tex"
+[65] [66
 
 
 ]
@@ -1109,14 +1258,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-) (./bibliografia.tex [67
+) ("C:\Users\Filippo\Repository Progetto Cache\Relazione\bibliografia.tex"
+[67
 
 ] [68
 
 
 ]) [69
 
-] (./tesi.aux)
+] ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1125,25 +1275,24 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8932 strings out of 493848
- 123392 string characters out of 3149206
- 351577 words of memory out of 3000000
- 11608 multiletter control sequences out of 15000+200000
+ 8933 strings out of 495285
+ 124460 string characters out of 3180387
+ 349448 words of memory out of 3000000
+ 11536 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
- 788 hyphenation exceptions out of 8191
- 38i,12n,45p,1417b,2244s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2009/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/20
-09/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2009/texm
-f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
-/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
-ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
-/courier/ucrro8a.pfb>
-Output written on tesi.pdf (69 pages, 4532813 bytes).
+ 89 hyphenation exceptions out of 8191
+ 38i,12n,48p,1417b,2244s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.8/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
+ 2.8/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.8/fon
+ts/type1/urw/avantgar/uagd8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/a
+vantgar/uagk8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/avantgar/uagko8
+a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrb8a.pfb><C:/Progr
+am Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX
+ 2.8/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on tesi.pdf (69 pages, 4359944 bytes).
 PDF statistics:
- 912 PDF objects out of 1000 (max. 8388607)
- 291 named destinations out of 1000 (max. 500000)
- 619 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 902 PDF objects out of 1000 (max. 8388607)
+ 285 named destinations out of 1000 (max. 500000)
+ 611 words of extra memory for PDF output out of 10000 (max. 10000000)
 

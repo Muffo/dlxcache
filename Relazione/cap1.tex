@@ -38,10 +38,10 @@ Per garantire maggiore flessibilit\`a si \`e scelto di parametrizzare alcune del
 Nel caso in cui si debba caricare una nuova linea e tutte le vie siano occupate \`e necessario determinare quale linea rimpiazzare.
 Un buon algoritmo di rimpiazzamento dovrebbe cercare di individuare la linea "vittima" che meno probabilmente verr\`a riutilizzata in seguito.\\
 Il criterio scelto per effettuare il rimpiazzamento \`e basato su contatori, che implementa una politica LRU (Least Recently Used).
-Tale politica \`e tipicamente implementata poich\`e statisticamente si verifica principio di localit\`a.
-\`E quindi presente un contatore per ogni via di ogni set tramite il quale si tiene traccia di quanto recentemente si \`e acceduti a ciascuna linea: un valore basso del contatore indica un accesso recente mentre un valore alto indica un accesso\emph{vetusto}.
+Tale politica \`e tipicamente implementata poich\`e statisticamente si verifica il principio di localit\`a.
+\`E quindi presente un contatore per ogni via di ogni set tramite il quale si tiene traccia di quanto recentemente si \`e acceduti a ciascuna linea: un valore basso del contatore indica un accesso recente mentre un valore alto indica un accesso \emph{vetusto}.
 Evidentemente la linea candidata al rimpiazzamento risulta essere quella alla quale \`e associato il contatore di valore pi\`u elevato.\\
-Nel caso di HIT su una linea, sono incrementati i valori di contatori pi\`u basso rispetto al valore di quello della linea HIT mentre quest'ultimo viene resettato.
+Nel caso di HIT su una linea, sono incrementati i contatori di valore pi\`u basso rispetto al valore di quello della linea HIT mentre quest'ultimo viene resettato.
 Nel caso di MISS si procede con un rimpiazzamento e poi si agisce come nel caso di HIT sulla nuova linea.
 Infine, in caso di invalidazione di una linea, si porta al valore massimo il contatore della linea invalidata e si decrementano di 1 tutti i contatori con valore pi\`u elevato di quello della linea invalidata.
 
@@ -69,7 +69,7 @@ L'interfaccia verso il microprocessore, mostrata in Fig. \ref{fig:int_dlx}, cons
 In particolare sono presenti i seguenti segnali:
 \begin{itemize} %i nomi dei comandi non sono esatti: vanno sostituiti
 \item \textbf{ch\_baddr[31-2]}: indirizzi a 32 bit emessi dal microprocessore
-\item \textbf{ch\_bdata[32-0]}: bus dati con parallelismo 32bit 
+\item \textbf{ch\_bdata[32-0]}: bus dati con parallelismo 32 bit 
 \item \textbf{ch\_memwr}: segnale per il comando di scrittura in cache
 \item \textbf{ch\_memrd}: segnale per il comando di lettura da cache
 \item \textbf{ch\_ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente
@@ -110,8 +110,8 @@ L'interfaccia verso la RAM \`e mostrata in Fig. \ref{fig:int_ram} e consente all
 In particolare sono presenti i seguenti segnali:
 \begin{itemize} % attenzione alle dimensioni dei bus
 \item \textbf{ram\_address[31-2]}: indirizzi a 32 bit emessi dalla cache
-\item \textbf{ram\_data\_out[32-0]}: bus dati di uscita con parallelismo pari alla dimensione di una linea
-\item \textbf{ram\_data\_in[32-0]}: bus dati di ingresso con parallelismo pari alla dimensione di una linea
+\item \textbf{ram\_data\_out}: bus dati di uscita con parallelismo pari alla dimensione di una linea
+\item \textbf{ram\_data\_in}: bus dati di ingresso con parallelismo pari alla dimensione di una linea
 \item \textbf{ram\_we}: segnale per il comando di scrittura in RAM
 \item \textbf{ram\_oe}: segnale per il comando di lettura dalla RAM
 \item \textbf{ram\_ready}: segnale che indica il termine dell'operazione di lettura/scrittura corrente

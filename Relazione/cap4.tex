@@ -35,10 +35,10 @@ Nella prima scrittura (evidenziata in verde nella figura \ref{fig:write2}) avvie
 \begin{itemize}
 \item \texttt{}una lettura in RAM per leggere il blocco contenente il dato e portarlo nella seconda([0]) via del primo set;
 \item \texttt{}l'aggiornamento valori dei contatori che gestiscono l'invecchiamento per il meccanismo di rimpiazzamento;
-\item \texttt{} verr\`a effettuato una scrittura in cache aggiornando il valore della word di offset "00110" (ovvero i byte dalla posizione [6] alla [9]), e lo stato\texttt{.status} della via viene posto a MESI\_M ("11").
+\item \texttt{} verr\`a effettuato una scrittura in cache aggiornando il valore della word di offset "00110" , ovvero i byte dalla posizione [6] alla [9] e lo stato\texttt{.status} della via viene posto a MESI\_M ("11").
 \end{itemize}
 Nella seconda, avviene una scrittura su di un gi\`a blocco presente in cache, quindi si modifica semplicemente il dato e si aggiorna lo stato come nel caso precedente.\\
-Nella terza scrittura  (evidenziata in azzurro nella figura\ref{fig:write2}),  a differenza dei due casi precedenti dove la via si porta in stato MESI\_M, la via si porta in MESI\_E inquanto il blocco \`e stato portato in cache in modalita write-throught di conseguenza, la scrittura oltre ad avvenire in cache, avviene anche in RAM, e la nostra cache sar\`a l'unica a possedere il blocco in uno stato valido (se qualche altro dispositivo possedeva quel blocco, il controllore di memoria dovr\`a preoccuparsi di procedere con l'invalidazione)
+Nella terza scrittura  (evidenziata in azzurro nella figura\ref{fig:write2}),  a differenza dei due casi precedenti dove la via si porta in stato MESI\_M, la via si porta in MESI\_E inquanto il blocco \`e stato portato in cache in modalita write-throught di conseguenza, la scrittura oltre ad avvenire in cache, avviene anche in RAM, e la nostra cache sar\`a l'unica a possedere il blocco in uno stato valido, se qualche altro dispositivo possedeva quel blocco, il controllore di memoria dovr\`a preoccuparsi di procedere con l'invalidazione.
 
 \begin{figure}[h!]
 \centering
@@ -171,7 +171,7 @@ X"FFFFFFFF",	--NOP
 X"FFFFFFFF" 	--NOP
 
 \end{lstlisting} 
-Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache, ad ogni iterazione, a rimpiazzare un blocco, lavorando sempre nel primo set (per un  numero limitato d'iterazioni). Infatti, ad esempio nella prima iterazione, quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":\\
+Questo codice conta fino a tre (da qui il nome del file termina con 123), e ad ogni iterazione ricomincia da uno, inoltre ogni risultato intermedio viene salvato in memoria in una locazione diversa in modo da obbligare la cache, ad ogni iterazione, a rimpiazzare un blocco, lavorando sempre nel primo set, per un  numero limitato d'iterazioni. Infatti, ad esempio nella prima iterazione, quando r1="0",si nota che i due bit che identificano l'indice sono sempre uguali a "00":\\
 
 \begin{itemize}
   \item l3) \texttt{0(r1)=0+0= "000 00 00000"} ovvero prima([1]) via occupata nel primo set( b6=0,b7=0)

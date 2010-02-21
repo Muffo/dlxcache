@@ -221,6 +221,7 @@ componente Ram di cui si ottiene infine il codice VHDL o Verilog.
 nell'Architecture del componente finale e creandone un
 istanza utilizzata internamente al progetto tramite degli appositi segnali interni. Per utilizzare tali componenti implementati da Xilinx \`e necessario dichiare all'interno del progetto l'utilizzo della seguente libreria:
 
+\lstset{language=VHDL, caption=Libreria dei Components Xilinx predefiniti, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3}
 \begin{lstlisting}
 library UNISIM;
 use UNISIM.VComponents.all;
@@ -275,6 +276,7 @@ Il process \texttt{ram\_cache} è il processo principale che gestisce le richiest
 Il process \texttt{blockram\_sequential\_access} si occupa di gestire tramite un contatore interno gli accessi sequenziali alla Block Ram, scanditi dal clock \texttt{clk}. Tali accessi in sequenza saranno in lettura qualora \texttt{read\_line} \`e asserito, in scrittura se \`e asserito il segnale \texttt{write\_line}. Per tale motivo questo process ha la responsabilit\`a di incrementare l'indirizzo di memoria dopo ogni accesso e comandare tramite opportuni segnali interni le operazioni di lettura e scrittura di singoli byte sulla Block Ram RAMB16\_S9.\\
 Tali segnali interni sono mostrati nel port map del componente RAMB16\_S9:
 
+\lstset{language=VHDL, caption=Port Map del componente RAMB16\_S9 - collegamento ai segnali interni utilizzati per interfacciarsi alla Block Ram., label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3}
 \begin{lstlisting}
 RAMB16_S9_inst : RAMB16_S9
 	port map

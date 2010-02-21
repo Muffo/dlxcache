@@ -214,10 +214,16 @@ etc. Tale operazione pu`o essere fatta o ricorrendo ad una
 serie di template presenti tra i Language Templates Ram di ISE
 oppure tramite una configurazione ad hoc tramite Xilinx Core
 Generator che tramite un wizard consente di personalizzare il
-componente Ram di cui si ottiene infine il codice VHDL.
+componente Ram di cui si ottiene infine il codice VHDL o Verilog.
 \item Si integra il componente all'interno del progetto dichiarandolo
 nell'Architecture del componente finale e creandone un
-istanza tramite il port mapping.
+istanza utilizzata internamente al progetto tramite degli appositi segnali interni. Per utilizzare tali componenti implementati da Xilinx \`e necessario dichiare all'interno del progetto l'utilizzo della seguente libreria:
+
+\begin{lstlisting}
+library UNISIM;
+use UNISIM.VComponents.all;
+\end{lstlisting}
+
 \item Si utilizza il componente che rappresenta la Block Ram comandando
 i segnali di input e gestendo opportunamente i valori in
 output.
@@ -232,11 +238,11 @@ Al fine di testare il funzionamento della Block Ram e approfondire le problemati
 \item \texttt{BlockRam\_cmp} \`e il componente che si occupa di gestire le richieste di lettura e scrittura di linee in memoria Block Ram. 
 \item La dimensione in byte della linea di memoria è configurabile tramite l'apposita costante \texttt{nbyte\_line} della libreria.
 \item La Block Ram la cui dimensione è di 18 Kbits ha un'organizzazione interna 2Kx9, ovvero ha una depth pari a 2048 e l'ampiezza del dato trasferito è di 9 bit (di cui 8 di dato e 1 di parit\`a trascurato nel progetto).
-\item Il componente \texttt{BlockRam\_cmp} ha lo scopo di interfacciarsi internamente con la Block Ram e gestire una sequenza di \texttt{nbyte\_line} trasferimenti da o verso la Block Ram al fine di leggere o scrivere in memoria un'intera linea. 
+\item Il componente \texttt{BlockRam\_cmp} ha lo scopo di interfacciarsi internamente con la Block Ram per gestire una sequenza di \texttt{nbyte\_line} trasferimenti da o verso la Block Ram al fine di leggere o scrivere in memoria un'intera linea. 
 \end{itemize}
 
 \subsection{Implementazione}
-Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp}, si interfacci alla cache sempre tramite un bus dati dell'ampiezza della linea di memoria da trasferire. Tale ipotesi che ovviamente \`e semplificativa e porta ad una potenziale complessit\`a del cablaggio del bus dati \`e tuttavia lecita dal momento che i trasferimenti tra cache e ram coinvolgono sempre linee di memoria. Ci\`o detto, il nuovo componente prevede l'utilizzo al suo interno di un componente \texttt{RAMB16\_S9} capace di leggere e scrivere sulla Block Ram dati da 8 bit (+ 1 bit di parit\`a che non abbiamo considerato). La scelta di tale organizzazione della Block Ram deriva dall'ipotesi che le linee di memoria sono di dimensione sempre multipla di 1 Byte e quindi il componente \texttt{BlockRam\_cmp} ad ogni operazione di lettura o scrittura di una linea dove provvedere ad un ciclo di trasferimento dei singoli Byte costitutivi la linea a partire dall'indirizzo specificato in ingresso sul bus degli indirizzi che ad ogni accesso dovr\`a essere incrementato opportunamente. Altrimenti si sarebbero potuti trasferire dati anche maggiori (fino a 32 bit) ma l'effetto sarebbe stato quello di avere un vincolo ulteriore sulla dimensione della linea che avrebbe dovuto essere multiplo di un maggiore numero di byte (4 byte nel caso di trasferimenti a 32 bit in Block Ram).\\
+Per comodit\`a abbiamo ipotizzato che il nuovo componente, \texttt{BlockRam\_cmp}, si interfacci alla cache sempre tramite un bus dati dell'ampiezza della linea di memoria da trasferire. Tale ipotesi che ovviamente \`e semplificativa e porta ad una potenziale complessit\`a del cablaggio del bus dati \`e tuttavia lecita dal momento che i trasferimenti tra cache e ram coinvolgono sempre linee di memoria. Ci\`o detto, il nuovo componente prevede l'utilizzo al suo interno del componente Block Ram \texttt{RAMB16\_S9} capace di leggere e scrivere dati da 8 bit (+ 1 bit di parit\`a che non abbiamo considerato). La scelta di tale organizzazione della Block Ram deriva dall'ipotesi che le linee di memoria sono di dimensione sempre multipla di 1 Byte e quindi il componente \texttt{BlockRam\_cmp} ad ogni operazione di lettura o scrittura di una linea dove provvedere ad un ciclo di trasferimento dei singoli Byte costitutivi la linea a partire dall'indirizzo specificato in ingresso sul bus degli indirizzi che ad ogni accesso dovr\`a essere incrementato opportunamente. Altrimenti si sarebbero potuti trasferire dati anche maggiori (fino a 32 bit) ma l'effetto sarebbe stato quello di avere un vincolo ulteriore sulla dimensione della linea che avrebbe dovuto essere multiplo di un maggiore numero di byte (4 byte nel caso di trasferimenti a 32 bit in Block Ram).\\
 
 \begin{figure}[!h]
 \centering
@@ -265,12 +271,21 @@ Di seguito vengono riportati i process utilizzati per gestire le funzionalit\`a 
 \subsubsection{blockram\_sequential\_access}
 Il process \texttt{blockram\_sequential\_access} si occupa di gestire tramite un contatore interno gli accessi sequenziali alla Block Ram, scanditi dal clock \texttt{clk}. Tali accessi in sequenza saranno in lettura qualora \texttt{read\_line} \`e asserito, in scrittura se \`e asserito il segnale \texttt{write\_line}. Per tale motivo questo process ha la responsabilit\`a di incrementare l'indirizzo di memoria dopo ogni accesso e comandare tramite opportuni segnali interni le operazioni di lettura e scrittura di singoli byte sulla Block Ram RAMB16\_S9, di cui si riporta il port mapping in Fig.\ref{fig:port_map}.
 
-\begin{figure}[!h]
-\centering
-\includegraphics{img/blockRam/portMap.jpg}
-\caption{Port Mapping del componente RAMB16\_S9 con i segnali interni gestiti dal process blockram\_sequential\_access.}
-\label{fig:port_map}
-\end{figure}
+\begin{lstlisting}
+RAMB16_S9_inst : RAMB16_S9
+	port map
+	(
+		DI => br_data_in (DATA_WIDTH-1 downto 0),
+		DIP => br_parity_in,
+		DO => br_data_out (DATA_WIDTH-1 downto 0),
+		DOP => br_parity_out,
+		ADDR => br_addr (ADDR_BIT-1 downto 0),
+		WE => br_we,
+		EN => br_en,
+		CLK => clk,
+		SSR => br_ssr
+	);
+\end{lstlisting}
 
 \subsubsection{read\_byte}
 Mentre in scrittura il processo \texttt{blockram\_sequential\_access} gestisce correttamente la sequenza di scritture in quanto il contatore degli accessi aggiorna a ogni clock l'indirizzo in scrittura e il byte della linea da scrivere a tale indirizzo, in caso di lettura ciò non è altrettanto immediato. Il motivo è che per leggere un byte a ogni ciclo di clock si fornisce alla Block Ram l'indirizzo a cui leggere il dato, ma tale dato non è immediatamente disponibile sul bus dati in uscita dalla Block Ram (\texttt{br\_data\_out}) inquanto bisogna attendere un tempo d'accesso in lettura per avere il dato richiesto.

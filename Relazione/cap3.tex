@@ -14,15 +14,10 @@ In particolare sono stati aggiunti al componente \texttt{Memory\_Stage} i seguen
 ready: in std_logic;
 memrd: out std_logic;
 memwr: out std_logic;
-memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
 load_memory_data_register: in std_logic_vector(PARALLELISM-1 downto 0);
+store_memory_data_register: out std\_logic\_vector(PARALLELISM-1 downto 0);
 memory_address_register: out std_logic_vector(PARALLELISM-1 downto 0);
 \end{lstlisting}
-
-
-mentre il segnale \texttt{memory\_data\_register} \`e stato sostituito da:\\
-
-\texttt{store\_memory\_data\_register: out std\_logic\_vector(PARALLELISM-1 downto 0);}\\
 
 \`E stata inoltre eliminata la variabile Ram.\\
 

@@ -65,11 +65,11 @@ Possibili configurazioni e organizzazioni della Block Ram sono illustrate in Fig
 \label{fig:ram_org}
 \end{figure}
 
-Ad esempio, se si volesse utilizzare la Block Ram come memoria Ram per un processore DLX, la configurazione necessaria sarebbe la 512x36. Tale configurazione da\'a la possibilit\'a di accedere al dispositivo fino a 36 bit contemporaneamente, di cui 32 bit di dato e 4 bit di parit\`a. Con tale configurazione la Block Ram (di 18 Kbit) conterr\`a 512 entry (memory-depth) da 36 bit (infatti 512x36 bit = 18 Kbits).
+Ad esempio, se si volesse utilizzare la Block Ram come memoria Ram per un processore DLX, la configurazione necessaria sarebbe la 512x36. Tale configurazione d\'a la possibilit\'a di accedere al dispositivo fino a 36 bit contemporaneamente, di cui 32 bit di dato e 4 bit di parit\`a. Con tale configurazione la Block Ram (di 18 Kbit) conterr\`a 512 entry (memory-depth) da 36 bit (infatti 512x36 bit = 18 Kbits).
 
 \section{Configurazione della Block Ram}
 
-La configurazione della Block Ram avviene tramite una serie di attributi nella sezione \texttt{generic (...)} dei componenti ram disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna, la dimensione e diversi altre caratteristiche della Block Ram come il comportamento WRITE\_MODE in scrittura.\\
+La configurazione della Block Ram avviene tramite una serie di attributi nella sezione \texttt{generic (...)} dei componenti ram disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna, la dimensione e diverse altre caratteristiche della Block Ram come il comportamento WRITE\_MODE in scrittura.\\
 Generalmente il numero di porte della ram e la sua organizzazione interna possono essere specificati utilizzando Xilinx Core Generator che consente di configurare tramite un wizard la Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato oppure si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a (Fig.\ref{fig:tipi_br}).
 
 \begin{figure}[!h]

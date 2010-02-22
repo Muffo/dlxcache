@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.11.18)  22 FEB 2010 10:25
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2009.11.18)  22 FEB 2010 18:23
 entering extended mode
 **tesi.tex
 ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.tex"
@@ -342,6 +342,9 @@ Package hyphenat Warning: *******************************
 \langwohyphens=\language8
 LaTeX Info: Redefining \_ on input line 46.
 ) ("C:\Users\Filippo\Repository Progetto Cache\Relazione\tesi.aux"
+
+LaTeX Warning: Label `DescriptiveLabel' multiply defined.
+
 
 LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 
@@ -796,28 +799,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 [27
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
 
-Overfull \hbox (34.79987pt too wide) in paragraph at lines 25--26
-[]\OT1/pcr/l/n/12 store[]-mem-o-ry[]-da-ta[]-reg-is-ter: out std[]-log-ic[]-vec
-tor(PARALLELISM-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
@@ -834,7 +821,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [28 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/DLX/old_dlx.png>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--54
+Underfull \hbox (badness 10000) in paragraph at lines 45--49
 
  []
 
@@ -843,23 +830,23 @@ Underfull \vbox (badness 1297) has occurred while \output is active []
 
  [29 <C:/Users/Filippo/Repository Progetto Cache/Relazione/img/DLX/new_dlx.png>
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
 
-Overfull \hbox (3.34523pt too wide) in paragraph at lines 72--74
+Overfull \hbox (3.34523pt too wide) in paragraph at lines 67--69
 \OT1/pag/m/n/12 Appena il ready viene at-ti-va-to il da-to prove-niente dal-la 
 cache viene
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
@@ -1304,26 +1291,23 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  9007 strings out of 495285
- 125387 string characters out of 3180387
- 350371 words of memory out of 3000000
- 11559 multiletter control sequences out of 15000+200000
+ 125378 string characters out of 3180387
+ 350259 words of memory out of 3000000
+ 11560 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
  90 hyphenation exceptions out of 8191
  38i,12n,48p,1340b,2244s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{figure.5.15} has been referenced but does not exi
-st, replaced by a fixed one
-
-{C:/Program Files/MiKTeX 2.8/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/
-MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2
-.8/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.8/fonts
-/type1/urw/avantgar/uagd8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/ava
-ntgar/uagk8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/avantgar/uagko8a.
-pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program
- Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2
-.8/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on tesi.pdf (69 pages, 4217844 bytes).
+{C:/Program Files/MiKTeX 2.8/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
+ 2.8/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.8/fon
+ts/type1/urw/avantgar/uagd8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/a
+vantgar/uagk8a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/avantgar/uagko8
+a.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrb8a.pfb><C:/Progr
+am Files/MiKTeX 2.8/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX
+ 2.8/fonts/type1/urw/courier/ucrro8a.pfb>
+Output written on tesi.pdf (69 pages, 4218131 bytes).
 PDF statistics:
- 967 PDF objects out of 1000 (max. 8388607)
- 337 named destinations out of 1000 (max. 500000)
+ 965 PDF objects out of 1000 (max. 8388607)
+ 336 named destinations out of 1000 (max. 500000)
  609 words of extra memory for PDF output out of 10000 (max. 10000000)
 

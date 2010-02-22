@@ -39,18 +39,19 @@
 \contentsline {subsubsection}{provaFU}{42}{section*.10}
 \contentsline {chapter}{\numberline {5}Block RAM}{45}{chapter.5}
 \contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{46}{section.5.1}
-\contentsline {section}{\numberline {2}Inizializzazione della Block Ram}{49}{section.5.2}
+\contentsline {section}{\numberline {2}Configurazione della Block Ram}{49}{section.5.2}
+\contentsline {subsection}{\numberline {2.1}Inizializzazione del contenuto e attributi di configurazione}{50}{subsection.5.2.1}
 \contentsline {section}{\numberline {3}Operazioni della Block Ram}{53}{section.5.3}
 \contentsline {section}{\numberline {4}Conflitti d'accesso in Block Ram Dual-Port}{54}{section.5.4}
 \contentsline {section}{\numberline {5}Utilizzo della Block Ram in un progetto su FPGA}{57}{section.5.5}
-\contentsline {section}{\numberline {6}Realizzazione di un progetto d'esempio}{58}{section.5.6}
+\contentsline {section}{\numberline {6}Progetto d'esempio: BlockRam\_cmp}{58}{section.5.6}
 \contentsline {subsection}{\numberline {6.1}Specifiche del progetto}{59}{subsection.5.6.1}
 \contentsline {subsection}{\numberline {6.2}Implementazione}{59}{subsection.5.6.2}
-\contentsline {subsubsection}{ram\_cache}{60}{section*.11}
-\contentsline {subsubsection}{blockram\_sequential\_access}{61}{section*.12}
-\contentsline {subsubsection}{read\_byte}{62}{section*.13}
-\contentsline {subsubsection}{end\_blockram\_access}{63}{section*.14}
-\contentsline {subsection}{\numberline {6.3}Testbench}{63}{subsection.5.6.3}
-\contentsline {section}{\numberline {7}Considerazioni sul progetto d'esempio}{64}{section.5.7}
+\contentsline {subsubsection}{ram\_cache}{61}{section*.11}
+\contentsline {subsubsection}{blockram\_sequential\_access}{62}{section*.12}
+\contentsline {subsubsection}{read\_byte}{63}{section*.13}
+\contentsline {subsubsection}{end\_blockram\_access}{64}{section*.14}
+\contentsline {subsection}{\numberline {6.3}Testbench}{64}{subsection.5.6.3}
+\contentsline {section}{\numberline {7}Considerazioni sul progetto d'esempio}{65}{section.5.7}
 \contentsline {chapter}{Conclusioni}{67}{chapter*.15}
 \contentsline {chapter}{Bibliografia}{69}{chapter*.16}

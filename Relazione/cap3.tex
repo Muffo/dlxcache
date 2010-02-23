@@ -5,7 +5,7 @@ In questo capitolo saranno descritte le problematiche affrontate durante l'integ
 
 \section{Modifiche al Memory\_stage}
 
-Nella realizzazione del componente si \`e supposto che gli accessi alla cache avvengano in un unico ciclo di clock, così facendo si \`e potuto evitare di modificare la pipiline del DLX per inserire degli stalli ogni qualvolta si trovasse nello stadio di memory una  operzione di load o una di store. Le modifiche da apportare al dlx si sono rivelate in questa maniera pi\`u esigue e si sono concentrate nel solo stadio di memory essendo la nostra una cache dati.
+Nella realizzazione del componente si \`e supposto che gli accessi alla cache avvengano in un unico ciclo di clock, così facendo si \`e potuto evitare di modificare la pipeline del DLX per inserire degli stalli ogni qualvolta si trovasse nello stadio di memory una  operzione di load o una di store. Le modifiche da apportare al dlx si sono rivelate in questa maniera pi\`u esigue e si sono concentrate nel solo stadio di memory essendo la nostra una cache dati.
 
 In particolare sono stati aggiunti al componente \texttt{Memory\_Stage} i seguenti segnali:\\
 
@@ -64,7 +64,7 @@ data_out <= load_memory_data_register;
 \end{lstlisting}
 
 
-L'uscita dell'ALU viene inviata al bus indirizzi e viene attivato il segnale \texttt{memrd} che sveglia il processo \texttt{cache\_dlx\_process} della cache, dopodich\`e l'istruzione wait until pone il processo in attesa di un fronte del segnale ready.\\
+L'uscita dell'ALU viene inviata al bus indirizzi e viene attivato il segnale \texttt{memrd} che sveglia il processo \texttt{cache\_dlx} della cache, dopodich\`e l'istruzione wait until pone il processo in attesa di un fronte del segnale ready.\\
 Appena il ready viene attivato il dato proveniente dalla cache viene inviato alla barriera dei registri dello stadio di Write-Back. Infine il segnale \texttt{memrd} viene riportato a 0, ma con un ritardo di TIME\_UNIT/3 necessario per poter rendere visibile l'impulso del segnale in fase di simulazione.\\
 
 L'utilizzo dell'istruzione wait until si \`e reso necessario in alternativa alla realizzazione di un processo separato che sul fronte del ready effettuasse la scrittura dei dati provenienti dal bus sui registri di uscita, in quanto con quest'ultima soluzione si avrebbero due processi distinti in grado di modificare i valori dei segnali \texttt{data\_out} e \texttt{dest\_register\_data} cosa che d\`a luogo a dei conflitti in fase di simulazione.\\

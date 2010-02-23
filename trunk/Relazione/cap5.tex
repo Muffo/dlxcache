@@ -340,19 +340,18 @@ Il process \texttt{read\_byte} si occupa di tale problema ed \`e realizzato come
 \subsection{end\_blockram\_access}
 Il process \texttt{end\_blockram\_access} viene risvegliato ogni qual volta si attiva il segnale \texttt{line\_ready} col quale il process \texttt{blockram\_sequential\_access} avvisa che il trasferimento della linea \`e stato completato. La responsabilit\`a di tale process \`e quindi di attivare il segnale di \texttt{ready} e in caso di lettura fornire la linea letta all'esterno portandola in uscita sul bus dati \texttt{bdata\_out}. Lo stesso, a fini didattici, accade anche in caso di scrittura al fine di testare il funzionamento della Block Ram con le diverse WRITE\_MODE.\\
 
-\subsection{Testbench}
+\section{Testbench}
 Per verificare il funzionamento del componente abbiamo realizzato un semplice testbench nel quale si scrive all'indirizzo 0000h della Block Ram la linea di dimensione configurabile tramite parametro (8 byte nel nostro esempio) passata in ingresso sul bus \texttt{bdata\_in}.
 Successivamente si effettua una lettura allo stesso indirizzo per verificare l'effettiva scrittura del dato in memoria.\\
 Al fine di verificare le diverse modalit\`a di funzionamento in scrittura della Block Ram descritte in precedenza, abbiamo provato lo stesso test sul componente configurando le tre differenti politiche di scrittura possibili.\\
-
-Il primo caso \`e quello di scrittura in modalit\`a READ\_FIRST in Fig.\ref{fig:sim-rf}. Ovvero in questo caso l'operazione di scrittura di una linea sulla Block Ram, oltre all'attivazione del segnale di ready, comporta in uscita sul bus dati \texttt{bdata\_out} una linea di memoria il cui contenuto sono gli 8 byte (nel cerchio in giallo) presenti sulla Block Ram che verranno sovrascritti.\\
-Tale modalit\`a consente quindi di verificare anche la corretta inizializzazione del contenuto della Block Ram fatta all'interno della sezione generic(...).
 \begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth]{img/blockRam/test_read_first.jpg}
 \caption{Simulazione con WRITE\_MODE = READ\_FIRST}
 \label{fig:sim-rf}
 \end{figure}
+Il primo caso \`e quello di scrittura in modalit\`a READ\_FIRST in Fig.\ref{fig:sim-rf}. Ovvero in questo caso l'operazione di scrittura di una linea sulla Block Ram, oltre all'attivazione del segnale di ready, comporta in uscita sul bus dati \texttt{bdata\_out} una linea di memoria il cui contenuto sono gli 8 byte (nel cerchio in giallo) presenti sulla Block Ram che verranno sovrascritti.\\
+Tale modalit\`a consente quindi di verificare anche la corretta inizializzazione del contenuto della Block Ram fatta all'interno della sezione generic(...).
 
 Il secondo caso (in Fig.\ref{fig:sim-wf}) \`e caratterizzato dalla politica di scrittura di default, ovvero la WRITE\_FIRST. Tale politica come mostra la simulazione, consente durante un ciclo di scrittura di avere contemporaneamente la scrittura del dato in ingresso sia in memoria all'indirizzo specificato sia sui latch di output.
 \begin{figure}[!h]

@@ -14,13 +14,13 @@ Per testare nello specifico il funzionamento della cache e i meccanismi di comun
  \item \texttt{Cache\_test\_ReadAndWrite.vhd}: nel quale si verifica il corretto funzionamento delle scritture, nella cache e nella RAM.
  \item \texttt{Cache\_test\_ReadAndReplacement.vhd}: nel quale si verifica il corretto funzionamento, della politica di rimpiazzamento mediante contatori.
 
- \item \texttt{Cache\_test\_snoop.vhd}: nel quale si verifica il corretto funzionamento del meccanismo MESI in caso di eventuali snoop.
+ \item \texttt{Cache\_test\_snoop.vhd}: nel quale si verifica il corretto funzionamento del protocollo MESI in caso di eventuali snoop.
 \end{itemize}
 
 Per completezza e per aiutare una successiva lettura delle forme d'onda, date da ISIM durante la simulazione, si riporta fra parentesi dove necessario il valore binario di ci\`o a cui si f\`a riferimento.
 
 \subsection{Cache\_test\_ReadAndWrite.vhd}
-Questo File ha in comune, come tutti i file di testbench che si vedranno  in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
+Questo file ha in comune con il resto dei file di testing dei componenti realizzati la dichiarazione dei componenti, il portmap e la fase di reset iniziale. In questo caso specifico il testbench si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
 Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back \texttt{ch\_wtwb='0'} e  uno in modalit\`a write-throght \texttt{ch\_wtwb='1'}. Occupando rispettivamente la via ([x][1]) del primo set di indice ([0][]),del secondo set di indice ([1][x]) e terzo set di indice ([2][]). In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}, porti lo stato (\texttt{.status}) del terzo blocco a 1 ovvero a MESI\_S, mentre negli altri due casi \`e uguale a "10" ovvero MESI\_E, differenza evidenziata in verde nella colonna dei valori nella figura \ref{fig:write1}) .

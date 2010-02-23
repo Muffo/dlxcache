@@ -80,7 +80,7 @@ Con la prima lettura si verifica che se si effettua una lettura di una word cont
 
 Con la seconda lettura si richiede un dato contenuto in un blocco non presente in cache, ovvero abbiamo  miss, viene quindi selezionato il set in base al valore dell' indice, "01" in questo caso e verr\`a rimpiazzato il blocco con valore del contatore più elevato che in questo caso corrisponde alla via con TAG="10" ( [1][0]) nella quale si era precedentemente resettatato il contatore della via, senza effettuare nessuna scrittura in RAM in quanto il blocco è in stato MESI\_E, ovvero il blocco in cache non ha subito nessuna modifica rispetto a quanto presente in RAM.
 
-Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache con indice="10", che corrisponde al terzo set ([2][x]), nel quale una via era stata precedentemente invalidata, via([2][0]) che verr\`a quindi rimpiazzata, senza scrittura in RAM, con il blocco con TAG="110".
+Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache con indice="10", che corrisponde al terzo set ([2][x]), nel quale una via era stata precedentemente invalidata. Tale via([2][0]) verr\`a quindi rimpiazzata senza scrittura in RAM (perch\`e la linea \`e in MESI\_I) con il blocco con TAG="110".
 
 \begin{figure}[h!]
 \centering
@@ -92,7 +92,6 @@ Con la terza lettura invece si richiede un dato contenuto in un blocco non prese
 Inifine vengono eseguite una serie di letture su blocchi presenti e non su diversi set e vie, per verificare che tutto nel complesso funzioni correttamente.
 
 \subsection{Cache\_test\_snoop.vhd}
-Questo file ha sempre in comune, come tutti i file di testbench che si sono visti in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset.\\
 Per prima cosa si inizializza correttamente la cache per permettere di verificare il corretto funzionamento dello snoop nei vari casi. Nello specifico si portano prima in cache due blocchi dalla RAM e sul secondo blocco si esegue una scrittura, per portarlo in stato MESI\_M.\\
 In secondo luogo si attiva il segnale di snoop ,\texttt{ch\_eads}, e si imposta l'indirizzo su cui fare lo snoop ,\texttt{ch\_snoop\_addr}. La cache risponder\`a in modo opportuno con i segnali di \texttt{ch\_hit,ch\_hitm} e modificher\`a in alcuni casi lo stato delle vie se il blocco \`e presente in cache.
 
@@ -100,11 +99,11 @@ Nel primo caso si effettua uno snoop su di un blocco che non \`e contenuto in ca
 
 Nel secondo caso, evidenziato in giallo in Fig.\ref{fig:snoop1}, si effettua uno snoop su di un blocco presente in cache in stato MESI\_E, quindi la cache risponder\`a con \texttt{ch\_hit="1",ch\_hitm="0"} e porta lo stato della via interessata a MESI\_S("1").
 
-Nel terzo caso, evidenziato in verde in Fig.\ref{fig:snoop1}, si effetua uno snoop su di un blocco che \`e presente in cache in stato MESI\_M("11"), la cache  quindi:  
+Nel terzo caso, evidenziato in verde in Fig.\ref{fig:snoop1}, si effetua uno snoop su di un blocco che \`e presente in cache in stato MESI\_M("11"). La cache  quindi deve:  
 \begin{itemize}
-\item \texttt{}porter\`a \texttt{ch\_hit="1" e ch\_hitm="1"}
-\item \texttt{}effettuer\`a la scrittura in RAM del blocco contenuto in cache
-\item \texttt{}porter\`a lo stato della via in MESI\_S("1")
+\item \texttt{}portare \texttt{ch\_hit="1" e ch\_hitm="1"}
+\item \texttt{}forzare la scrittura in RAM del blocco contenuto in cache
+\item \texttt{}portare lo stato della via in MESI\_S("1")
 \end{itemize}
 
 \begin{figure}[h!]
@@ -138,7 +137,7 @@ Il risultato sar\`a un file \texttt{<nome\_file>.dlx} che a sua volta dovr\`a es
 
  per avere un file  \texttt{<nome\_file>.dlx.txt} contenente il codice in un formato direttamente inseribile all'interno del progetto del DLX.\\
 
-In particolare quest'ultimo dovr\`a essere inserito nel file \texttt{Fetch\_Stage.vhd} all'interno dell'array che sostituisce la EPROM contenente le istruzioni in linguaggio macchina, da dare in pasto al processore:\\
+In particolare quest'ultimo dovr\`a essere inserito nel file \texttt{Fetch\_Stage.vhd} all'interno dell'array che rappresenta la EPROM contenente le istruzioni in linguaggio macchina, da dare fare eseguire al processore:\\
 
 \lstset{language=VHDL, caption=Inserimento del codice nella memoria istruzioni, label=DescriptiveLabel, breaklines=true, basicstyle=\small, showspaces=false, showtabs=false, stringstyle=\ttfamily, showstringspaces=false,  tabsize=3} % basicstyle=\tiny\ttfamily}
 
@@ -209,7 +208,7 @@ X"FFFFFFFF",  --NOP
 
 \end{lstlisting} 
 
-La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un alea si dato. si nota che l'istruzione \texttt{X"20620001"} nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla cache nell'istruzione presente nello stadio di MEM, quindi la Forwarding Unit fornir\`a il dato presente nello stadio di MEM attraverso i segnali \texttt{mem\_dest\_register} e \texttt{mem\_dest\_register\_data} allo stadio di EXE.\\
+La Forwarding Unit viene sfruttata nel quinto ciclo di clock per evitare un'alea si dato di tipo RAW. Si nota che l'istruzione \texttt{X"20620001"} nello stadio di EX vuole leggere il valore contenuto in r3 per incrementarlo di uno ma \`e appena stato caricato dalla cache dall'istruzione (lw r3,0(r1)) presente nello stadio di MEM, pertanto il dato non è ancora disponibile nel Register File e vi sarebbe un'alea di dato. Per far fronte a ci\`o, la Forwarding Unit fornir\`a il dato presente nello stadio di MEM attraverso i segnali \texttt{mem\_dest\_register} e \texttt{mem\_dest\_register\_data} allo stadio di EXE.\\
 
 \begin{figure}[h!]
 \centering

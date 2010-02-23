@@ -23,7 +23,7 @@ Il TAG consente di identificare univocamente una linea all'interno di un un sott
 L'INDEX individua immediatamente il SET all'interno del quale \`e possibile recupeare la linea corrente tramite il confronto del TAG.
 In questo modo si limita il numero di confronti tra TAG accettando il fatto che ogni linea possa appartenere ad un singolo set.
 %Ogni linea pu\`o essere memorizzata in una qualsiasi delle vie dello slot individuato dall'INDEX.
-La parte meno significativa dell'indirizzo rappresenta l'OFFSET che consente di individuare il dato all'interno di una linea.
+La parte meno significativa dell'indirizzo rappresenta l'OFFSET che consente di individuare il dato all'interno di una linea.\\
 
 Per garantire maggiore flessibilit\`a si \`e scelto di parametrizzare alcune delle caratteristiche statiche della cache, quali ad esempio:
 \begin{itemize}
@@ -77,7 +77,7 @@ In particolare sono presenti i seguenti segnali:
 
 Per quanto riguarda gli scambi di dati tra processore e memoria cache, si ipotizza che siano sempre lette e scritte parole di lunghezza fissa a 32 bit.\\
 
-Anche se la memoria cache progettata non verr\`a impiegata in sistemi multimaster, si \`e comunque deciso di affrontare alcune delle problematiche inerenti alla presenza di un controllore di memoria. Tramite l'opportuna interfaccia \`e ad esempio possibile effettuare l'invalidazione delle linee e lo snooping dei dati presenti in cache.\\
+Anche se la memoria cache progettata non verr\`a impiegata in sistemi multimaster, si \`e comunque deciso di affrontare alcune delle problematiche derivanti dalla presenza di un controllore di memoria. Tramite l'opportuna interfaccia \`e ad esempio possibile effettuare l'invalidazione delle linee e lo snooping dei dati presenti in cache.\\
 
 L'interfaccia verso il controllore di memoria, mostrata in Fig. \ref{fig:int_cnt}, consente di testare e modificare lo stato delle linee.\\
 
@@ -130,7 +130,7 @@ Tale interfaccia, mostrata in Fig. \ref{fig:int_deb}, non \`e indispensabile per
 \label{fig:int_deb}
 \end{figure}
 
-
+Il segnale \texttt{ch\_debug\_cache} rende visibile all'esterno la struttura dati in cui sono memorizzate le informazioni contenute in cache. Le strutture dati saranno descritte nel dettaglio nel capitolo successivo.
 
 
 

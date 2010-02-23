@@ -4,10 +4,11 @@
 \markboth{Conclusioni}{Conclusioni}
 \addcontentsline{toc}{chapter}{Conclusioni}
 
-Durante l'attivit\`a progettuale abbiamo realizzato una cache per il processore DLX.\\
-In particolare si \`e realizzata una cache di tipo set-associative con numero di vie e dimensione configurabili. Il componente \`e stato realizzato in VHDL ed \`e testato individualmente sfruttando l'ambiente integrato di Xilinx.\\
+Durante l'attivit\`a progettuale \`e stata realizzata una memoria cache per il processore DLX.\\
+In particolare si \`e realizzata una cache di tipo set-associative con numero di vie e dimensione configurabili. Il componente \`e stato realizzato in VHDL ed \`e testato sfruttando l'ambiente integrato di Xilinx.\\
 
-La cache \`e stata poi integrata all'interno del progetto del DLX. Per verificare il corretto funzionamento della nuova versione del processore si sono scritti diversi programmi in assembler che accedono ai dati presenti nella cache realizzata.	\\
+La cache \`e stata poi integrata all'interno del progetto del DLX. Per verificare il corretto funzionamento della nuova versione del processore sono stati scritti diversi programmi in assembler che accedono ai dati presenti nelle memorie.\\
 
-Infine si \`e analizzato il funzionamento della Block RAM presente all'interno dell'FPGA, grazie alla quale \`e possibile realizzare una RAM di dimensioni molto superiori.
+Infine si \`e analizzato il funzionamento della Block RAM presente all'interno dell'FPGA, la quale pu\`o essere sfruttata per il salvataggio di notevoli quantit\`a di dati.\\
 
+Per quanto riguarda le performance non sono stati ottenuti significativi miglioramenti rispetto al progetto originale del DLX poich\'e quest'ultimo integrava la RAM direttamente all'interno dello stadio di MEM. Tuttavia grazie alla BlockRAM integrata nell'FPGA \`e ora possibile realizzare un DLX dotato di una memoria RAM molto superiore rispetto al progetto iniziale.

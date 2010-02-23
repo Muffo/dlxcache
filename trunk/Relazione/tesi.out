@@ -1,5 +1,4 @@
 \BOOKMARK [0][-]{chapter*.2}{Introduzione}{}
-\BOOKMARK [1][-]{section.0.1}{Obiettivi del progetto}{chapter*.2}
 \BOOKMARK [0][-]{chapter.1}{Caratteristiche della memoria cache}{}
 \BOOKMARK [1][-]{section.1.1}{Politica di rimpiazzamento}{chapter.1}
 \BOOKMARK [1][-]{section.1.2}{Struttura e interfacce}{chapter.1}
@@ -27,15 +26,14 @@
 \BOOKMARK [3][-]{section*.4}{Fase 2: Scritture}{subsection.4.1.1}
 \BOOKMARK [3][-]{section*.5}{Fase 3: Letture di verifica}{subsection.4.1.1}
 \BOOKMARK [2][-]{subsection.4.1.2}{Cache\137test\137ReadAndReplacement.vhd}{section.4.1}
-\BOOKMARK [3][-]{section*.6}{Fase 1: Letture d' inizializzazione}{subsection.4.1.2}
+\BOOKMARK [3][-]{section*.6}{Fase 1: Letture di inizializzazione}{subsection.4.1.2}
 \BOOKMARK [3][-]{section*.7}{Fase 2: Invalidazione}{subsection.4.1.2}
 \BOOKMARK [3][-]{section*.8}{Fase 3: Verifica meccanismo contatori}{subsection.4.1.2}
 \BOOKMARK [2][-]{subsection.4.1.3}{Cache\137test\137snoop.vhd}{section.4.1}
 \BOOKMARK [1][-]{section.4.2}{Assembler per DLX}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.2.1}{Dal codice all'escuzione}{section.4.2}
-\BOOKMARK [2][-]{subsection.4.2.2}{Codice assembler}{section.4.2}
-\BOOKMARK [3][-]{section*.9}{provaReplacement123}{subsection.4.2.2}
-\BOOKMARK [3][-]{section*.10}{provaFU}{subsection.4.2.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{provaReplacement123.vhd}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.3}{provaFU.vhd}{section.4.2}
 \BOOKMARK [0][-]{chapter.5}{Block RAM}{}
 \BOOKMARK [1][-]{section.5.1}{Caratteristiche e segnali della Block Ram}{chapter.5}
 \BOOKMARK [1][-]{section.5.2}{Configurazione della Block Ram}{chapter.5}
@@ -46,11 +44,11 @@
 \BOOKMARK [1][-]{section.5.6}{Progetto d'esempio: BlockRam\137cmp}{chapter.5}
 \BOOKMARK [2][-]{subsection.5.6.1}{Specifiche del progetto}{section.5.6}
 \BOOKMARK [2][-]{subsection.5.6.2}{Implementazione}{section.5.6}
-\BOOKMARK [3][-]{section*.11}{ram\137cache}{subsection.5.6.2}
-\BOOKMARK [3][-]{section*.12}{blockram\137sequential\137access}{subsection.5.6.2}
-\BOOKMARK [3][-]{section*.13}{read\137byte}{subsection.5.6.2}
-\BOOKMARK [3][-]{section*.14}{end\137blockram\137access}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.9}{ram\137cache}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.10}{blockram\137sequential\137access}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.11}{read\137byte}{subsection.5.6.2}
+\BOOKMARK [3][-]{section*.12}{end\137blockram\137access}{subsection.5.6.2}
 \BOOKMARK [2][-]{subsection.5.6.3}{Testbench}{section.5.6}
 \BOOKMARK [1][-]{section.5.7}{Considerazioni sul progetto d'esempio}{chapter.5}
-\BOOKMARK [0][-]{chapter*.15}{Conclusioni}{}
-\BOOKMARK [0][-]{chapter*.16}{Bibliografia}{}
+\BOOKMARK [0][-]{chapter*.13}{Conclusioni}{}
+\BOOKMARK [0][-]{chapter*.14}{Bibliografia}{}

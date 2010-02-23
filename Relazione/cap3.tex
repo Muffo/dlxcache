@@ -5,7 +5,7 @@ In questo capitolo saranno descritte le problematiche affrontate durante l'integ
 
 \section{Modifiche al Memory\_stage}
 
-Nella realizzazione del componente si \`e supposto che gli accessi alla cache avvengano in un unico ciclo di clock, così facendo si \`e potuto evitare di modificare la pipeline del DLX per inserire degli stalli ogni qualvolta si trovasse nello stadio di memory una  operzione di load o una di store. Le modifiche da apportare al dlx si sono rivelate in questa maniera pi\`u esigue e si sono concentrate nel solo stadio di memory essendo la nostra una cache dati.
+Nella realizzazione del componente si \`e supposto che gli accessi alla cache avvengano in un unico ciclo di clock; cos\`{\i} facendo si \`e potuto evitare di modificare la pipeline del DLX per inserire degli stalli ogni qualvolta si trovasse nello stadio di memory una  operzione di load o una di store. Le modifiche da apportare al dlx si sono rivelate in questa maniera pi\`u esigue e si sono concentrate nel solo stadio di memory essendo la nostra una cache dati.
 
 In particolare sono stati aggiunti al componente \texttt{Memory\_Stage} i seguenti segnali:\\
 

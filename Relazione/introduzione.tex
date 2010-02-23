@@ -8,30 +8,28 @@
 %- Mahatma Mohandas Karamchand Gandhi -\\
 %\end{small}\end{flushright}
 
-La necessit\`a di introdurre cache per un processore deriva dal noto problema del "collo di bottiglia" rappresentato dall'accesso a dispositivi di memoria.
-Un processore durante il suo funzionamento tende ad accedere in scrittura o a reperire dati in lettura  provenienti dalla memoria a valle e tale operazione richiede tipicamente diversi cicli di clock che costringono il processore (pi\`u veloce della memoria) ad attendere il dato.
+% La necessit\`a di introdurre cache per un processore deriva dal noto problema del "collo di bottiglia" rappresentato dall'accesso a dispositivi di memoria.
+Un processore durante il suo funzionamento accede in scrittura o in lettura ai dati presenti nella memoria a valle: tale operazione richiede tipicamente diversi cicli di clock che costringono il processore (pi\`u veloce della memoria) ad attendere il dato.
 Ci\`o comporta l'introduzione di cicli di wait che ovviamente causano un peggioramento delle performace del processore, il quale attende che la memoria gli presenti il dato richiesto segnalato dal segnale di ready.
 
-Per superare tale problema si utilizzano pertanto delle memorie cache, vicine al processore, di piccole dimensioni e molto veloci (tanto che possono avere tempi d'accesso simili a quelli dei registri interni al processore) da cui vengono reperiti i dati necessari all'esecuzione, consentendo in caso di HIT, ovvero nel caso in cui il dato si trovi in cache, di recuperarlo quasi senza ritardo.
+Per superare tale problema si utilizzano pertanto delle memorie cache, vicine al processore, di piccole dimensioni e molto veloci (tanto che possono avere tempi d'accesso simili a quelli dei registri interni al processore) da cui vengono reperiti i dati necessari all'esecuzione, consentendo in caso di HIT, ovvero nel caso in cui il dato si trovi in cache, di recuperarlo quasi senza ritardo.\\
 
-Le cache si posizionano nella gerarchia delle memorie (insieme ai registri) tra i livelli pi\`u prossimi al processore e ci\`o comporta da un lato la rapidit\`a nell'accesso e dall'altro le dimensioni limitate che fanno s\`i che una cache contenga un subset delle linee di memoria del dispositivo a valle (memoria o un livello 
-superiore di cache se presente). 
+Le cache si posizionano nella gerarchia delle memorie (insieme ai registri) tra i livelli pi\`u prossimi al processore e ci\`o comporta da un lato la rapidit\`a nell'accesso e dall'altro le dimensioni limitate che fanno s\`i che una cache contenga un subset delle linee di memoria del dispositivo a valle (memoria o un livello superiore di cache se presente).
 
-Pertanto quando si accede a una cache possono capitare due casi:
+Pertanto quando si accede a una cache possono verificarsi due casi:
 \begin{enumerate}
 \item il dato si trova nella cache (HIT);
 \item il dato non \`e presente e deve essere recuperato da un dispositivo a valle (MISS). 
 \end{enumerate}
 
-Ovviamente in caso di MISS si deve pagare un costo temporale per il reperimento del dato assente, detto "miss penalty", dato dalla somma del tempo d'accesso al dispositivo a valle e dal tempo di trasferimento della linea col dato cercato.
+Ovviamente in caso di MISS si deve pagare un costo temporale per il reperimento del dato assente, detto \emph{miss penalty}, dato dalla somma del tempo d'accesso al dispositivo a valle e dal tempo di trasferimento della linea col dato cercato.
 
 Ciononnostante, \`e dimostrato che l'hit rate e quindi l'efficienza delle cache \`e tipicamente molto alta (oltre il 95\%) grazie alla validit\`a del Principio di Localit\`a spaziale e temporale, per il quale un programma in esecuzione tende ad eseguire temporalmente istruzioni eseguite di recente e ad accedere a dati acceduti di recente.
 Quindi sulla base di tali considerazioni, l'uso di cache contenenti le linee di memoria pi\`u recentemente accedute (working set) consente di migliorare notevolmente il tempo di reperimento dei dati necessari all'esecuzione, evitando quindi i ritardi che si avrebbero per ogni accesso diretto in memoria.
 
-Abbiamo scelto questo progetto per approfondire le tematiche e le problematiche legate alla progettazione di un componente cache da affiancare al processore DLX visto a lezione.
+Abbiamo scelto questo progetto per approfondire le tematiche e le problematiche legate alla progettazione di un componente cache da affiancare al processore DLX visto a lezione.\\
 
-\section{Obiettivi del progetto}
-L'attivit\`a di progetto svolta si prefigge i seguenti obiettivi
+In particolare l'attivit\`a di progetto svolta si prefigge i seguenti obiettivi
 
 %+++ elenco numerato
 \begin{enumerate}

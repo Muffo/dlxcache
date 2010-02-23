@@ -340,30 +340,37 @@ Il process \texttt{read\_byte} si occupa di tale problema ed \`e realizzato come
 \subsection{end\_blockram\_access}
 Il process \texttt{end\_blockram\_access} viene risvegliato ogni qual volta si attiva il segnale \texttt{line\_ready} col quale il process \texttt{blockram\_sequential\_access} avvisa che il trasferimento della linea \`e stato completato. La responsabilit\`a di tale process \`e quindi di attivare il segnale di \texttt{ready} e in caso di lettura fornire la linea letta all'esterno portandola in uscita sul bus dati \texttt{bdata\_out}. Lo stesso, a fini didattici, accade anche in caso di scrittura al fine di testare il funzionamento della Block Ram con le diverse WRITE\_MODE.\\
 
-\section{Testbench}
-Per verificare il funzionamento del componente abbiamo realizzato un semplice testbench nel quale si scrive all'indirizzo 0000h della Block Ram la linea di dimensione configurabile tramite parametro (8 byte nel nostro esempio) passata in ingresso sul bus \texttt{bdata\_in}.\\
+\subsection{Testbench}
+Per verificare il funzionamento del componente abbiamo realizzato un semplice testbench nel quale si scrive all'indirizzo 0000h della Block Ram la linea di dimensione configurabile tramite parametro (8 byte nel nostro esempio) passata in ingresso sul bus \texttt{bdata\_in}.
+Successivamente si effettua una lettura allo stesso indirizzo per verificare l'effettiva scrittura del dato in memoria.\\
+Al fine di verificare le diverse modalit\`a di funzionamento in scrittura della Block Ram descritte in precedenza, abbiamo provato lo stesso test sul componente configurando le tre differenti politiche di scrittura possibili.\\
 
-La modalit\`a di scrittura prescelta per l'esempio \`e la READ\_FIRST, la quale prevede a ogni scrittura di un byte che si porti contemporaneamente in output alla Block Ram il dato che verr\`a sovrascritto. Tale scelta oltre a testare le caratteristiche di funzionamento in scrittura della Block Ram, consente anche di verificare la presenza del contenuto iniziale settato nella Block Ram in fase di inizializzazione.\\
-Successivamente si effettua una lettura allo stesso indirizzo per verificare l'effettiva scrittura del dato in memoria. Il diagramma della simulazione \`e mostrato in Fig.\ref{fig:sim-blockram}.
-
+Il primo caso \`e quello di scrittura in modalit\`a READ\_FIRST in Fig.\ref{fig:sim-rf}. Ovvero in questo caso l'operazione di scrittura di una linea sulla Block Ram, oltre all'attivazione del segnale di ready, comporta in uscita sul bus dati \texttt{bdata\_out} una linea di memoria il cui contenuto sono gli 8 byte (nel cerchio in giallo) presenti sulla Block Ram che verranno sovrascritti.\\
+Tale modalit\`a consente quindi di verificare anche la corretta inizializzazione del contenuto della Block Ram fatta all'interno della sezione generic(...).
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\textwidth]{img/blockRam/scritturaLettura.jpg}
-\caption{Simulazione di scrittura seguita da lettura linea allo stesso indirizzo sulla Block Ram.}
-\label{fig:sim-blockram}
+\includegraphics[width=\textwidth]{img/blockRam/test_read_first.jpg}
+\caption{Simulazione con WRITE\_MODE = READ\_FIRST}
+\label{fig:sim-rf}
 \end{figure}
 
-Da notare (Fig.\ref{fig:sim-blockram2}) \`e che dopo l'operazione di scrittura della linea in Block Ram, oltre all'attivazione del segnale di ready, si porta in uscita sul bus dati di output \texttt{bdata\_out} una linea di memoria il cui contenuto sono gli 8 byte presenti sulla Block Ram che vengono sovrascritti dalla sequenza di scritture, in accordo con la politica READ\_FIRST con la quale la Block Ram \`e stata configurata.
-
+Il secondo caso (in Fig.\ref{fig:sim-wf}) \`e caratterizzato dalla politica di scrittura di default, ovvero la WRITE\_FIRST. Tale politica come mostra la simulazione, consente durante un ciclo di scrittura di avere contemporaneamente la scrittura del dato in ingresso sia in memoria all'indirizzo specificato sia sui latch di output.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=\textwidth]{img/blockRam/trasferimentoLinea.jpg}
-\caption{Scrittura e Lettura in Block Ram.}
-\label{fig:sim-blockram2}
+\includegraphics[width=\textwidth]{img/blockRam/test_write_first.jpg}
+\caption{Simulazione con WRITE\_MODE = WRITE\_FIRST}
+\label{fig:sim-wf}
 \end{figure}
 
-\section{Considerazioni}
-Il componente BlockRam\_cmp rappresenta una memoria RAM a tutti gli effetti che prevede dei tempi d'accesso non nulli sia in scrittura che in lettura. Ci\`o comporta la necessit\`a di tenere in conto i tempi d'accesso alla memoria al fine di segnalare opportunamente (segnale di \texttt{ready}) alla cache quando possa leggere il dato richiesto (nel caso del nostro progetto che prevede il ready in ingresso alla cache per la sincronizzazione).\\
+Infine in Fig.\ref{fig:sim-nc} abbiamo il caso di scrittura in modalit\`a NO\_CHANGE che non comporta alcun cambiamento del contenuto dei latch in output in caso di scrittura che rimane al valore nullo di default dal momento che non erano state fatte letture in precedenza.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth]{img/blockRam/test_no_change.jpg}
+\caption{Simulazione con WRITE\_MODE = NO\_CHANGE}
+\label{fig:sim-nc}
+\end{figure}
 
-Lo stesso vale ovviamente per il processore DLX che qualora dovesse gestire tali problematiche legate alle temporizzazioni, deve gestire gli stati di wait e il segnale di \texttt{ready} in ingresso in modo da essere informato del completamento di un ciclo d'accesso alla memoria.\\
-L'utilizzo del \texttt{ready} significherebbe dover introdurre esternamente un contatore che, a ogni accesso in memoria sulla base dei tempi d'accesso e dei ritardi presenti sulla rete, conti quanti stati di wait sono necessari al fine di completare l'accesso e generi opportunamente il ready da inviare al processore. Dal punto di vista dell'implementazione interna del DLX ci\`o comporterebbe la necessit\`a di stallare la pipeline qualora il ready non fosse asserito.
+\section{Considerazioni sul progetto d'esempio}
+Il componente BlockRam\_cmp rappresenta una memoria RAM a tutti gli effetti che 
+prevede dei tempi d'accesso non nulli sia in scrittura che in lettura. Ci\`o comporta la necessit\`a di tenere in conto i tempi d'accesso alla memoria al fine di segnalare opportunamente (segnale di \texttt{ready}) alla cache quando possa leggere il dato richiesto (nel caso del nostro progetto che prevede il ready in ingresso alla cache per la sincronizzazione). Lo stesso vale ovviamente per il processore DLX che qualora dovesse gestire tali problematiche legate alle temporizzazioni, deve gestire gli stati di wait e il segnale di \texttt{ready} in ingresso in modo da essere informato del completamento di un ciclo d'accesso alla memoria.\\
+ L'utilizzo del \texttt{ready} significherebbe dover introdurre esternamente un contatore che, a ogni accesso in memoria sulla base dei tempi d'accesso e dei ritardi presenti sulla rete, conti quanti stati di wait sono necessari al fine di completare l'accesso e generi opportunamente il ready da inviare al processore. Dal punto di vista dell'implementazione interna del DLX ci\`o comporterebbe la necessit\`a di stallare la pipeline qualora il ready non sia asserito.

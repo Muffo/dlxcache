@@ -47,8 +47,8 @@ All'interno di \texttt{Cache\_lib.vhd} sono poi stati definiti i seguenti tipi d
 \begin{itemize}
   \item \texttt{data\_line}: contiene i dati per una linea della cache, la cui dimensione \`e calcolata in base al numero di bit di offset;
   \item \texttt{cache\_line}: record contenente le informazioni su dati e stato di una linea;
-  \item \texttt{set\_ways}: array di \texttt{NWAY} linee che compongono una via;
-  \item \texttt{cache\_type}: array di vie, costituisce l'intera cache
+  \item \texttt{set\_ways}: array di \texttt{NWAY} vie che compongono un set al cui interno saranno collocate le linee;
+  \item \texttt{cache\_type}: array di set il cui numero dipende dal numero di bit di index e costituisce l'intera cache.
 \end{itemize}
 
 Per ogni \texttt{cache\_line} si tiene quindi traccia di:
@@ -111,7 +111,7 @@ Per quanto riguarda invece la scrittura, si eseguono le seguenti operazioni:
   \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
   \item Scrittura del dato presente in \texttt{ch\_bdata\_in} nella cache;
   \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
-  \item Aggiornamento del bit di stato ed eventuale write-through.
+  \item Aggiornamento dei bit di stato ed eventuale write-through nel caso di scrittura su linea in stato MESI\_S.
 \end{enumerate}
 
 
@@ -206,7 +206,7 @@ Descrizione:
 Applica la politica di invecchiamento aggiornando i contatori, in particolare:
 \begin{enumerate}
   \item incrementa i contatori di valore pi\`u basso della via corrente specificata da \texttt{hit\_way}
-  \item resetta il contatore della via corrente
+  \item resetta il contatore della via corrente su cui c'\`e hit
 \end{enumerate}	
 
 \subsection{cache\_inv\_on} %(inv\_index: in, inv\_way: in)}
@@ -222,7 +222,7 @@ Descrizione:
 Applica la politica di invecchiamento aggiornando i contatori, in particolare:
 \begin{enumerate}
   \item decrementa i contatori di valore pi\`u alto della via corrente specificata da \texttt{inv\_way}
-  \item porta al valore massimo il contatore della via corrente
+  \item porta al valore massimo il contatore della via corrente da invalidare
 \end{enumerate}	
 	
 
@@ -241,7 +241,7 @@ Parametri di output:
 
 Descrizione:	
 \begin{enumerate}
-  \item Verifica se il dato \`e in cache, cio\`e se esiste una linea con tag uguale a quello specificato il cui stato \`e diverso da \texttt{MESI\_I}
+  \item Verifica se il dato \`e in cache, cio\`e se esiste all'interno del set individuato dall'index una linea con tag uguale a quello specificato il cui stato \`e diverso da \texttt{MESI\_I}
   \item Se il dato non \`e presente restituisce \texttt{selected\_way = -1}
   \item Se il dato \`e presente restituisce il numero della via
 \end{enumerate}

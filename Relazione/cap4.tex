@@ -52,7 +52,7 @@ Nella terza scrittura , evidenziata in azzurro nella figura\ref{fig:write2},  a 
 \subsubsection{Fase 3: Letture di verifica}
 In questa ultima fase vengono eseguite delle letture.
 Nel primo caso due letture per verificare i dati scritti nelle prime due scritture.\\
-Nel secondo caso(riportato in figura \ref{fig:write3})) si obbliga la cache ad effetture un replacement, in modo da vericare che la cache esegua correttamente il salvataggio in RAM e poi viene ricaricato il blocco originariamente modificato. Consentendoci di verificare immediatamente che effettivamente il dato che ci viene restituito è quello che era stato originariamente scritto in cache.
+Nel secondo caso(riportato in figura \ref{fig:write3})) si obbliga la cache ad effetture un replacement, in modo da vericare che la cache esegua correttamente il salvataggio in RAM e poi viene ricaricato il blocco originariamente modificato. Consentendoci di verificare immediatamente che il dato che ci viene restituito è quello che era stato originariamente scritto in cache.
 
 \begin{figure}[h!]
 \centering
@@ -65,8 +65,8 @@ Nella figura\ref{fig:write3} si nota inoltre la sequenza di segnali che vengono 
 
 \subsection{Cache\_test\_ReadAndReplacement.vhd}
 
-Questo file ha in comune, come tutti i file di testbench che si vedranno in questa sezione, la dichiarazione dei componenti, il portmap e la fase di reset iniziale poi si compone di 3 fasi, con le quali si verifica il corretto funzionamento del meccanismo dei contatori per la politica di rimpiazzamento durante una serie di letture.
-Si analizzer\`a infine anche il caso in cui la cache subisca un invalidazione di una linea.
+Questo testbench prevede 3 fasi, con le quali si verifica il corretto funzionamento del meccanismo a contatori per tener traccia di quanto recentemente si \`e acceduti ad una linea di cache, al fine di gestire la politica di rimpiazzamento durante una serie di letture.
+Si analizzer\`a infine anche il caso in cui la cache subisca l'invalidazione di una linea.
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
 Nella prima fase si effettuano 8 letture per riempire tutta la cache.

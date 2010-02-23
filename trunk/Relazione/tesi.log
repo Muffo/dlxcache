@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  23 FEB 2010 17:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  23 FEB 2010 19:14
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -368,28 +368,28 @@ LaTeX Warning: Label `DescriptiveLabel' multiply defined.
 )
 \openout1 = `tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 173.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 173.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 175.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 175.
 
  (/usr/local/texlive/2009/texmf-dist/tex/latex/cbfonts/lgrcmr.fd
 File: lgrcmr.fd 2008/01/04 v1.0 Greek Computer Modern
 )
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Try loading font information for OT1+pag on input line 173.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Try loading font information for OT1+pag on input line 175.
 
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pag.fd
@@ -408,7 +408,7 @@ File: ot1pag.fd 2001/06/04 font definitions for OT1/pag.
 \MPnumerator=\count126
 \everyMPtoPDFconversion=\toks26
 )
-Package hyperref Info: Link coloring OFF on input line 173.
+Package hyperref Info: Link coloring OFF on input line 175.
  (/usr/local/texlive/2009/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -417,8 +417,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 173.
-LaTeX Info: Redefining \pageref on input line 173.
+LaTeX Info: Redefining \ref on input line 175.
+LaTeX Info: Redefining \pageref on input line 175.
 
 (./tesi.out) (./tesi.out)
 \@outlinefile=\write3
@@ -426,91 +426,91 @@ LaTeX Info: Redefining \pageref on input line 173.
 
 \AtBeginShipoutBox=\box35
 \c@lstlisting=\count128
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 173.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 175.
 
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sl' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/sc' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/sc' tried instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 173.
+(Font)              using `OT1/pcr/m/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/it' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 173.
+(Font)              using `OT1/pcr/sb/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sl' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 173.
+(Font)              using `OT1/pcr/sb/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/sb/sc' undefined
-(Font)              using `OT1/pcr/sb/n' instead on input line 173.
+(Font)              using `OT1/pcr/sb/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 173.
+(Font)              using `OT1/pcr/m/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/it' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 173.
+(Font)              using `OT1/pcr/c/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sl' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 173.
+(Font)              using `OT1/pcr/c/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/c/sc' undefined
-(Font)              using `OT1/pcr/c/n' instead on input line 173.
+(Font)              using `OT1/pcr/c/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/n' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 173.
+(Font)              using `OT1/pcr/m/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/it' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 173.
+(Font)              using `OT1/pcr/l/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sl' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 173.
+(Font)              using `OT1/pcr/l/n' instead on input line 175.
 
 
 LaTeX Font Warning: Font shape `OT1/pcr/l/sc' undefined
-(Font)              using `OT1/pcr/l/n' instead on input line 173.
+(Font)              using `OT1/pcr/l/n' instead on input line 175.
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/m/it' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/bx/ui' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/it' tried instead on input line 175.
 LaTeX Font Info:    Font shape `OT1/pcr/b/it' in size <12> not available
-(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 173.
+(Font)              Font shape `OT1/pcr/b/sl' tried instead on input line 175.
 
 LaTeX Font Warning: Font shape `OT1/pcr/m/In' undefined
-(Font)              using `OT1/pcr/m/n' instead on input line 173.
+(Font)              using `OT1/pcr/m/n' instead on input line 175.
 
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/b/n' tried instead on input line 193.
+(Font)              Font shape `OT1/pag/b/n' tried instead on input line 195.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/pag/db/n' tried instead on input line 193.
+(Font)              Font shape `OT1/pag/db/n' tried instead on input line 195.
 [1
 
 
@@ -532,21 +532,22 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [3
 
-])
+] [4])
 \tf@toc=\write4
 \openout4 = `tesi.toc'.
 
- [4]
-(./introduzione.tex
+
+[5] (./introduzione.tex [6
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <12> not available
 (Font)              Font shape `OT1/pag/m/sl' tried instead on input line 25.
-[5
-
-
+[7
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
@@ -559,9 +560,9 @@ Overfull \hbox (6.75308pt too wide) in paragraph at lines 37--38
 i un com-po-nent VHDL
  []
 
-) (./cap1.tex [6]
+) (./cap1.tex [8]
 Capitolo 1.
-<img/set-associative.jpg, id=310, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=319, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg>
@@ -572,7 +573,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--27
 
 Underfull \vbox (badness 2384) has occurred while \output is active []
 
- [7
+ [9
 
 
 
@@ -588,19 +589,19 @@ LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <17.28> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 36.
- [8]
+ [10]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/cache/general.png, id=323, 1002.74625pt x 811.03pt>
+<img/cache/general.png, id=331, 1002.74625pt x 811.03pt>
 File: img/cache/general.png Graphic file (type png)
 
 <use img/cache/general.png>
 Underfull \vbox (badness 2005) has occurred while \output is active []
 
- [9 <./img/cache/general.png>] <img/cache/dlx.png, id=332, 1002.74625pt x 766.8
-65pt>
+ [11 <./img/cache/general.png>] <img/cache/dlx.png, id=340, 1002.74625pt x 766.
+865pt>
 File: img/cache/dlx.png Graphic file (type png)
 
 <use img/cache/dlx.png>
@@ -613,12 +614,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
-[10 <./img/cache/dlx.png>]
+[12 <./img/cache/dlx.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<img/cache/control.png, id=340, 999.735pt x 662.475pt>
+<img/cache/control.png, id=348, 999.735pt x 662.475pt>
 File: img/cache/control.png Graphic file (type png)
 
 <use img/cache/control.png>
@@ -626,19 +627,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-[11 <./img/cache/control.png>]
-<img/cache/ram.png, id=348, 1002.74625pt x 766.865pt>
+[13 <./img/cache/control.png>]
+<img/cache/ram.png, id=357, 1002.74625pt x 766.865pt>
 File: img/cache/ram.png Graphic file (type png)
  <use img/cache/ram.png>
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
-[12 <./img/cache/ram.png>]
-<img/cache/debug.png, id=356, 1002.74625pt x 766.865pt>
+[14 <./img/cache/ram.png>]
+<img/cache/debug.png, id=365, 1002.74625pt x 766.865pt>
 File: img/cache/debug.png Graphic file (type png)
 
-<use img/cache/debug.png>) (./cap2.tex [13 <./img/cache/debug.png>] [14
+<use img/cache/debug.png>) (./cap2.tex [15 <./img/cache/debug.png>] [16
 
 
 ]
@@ -661,10 +662,10 @@ File: omlpag.fd
 )
 LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 28.
- [15
+ [17
 
 ]
-<img/cacheType.png, id=387, 1002.74625pt x 514.92375pt>
+<img/cacheType.png, id=395, 1002.74625pt x 514.92375pt>
 File: img/cacheType.png Graphic file (type png)
 
 <use img/cacheType.png>
@@ -682,12 +683,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
-[16]
+[18]
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <14.4> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 77.
- [17 <./img/cacheType.png>]
+ [19 <./img/cacheType.png>]
 Overfull \hbox (3.79086pt too wide) in paragraph at lines 95--96
 []\OT1/pcr/l/n/12 rdwr[]-do-ne\OT1/pag/m/n/12 : se-gna-le in-ter-no che in-di-c
 a, in ca-so di write-through,
@@ -698,7 +699,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
@@ -708,7 +709,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--139
 
  []
 
-[19]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
@@ -718,22 +719,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-<img/cache/collegamenti1.png, id=433, 1002.74625pt x 729.72626pt>
+<img/cache/collegamenti1.png, id=441, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti1.png Graphic file (type png)
 
 <use img/cache/collegamenti1.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20] <img/cache/collegamenti2.png, id=447, 1002.74625pt x 729.72626pt>
+[22] <img/cache/collegamenti2.png, id=455, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti2.png Graphic file (type png)
 
 <use img/cache/collegamenti2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21 <./img/cache/collegamenti1.png>] [22 <./img/cache/collegamenti2.png>])
-(./cap3.tex [23] [24
+[23 <./img/cache/collegamenti1.png>] [24 <./img/cache/collegamenti2.png>])
+(./cap3.tex [25] [26
 
 
 ]
@@ -743,7 +744,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[25
+[27
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
@@ -755,18 +756,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-<img/DLX/old_dlx.png, id=488, 1002.74625pt x 489.83pt>
+<img/DLX/old_dlx.png, id=496, 1002.74625pt x 489.83pt>
 File: img/DLX/old_dlx.png Graphic file (type png)
 
 <use img/DLX/old_dlx.png>
-<img/DLX/new_dlx.png, id=489, 1002.74625pt x 807.015pt>
+<img/DLX/new_dlx.png, id=497, 1002.74625pt x 807.015pt>
 File: img/DLX/new_dlx.png Graphic file (type png)
 
 <use img/DLX/new_dlx.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26 <./img/DLX/old_dlx.png>]
+[28 <./img/DLX/old_dlx.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 45--49
 
  []
@@ -774,7 +775,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--49
 
 Underfull \vbox (badness 1297) has occurred while \output is active []
 
- [27 <./img/DLX/new_dlx.png>]
+ [29 <./img/DLX/new_dlx.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
@@ -789,7 +790,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-[28]) (./cap4.tex [29] [30
+[30]) (./cap4.tex [31] [32
 
 
 ]
@@ -805,34 +806,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-[31
+[33
 
-] <img/testbench/ReadAndWriteFase1.JPG, id=536, 845.40843pt x 322.95656pt>
+] <img/testbench/ReadAndWriteFase1.JPG, id=544, 845.40843pt x 322.95656pt>
 File: img/testbench/ReadAndWriteFase1.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase1.JPG> [32 <./img/testbench/ReadAndWriteFase
+<use img/testbench/ReadAndWriteFase1.JPG> [34 <./img/testbench/ReadAndWriteFase
 1.JPG>]
-<img/testbench/ReadAndWriteFase2.JPG, id=545, 883.04906pt x 415.5525pt>
+<img/testbench/ReadAndWriteFase2.JPG, id=553, 883.04906pt x 415.5525pt>
 File: img/testbench/ReadAndWriteFase2.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase2.JPG> [33 <./img/testbench/ReadAndWriteFase
+<use img/testbench/ReadAndWriteFase2.JPG> [35 <./img/testbench/ReadAndWriteFase
 2.JPG>]
-<img/testbench/ReadAndWriteFase3.JPG, id=551, 456.20438pt x 170.88844pt>
+<img/testbench/ReadAndWriteFase3.JPG, id=559, 456.20438pt x 170.88844pt>
 File: img/testbench/ReadAndWriteFase3.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase3.JPG> [34 <./img/testbench/ReadAndWriteFase
+<use img/testbench/ReadAndWriteFase3.JPG> [36 <./img/testbench/ReadAndWriteFase
 3.JPG>]
 Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-<img/testbench/ReadAndReplacementFase3.JPG, id=558, 814.54312pt x 139.27031pt>
+<img/testbench/ReadAndReplacementFase3.JPG, id=566, 814.54312pt x 139.27031pt>
 File: img/testbench/ReadAndReplacementFase3.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndReplacementFase3.JPG> [35] [36 <./img/testbench/ReadA
+<use img/testbench/ReadAndReplacementFase3.JPG> [37] [38 <./img/testbench/ReadA
 ndReplacementFase3.JPG>]
-<img/testbench/Snoop1.JPG, id=571, 789.95125pt x 364.36125pt>
+<img/testbench/Snoop1.JPG, id=580, 789.95125pt x 364.36125pt>
 File: img/testbench/Snoop1.JPG Graphic file (type jpg)
 
 <use img/testbench/Snoop1.JPG>
@@ -840,7 +841,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--134
 
  []
 
-[37 <./img/testbench/Snoop1.JPG>]
+[39 <./img/testbench/Snoop1.JPG>]
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
@@ -867,7 +868,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
 LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/pag/m/sl' tried instead on input line 150.
-[38] (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+[40] (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -896,7 +897,7 @@ Overfull \hbox (0.96883pt too wide) in paragraph at lines 181--182
 v-ve-ro pri-ma via oc-cu-pa-ta nel
  []
 
-[39]
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
@@ -906,7 +907,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-<img/testbench/DLX123.JPG, id=605, 779.91376pt x 305.64188pt>
+<img/testbench/DLX123.JPG, id=613, 779.91376pt x 305.64188pt>
 File: img/testbench/DLX123.JPG Graphic file (type jpg)
 
 <use img/testbench/DLX123.JPG>
@@ -914,232 +915,261 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--202
 
  []
 
-[40 <./img/testbench/DLX123.JPG>]
+[42 <./img/testbench/DLX123.JPG>]
 Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
-<img/testbench/DLXFU.JPG, id=611, 863.225pt x 405.515pt>
+<img/testbench/DLXFU.JPG, id=619, 863.225pt x 405.515pt>
 File: img/testbench/DLXFU.JPG Graphic file (type jpg)
 
-<use img/testbench/DLXFU.JPG> [41 <./img/testbench/DLXFU.JPG>]) (./cap5.tex
-[42]
+<use img/testbench/DLXFU.JPG> [43 <./img/testbench/DLXFU.JPG>]) (./cap5.tex
+[44]
 Capitolo 5.
-[43
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+[45
 
 
 
-] <img/blockRam/pinoutPorte.jpg, id=639, 487.06969pt x 311.66437pt>
+] <img/blockRam/pinoutPorte.jpg, id=647, 487.06969pt x 311.66437pt>
 File: img/blockRam/pinoutPorte.jpg Graphic file (type jpg)
 
-<use img/blockRam/pinoutPorte.jpg> [44 <./img/blockRam/pinoutPorte.jpg>]
-<img/blockRam/segnali.jpg, id=647, 462.97969pt x 342.5297pt>
+<use img/blockRam/pinoutPorte.jpg> [46 <./img/blockRam/pinoutPorte.jpg>]
+<img/blockRam/segnali.jpg, id=655, 462.97969pt x 342.5297pt>
 File: img/blockRam/segnali.jpg Graphic file (type jpg)
 
-<use img/blockRam/segnali.jpg> [45 <./img/blockRam/segnali.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 47--50
+<use img/blockRam/segnali.jpg> [47 <./img/blockRam/segnali.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/blockRam/organInterna.jpg, id=654, 375.65344pt x 486.31688pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+<img/blockRam/organInterna.jpg, id=662, 375.65344pt x 486.31688pt>
 File: img/blockRam/organInterna.jpg Graphic file (type jpg)
 
 <use img/blockRam/organInterna.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[46] [47 <./img/blockRam/organInterna.jpg>]
-<img/blockRam/tabTipiRam.jpg, id=665, 587.19376pt x 168.63pt>
+[48]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49 <./img/blockRam/organInterna.jpg>]
+<img/blockRam/tabTipiRam.jpg, id=674, 587.19376pt x 168.63pt>
 File: img/blockRam/tabTipiRam.jpg Graphic file (type jpg)
 
 <use img/blockRam/tabTipiRam.jpg>
-Overfull \hbox (4.25508pt too wide) in paragraph at lines 85--90
+Overfull \hbox (4.25508pt too wide) in paragraph at lines 86--89
 \OT1/pag/m/n/12 Nel pri-mo ca-so si pas-sa di-ret-ta-men-te un fi-le di coef-fi
 -cien-ti (.coe)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--90
+Underfull \hbox (badness 10000) in paragraph at lines 86--89
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--90
-
- []
-
-[48 <./img/blockRam/tabTipiRam.jpg>]
+[50 <./img/blockRam/tabTipiRam.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--95
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-<img/blockRam/init.jpg, id=672, 348.55219pt x 103.88812pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+ []
+
+<img/blockRam/init.jpg, id=681, 348.55219pt x 103.88812pt>
 File: img/blockRam/init.jpg Graphic file (type jpg)
 
 <use img/blockRam/init.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
-[49 <./img/blockRam/init.jpg>]
-<img/blockRam/writeFirst.jpg, id=680, 496.85625pt x 205.5178pt>
+[51 <./img/blockRam/init.jpg>]
+<img/blockRam/writeFirst.jpg, id=688, 496.85625pt x 205.5178pt>
 File: img/blockRam/writeFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/writeFirst.jpg>
-<img/blockRam/readFirst.jpg, id=682, 511.15968pt x 212.29312pt>
+<img/blockRam/readFirst.jpg, id=690, 511.15968pt x 212.29312pt>
 File: img/blockRam/readFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/readFirst.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (2.78123pt too wide) in paragraph at lines 128--129
+Overfull \hbox (2.78123pt too wide) in paragraph at lines 130--131
 \OT1/pag/m/n/12 tu-ra in me-mo-ria sen-za al-cun ag-gior-na-men-to del da-to co
 n-
  []
 
-<img/blockRam/noChange.jpg, id=684, 521.69907pt x 215.30438pt>
+[52 <./img/blockRam/writeFirst.jpg>]
+<img/blockRam/noChange.jpg, id=702, 521.69907pt x 215.30438pt>
 File: img/blockRam/noChange.jpg Graphic file (type jpg)
 
-<use img/blockRam/noChange.jpg>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[50 <./img/blockRam/writeFirst.jpg>] [51 <./img/blockRam/readFirst.jpg> <./img/
-blockRam/noChange.jpg>]
-<img/blockRam/operazioni.jpg, id=700, 324.46219pt x 317.68687pt>
+<use img/blockRam/noChange.jpg> [53 <./img/blockRam/readFirst.jpg> <./img/block
+Ram/noChange.jpg>]
+<img/blockRam/operazioni.jpg, id=708, 324.46219pt x 317.68687pt>
 File: img/blockRam/operazioni.jpg Graphic file (type jpg)
 
 <use img/blockRam/operazioni.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[52]
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
-[53 <./img/blockRam/operazioni.jpg>]
-<img/blockRam/conflittiTemp.jpg, id=713, 435.87843pt x 302.63063pt>
+[54]
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
+
+ []
+
+[55 <./img/blockRam/operazioni.jpg>]
+<img/blockRam/conflittiTemp.jpg, id=722, 435.87843pt x 302.63063pt>
 File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiTemp.jpg>
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--189
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-[54 <./img/blockRam/conflittiTemp.jpg>]
-<img/blockRam/conflittiScritture.jpg, id=722, 464.4853pt x 225.84375pt>
+[56 <./img/blockRam/conflittiTemp.jpg>]
+<img/blockRam/conflittiScritture.jpg, id=729, 464.4853pt x 225.84375pt>
 File: img/blockRam/conflittiScritture.jpg Graphic file (type jpg)
 
-<use img/blockRam/conflittiScritture.jpg> [55 <./img/blockRam/conflittiScrittur
-e.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
+<use img/blockRam/conflittiScritture.jpg>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [57 <./img/blockRam/conflittiScritture.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
 
  []
 
-[56]
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+[58] [59] [60
+
+
+]
+Capitolo 6.
+[61
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
-
-Underfull \vbox (badness 1215) has occurred while \output is active []
-
- [57]
-[58]
-Overfull \hbox (32.00409pt too wide) in paragraph at lines 268--269
+[62]
+Overfull \hbox (32.00409pt too wide) in paragraph at lines 274--275
 [][] 
  []
 
 
-Overfull \hbox (38.00415pt too wide) in paragraph at lines 270--271
+Overfull \hbox (38.00415pt too wide) in paragraph at lines 276--277
 [][] 
  []
 
 
-Overfull \hbox (32.00409pt too wide) in paragraph at lines 271--272
+Overfull \hbox (32.00409pt too wide) in paragraph at lines 277--278
 [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
-<img/blockRam/blockram_cmp.png, id=760, 1002.74625pt x 731.73375pt>
+<img/blockRam/blockram_cmp.png, id=802, 1002.74625pt x 731.73375pt>
 File: img/blockRam/blockram_cmp.png Graphic file (type png)
 
-<use img/blockRam/blockram_cmp.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[59]
-Overfull \hbox (22.38783pt too wide) in paragraph at lines 307--309
-\OT1/pag/m/n/12 Tali se-gna-li in-ter-ni so-no mo-stra-ti nel port map del com-
-po-nen-te RAMB16[]-
- []
-
-
-Underfull \vbox (badness 1072) has occurred while \output is active []
-
- [60 <./img/blockRam/blockram_cmp.png>] [61]
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+<use img/blockRam/blockram_cmp.png> [64 <./img/blockRam/blockram_cmp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
-[62] <img/blockRam/scritturaLettura.jpg, id=821, 768.62157pt x 304.88907pt>
+
+Overfull \hbox (22.38783pt too wide) in paragraph at lines 315--316
+[]\OT1/pag/m/n/12 Tali se-gna-li in-ter-ni so-no mo-stra-ti nel port map del co
+m-po-nen-te RAMB16[]-
+ []
+
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
+
+ []
+
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+<img/blockRam/scritturaLettura.jpg, id=838, 768.62157pt x 304.88907pt>
 File: img/blockRam/scritturaLettura.jpg Graphic file (type jpg)
 
-<use img/blockRam/scritturaLettura.jpg>
-<img/blockRam/trasferimentoLinea.jpg, id=823, 752.8125pt x 298.86656pt>
+<use img/blockRam/scritturaLettura.jpg> [67 <./img/blockRam/scritturaLettura.jp
+g>] <img/blockRam/trasferimentoLinea.jpg, id=847, 752.8125pt x 298.86656pt>
 File: img/blockRam/trasferimentoLinea.jpg Graphic file (type jpg)
 
-<use img/blockRam/trasferimentoLinea.jpg>) [63 <./img/blockRam/scritturaLettura
-.jpg> <./img/blockRam/trasferimentoLinea.jpg>] (./conclusioni.tex [64]
-Underfull \hbox (badness 10000) in paragraph at lines 7--9
+<use img/blockRam/trasferimentoLinea.jpg>
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+
+ []
+
+) [68 <./img/blockRam/trasferimentoLinea.jpg>] (./conclusioni.tex [69] [70
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-) (./bibliografia.tex [65
+) (./bibliografia.tex [71
+
+] [72
 
 
-
-] [66
-
-
-]) [67
+]) [73
 
 ] (./tesi.aux)
 
@@ -1150,13 +1180,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8992 strings out of 493848
- 124164 string characters out of 3149206
- 349000 words of memory out of 3000000
+ 8999 strings out of 493848
+ 124214 string characters out of 3149206
+ 348995 words of memory out of 3000000
  11626 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
- 791 hyphenation exceptions out of 8191
- 38i,12n,48p,1340b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 792 hyphenation exceptions out of 8191
+ 38i,13n,48p,1340b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -1166,9 +1196,9 @@ f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
 /fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
 /courier/ucrro8a.pfb>
-Output written on tesi.pdf (67 pages, 4254020 bytes).
+Output written on tesi.pdf (73 pages, 4258011 bytes).
 PDF statistics:
- 947 PDF objects out of 1000 (max. 8388607)
- 332 named destinations out of 1000 (max. 500000)
+ 975 PDF objects out of 1000 (max. 8388607)
+ 338 named destinations out of 1000 (max. 500000)
  593 words of extra memory for PDF output out of 10000 (max. 10000000)
 

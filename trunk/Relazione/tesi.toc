@@ -1,55 +1,55 @@
 \select@language {italian}
-\contentsline {chapter}{Introduzione}{5}{chapter*.2}
-\contentsline {chapter}{\numberline {1}Caratteristiche della memoria cache}{7}{chapter.1}
-\contentsline {section}{\numberline {1}Politica di rimpiazzamento}{8}{section.1.1}
-\contentsline {section}{\numberline {2}Struttura e interfacce}{9}{section.1.2}
-\contentsline {chapter}{\numberline {2}Realizzazione del componente}{15}{chapter.2}
-\contentsline {section}{\numberline {1}Strutture dati}{15}{section.2.1}
-\contentsline {section}{\numberline {2}Implementazione}{17}{section.2.2}
-\contentsline {subsection}{\numberline {2.1}cache\_dlx}{17}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2}cache\_ram}{19}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.3}cache\_snoop}{19}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.4}cache\_replace}{20}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.5}Comunicazione tra processi}{20}{subsection.2.2.5}
-\contentsline {section}{\numberline {3}Procedure interne}{21}{section.2.3}
-\contentsline {subsection}{\numberline {3.1}cache\_hit\_on}{22}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {3.2}cache\_inv\_on}{22}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {3.3}get\_way}{23}{subsection.2.3.3}
-\contentsline {chapter}{\numberline {3}Integrazione con DLX}{25}{chapter.3}
-\contentsline {section}{\numberline {1}Modifiche al Memory\_stage}{25}{section.3.1}
-\contentsline {section}{\numberline {2}Connessione del componente}{27}{section.3.2}
-\contentsline {subsection}{\numberline {2.1}Istruzione load}{28}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {2.2}Istruzione store}{29}{subsection.3.2.2}
-\contentsline {chapter}{\numberline {4}Testbench}{31}{chapter.4}
-\contentsline {section}{\numberline {1}Testbench del componente}{31}{section.4.1}
-\contentsline {subsection}{\numberline {1.1}Cache\_test\_ReadAndWrite.vhd}{32}{subsection.4.1.1}
-\contentsline {subsubsection}{Fase 1: Letture d' inizializzazione}{32}{section*.3}
-\contentsline {subsubsection}{Fase 2: Scritture}{32}{section*.4}
-\contentsline {subsubsection}{Fase 3: Letture di verifica}{34}{section*.5}
-\contentsline {subsection}{\numberline {1.2}Cache\_test\_ReadAndReplacement.vhd}{34}{subsection.4.1.2}
-\contentsline {subsubsection}{Fase 1: Letture di inizializzazione}{35}{section*.6}
-\contentsline {subsubsection}{Fase 2: Invalidazione}{35}{section*.7}
-\contentsline {subsubsection}{Fase 3: Verifica meccanismo contatori}{35}{section*.8}
-\contentsline {subsection}{\numberline {1.3}Cache\_test\_snoop.vhd}{36}{subsection.4.1.3}
-\contentsline {section}{\numberline {2}Assembler per DLX}{37}{section.4.2}
-\contentsline {subsection}{\numberline {2.1}Dal codice all'escuzione}{38}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {2.2}provaReplacement123.vhd}{39}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {2.3}provaFU.vhd}{40}{subsection.4.2.3}
-\contentsline {chapter}{\numberline {5}Block RAM}{43}{chapter.5}
-\contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{44}{section.5.1}
-\contentsline {section}{\numberline {2}Configurazione della Block Ram}{47}{section.5.2}
-\contentsline {subsection}{\numberline {2.1}Inizializzazione del contenuto e attributi di configurazione}{48}{subsection.5.2.1}
-\contentsline {section}{\numberline {3}Operazioni della Block Ram}{51}{section.5.3}
-\contentsline {section}{\numberline {4}Conflitti d'accesso in Block Ram Dual-Port}{52}{section.5.4}
-\contentsline {section}{\numberline {5}Utilizzo della Block Ram in un progetto su FPGA}{55}{section.5.5}
-\contentsline {section}{\numberline {6}Progetto d'esempio: BlockRam\_cmp}{57}{section.5.6}
-\contentsline {subsection}{\numberline {6.1}Specifiche del progetto}{57}{subsection.5.6.1}
-\contentsline {subsection}{\numberline {6.2}Implementazione}{58}{subsection.5.6.2}
-\contentsline {subsubsection}{ram\_cache}{59}{section*.9}
-\contentsline {subsubsection}{blockram\_sequential\_access}{61}{section*.10}
-\contentsline {subsubsection}{read\_byte}{61}{section*.11}
-\contentsline {subsubsection}{end\_blockram\_access}{62}{section*.12}
-\contentsline {subsection}{\numberline {6.3}Testbench}{62}{subsection.5.6.3}
-\contentsline {section}{\numberline {7}Considerazioni sul progetto d'esempio}{64}{section.5.7}
-\contentsline {chapter}{Conclusioni}{65}{chapter*.13}
-\contentsline {chapter}{Bibliografia}{67}{chapter*.14}
+\contentsline {chapter}{Introduzione}{7}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Caratteristiche della memoria cache}{9}{chapter.1}
+\contentsline {section}{\numberline {1}Politica di rimpiazzamento}{10}{section.1.1}
+\contentsline {section}{\numberline {2}Struttura e interfacce}{11}{section.1.2}
+\contentsline {chapter}{\numberline {2}Realizzazione del componente}{17}{chapter.2}
+\contentsline {section}{\numberline {1}Strutture dati}{17}{section.2.1}
+\contentsline {section}{\numberline {2}Implementazione}{19}{section.2.2}
+\contentsline {subsection}{\numberline {2.1}cache\_dlx}{19}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2}cache\_ram}{21}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}cache\_snoop}{21}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.4}cache\_replace}{22}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.5}Comunicazione tra processi}{22}{subsection.2.2.5}
+\contentsline {section}{\numberline {3}Procedure interne}{23}{section.2.3}
+\contentsline {subsection}{\numberline {3.1}cache\_hit\_on}{24}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {3.2}cache\_inv\_on}{24}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {3.3}get\_way}{25}{subsection.2.3.3}
+\contentsline {chapter}{\numberline {3}Integrazione con DLX}{27}{chapter.3}
+\contentsline {section}{\numberline {1}Modifiche al Memory\_stage}{27}{section.3.1}
+\contentsline {section}{\numberline {2}Connessione del componente}{29}{section.3.2}
+\contentsline {subsection}{\numberline {2.1}Istruzione load}{30}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {2.2}Istruzione store}{31}{subsection.3.2.2}
+\contentsline {chapter}{\numberline {4}Testbench}{33}{chapter.4}
+\contentsline {section}{\numberline {1}Testbench del componente}{33}{section.4.1}
+\contentsline {subsection}{\numberline {1.1}Cache\_test\_ReadAndWrite.vhd}{34}{subsection.4.1.1}
+\contentsline {subsubsection}{Fase 1: Letture d' inizializzazione}{34}{section*.3}
+\contentsline {subsubsection}{Fase 2: Scritture}{34}{section*.4}
+\contentsline {subsubsection}{Fase 3: Letture di verifica}{36}{section*.5}
+\contentsline {subsection}{\numberline {1.2}Cache\_test\_ReadAndReplacement.vhd}{36}{subsection.4.1.2}
+\contentsline {subsubsection}{Fase 1: Letture di inizializzazione}{37}{section*.6}
+\contentsline {subsubsection}{Fase 2: Invalidazione}{37}{section*.7}
+\contentsline {subsubsection}{Fase 3: Verifica meccanismo contatori}{37}{section*.8}
+\contentsline {subsection}{\numberline {1.3}Cache\_test\_snoop.vhd}{38}{subsection.4.1.3}
+\contentsline {section}{\numberline {2}Assembler per DLX}{39}{section.4.2}
+\contentsline {subsection}{\numberline {2.1}Dal codice all'escuzione}{40}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {2.2}provaReplacement123.vhd}{41}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {2.3}provaFU.vhd}{42}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {5}Block RAM}{45}{chapter.5}
+\contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{46}{section.5.1}
+\contentsline {section}{\numberline {2}Configurazione della Block RAM}{50}{section.5.2}
+\contentsline {subsection}{\numberline {2.1}Inizializzazione del contenuto e attributi di configurazione}{50}{subsection.5.2.1}
+\contentsline {section}{\numberline {3}Operazioni della Block RAM}{53}{section.5.3}
+\contentsline {section}{\numberline {4}Conflitti d'accesso in Block RAM Dual-Port}{54}{section.5.4}
+\contentsline {section}{\numberline {5}Utilizzo della Block Ram in un progetto su FPGA}{58}{section.5.5}
+\contentsline {chapter}{\numberline {6}Progetto d'esempio: BlockRam\_cmp}{61}{chapter.6}
+\contentsline {section}{\numberline {1}Specifiche del progetto}{61}{section.6.1}
+\contentsline {section}{\numberline {2}Implementazione}{62}{section.6.2}
+\contentsline {subsection}{\numberline {2.1}ram\_cache}{64}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {2.2}blockram\_sequential\_access}{65}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {2.3}read\_byte}{66}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {2.4}end\_blockram\_access}{66}{subsection.6.2.4}
+\contentsline {section}{\numberline {3}Testbench}{67}{section.6.3}
+\contentsline {section}{\numberline {4}Considerazioni}{68}{section.6.4}
+\contentsline {chapter}{Conclusioni}{71}{chapter*.9}
+\contentsline {chapter}{Bibliografia}{73}{chapter*.10}

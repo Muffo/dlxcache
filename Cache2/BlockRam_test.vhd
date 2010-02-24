@@ -5,6 +5,7 @@
   USE ieee.std_logic_unsigned.ALL;
   USE ieee.numeric_std.ALL;
   USE work.BlockRamLibrary.all;
+  USE work.CacheLibrary.all;
 	
   ENTITY BlockRam_test IS
   END BlockRam_test;
@@ -18,11 +19,11 @@
 		reset : in std_logic;
 		addr : in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 		clk : in std_logic;
-		bdata_in : in mem_line;
+		bdata_in : in data_line;
 		memrd : in std_logic;                                 
 		memwr : in std_logic; 
 		en : in std_logic;			-- Ram Enable
-		bdata_out : out mem_line;
+		bdata_out : out data_line;
 		addr_m : out std_logic_vector (ADDR_BIT-1 downto 0);
 		ready : out	std_logic
 );
@@ -35,13 +36,13 @@
    signal addr : std_logic_vector(ADDR_BIT-1 downto 0) := (others => '0');
    signal clk : std_logic := '0';
    --signal br_clk : std_logic := '0';
-   signal bdata_in : mem_line;
+   signal bdata_in : data_line;
    signal memrd : std_logic := '0';
    signal memwr : std_logic := '0';
    signal en : std_logic := '0';
 
  	--Outputs
-   signal bdata_out : mem_line;
+   signal bdata_out : data_line;
    signal ready : std_logic;
 	signal addr_m: std_logic_vector (ADDR_BIT-1 downto 0);
 
@@ -86,9 +87,9 @@ BEGIN
 		memwr <= '1';
 		memrd <= '0';
 		addr <= "00000000000";
-		bdata_in <= (0=>"00000001",1=>"00000010",2=>"00000011", 3=>"00000100", 4=>"00000101", 5=>"00000110", 6=>"00000111", 7=>"00001000");
+		bdata_in <= (0=>"00000001",1=>"00000010",2=>"00000011", 3=>"00000100", 4=>"00000101", 5=>"00000110", 6=>"00000111", 7=>"00001000", others => "00000000");
       
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		memwr <= '0';
 		memrd <= '0';
 		en <= '0';
@@ -102,7 +103,7 @@ BEGIN
 		memrd <= '1';
 		addr <= "00000000000";
 		bdata_in <= (others => "UUUUUUUU");
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		en <= '0';
 		memwr <= '0';
 		memrd <= '0';

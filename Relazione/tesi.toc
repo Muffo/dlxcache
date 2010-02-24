@@ -50,6 +50,6 @@
 \contentsline {subsection}{\numberline {2.3}read\_byte}{66}{subsection.6.2.3}
 \contentsline {subsection}{\numberline {2.4}end\_blockram\_access}{66}{subsection.6.2.4}
 \contentsline {section}{\numberline {3}Testbench}{67}{section.6.3}
-\contentsline {section}{\numberline {4}Considerazioni}{68}{section.6.4}
+\contentsline {section}{\numberline {4}Considerazioni sul progetto d'esempio}{68}{section.6.4}
 \contentsline {chapter}{Conclusioni}{71}{chapter*.9}
 \contentsline {chapter}{Bibliografia}{73}{chapter*.10}

@@ -25,8 +25,6 @@ CONSTANT MESI_I : natural := 0;
 
 TYPE data_line IS ARRAY (0 to 2**OFFSET_BIT - 1) of STD_LOGIC_VECTOR (7 downto 0);
 
-TYPE RAM IS ARRAY  (integer range <>)of data_line;
-
 TYPE cache_line IS 
 	RECORD
 		data : data_line;
@@ -38,6 +36,8 @@ TYPE cache_line IS
 TYPE set_ways IS ARRAY (0 to NWAY - 1) of cache_line;
 		
 TYPE cache_type IS ARRAY (0 to 2**INDEX_BIT - 1) of set_ways;
+
+TYPE RAM IS ARRAY (integer range <>) of data_line;
 \end{lstlisting}
 
 
@@ -98,16 +98,16 @@ In particolare sono preseti:
 I passi seguiti durante una lettura sono:
 \begin{enumerate}
   \item Lettura dell'indirizzo dal bus separando index, tag e offset;
-  \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
+  \item Verifica della presenza della linea in cache attraverso \\ \texttt{get\_way()};
   \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
   \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
-  \item Lettura del dato dalla cache ed emissione sul bus \texttt{ch\_bdata\_out}.
+  \item Lettura del dato dalla cache ed emissione sul bus\\ \texttt{ch\_bdata\_out}.
 \end{enumerate}	
 
 Per quanto riguarda invece la scrittura, si eseguono le seguenti operazioni:
 \begin{enumerate}
   \item Lettura dell'indirizzo dal bus separando index, tag e offset; 
-  \item Verifica della presenza della linea in cache attraverso \texttt{get\_way()};
+  \item Verifica della presenza della linea in cache attraverso \\ \texttt{get\_way()};
   \item In caso di MISS, attivazione del process per la politica di rimpiazzamento;
   \item Scrittura del dato presente in \texttt{ch\_bdata\_in} nella cache;
   \item Aggiornamento dei contatori attraverso \texttt{cache\_hit\_on()};
@@ -171,6 +171,8 @@ I quattro processi si scambiano segnali che consentono la sincronizzazione delle
 \label{fig:colleg1}
 \end{figure}
 
+\newpage
+
 La Fig. \ref{fig:colleg1} mostra come sono collegati i seguenti segnali:
 \begin{itemize}
   \item \texttt{replace\_line}: attiva il processo che gestisce il rimpiazzamento di una linea;
@@ -179,7 +181,7 @@ La Fig. \ref{fig:colleg1} mostra come sono collegati i seguenti segnali:
   \item \texttt{snoop\_write}: attiva la scrittura di una linea in stato \texttt{MESI\_M} in memoria RAM in seguito ad uno snoop.
 \end{itemize}
 
-Ogni processo notifica il completamento dell'operazione richiesta attivando un opportuno segnale di ready, come mostrato in Fig. \ref{fig:colleg2}
+Ogni processo notifica il completamento dell'operazione richiesta attivando un opportuno segnale di ready, come mostrato in Fig. \ref{fig:colleg2}.
 
 \begin{figure}[h!]
 \centering

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  24 FEB 2010 15:53
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  24 FEB 2010 16:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -630,10 +630,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--103
 <img/cache/ram.png, id=343, 1002.74625pt x 766.865pt>
 File: img/cache/ram.png Graphic file (type png)
  <use img/cache/ram.png>
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
 [12 <./img/cache/ram.png>]
 <img/cache/debug.png, id=351, 1002.74625pt x 766.865pt>
 File: img/cache/debug.png Graphic file (type png)
@@ -654,16 +650,17 @@ LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <10.95> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 16.
 LaTeX Font Info:    Font shape `OMS/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
-LaTeX Font Info:    Try loading font information for OML+pag on input line 28.
+ [15
+
+]
+LaTeX Font Info:    Try loading font information for OML+pag on input line 40.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omlpag.fd
 File: omlpag.fd 
 )
 LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 28.
- [15
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
 
-]
 <img/cacheType.png, id=382, 1002.74625pt x 514.92375pt>
 File: img/cacheType.png Graphic file (type png)
 
@@ -725,15 +722,19 @@ File: img/cache/collegamenti1.png Graphic file (type png)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20] <img/cache/collegamenti2.png, id=442, 1002.74625pt x 729.72626pt>
+[20] <img/cache/collegamenti2.png, id=441, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti2.png Graphic file (type png)
 
 <use img/cache/collegamenti2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21 <./img/cache/collegamenti1.png>] [22 <./img/cache/collegamenti2.png>])
-(./cap3.tex [23] [24
+
+Underfull \vbox (badness 1552) has occurred while \output is active []
+
+ [21 <./img/cache/collegamenti1.png>] [22 <./img/cache/collegamenti2.png>]) (./
+cap3.tex
+[23] [24
 
 
 ]
@@ -1156,11 +1157,13 @@ File: img/blockRam/test_no_change.jpg Graphic file (type jpg)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [66 <./img/blockRam/test_read_first.jpg> <./img/blockRam/test_write_first.jpg
->] (./conclusioni.tex [67 <./img/blockRam/test_no_change.jpg>] [68
 
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
-]
+ []
+
+[66 <./img/blockRam/test_read_first.jpg> <./img/blockRam/test_write_first.jpg>]
+) [67 <./img/blockRam/test_no_change.jpg>] (./conclusioni.tex [68]
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
@@ -1176,6 +1179,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
  []
 
 ) (./bibliografia.tex [69
+
+
 
 ] [70
 
@@ -1207,7 +1212,7 @@ f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
 /fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
 /courier/ucrro8a.pfb>
-Output written on tesi.pdf (71 pages, 4466591 bytes).
+Output written on tesi.pdf (71 pages, 4462764 bytes).
 PDF statistics:
  967 PDF objects out of 1000 (max. 8388607)
  337 named destinations out of 1000 (max. 500000)

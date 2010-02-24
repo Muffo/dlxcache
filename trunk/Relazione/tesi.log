@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  24 FEB 2010 15:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  24 FEB 2010 15:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -532,22 +532,21 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [3
 
-] [4])
+])
 \tf@toc=\write4
 \openout4 = `tesi.toc'.
 
-
-[5] (./introduzione.tex [6
-
-
-]
+ [4]
+(./introduzione.tex
 Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <12> not available
 (Font)              Font shape `OT1/pag/m/sl' tried instead on input line 25.
-[7
+[5
+
+
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
@@ -560,9 +559,9 @@ Overfull \hbox (6.75308pt too wide) in paragraph at lines 37--38
 i un com-po-nent VHDL
  []
 
-) (./cap1.tex [8]
+) (./cap1.tex [6]
 Capitolo 1.
-<img/set-associative.jpg, id=319, 447.92343pt x 285.31593pt>
+<img/set-associative.jpg, id=305, 447.92343pt x 285.31593pt>
 File: img/set-associative.jpg Graphic file (type jpg)
 
 <use img/set-associative.jpg>
@@ -573,7 +572,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--27
 
 Underfull \vbox (badness 2384) has occurred while \output is active []
 
- [9
+ [7
 
 
 
@@ -589,19 +588,19 @@ LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 36.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <17.28> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 36.
- [10]
+ [8]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<img/cache/general.png, id=331, 1002.74625pt x 811.03pt>
+<img/cache/general.png, id=318, 1002.74625pt x 811.03pt>
 File: img/cache/general.png Graphic file (type png)
 
 <use img/cache/general.png>
 Underfull \vbox (badness 2005) has occurred while \output is active []
 
- [11 <./img/cache/general.png>] <img/cache/dlx.png, id=340, 1002.74625pt x 682.
-55pt>
+ [9 <./img/cache/general.png>] <img/cache/dlx.png, id=327, 1002.74625pt x 682.5
+5pt>
 File: img/cache/dlx.png Graphic file (type png)
 
 <use img/cache/dlx.png>
@@ -614,32 +613,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
-[12 <./img/cache/dlx.png>]
+[10 <./img/cache/dlx.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-<img/cache/control.png, id=348, 999.735pt x 662.475pt>
+<img/cache/control.png, id=335, 999.735pt x 662.475pt>
 File: img/cache/control.png Graphic file (type png)
 
 <use img/cache/control.png>
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-<img/cache/ram.png, id=350, 1002.74625pt x 766.865pt>
+[11 <./img/cache/control.png>]
+<img/cache/ram.png, id=343, 1002.74625pt x 766.865pt>
 File: img/cache/ram.png Graphic file (type png)
  <use img/cache/ram.png>
-[13 <./img/cache/control.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
-[14 <./img/cache/ram.png>]
-<img/cache/debug.png, id=365, 1002.74625pt x 766.865pt>
+[12 <./img/cache/ram.png>]
+<img/cache/debug.png, id=351, 1002.74625pt x 766.865pt>
 File: img/cache/debug.png Graphic file (type png)
 
-<use img/cache/debug.png>) (./cap2.tex [15 <./img/cache/debug.png>] [16
+<use img/cache/debug.png>) (./cap2.tex [13 <./img/cache/debug.png>] [14
 
 
 ]
@@ -662,10 +661,10 @@ File: omlpag.fd
 )
 LaTeX Font Info:    Font shape `OML/pag/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 28.
- [17
+ [15
 
 ]
-<img/cacheType.png, id=395, 1002.74625pt x 514.92375pt>
+<img/cacheType.png, id=382, 1002.74625pt x 514.92375pt>
 File: img/cacheType.png Graphic file (type png)
 
 <use img/cacheType.png>
@@ -683,12 +682,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
-[18]
+[16]
 LaTeX Font Info:    Font shape `OT1/pag/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pag/b/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/pag/b/n' in size <14.4> not available
 (Font)              Font shape `OT1/pag/db/n' tried instead on input line 77.
- [19 <./img/cacheType.png>]
+ [17 <./img/cacheType.png>]
 Overfull \hbox (3.79086pt too wide) in paragraph at lines 95--96
 []\OT1/pcr/l/n/12 rdwr[]-do-ne\OT1/pag/m/n/12 : se-gna-le in-ter-no che in-di-c
 a, in ca-so di write-through,
@@ -699,7 +698,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
-[20]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
@@ -709,7 +708,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--139
 
  []
 
-[21]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
@@ -719,22 +718,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
-<img/cache/collegamenti1.png, id=441, 1002.74625pt x 729.72626pt>
+<img/cache/collegamenti1.png, id=428, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti1.png Graphic file (type png)
 
 <use img/cache/collegamenti1.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22] <img/cache/collegamenti2.png, id=455, 1002.74625pt x 729.72626pt>
+[20] <img/cache/collegamenti2.png, id=442, 1002.74625pt x 729.72626pt>
 File: img/cache/collegamenti2.png Graphic file (type png)
 
 <use img/cache/collegamenti2.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23 <./img/cache/collegamenti1.png>] [24 <./img/cache/collegamenti2.png>])
-(./cap3.tex [25] [26
+[21 <./img/cache/collegamenti1.png>] [22 <./img/cache/collegamenti2.png>])
+(./cap3.tex [23] [24
 
 
 ]
@@ -744,7 +743,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[27
+[25
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 22--23
@@ -756,25 +755,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-<img/DLX/old_dlx.png, id=496, 1002.74625pt x 307.1475pt>
+<img/DLX/old_dlx.png, id=483, 1002.74625pt x 307.1475pt>
 File: img/DLX/old_dlx.png Graphic file (type png)
 
 <use img/DLX/old_dlx.png>
-<img/DLX/new_dlx.png, id=497, 1002.74625pt x 638.385pt>
+<img/DLX/new_dlx.png, id=484, 1002.74625pt x 638.385pt>
 File: img/DLX/new_dlx.png Graphic file (type png)
 
 <use img/DLX/new_dlx.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/DLX/stadio_mem.png, id=499, 1203.49625pt x 1149.29375pt>
+<img/DLX/stadio_mem.png, id=486, 1203.49625pt x 1149.29375pt>
 File: img/DLX/stadio_mem.png Graphic file (type png)
 
 <use img/DLX/stadio_mem.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28 <./img/DLX/old_dlx.png>]
+[26 <./img/DLX/old_dlx.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 52--56
 
  []
@@ -787,7 +786,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29 <./img/DLX/new_dlx.png>] [30 <./img/DLX/stadio_mem.png>]
+ [27 <./img/DLX/new_dlx.png>] [28 <./img/DLX/stadio_mem.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
@@ -797,7 +796,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--79
 
  []
 
-[31]) (./cap4.tex [32]
+[29]) (./cap4.tex [30]
 Capitolo 4.
 
 Overfull \hbox (0.69543pt too wide) in paragraph at lines 17--18
@@ -810,36 +809,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
-[33
+[31
 
 
 
-] <img/testbench/ReadAndWriteFase1.JPG, id=548, 845.40843pt x 322.95656pt>
+] <img/testbench/ReadAndWriteFase1.JPG, id=535, 845.40843pt x 322.95656pt>
 File: img/testbench/ReadAndWriteFase1.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase1.JPG> [34 <./img/testbench/ReadAndWriteFase
+<use img/testbench/ReadAndWriteFase1.JPG> [32 <./img/testbench/ReadAndWriteFase
 1.JPG>]
-<img/testbench/ReadAndWriteFase2.JPG, id=557, 883.04906pt x 415.5525pt>
+<img/testbench/ReadAndWriteFase2.JPG, id=544, 883.04906pt x 415.5525pt>
 File: img/testbench/ReadAndWriteFase2.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase2.JPG> [35 <./img/testbench/ReadAndWriteFase
+<use img/testbench/ReadAndWriteFase2.JPG> [33 <./img/testbench/ReadAndWriteFase
 2.JPG>]
-<img/testbench/ReadAndWriteFase3.JPG, id=563, 456.20438pt x 170.88844pt>
+<img/testbench/ReadAndWriteFase3.JPG, id=550, 456.20438pt x 170.88844pt>
 File: img/testbench/ReadAndWriteFase3.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndWriteFase3.JPG> [36 <./img/testbench/ReadAndWriteFase
+<use img/testbench/ReadAndWriteFase3.JPG> [34 <./img/testbench/ReadAndWriteFase
 3.JPG>]
 Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-<img/testbench/ReadAndReplacementFase3.JPG, id=570, 814.54312pt x 139.27031pt>
+<img/testbench/ReadAndReplacementFase3.JPG, id=557, 814.54312pt x 139.27031pt>
 File: img/testbench/ReadAndReplacementFase3.JPG Graphic file (type jpg)
 
-<use img/testbench/ReadAndReplacementFase3.JPG> [37] [38 <./img/testbench/ReadA
+<use img/testbench/ReadAndReplacementFase3.JPG> [35] [36 <./img/testbench/ReadA
 ndReplacementFase3.JPG>]
-<img/testbench/Snoop1.JPG, id=584, 789.95125pt x 364.36125pt>
+<img/testbench/Snoop1.JPG, id=570, 789.95125pt x 364.36125pt>
 File: img/testbench/Snoop1.JPG Graphic file (type jpg)
 
 <use img/testbench/Snoop1.JPG>
@@ -847,7 +846,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--134
 
  []
 
-[39 <./img/testbench/Snoop1.JPG>]
+[37 <./img/testbench/Snoop1.JPG>]
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
@@ -874,7 +873,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
 LaTeX Font Info:    Font shape `OT1/pag/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/pag/m/sl' tried instead on input line 150.
-[40] (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
+[38] (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 (/usr/local/texlive/2009/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -903,7 +902,7 @@ Overfull \hbox (0.96883pt too wide) in paragraph at lines 181--182
 v-ve-ro pri-ma via oc-cu-pa-ta nel
  []
 
-[41]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
@@ -913,7 +912,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-<img/testbench/DLX123.JPG, id=617, 779.91376pt x 305.64188pt>
+<img/testbench/DLX123.JPG, id=604, 779.91376pt x 305.64188pt>
 File: img/testbench/DLX123.JPG Graphic file (type jpg)
 
 <use img/testbench/DLX123.JPG>
@@ -921,16 +920,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--202
 
  []
 
-[42 <./img/testbench/DLX123.JPG>]
+[40 <./img/testbench/DLX123.JPG>]
 Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
-<img/testbench/DLXFU.JPG, id=623, 863.225pt x 405.515pt>
+<img/testbench/DLXFU.JPG, id=610, 863.225pt x 405.515pt>
 File: img/testbench/DLXFU.JPG Graphic file (type jpg)
 
-<use img/testbench/DLXFU.JPG> [43 <./img/testbench/DLXFU.JPG>]) (./cap5.tex
-[44]
+<use img/testbench/DLXFU.JPG> [41 <./img/testbench/DLXFU.JPG>]) (./cap5.tex
+[42]
 Capitolo 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
@@ -942,18 +941,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[45
+[43
 
 
 
-] <img/blockRam/pinoutPorte.jpg, id=651, 487.06969pt x 311.66437pt>
+] <img/blockRam/pinoutPorte.jpg, id=638, 487.06969pt x 311.66437pt>
 File: img/blockRam/pinoutPorte.jpg Graphic file (type jpg)
 
-<use img/blockRam/pinoutPorte.jpg> [46 <./img/blockRam/pinoutPorte.jpg>]
-<img/blockRam/segnali.jpg, id=659, 462.97969pt x 342.5297pt>
+<use img/blockRam/pinoutPorte.jpg> [44 <./img/blockRam/pinoutPorte.jpg>]
+<img/blockRam/segnali.jpg, id=646, 462.97969pt x 342.5297pt>
 File: img/blockRam/segnali.jpg Graphic file (type jpg)
 
-<use img/blockRam/segnali.jpg> [47 <./img/blockRam/segnali.jpg>]
+<use img/blockRam/segnali.jpg> [45 <./img/blockRam/segnali.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
@@ -968,18 +967,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-<img/blockRam/organInterna.jpg, id=666, 375.65344pt x 486.31688pt>
+<img/blockRam/organInterna.jpg, id=653, 375.65344pt x 486.31688pt>
 File: img/blockRam/organInterna.jpg Graphic file (type jpg)
 
 <use img/blockRam/organInterna.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48]
+[46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49 <./img/blockRam/organInterna.jpg>]
-<img/blockRam/tabTipiRam.jpg, id=678, 587.19376pt x 168.63pt>
+ [47 <./img/blockRam/organInterna.jpg>]
+<img/blockRam/tabTipiRam.jpg, id=664, 587.19376pt x 168.63pt>
 File: img/blockRam/tabTipiRam.jpg Graphic file (type jpg)
 
 <use img/blockRam/tabTipiRam.jpg>
@@ -993,7 +992,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 86--89
 
  []
 
-[50 <./img/blockRam/tabTipiRam.jpg>]
+[48 <./img/blockRam/tabTipiRam.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
@@ -1008,7 +1007,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
 
-<img/blockRam/init.jpg, id=685, 348.55219pt x 103.88812pt>
+<img/blockRam/init.jpg, id=671, 348.55219pt x 103.88812pt>
 File: img/blockRam/init.jpg Graphic file (type jpg)
 
 <use img/blockRam/init.jpg>
@@ -1016,12 +1015,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
-[51 <./img/blockRam/init.jpg>]
-<img/blockRam/writeFirst.jpg, id=692, 496.85625pt x 205.5178pt>
+[49 <./img/blockRam/init.jpg>]
+<img/blockRam/writeFirst.jpg, id=679, 496.85625pt x 205.5178pt>
 File: img/blockRam/writeFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/writeFirst.jpg>
-<img/blockRam/readFirst.jpg, id=694, 511.15968pt x 212.29312pt>
+<img/blockRam/readFirst.jpg, id=681, 511.15968pt x 212.29312pt>
 File: img/blockRam/readFirst.jpg Graphic file (type jpg)
 
 <use img/blockRam/readFirst.jpg>
@@ -1030,13 +1029,13 @@ Overfull \hbox (2.78123pt too wide) in paragraph at lines 130--131
 n-
  []
 
-[52 <./img/blockRam/writeFirst.jpg>]
-<img/blockRam/noChange.jpg, id=706, 521.69907pt x 215.30438pt>
+[50 <./img/blockRam/writeFirst.jpg>]
+<img/blockRam/noChange.jpg, id=693, 521.69907pt x 215.30438pt>
 File: img/blockRam/noChange.jpg Graphic file (type jpg)
 
-<use img/blockRam/noChange.jpg> [53 <./img/blockRam/readFirst.jpg> <./img/block
+<use img/blockRam/noChange.jpg> [51 <./img/blockRam/readFirst.jpg> <./img/block
 Ram/noChange.jpg>]
-<img/blockRam/operazioni.jpg, id=712, 324.46219pt x 317.68687pt>
+<img/blockRam/operazioni.jpg, id=699, 324.46219pt x 317.68687pt>
 File: img/blockRam/operazioni.jpg Graphic file (type jpg)
 
 <use img/blockRam/operazioni.jpg>
@@ -1048,13 +1047,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
 
-[54]
+[52]
 Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-[55 <./img/blockRam/operazioni.jpg>]
-<img/blockRam/conflittiTemp.jpg, id=726, 435.87843pt x 302.63063pt>
+[53 <./img/blockRam/operazioni.jpg>]
+<img/blockRam/conflittiTemp.jpg, id=712, 435.87843pt x 302.63063pt>
 File: img/blockRam/conflittiTemp.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiTemp.jpg>
@@ -1067,31 +1066,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-[56 <./img/blockRam/conflittiTemp.jpg>]
-<img/blockRam/conflittiScritture.jpg, id=733, 464.4853pt x 225.84375pt>
+[54 <./img/blockRam/conflittiTemp.jpg>]
+<img/blockRam/conflittiScritture.jpg, id=719, 464.4853pt x 225.84375pt>
 File: img/blockRam/conflittiScritture.jpg Graphic file (type jpg)
 
 <use img/blockRam/conflittiScritture.jpg>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57 <./img/blockRam/conflittiScritture.jpg>]
+ [55 <./img/blockRam/conflittiScritture.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 212--213
 
  []
 
-[58] [59] [60
+[56] [57] [58
 
 
 ]
 Capitolo 6.
-[61
+[59
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
-[62]
+[60]
 Overfull \hbox (32.00409pt too wide) in paragraph at lines 274--275
 [][] 
  []
@@ -1106,15 +1105,15 @@ Overfull \hbox (32.00409pt too wide) in paragraph at lines 277--278
 [][] 
  []
 
-[63]
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
-<img/blockRam/blockram_cmp.png, id=806, 1002.74625pt x 731.73375pt>
+<img/blockRam/blockram_cmp.png, id=793, 1002.74625pt x 731.73375pt>
 File: img/blockRam/blockram_cmp.png Graphic file (type png)
 
-<use img/blockRam/blockram_cmp.png> [64 <./img/blockRam/blockram_cmp.png>]
+<use img/blockRam/blockram_cmp.png> [62 <./img/blockRam/blockram_cmp.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
@@ -1125,7 +1124,7 @@ Overfull \hbox (22.38783pt too wide) in paragraph at lines 315--316
 m-po-nen-te RAMB16[]-
  []
 
-[65]
+[63]
 Underfull \hbox (badness 10000) in paragraph at lines 335--337
 
  []
@@ -1135,23 +1134,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
-[66] <img/blockRam/test_read_first.jpg, id=841, 768.62157pt x 304.88907pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64]
+<img/blockRam/test_read_first.jpg, id=828, 768.62157pt x 304.88907pt>
 File: img/blockRam/test_read_first.jpg Graphic file (type jpg)
 
-<use img/blockRam/test_read_first.jpg> [67 <./img/blockRam/test_read_first.jpg>
-] <img/blockRam/test_write_first.jpg, id=850, 670.75594pt x 303.38344pt>
+<use img/blockRam/test_read_first.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/blockRam/test_write_first.jpg, id=831, 670.75594pt x 303.38344pt>
 File: img/blockRam/test_write_first.jpg Graphic file (type jpg)
 
-<use img/blockRam/test_write_first.jpg>
-<img/blockRam/test_no_change.jpg, id=852, 695.59875pt x 304.13625pt>
+<use img/blockRam/test_write_first.jpg> [65]
+<img/blockRam/test_no_change.jpg, id=838, 695.59875pt x 304.13625pt>
 File: img/blockRam/test_no_change.jpg Graphic file (type jpg)
 
 <use img/blockRam/test_no_change.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [68 <./img/blockRam/test_write_first.jpg>] (./conclusioni.tex [69 <./img/bloc
-kRam/test_no_change.jpg>] [70
+) [66 <./img/blockRam/test_read_first.jpg> <./img/blockRam/test_write_first.jpg
+>] (./conclusioni.tex [67 <./img/blockRam/test_no_change.jpg>] [68
 
 
 ]
@@ -1169,12 +1175,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-) (./bibliografia.tex [71
+) (./bibliografia.tex [69
 
-] [72
+] [70
 
 
-]) [73
+]) [71
 
 ] (./tesi.aux)
 
@@ -1185,10 +1191,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9013 strings out of 493848
- 124513 string characters out of 3149206
- 349137 words of memory out of 3000000
- 11636 multiletter control sequences out of 15000+200000
+ 9009 strings out of 493848
+ 124465 string characters out of 3149206
+ 349136 words of memory out of 3000000
+ 11635 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
  792 hyphenation exceptions out of 8191
  38i,13n,48p,1340b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1201,9 +1207,9 @@ f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
 /fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
 /courier/ucrro8a.pfb>
-Output written on tesi.pdf (73 pages, 4467774 bytes).
+Output written on tesi.pdf (71 pages, 4466591 bytes).
 PDF statistics:
- 982 PDF objects out of 1000 (max. 8388607)
- 340 named destinations out of 1000 (max. 500000)
- 603 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 967 PDF objects out of 1000 (max. 8388607)
+ 337 named destinations out of 1000 (max. 500000)
+ 595 words of extra memory for PDF output out of 10000 (max. 10000000)
 

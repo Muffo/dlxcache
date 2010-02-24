@@ -203,23 +203,23 @@ Parametri di input:
 
 Descrizione:
 
-Applica la politica di invecchiamento aggiornando i contatori, in particolare:
+Applica la politica di invecchiamento aggiornando i contatori nel set di indice \texttt{hit\_index}, in particolare:
 \begin{enumerate}
   \item incrementa i contatori di valore pi\`u basso della via corrente specificata da \texttt{hit\_way}
   \item resetta il contatore della via corrente su cui c'\`e hit
-\end{enumerate}	
+\end{enumerate}
 
 \subsection{cache\_inv\_on} %(inv\_index: in, inv\_way: in)}
 
 Parametri di input:
 \begin{itemize}
-  \item \texttt{inv\_index}: indice da invalidare
+  \item \texttt{inv\_index}: indice che contiene la via da invalidare
   \item \texttt{inv\_way}: via da invalidare
 \end{itemize}
 
 Descrizione:
 
-Applica la politica di invecchiamento aggiornando i contatori, in particolare:
+Applica la politica di invecchiamento aggiornando i contatori nel set di indice \texttt{inv\_index}, in particolare:
 \begin{enumerate}
   \item decrementa i contatori di valore pi\`u alto della via corrente specificata da \texttt{inv\_way}
   \item porta al valore massimo il contatore della via corrente da invalidare

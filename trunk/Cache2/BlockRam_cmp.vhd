@@ -23,6 +23,7 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 use work.BlockRamLibrary.all;
+use work.CacheLibrary.all;
 
 ---- Uncomment the following library declaration if instantiating
 ---- any Xilinx primitives in this code.
@@ -34,11 +35,11 @@ port(
 	reset: in std_logic;
    addr:in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 	clk:in 	std_logic;
-   bdata_in: in mem_line;
+   bdata_in: in data_line;
 	memrd:in std_logic;                                 
    memwr:in std_logic; 
 	en:in std_logic;         -- Ram Enable
-	bdata_out: out mem_line;
+	bdata_out: out data_line;
 	addr_m:out std_logic_vector (ADDR_BIT-1 downto 0); --segnale di debug per indirizzi inviati alla BlockRam
    ready:out	std_logic
 
@@ -154,8 +155,8 @@ end component;
 	
 	--Variabili condivise tra i processi
 	shared variable counter : natural := 0;       -- contatore per gli accessi in block ram per letture e scritture di linee
-	shared variable line: mem_line;
-	shared variable written_line: mem_line;       -- per il debug della WRITE_MODE
+	shared variable line: data_line;
+	shared variable written_line: data_line;       -- per il debug della WRITE_MODE
 	shared variable byte_read : boolean := false; -- variabile utilizzata per sincronizzare l'avvio della lettura di un byte dalla Block Ram e
 																 -- la fine, quando il byte letto è disponibile sul bus di output della Block Ram.
 	shared variable byte_write : boolean := false;
@@ -207,15 +208,16 @@ end component;
 	
 	--Processo che gestisce gli accessi sequenziali alla Block Ram in sincronia col clock br_clk.
 	blockram_sequential_access : process(clk)
+		variable count : natural := 0;
 	begin
 		if(clk'event and clk='1') then
 			if((read_line='1' xor write_line='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
 				
-				if(counter = nbyte_line) then -- verifica terminazione trasferimento di nbyte_line bytes (una linea)
+				if(counter = 2**OFFSET_BIT) then -- verifica terminazione trasferimento di 2**OFFSET_BIT bytes (una linea)
 				
 					line_ready <= '1';
 			
-				elsif(counter < nbyte_line) then
+				elsif(counter < 2**OFFSET_BIT) then
 					
 					line_ready <= '0';
 					
@@ -250,37 +252,27 @@ end component;
 			end if;
 	
 		end if;
-	end process blockram_sequential_access;
-	
-   read_byte : process(br_data_out) is
-	
-	variable wait_read_first : boolean := false; -- per WRITE_MODE = READ_FIRST
-	
-	begin
-	
-	if(byte_read and counter < nbyte_line) then 
 		
-		line(counter) := br_data_out;
-		byte_read := false; -- segnale di sincronizzazione col processo blockram_access_seq
-		counter := counter + 1; -- incremento il contatore degli accessi alla Block Ram ogni volta che
-		-- br_data_out cambia dopo un'operazione di lettura di 1 byte (quindi quando il dato che si vuole 
-		--leggere è disponibile in uscita inquanto l'accesso alla Block Ram non è istantaneo)
-	
-	elsif(byte_write and counter < nbyte_line) then
+		if(clk'event and clk='0' and (byte_read or byte_write)) then
+			count := count + 1;
 		
-		if(not wait_read_first) then
-		written_line(counter) := br_data_out; --lo stesso meccanismo è utilizzato in caso di scrittura per testare
-		byte_write:=false;						  --le diverse WRITE_MODE e l'output che producono al termine di una scrittura.
-		counter := counter + 1;					  --In questo caso la politica gestita è READ_FIRST.
-		wait_read_first := true;
-		else
-			wait_read_first := false;
-		end if;
-		
+			if(count = 2)then
+				if(byte_read and counter < 2**OFFSET_BIT) then 
+					line(counter) := br_data_out;
+					byte_read := false; -- segnale di sincronizzazione col processo blockram_access_seq
+					counter := counter + 1; -- incremento il contatore degli accessi alla Block Ram ogni volta che
+					-- br_data_out cambia dopo un'operazione di lettura di 1 byte (quindi quando il dato che si vuole 
+					--leggere è disponibile in uscita inquanto l'accesso alla Block Ram non è istantaneo)
+				elsif(byte_write and counter < 2**OFFSET_BIT) then
+					written_line(counter) := br_data_out; --lo stesso meccanismo è utilizzato in caso di scrittura per testare
+					byte_write:=false;						  --le diverse WRITE_MODE e l'output che producono al termine di una scrittura.
+					counter := counter + 1;					  --In questo caso la politica gestita è READ_FIRST.
+				end if;
+				count := 0;
+			end if;
 	end if;
-	
-	end process read_byte;
-
+		
+	end process blockram_sequential_access;
 	
 	--Processo che gestisce la terminazione di un ciclo d'accesso sequenziale alla Block Ram.
 	--Il processo asserisce il segnale di ready per indicare il termine di un'operazione e in
@@ -288,7 +280,7 @@ end component;
 	end_blockram_access : process(line_ready)
 	begin
 	
-		if(counter = nbyte_line) then
+		if(counter = 2**OFFSET_BIT) then
 		
 			counter := 0; --azzero contatore degli accessi alla block ram
 

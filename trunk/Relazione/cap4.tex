@@ -26,7 +26,7 @@ Per completezza e per aiutare una successiva lettura delle forme d'onda generate
 Questo file ha in comune con il resto dei file di testing dei componenti realizzati la dichiarazione dei componenti, il portmap e la fase di reset iniziale. In questo caso specifico il testbench si compone di 3 fasi con le quali si verifica il funzionamento delle scritture:
 
 \subsubsection{Fase 1: Letture d' inizializzazione}
-Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back \texttt{ch\_wtwb='0'} e  uno in modalit\`a write-throght \texttt{ch\_wtwb='1'}. Si occupano quindi rispettivamente la via ([x][1]) del primo set di indice ([0][]),  del secondo set di indice ([1][x]) e terzo set di indice ([2][]). In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}, porti lo stato (\texttt{.status}) del terzo blocco a 01 ovvero a \texttt{MESI\_S}, mentre negli altri due casi \`e uguale a 10 ovvero \texttt{MESI\_E,} differenza evidenziata in verde nella colonna dei valori nella figura \ref{fig:write1}) .
+Si caricano in Cache 3 blocchi da 32 byte, 2 in modalit\`a write-back \texttt{ch\_wtwb='0'} e  uno in modalit\`a write-throght \texttt{ch\_wtwb='1'}. Si occupano quindi rispettivamente la prima via del primo set ( [0][1] ),  del secondo set ( [1][1] ) e terzo set ( [2][1] ). In particolare nel terzo set si nota come l'attivazione del segnale \texttt{ch\_wtwb}, porti lo stato (\texttt{.status}) del terzo blocco a 01 ovvero a \texttt{MESI\_S}, mentre negli altri due casi \`e uguale a 10 ovvero \texttt{MESI\_E,} differenza evidenziata in verde nella colonna dei valori nella figura \ref{fig:write1}) .
 
 \begin{figure}[h!]
 \centering
@@ -79,11 +79,11 @@ Avremo quindi tutti i contatori, \texttt{lru\_counter },  delle vie, dei quattro
 Nella seconda fase si esegue un invalidazione sul blocco di TAG="010" e con index="10", ovvero il terzo set; questo comporta il portare lo stato, \texttt{.status}, da MESI\_E(10) a MESI\_I(0) e contatore a "1" nella via che lo contiene mentre l'altra via del set si porta a "0".
 
 \subsubsection{Fase 3: Verifica meccanismo contatori}
-Con la prima lettura si verifica che se si effettua una lettura di una word contenuta in un blocco di TAG="0", presente in cache, ovvero abbiamo un hit, il contatore della via([1][1]) dove \`e contenuto viene resettato, mentre le altre vie con valore pi\`u basso di contatore vengono incrementate.\\
+Con la prima lettura si verifica che se si effettua una lettura di una word contenuta in un blocco di TAG="0", presente in cache, ovvero abbiamo un hit, il contatore della via( [1][1] ) dove \`e contenuto viene resettato, mentre le altre vie con valore pi\`u basso di contatore vengono incrementate.\\
 
-Con la seconda lettura si richiede un dato contenuto in un blocco non presente in cache, ovvero abbiamo  miss, viene quindi selezionato il set in base al valore dell' indice, "01" in questo caso e verr\`a rimpiazzato il blocco con valore del contatore pi\`u elevato che in questo caso corrisponde alla via con TAG="10" ( [1][0]) nella quale si era precedentemente resettatato il contatore della via, senza effettuare nessuna scrittura in RAM in quanto il blocco \`e in stato \texttt{MESI\_E}, ovvero il blocco in cache non ha subito nessuna modifica rispetto a quanto presente in RAM.
+Con la seconda lettura si richiede un dato contenuto in un blocco non presente in cache, ovvero abbiamo  miss, viene quindi selezionato il set in base al valore dell' indice, "01" in questo caso e verr\`a rimpiazzato il blocco con valore del contatore pi\`u elevato che in questo caso corrisponde alla via con TAG="10" ( [1][0] ) nella quale si era precedentemente resettatato il contatore della via, senza effettuare nessuna scrittura in RAM in quanto il blocco \`e in stato \texttt{MESI\_E}, ovvero il blocco in cache non ha subito nessuna modifica rispetto a quanto presente in RAM.
 
-Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache con indice="10", che corrisponde al terzo set ([2][x]), nel quale una via era stata precedentemente invalidata. Tale via([2][0]) verr\`a quindi rimpiazzata senza scrittura in RAM (perch\`e la linea \`e in MESI\_I) con il blocco con TAG="110".
+Con la terza lettura invece si richiede un dato contenuto in un blocco non presente in cache con indice="10", che corrisponde al terzo set, nel quale una via era stata precedentemente invalidata. Tale via([2][0]) verr\`a quindi rimpiazzata senza scrittura in RAM (perch\`e la linea \`e in MESI\_I) con il blocco con TAG="110".
 
 \begin{figure}[h!]
 \centering
@@ -186,7 +186,7 @@ Questo codice conta fino a tre, da qui il nome del file termina con 123, ad ogni
 
 Si continuer\`a a operare nel primo set finch\`e il valore di r1 non supera trentuno, ovvero alla trentaduesima iterazione si passer\`a a lavorare sul secondo set, ma questo non avverr\`a mai nella nostra simulazione, data la durata limitata del testbench.\\
 
-In seguito si effettua il caricamento in r2 del primo valore scritto in memoria (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via([0]).\\
+In seguito si effettua il caricamento in r2 del primo valore scritto in memoria (ovvero "1"), ma il blocco che contiene la word di indirizzo 0 non \`e pi\`u presente in cache, verra quindi effettuato un ulteriore rimpiazzamento però sulla seconda via( [0][0] ).\\
 Infine si incrementa in valore di r1 di quattro unit\`a in modo da scrivere non pi\`u nel byte di offset "00000" ma di offset "00010", ovvero la word successiva di ogni blocco.\\
 
 \begin{figure}[h!]

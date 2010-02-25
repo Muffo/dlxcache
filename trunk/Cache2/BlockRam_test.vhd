@@ -16,7 +16,6 @@
  
     COMPONENT BlockRam_cmp
     port(
-		reset : in std_logic;
 		addr : in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 		clk : in std_logic;
 		bdata_in : in data_line;
@@ -32,7 +31,6 @@
     
 
    --Inputs
-   signal reset : std_logic := '0';
    signal addr : std_logic_vector(ADDR_BIT-1 downto 0) := (others => '0');
    signal clk : std_logic := '0';
    --signal br_clk : std_logic := '0';
@@ -54,7 +52,6 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: BlockRam_cmp PORT MAP (
-          reset => reset,
           addr => addr,
 			 addr_m => addr_m,
           clk => clk,

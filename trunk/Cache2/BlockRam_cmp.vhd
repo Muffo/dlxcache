@@ -32,7 +32,7 @@ use UNISIM.VComponents.all;
 
 entity BlockRam_cmp is
 port(
-	reset: in std_logic;
+
    addr:in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 	clk:in 	std_logic;
    bdata_in: in data_line;
@@ -55,7 +55,7 @@ component RAMB16_S9 --DATA_WIDTH=8 RAM_DEPTH=2048
 --configurazione attributi della Block Ram
 generic (
 	
-	WRITE_MODE : string := "READ_FIRST" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
+	WRITE_MODE : string := "NO_CHANGE" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
 	
 	-- valore in output dopo inizializzazione
 	INIT : bit_vector(35 downto 0) := X"000000000";
@@ -157,9 +157,7 @@ end component;
 	shared variable counter : natural := 0;       -- contatore per gli accessi in block ram per letture e scritture di linee
 	shared variable line: data_line;
 	shared variable written_line: data_line;       -- per il debug della WRITE_MODE
-	shared variable byte_read : boolean := false; -- variabile utilizzata per sincronizzare l'avvio della lettura di un byte dalla Block Ram e
-																 -- la fine, quando il byte letto è disponibile sul bus di output della Block Ram.
-	shared variable byte_write : boolean := false;
+	
 	
 	--Segnali di sincronizzazione tra processi      
 	signal read_line: std_logic := '0';		 -- segnale asserito in caso di lettura di linea da memoria
@@ -187,7 +185,6 @@ end component;
 	--delle operazioni corrispondenti con accessi in sequenza alla Block Ram BRAM16_S9 (lettura/scrittura di singoli byte).
 	ram_cache : process(memrd, memwr)
 	begin
-	--if(clk'event and clk='1') then
 		if(en='1') then
 			if(memwr='1' and memrd='0') then --scrittura su block ram di una linea
 				line := bdata_in;
@@ -202,13 +199,18 @@ end component;
 			write_line <= '0';
 			read_line <= '0';
 		end if;
-	--end if;
 	
 	end process ram_cache;
 	
-	--Processo che gestisce gli accessi sequenziali alla Block Ram in sincronia col clock br_clk.
+	--Processo che gestisce gli accessi sequenziali alla Block Ram in sincronia col clock. In caso di lettura, una volta comandata la lettura è
+	--necessario attendere che il dato venga portato in uscita. Non avendo segnali che segnalano ciò e tempistiche sul componente si è determinato
+	--tramite prove pratiche il tempo di accesso per la lettura di un byte dalla Block Ram.
 	blockram_sequential_access : process(clk)
+	
 		variable count : natural := 0;
+		variable byte_read : boolean := false; -- variabile utilizzata per sincronizzare l'avvio della lettura di un byte dalla Block Ram e
+																 -- la fine, quando il byte letto è disponibile sul bus di output della Block Ram.
+		variable byte_write : boolean := false;
 	begin
 		if(clk'event and clk='1') then
 			if((read_line='1' xor write_line='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
@@ -253,16 +255,16 @@ end component;
 	
 		end if;
 		
-		if(clk'event and clk='0' and (byte_read or byte_write)) then
+		if(clk'event and clk='0' and (byte_read or byte_write)) then -- completamento della lettura del byte richiesto
+			
 			count := count + 1;
 		
-			if(count = 2)then
+			if(count = 2)then                                 -- passati 2 clock il dato letto è pronto su br_data_out e viene caricato nella linea
 				if(byte_read and counter < 2**OFFSET_BIT) then 
 					line(counter) := br_data_out;
-					byte_read := false; -- segnale di sincronizzazione col processo blockram_access_seq
-					counter := counter + 1; -- incremento il contatore degli accessi alla Block Ram ogni volta che
-					-- br_data_out cambia dopo un'operazione di lettura di 1 byte (quindi quando il dato che si vuole 
-					--leggere è disponibile in uscita inquanto l'accesso alla Block Ram non è istantaneo)
+					byte_read := false;                         -- variabile utilizzata per sincronizzare l'inizio di un ciclo di lettura con la sua fine
+					counter := counter + 1;                     -- incremento il contatore degli accessi alla Block Ram ogni volta che
+					                                            -- viene completata la lettura.
 				elsif(byte_write and counter < 2**OFFSET_BIT) then
 					written_line(counter) := br_data_out; --lo stesso meccanismo è utilizzato in caso di scrittura per testare
 					byte_write:=false;						  --le diverse WRITE_MODE e l'output che producono al termine di una scrittura.

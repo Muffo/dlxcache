@@ -69,7 +69,6 @@ architecture Arch1_Memory_Stage of Memory_Stage is
 							dest_register_data <= load_memory_data_register;
 							data_out <= load_memory_data_register;	
 						when I_SW | IF_SF => -- Store Word e Store Float. il register file resta inalterato, non è necessario il forwarding
-													-- La scrittura viene fatta al prossimo fronte del clock (processo ram_write)
 							dest_register <= (others => '0');
 							dest_register_data <= (others => '0');
 							data_out <= alu_exit_buffer;

@@ -49,7 +49,7 @@ La Fig. \ref{fig:dlx_mem} mostra nel dettaglio il nuovo stadio di MEM.
 \newpage
 \section{Connessione del componente}
 
-I segnali \texttt{store\_memory\_data\_register} e \texttt{load\_memory\_data\_register} sono connessi rispettivamente al \texttt{ch\_bdata\_in} e al \texttt{ch\_bdata\_out} della cache mentre il \texttt{memory\_data\_register} \`e collegato al bus indirizzi della cache (\texttt{ch\_baddr}).\\
+I segnali \texttt{store\_memory\_data\_register} e \texttt{load\_memory\_data\_register} sono connessi rispettivamente al \texttt{ch\_bdata\_in} e al \texttt{ch\_bdata\_out} della cache mentre il \texttt{memory\_address\_register} \`e collegato al bus indirizzi della cache (\texttt{ch\_baddr}).\\
 Il segnale ready (connesso al \texttt{ch\_ready} della cache) viene asserito alla fine di ogni ciclo di lettura e scrittura ed indica al processore che il dato proveniente dalla cache è disponibile per la lettura o che la scrittura \`e terminata e pu\`o avere luogo un nuovo ciclo di bus.\\
 I rimanenti due segnali \texttt{memrd} e \texttt{memwr} sono rispettivamente collegati ai segnali della cache \texttt{ch\_memrd} e \texttt{ch\_memwr}.\\
 A livello di codice nel processo async sono stati modificati i rami del "case a\_opcode\_high is" inerenti la load e la store.\\

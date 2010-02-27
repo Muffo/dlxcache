@@ -191,10 +191,13 @@ begin
 		elsif (ch_memrd = '0' and ch_memwr = '1') then
 			-- Richiesta di scrittura
 			way := -1;
-			if(waiting_wt and rdwr_done = '1') then
-				cache(conv_integer(addr_index))(wt_way).status := MESI_E;
-				waiting_wt := false;
-				ch_ready <= '1';
+			if(waiting_wt)then
+				if(rdwr_done = '1') then
+					cache(conv_integer(addr_index))(wt_way).status := MESI_E;
+					ch_ready <= '1';
+				else
+					waiting_wt := false;
+				end if;
 			elsif(waiting_replace and line_ready = '1') then
 				way := selected_way;
 				waiting_replace := false;

@@ -1,0 +1,5 @@
+X"20420001",  --l1: addi r2,r2,1  ; porta a 1 il valore di r2
+X"AC220000",  --l2: sw 0(r1),r2  ; salva il contenuto di r2
+X"8C230000",  --l3: lw r3,0(r1)  ; porta in r3 il valore presente in r2
+X"20620001",  --l4: addi r2,r3,1  ; incrementa r2
+X"0BFFFFF0",  --l5: j l2          ; salta a l1

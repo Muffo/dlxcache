@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Documents and Settings/DLXcache/DLXPipelined_Test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="cachelibrary" />
+            <top_module name="dlxpipelined_test" />
+            <top_module name="float_32" />
+            <top_module name="global" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="44" />
+   <wvobject fp_name="/dlxpipelined_test/pc_fetch" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_fetch[29:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_fetch[29:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/pc_decode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_decode[29:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_decode[29:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/pc_execute" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_execute[29:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_execute[29:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/pc_memory" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_memory[29:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_memory[29:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/pc_writeback" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_writeback[29:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_writeback[29:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/instruction_fetch" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction_fetch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_fetch[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/instruction_decode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction_decode[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_decode[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/instruction_execute" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction_execute[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_execute[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/instruction_memory" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction_memory[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_memory[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/instruction_writeback" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction_writeback[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction_writeback[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/mem_dest_register" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_dest_register[4:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_dest_register[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/mem_dest_register_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_dest_register_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_dest_register_data[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/dec_register_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_register_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_register_a[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/dec_register_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_register_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_register_b[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/exe_alu_exit" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exe_alu_exit[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_alu_exit[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/mem_data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_out[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/register_file_debug[2]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[2]</obj_property>
+      <obj_property name="ObjectShortName">register_file_debug[2]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/register_file_debug[3]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[3]</obj_property>
+      <obj_property name="ObjectShortName">register_file_debug[3]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_ready</obj_property>
+      <obj_property name="ObjectShortName">cache_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_memrd" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_memrd</obj_property>
+      <obj_property name="ObjectShortName">cache_memrd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_memwr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_memwr</obj_property>
+      <obj_property name="ObjectShortName">cache_memwr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[1]</obj_property>
+      <obj_property name="ObjectShortName">debug_cache[0][1]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.data</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0][1].data</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[0]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[0]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[1]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[1]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[2]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[2]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[3]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[3]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[4]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[4]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[5]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[5]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[6]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[6]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[7]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[7]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[8]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[8]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[9]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[9]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[10]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[10]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[11]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[11]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[12]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[12]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[13]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[13]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[14]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[14]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[15]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[15]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[16]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[16]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[17]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[17]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[18]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[18]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[19]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[19]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[20]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[20]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[21]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[21]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[22]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[22]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[23]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[23]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[24]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[24]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[25]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[25]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[26]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[26]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[27]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[27]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[28]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[28]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[29]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[29]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[30]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[30]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[31]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data[31]</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="Reversed">false</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].status" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.status</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0][1].status</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].tag" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.tag</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0][1].tag</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].lru_counter" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.lru_counter</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0][1].lru_counter</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/exe_force_jump" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">exe_force_jump</obj_property>
+      <obj_property name="ObjectShortName">exe_force_jump</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/exe_pc_for_jump" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exe_pc_for_jump[29:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_pc_for_jump[29:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/debug_cache[0]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">debug_cache[0]</obj_property>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0][0]</obj_property>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.data</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][0].data</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[0]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[0]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[1]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[1]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[1]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[2]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[2]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[2]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[3]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[3]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[3]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[4]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[4]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[4]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[5]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[5]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[5]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[6]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[6]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[6]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[7]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[7]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[7]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[8]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[8]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[8]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[9]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[9]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[9]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[10]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[10]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[10]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[11]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[11]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[11]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[12]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[12]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[12]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[13]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[13]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[13]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[14]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[14]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[14]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[15]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[15]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[15]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[16]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[16]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[16]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[17]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[17]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[17]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[18]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[18]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[18]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[19]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[19]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[19]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[20]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[20]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[20]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[21]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[21]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[21]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[22]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[22]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[22]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[23]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[23]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[23]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[24]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[24]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[24]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[25]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[25]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[25]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[26]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[26]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[26]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[27]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[27]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[27]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[28]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[28]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[28]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[29]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[29]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[29]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[30]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[30]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[30]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[31]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[31]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data[31]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].status" type="other" db_ref_id="1">
+            <obj_property name="ElementShortName">.status</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][0].status</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].tag" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.tag</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][0].tag</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].lru_counter" type="other" db_ref_id="1">
+            <obj_property name="ElementShortName">.lru_counter</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][0].lru_counter</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0][1]</obj_property>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.data</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].data</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[0]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[0]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[0]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[1]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[1]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[1]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[2]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[2]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[2]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[3]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[3]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[3]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[4]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[4]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[4]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[5]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[5]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[5]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[6]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[6]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[6]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[7]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[7]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[7]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[8]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[8]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[8]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[9]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[9]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[9]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[10]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[10]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[10]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[11]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[11]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[11]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[12]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[12]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[12]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[13]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[13]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[13]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[14]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[14]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[14]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[15]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[15]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[15]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[16]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[16]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[16]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[17]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[17]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[17]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[18]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[18]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[18]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[19]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[19]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[19]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[20]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[20]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[20]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[21]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[21]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[21]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[22]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[22]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[22]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[23]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[23]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[23]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[24]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[24]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[24]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[25]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[25]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[25]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[26]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[26]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[26]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[27]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[27]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[27]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[28]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[28]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[28]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[29]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[29]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[29]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[30]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[30]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[30]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[31]" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">[31]</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data[31]</obj_property>
+               <obj_property name="Radix">HEXRADIX</obj_property>
+               <obj_property name="Reversed">false</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].status" type="other" db_ref_id="1">
+            <obj_property name="ElementShortName">.status</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].status</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].tag" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.tag</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].tag</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].lru_counter" type="other" db_ref_id="1">
+            <obj_property name="ElementShortName">.lru_counter</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1].lru_counter</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/exe_register_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exe_register_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_register_b[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/wb_dest_register" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_dest_register[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_dest_register[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/wb_dest_register_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_dest_register_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_dest_register_data[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/wb_dest_register_type" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_dest_register_type</obj_property>
+      <obj_property name="ObjectShortName">wb_dest_register_type</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_inv" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_inv</obj_property>
+      <obj_property name="ObjectShortName">cache_inv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_eads" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_eads</obj_property>
+      <obj_property name="ObjectShortName">cache_eads</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_wtwb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_wtwb</obj_property>
+      <obj_property name="ObjectShortName">cache_wtwb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_hit" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_hit</obj_property>
+      <obj_property name="ObjectShortName">cache_hit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/cache_hitm" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cache_hitm</obj_property>
+      <obj_property name="ObjectShortName">cache_hitm</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/debug_cache" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">debug_cache[0:3]</obj_property>
+      <obj_property name="ObjectShortName">debug_cache[0:3]</obj_property>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[0]</obj_property>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][0]</obj_property>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">.data</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].data</obj_property>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[0]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[0]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[0]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[1]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[1]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[1]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[2]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[2]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[2]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[3]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[3]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[3]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[4]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[4]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[4]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[5]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[5]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[5]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[6]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[6]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[6]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[7]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[7]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[7]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[8]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[8]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[8]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[9]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[9]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[9]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[10]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[10]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[10]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[11]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[11]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[11]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[12]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[12]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[12]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[13]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[13]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[13]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[14]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[14]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[14]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[15]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[15]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[15]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[16]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[16]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[16]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[17]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[17]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[17]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[18]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[18]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[18]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[19]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[19]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[19]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[20]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[20]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[20]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[21]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[21]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[21]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[22]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[22]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[22]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[23]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[23]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[23]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[24]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[24]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[24]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[25]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[25]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[25]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[26]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[26]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[26]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[27]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[27]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[27]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[28]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[28]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[28]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[29]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[29]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[29]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[30]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[30]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[30]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].data[31]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[31]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][0].data[31]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].status" type="other" db_ref_id="1">
+               <obj_property name="ElementShortName">.status</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].status</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].tag" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">.tag</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].tag</obj_property>
+               <obj_property name="Radix">BINARYRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][0].lru_counter" type="other" db_ref_id="1">
+               <obj_property name="ElementShortName">.lru_counter</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][0].lru_counter</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1]" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">debug_cache[0][1]</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">.data</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].data</obj_property>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[0]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[0]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[0]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[1]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[1]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[1]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[2]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[2]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[2]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[3]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[3]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[3]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[4]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[4]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[4]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[5]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[5]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[5]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[6]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[6]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[6]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[7]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[7]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[7]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[8]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[8]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[8]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[9]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[9]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[9]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[10]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[10]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[10]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[11]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[11]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[11]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[12]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[12]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[12]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[13]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[13]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[13]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[14]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[14]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[14]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[15]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[15]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[15]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[16]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[16]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[16]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[17]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[17]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[17]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[18]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[18]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[18]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[19]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[19]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[19]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[20]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[20]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[20]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[21]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[21]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[21]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[22]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[22]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[22]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[23]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[23]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[23]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[24]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[24]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[24]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[25]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[25]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[25]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[26]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[26]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[26]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[27]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[27]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[27]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[28]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[28]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[28]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[29]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[29]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[29]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[30]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[30]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[30]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+               <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].data[31]" type="array" db_ref_id="1">
+                  <obj_property name="ElementShortName">[31]</obj_property>
+                  <obj_property name="ObjectShortName">debug_cache[0][1].data[31]</obj_property>
+                  <obj_property name="Radix">HEXRADIX</obj_property>
+                  <obj_property name="Reversed">false</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].status" type="other" db_ref_id="1">
+               <obj_property name="ElementShortName">.status</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].status</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].tag" type="array" db_ref_id="1">
+               <obj_property name="ElementShortName">.tag</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].tag</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            </wvobject>
+            <wvobject fp_name="/dlxpipelined_test/debug_cache[0][1].lru_counter" type="other" db_ref_id="1">
+               <obj_property name="ElementShortName">.lru_counter</obj_property>
+               <obj_property name="ObjectShortName">debug_cache[0][1].lru_counter</obj_property>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[2]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/debug_cache[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">debug_cache[3]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/register_file_debug" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">register_file_debug[0:31]</obj_property>
+      <obj_property name="ObjectShortName">register_file_debug[0:31]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[1]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[2]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[3]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[4]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[5]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[6]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[10]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[11]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[12]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[13]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[14]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[15]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[16]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[17]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[18]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[19]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[20]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[21]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[22]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[23]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[24]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[25]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[26]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[27]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[28]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[29]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[30]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dlxpipelined_test/register_file_debug[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">register_file_debug[31]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/dec_instruction_format" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_instruction_format[2:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_instruction_format[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/exe_instruction_format" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">exe_instruction_format[2:0]</obj_property>
+      <obj_property name="ObjectShortName">exe_instruction_format[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/mem_instruction_format" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_instruction_format[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_instruction_format[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/wb_instruction_format" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_instruction_format[2:0]</obj_property>
+      <obj_property name="ObjectShortName">wb_instruction_format[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/fp_register_file_debug" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fp_register_file_debug[0:31]</obj_property>
+      <obj_property name="ObjectShortName">fp_register_file_debug[0:31]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dlxpipelined_test/fp_register_file_debug_hr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">fp_register_file_debug_hr[0:31]</obj_property>
+      <obj_property name="ObjectShortName">fp_register_file_debug_hr[0:31]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

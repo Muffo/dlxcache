@@ -1,0 +1,12 @@
+X"20010000", -- l1: addi r1,r0,0 ; azzera r1
+X"20420001", -- l2: addi r2,r2,1 ; incrementa r2
+X"AC22000A", -- l3: sw 10(r1),r2 ; memorizzza il valore di r2 all'indirizzo 10
+X"AC22000E", -- l4: sw 14(r1),r2 ; memorizzza il valore di r2 all'indirizzo 14
+X"8C23000A", -- l5: lw r3,10(r1) ; porta in r3 il valore all'indirizzo 10
+X"8C24000E", -- l6: lw r4,14(r1) ; porta in r4 il valore all'indirizzo 14
+X"0BFFFFE8", -- l7: j l2         ; salta a l2
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF",
+X"FFFFFFFF"

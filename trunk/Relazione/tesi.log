@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  24 FEB 2010 16:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.17)  2 MAR 2010 21:41
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1087,51 +1087,51 @@ Capitolo 6.
 [59
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
 [60]
-Overfull \hbox (32.00409pt too wide) in paragraph at lines 274--275
+Overfull \hbox (32.00409pt too wide) in paragraph at lines 275--276
 [][] 
  []
 
 
-Overfull \hbox (38.00415pt too wide) in paragraph at lines 276--277
+Overfull \hbox (38.00415pt too wide) in paragraph at lines 277--278
 [][] 
  []
 
 
-Overfull \hbox (32.00409pt too wide) in paragraph at lines 277--278
+Overfull \hbox (32.00409pt too wide) in paragraph at lines 278--279
 [][] 
  []
 
 [61]
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
 
  []
 
-<img/blockRam/blockram_cmp.png, id=793, 1002.74625pt x 731.73375pt>
+<img/blockRam/blockram_cmp.png, id=795, 1002.74625pt x 731.73375pt>
 File: img/blockRam/blockram_cmp.png Graphic file (type png)
 
 <use img/blockRam/blockram_cmp.png> [62 <./img/blockRam/blockram_cmp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
 
  []
 
 
-Overfull \hbox (22.38783pt too wide) in paragraph at lines 315--316
+Overfull \hbox (22.38783pt too wide) in paragraph at lines 316--317
 []\OT1/pag/m/n/12 Tali se-gna-li in-ter-ni so-no mo-stra-ti nel port map del co
 m-po-nen-te RAMB16[]-
  []
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
 
@@ -1139,18 +1139,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 341--342
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
-<img/blockRam/test_read_first.jpg, id=828, 768.62157pt x 304.88907pt>
+<img/blockRam/test_read_first.jpg, id=830, 768.62157pt x 304.88907pt>
 File: img/blockRam/test_read_first.jpg Graphic file (type jpg)
 
 <use img/blockRam/test_read_first.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/blockRam/test_write_first.jpg, id=831, 670.75594pt x 303.38344pt>
+<img/blockRam/test_write_first.jpg, id=833, 670.75594pt x 303.38344pt>
 File: img/blockRam/test_write_first.jpg Graphic file (type jpg)
 
 <use img/blockRam/test_write_first.jpg> [65]
-<img/blockRam/test_no_change.jpg, id=838, 695.59875pt x 304.13625pt>
+<img/blockRam/test_no_change.jpg, id=840, 695.59875pt x 304.13625pt>
 File: img/blockRam/test_no_change.jpg Graphic file (type jpg)
 
 <use img/blockRam/test_no_change.jpg>
@@ -1158,7 +1158,7 @@ File: img/blockRam/test_no_change.jpg Graphic file (type jpg)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
 
  []
 
@@ -1196,13 +1196,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9009 strings out of 493848
- 124465 string characters out of 3149206
+ 9011 strings out of 493848
+ 124479 string characters out of 3149206
  349136 words of memory out of 3000000
  11635 multiletter control sequences out of 15000+200000
  37621 words of font info for 78 fonts, out of 3000000 for 9000
  792 hyphenation exceptions out of 8191
- 38i,13n,48p,1340b,1912s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,13n,48p,1340b,1962s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
@@ -1212,9 +1212,9 @@ f-dist/fonts/type1/urw/avantgar/uagko8a.pfb></usr/local/texlive/2009/texmf-dist
 /fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/t
 ype1/urw/courier/ucrr8a.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw
 /courier/ucrro8a.pfb>
-Output written on tesi.pdf (71 pages, 4462764 bytes).
+Output written on tesi.pdf (71 pages, 4463046 bytes).
 PDF statistics:
- 967 PDF objects out of 1000 (max. 8388607)
- 337 named destinations out of 1000 (max. 500000)
+ 969 PDF objects out of 1000 (max. 8388607)
+ 339 named destinations out of 1000 (max. 500000)
  595 words of extra memory for PDF output out of 10000 (max. 10000000)
 

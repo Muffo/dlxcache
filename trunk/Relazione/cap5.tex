@@ -150,7 +150,7 @@ Di seguito viene riportato l'elenco delle operazioni che la Block Ram  \`e in gr
 
 \item \textbf{Synchronous Set/Reset}: \`e l'operazione conseguente all'asserzione contemporanea dei segnali \texttt{EN} e \texttt{SSR}. Tale operazione comporta la re inizializzazione dei registri di output al valore specificato dall'attributo\texttt{ SRVAL}.
 
-\item \texttt{WE} + \texttt{SSR} comporta un ciclo di scrittura in cui il dato in input viene salvato in memoria all'indirizzo presente sul bus degli indirizzi, mentre il registro di output viene impostate al valore SRVAL.
+\item \texttt{WE} + \texttt{SSR} comporta un ciclo di scrittura in cui il dato in input viene salvato in memoria all'indirizzo presente sul bus degli indirizzi, mentre nei latch di output viene impostato il valore dell'attributo SRVAL.
 
 \item \textbf{READ}: la lettura sulla Block RAM avviene in modo sincrono, quindi sul fronte positivo del clock qualora sia asserito il solo segnale di \texttt{EN}.
 
@@ -211,17 +211,18 @@ La Block Ram pu\`o essere utilizzata in un progetto su FPGA per implementare una
 
 Tipicamente per utilizzare la Block Ram all'interno di un progetto si procede come segue:\\
 \begin{enumerate}
-\item Si crea un componente Block Ram configurandolo in base alle
-specifiche di progetto, settando il numero di porte volute,
+\item Si crea un componente che utilizza la Block Ram configurandolo in base alle specifiche di progetto, settando il numero di porte volute,
 l'ampiezza dei dati da trasferire, la dimensione della ram voluta,
-etc. Tale operazione pu`o essere fatta o ricorrendo ad una
-serie di template presenti tra i Language Templates Ram di ISE
-oppure tramite una configurazione ad hoc tramite Xilinx Core
-Generator che tramite un wizard consente di personalizzare il
-componente Ram di cui si ottiene infine il codice VHDL o Verilog.
+etc.\\
+Tale operazione pu\`o essere fatta in due modi:
+\begin{enumerate}
+\item Ricorrendo ad una serie di template presenti tra i Language Templates Ram di ISE appartenenti alla libreria UNISIM.
+\item Configurazione ad hoc tramite Xilinx Core Generator che tramite un wizard consente di personalizzare il componente Ram di cui si ottiene infine il codice VHDL o Verilog.
+\end{enumerate}
 \item Si integra il componente all'interno del progetto dichiarandolo
 nell'Architecture del componente finale e creandone un
-istanza utilizzata internamente al progetto tramite degli appositi segnali interni. Per utilizzare tali componenti implementati da Xilinx \`e necessario dichiare all'interno del progetto l'utilizzo della seguente libreria:
+istanza utilizzata internamente al progetto tramite degli appositi segnali interni.\\
+Per utilizzare tali componenti implementati da Xilinx \`e necessario dichiare all'interno del progetto l'utilizzo della seguente libreria:
 
 \lstset{language=VHDL, caption=Libreria dei Components Xilinx predefiniti, label=DescriptiveLabel, breaklines=true, basicstyle=\footnotesize\ttfamily, showspaces=false, showtabs=false, showstringspaces=false,  tabsize=3}
 \begin{lstlisting}

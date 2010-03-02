@@ -8,10 +8,10 @@
   USE work.Global.all;
   USE work.CacheLibrary.all;
 	
-  ENTITY BlockRam_test IS
-  END BlockRam_test;
+  ENTITY BlockRamCache_test IS
+  END BlockRamCache_test;
 
-  ARCHITECTURE behavior OF BlockRam_test IS 
+  ARCHITECTURE behavior OF BlockRamCache_test IS 
 
   --- Component Declaration for the Unit Under Test (UUT)
  

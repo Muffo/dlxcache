@@ -17,7 +17,6 @@
  
     COMPONENT BlockRam_cmp
     port(
-		reset : in std_logic;
 		addr : in std_logic_vector (ADDR_BIT-1 downto 0);  -- address Input
 		clk : in std_logic;
 		bdata_in : in data_line;
@@ -95,7 +94,7 @@
 	signal addr_m: std_logic_vector (ADDR_BIT-1 downto 0);
 
    -- Clock period definitions
-   constant clk_period : time := 30 ns;
+   constant clk_period : time := 10 ns;
 
  
 BEGIN
@@ -126,7 +125,6 @@ BEGIN
 	
 	-- Instantiate the Unit Under Test (UUT)
    uut: BlockRam_cmp PORT MAP (
-          reset => ch_reset,
           addr => ram_address(ADDR_BIT-1 downto 0),
 			 addr_m => addr_m,
           clk => clk,
@@ -168,23 +166,23 @@ BEGIN
 		wait for 20 ns; 
 		ch_baddr <= "00000000000000000000000000000000";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_baddr <= "00000000000000000000000000100100";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
 		ch_wtwb <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		----caso wt) carico blocchi in modalità write through(MESI_S)
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_baddr <= "00000000000000000000000001000100";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
 		ch_wtwb <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		
 		--seconda fase: SCRITTURE
 		--caso 1: dato contenuto in blocco non ancora presente in cache, il dato verrà caricato dalla RAM e a quel punto
@@ -192,60 +190,60 @@ BEGIN
 		ch_baddr <= "00000000000000000000000100000110";
 		ch_bdata_in <= "11111111111110001110011010010111";
 		ch_memwr <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memwr <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		--caso 2: il dato è contenuto in un blocco già presente in cache,viene aggiornato il blocco e lo stato(-> MESI_M(11))
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_baddr <= "00000000000000000000000000100000";
 		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memwr <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		
 		--caso 3: dato contenuto in blocco in modalità write through, devo riscriverlo sul livello superiore(RAM) e mi pongo in MESI_E
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_baddr <= "00000000000000000000000001000110";
 		ch_bdata_in <= "11111111111111111111111111111111";
 		ch_memwr <= '1';
 	--	ch_wtwb <= '1'; 	--(e mi mantengo in stato MESI_S)
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memwr <= '0';
 	--	ch_wtwb <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		
 		--quarta fase LETTURE: 
 		
 		-- caso 1:   rileggo i dati  scritti per verificre l'effettiva scrittura in cache
 		ch_baddr <= "00000000000000000000000000100000";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_baddr <= "00000000000000000000000100000110";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		-- caso 2: Letture dato salvato in ram:
 		--oblligo a far salvare in memoria blocco modificato
 		ch_baddr <= "00000000000000000000000100101100";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_baddr <= "00000000000000000000000110101100";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		--ricarico blocco precendetemente modificato
 		ch_baddr <= "00000000000000000000000000100000";
 		ch_memrd <= '1';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		ch_memrd <= '0';
-		wait for clk_period*(nbyte_line)*2 + clk_period;
+		wait for clk_period*(2**OFFSET_BIT)*2 + clk_period;
 		wait;
    end process;
 

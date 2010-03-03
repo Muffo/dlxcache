@@ -50,10 +50,10 @@ architecture Behavioral of BlockRam_cmp is
 
 -- Dichiarazione del componente Block Ram RAMB16_S9 (ram depth: 2048 data width: 8 bit + parity bit)
 
-component RAMB16_S9 --DATA_WIDTH=8 RAM_DEPTH=2048
-
---configurazione attributi della Block Ram
-generic (
+	component RAMB16_S9 --DATA_WIDTH=8 RAM_DEPTH=2048
+	
+	--configurazione attributi della Block Ram
+	generic (
 	
 	WRITE_MODE : string := "NO_CHANGE" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
 	
@@ -141,7 +141,7 @@ generic (
 		CLK: in std_logic;
 		SSR: in std_logic
 	);
-end component;
+	end component;
 
 	--Segnali per l'interfacciamento interno con la Block Ram
 	signal br_data_in: std_logic_vector (DATA_WIDTH-1 downto 0):=conv_std_logic_vector(0,DATA_WIDTH);
@@ -267,8 +267,8 @@ end component;
 					                                            -- viene completata la lettura.
 				elsif(byte_write and counter < 2**OFFSET_BIT) then
 					written_line(counter) := br_data_out; --lo stesso meccanismo è utilizzato in caso di scrittura per testare
-					byte_write:=false;						  --le diverse WRITE_MODE e l'output che producono al termine di una scrittura.
-					counter := counter + 1;					  --In questo caso la politica gestita è READ_FIRST.
+					byte_write:=false;			  --le diverse WRITE_MODE e l'output che producono al termine di una scrittura.
+					counter := counter + 1;			  --In questo caso la politica gestita è READ_FIRST.
 				end if;
 				count := 0;
 			end if;
@@ -286,10 +286,10 @@ end component;
 		
 			counter := 0; --azzero contatore degli accessi alla block ram
 
-			if(read_line='1') then --lettura su block ram
+			if(read_line='1') then 
 				bdata_out <= line; --devo fornire linea letta a cache
-			elsif(write_line='1') then --scrittura su block ram
-				bdata_out <= written_line; --[per debug] utilizzando la WRITE_MODE = WRITE_FIRST ad ogni scrittura in Block Ram si ha il dato scritto in memoria in output su DO (bus dati di output)
+			elsif(write_line='1') then 
+				bdata_out <= written_line; --[per debug] per testare diverse WRITE_MODE
 			end if;
 			
 			ready <= '1';--operazione completata

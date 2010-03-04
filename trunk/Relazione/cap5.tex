@@ -8,11 +8,22 @@ Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia S
 \begin{enumerate}
 \item  Memorie RAM distribuite sulla scheda, di piccole dimensioni e rapidissimo accesso, utilizzate tipicamente come registri temporanei d'appoggio.
 \item Le Block RAM, ovvero blocchi di memoria RAM statica con tempi d'accesso non nulli e un' ampia capacit\`a potenziale di memorizzazione, in relazione alle caratteristiche tecniche della scheda FPGA utilizzata. 
+
+
+
 \end{enumerate}
 
 \section{Caratteristiche e segnali della Block Ram}
 
-La memoria RAM presente su una FPGA Spartan-3 \cite{xil2} viene implementata tramite una serie di Block RAM ripartite in colonne il cui numero e capacit\`a dipende dalle caratteristiche stesse dell'FPGA utilizzata. Dal punto di vista implementativo le Block RAM sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
+La memoria RAM presente su una FPGA Spartan-3 \cite{xil2} viene implementata tramite una serie di Block RAM ripartite in colonne il cui numero e capacit\`a dipende dalle caratteristiche stesse dell'FPGA utilizzata come illustato in Fig.\ref{fig:location}.\\
+\begin{figure}[!h]
+\centering
+% \includegraphics[scale=0.8]{img/blockRam/pinoutPorte.jpg}
+\includegraphics[width=\textwidth]{img/blockRam/br_location.png}
+\caption{Location delle colonne di Block Ram su FPGA}
+\label{fig:location}
+\end{figure}
+Dal punto di vista implementativo le Block RAM sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
 
 L'accesso alla Block RAM pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati (A o B) oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura sull'intero spazio di memoria del dispositivo (anche con sovrapposizioni).
 

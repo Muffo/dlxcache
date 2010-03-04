@@ -82,14 +82,22 @@ Ad esempio, se si volesse utilizzare la Block Ram come memoria Ram per un proces
 \section{Configurazione della Block RAM}
 
 La configurazione della Block RAM avviene tramite una serie di attributi nella sezione \texttt{generic (...)} dei componenti RAM disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna, la dimensione e diverse altre caratteristiche della Block Ram come il comportamento WRITE\_MODE in scrittura.\\
-Generalmente il numero di porte della RAM e la sua organizzazione interna possono essere specificati utilizzando Xilinx Core Generator che consente di configurare tramite un wizard la Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato oppure si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a (Fig.\ref{fig:tipi_br}).
+Generalmente il numero di porte della RAM e la sua organizzazione interna possono essere specificati utilizzando Xilinx Core Generator che consente di configurare tramite un wizard la Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato oppure si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram. Per Block Ram in Single-Port i componenti sono denominati RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a. In Fig.\ref{fig:tipi_br} si mostarno le possibili organizzazioni dei dati e i rispettivi componenti della libreria Xilinx UNISIM che le implementano.
 
 \begin{figure}[!h]
 \centering
 %\includegraphics[width=\textwidth]{img/blockRam/tabTipiRam.jpg}
  \includegraphics[width=\textwidth]{img/blockRam/tabTipiRam.jpg}
-\caption{La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata}
+\caption{La tabella mostra le diverse tipologie di RAMB\_Sn ottenibili dalla Block Ram in base all'organizzazione interna desiderata in Single-Port.}
 \label{fig:tipi_br}
+\end{figure}
+Analogamente avviene per l'utilizzo di Block Ram Dual-Port dove l'organizzazione dei dati acceduti dalle due porte è rappresentato dai suffissi mostrati in Tabella \ref{fig:suffixDP}.
+\begin{figure}[!h]
+\centering
+%\includegraphics[width=\textwidth]{img/blockRam/tabTipiRam.jpg}
+ \includegraphics[width=\textwidth]{img/blockRam/suffixDualPort.png}
+\caption{Suffissi relativi alle possibili configurazioni in Dual-Port.}
+\label{fig:suffixDP}
 \end{figure}
 
 \subsection{Inizializzazione del contenuto e attributi di configurazione}
@@ -115,6 +123,15 @@ indirizzo finale del blocco xx = yy * 256\\
 
 INITP\_xx sono attributi analoghi che consentono di inizializzare i bit di parit\`a presenti in memoria (da INITP\_00 a INITP\_07).
 \item \texttt{INIT}  \`e l'attributo utilizzato in fase di inizializzazione per settare il valore iniziale del registro di output quando viene asserito il segnale GSR.\\
+\item \texttt{LOC} consente di specificare quale Block Ram utilizzare all'interno dell'FPGA individuandola tramite coordinate di riga e colonna. Tale operazione pu\`o essere fatta solamente tramite codice VHDL (non con il Core Generator) specificando \texttt{LOC = RAMB16\_X\#\_Y\#}.\\
+La Fig\ref{fig:loc} mostra in dettaglio come si configura una Location Constraint tramite coordinate riga-colonna. Naturalmente la scelta delle coordinate dipende dal numero di Block Ram presenti sull'FPGA utilizzata.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.8]{img/blockRam/loc.png}
+\caption{LOC: coordiante Block Ram su FPGA}
+\label{fig:loc}
+\end{figure}
 
 \item \texttt{WRITE\_MODE}  \`e l'attributo che consente di specificare il comportamento della Block Ram e dei latch di output durante un ciclo di scrittura. I possibili valori sono i seguenti:
 

@@ -38,6 +38,7 @@ port(
    bdata_in: in data_line;
 	memrd:in std_logic;                                 
    memwr:in std_logic; 
+	outd:out std_logic_vector(DATA_WIDTH-1 downto 0);
 	en:in std_logic;         -- Ram Enable
 	bdata_out: out data_line;
 	addr_m:out std_logic_vector (ADDR_BIT-1 downto 0); --segnale di debug per indirizzi inviati alla BlockRam
@@ -55,7 +56,7 @@ architecture Behavioral of BlockRam_cmp is
 	--configurazione attributi della Block Ram
 	generic (
 	
-	WRITE_MODE : string := "NO_CHANGE" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
+	WRITE_MODE : string := "READ_FIRST" ; -- WRITE_FIRST(default)/ READ_FIRST/NO_CHANGE
 	
 	-- valore in output dopo inizializzazione
 	INIT : bit_vector(35 downto 0) := X"000000000";
@@ -181,6 +182,9 @@ architecture Behavioral of BlockRam_cmp is
 		SSR => br_ssr
 		);
 	
+	
+	outd<=br_data_out;
+	
 	--processo che gestisce i segnali che arrivano al componente BlockRam_cmp e comanda l'avvio 
 	--delle operazioni corrispondenti con accessi in sequenza alla Block Ram BRAM16_S9 (lettura/scrittura di singoli byte).
 	ram_cache : process(memrd, memwr)
@@ -219,7 +223,7 @@ architecture Behavioral of BlockRam_cmp is
 			
 				elsif(counter < 2**OFFSET_BIT) then
 					
-					if(not byte_write and not byte_read) then -- se si attende il completamento di una lettura di un byte non si fanno nuove richieste alla Block RAM
+					if(not byte_write and not byte_read) then -- se non si attende il completamento di una lettura di un byte non si fanno nuove richieste alla Block RAM
 						line_ready <= '0';
 						br_addr <= addr + counter;
 						addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug

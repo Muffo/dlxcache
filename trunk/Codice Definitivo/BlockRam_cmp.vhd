@@ -213,8 +213,6 @@ architecture Behavioral of BlockRam_cmp is
 		variable byte_write : boolean := false;
 	begin
 		if(clk'event and clk='1') then
-			if((read_line='1' xor write_line='1')) then --accedo alla Block Ram finchè non ho scritto/letto l'intera linea (line_ready asserito)
-				
 				if(counter = 2**OFFSET_BIT) then -- verifica terminazione trasferimento di 2**OFFSET_BIT bytes (una linea)
 				
 					line_ready <= '1';
@@ -226,7 +224,7 @@ architecture Behavioral of BlockRam_cmp is
 					br_addr <= addr + counter;
 					addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug
 	
-					if(write_line='1' and not byte_write) then    --scrittura su Block Ram
+					if(write_line='1' and not byte_write and read_line='0') then    --scrittura su Block Ram
 						br_en <= '1';
 						br_we <= '1';
 						br_ssr <= '0';
@@ -235,24 +233,19 @@ architecture Behavioral of BlockRam_cmp is
 						
 						byte_write := true;-- serve per sincronizzare il processo lettura_byte, attendendo la fine della scrittura in corso e l'aggiornamento del registro di output per debug
 					
-					elsif(read_line='1' and not byte_read) then --lettura da Block Ram (byte_read=true indica che è in corso una lettura di un byte che ancora non è terminata)
+					elsif(read_line='1' and not byte_read and write_line='0') then --lettura da Block Ram (byte_read=true indica che è in corso una lettura di un byte che ancora non è terminata)
 						br_en <= '1';
 						br_we <= '0';
 						br_ssr <= '0';
-		
+
 						byte_read := true;-- serve per sincronizzare il processo lettura_byte con la lettura in corso
-					
+				
+					else--nessun accesso
+						br_en <= '0';
+						br_we <= '0';
+						br_ssr <= '0';	
 					end if;
-				end if;
-				
-			elsif(not(read_line='1' xor write_line='1')) then -- quando non è in corso nessun accesso alla Block Ram, devo togliere eneable alla Block Ram
-				
-				br_en <= '0';
-				br_we <= '0';
-				br_ssr <= '0';
-				
-			end if;
-	
+				end if;	
 		end if;
 		
 		if(clk'event and clk='0' and (byte_read or byte_write)) then -- completamento della lettura del byte richiesto
@@ -293,13 +286,14 @@ architecture Behavioral of BlockRam_cmp is
 			end if;
 			
 			ready <= '1';--operazione completata
-			ready <= '0' after 50ns;
+			ready <= '0' after 30ns;
 			
 		else
 			ready <='0';
 		end if;
 		
 	end process end_blockram_access;
+
 
 	
 end Behavioral;

@@ -6,8 +6,8 @@ Nel nostro progetto descritto in precedenza, per semplicit\`a  abbiamo considera
 
 Nel nostro caso abbiamo analizzato le caratteristiche dell'FPGA della famiglia Spartan-3 di Xilinx \cite{xil1}, che per gestire la memorizzazione di dati consente due possibili soluzioni:
 \begin{enumerate}
-\item  Memorie RAM distribuite sulla scheda, di piccole dimensioni e rapidissimo accesso, utilizzate tipicamente come registri temporanei d'appoggio.
-\item Le Block RAM, ovvero blocchi di memoria RAM statica con tempi d'accesso non nulli e un' ampia capacit\`a potenziale di memorizzazione, in relazione alle caratteristiche tecniche della scheda FPGA utilizzata. 
+\item Memoria RAM presente sulla scheda (esternamente al chip FPGA).
+\item Le Block RAM, ovvero blocchi di memoria RAM statica con tempi d'accesso non nulli e un' ampia capacit\`a potenziale di memorizzazione, in relazione alle caratteristiche tecniche della scheda FPGA utilizzata.
 
 
 
@@ -25,7 +25,7 @@ La memoria RAM presente su una FPGA Spartan-3 \cite{xil2} viene implementata tra
 \end{figure}
 Dal punto di vista implementativo le Block RAM sono realizzate tramite 18,432 celle di memoria SRAM che consentono pertanto di memorizzare 18 Kbits di cui 16 Kbits di dato e 2 Kbits utilizzati tipicamente per memorizzare i bit di parit\`a relativi ai dati memorizzati o in alternativa come spazio di memorizzazione aggiuntivo.\\
 
-L'accesso alla Block RAM pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati (A o B) oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura sull'intero spazio di memoria del dispositivo (anche con sovrapposizioni).
+L'accesso alla Block RAM pu\`o avvenire o in modalit\`a Single-Port utilizzando una sola porta dati oppure in Dual-Port  tramite 2 porte indipendenti A e B che consentono di effettuare operazioni di lettura e scrittura sull'intero spazio di memoria del dispositivo (anche con sovrapposizioni).
 
 \begin{figure}[!h]
 \centering
@@ -81,8 +81,18 @@ Ad esempio, se si volesse utilizzare la Block Ram come memoria Ram per un proces
 
 \section{Configurazione della Block RAM}
 
-La configurazione della Block RAM avviene tramite una serie di attributi nella sezione \texttt{generic (...)} dei componenti RAM disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna, la dimensione e diverse altre caratteristiche della Block Ram come il comportamento WRITE\_MODE in scrittura.\\
-Generalmente il numero di porte della RAM e la sua organizzazione interna possono essere specificati utilizzando Xilinx Core Generator che consente di configurare tramite un wizard la Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato oppure si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram. Per Block Ram in Single-Port i componenti sono denominati RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a. In Fig.\ref{fig:tipi_br} si mostarno le possibili organizzazioni dei dati e i rispettivi componenti della libreria Xilinx UNISIM che le implementano.
+La configurazione della Block RAM avviene tramite una serie di attributi nella sezione \texttt{generic (...)} dei componenti RAM disponibili nelle librerie di sistema tramite i quali si pu\`o settare in base alle specifiche di progetto l'organizzazione interna dei dati, l'ampiezza dei dati trasferiti e diverse altre caratteristiche della Block Ram come il comportamento in scrittura.\\
+
+La definizione di un componente Block Ram e la relativa configurazione tipicamente possono essere gestiti in due modi:
+
+\begin{enumerate}
+\item Xilinx Core Generator.
+\item Utilizzo di componenti predefiniti della libreria UNISIM della Xilinx e configurazione tramite appositi attributi.
+\end{enumerate}
+
+Xilinx Core Generator consente tramite un'interfaccia grafica di configurare interamente tutte le possibili caratteristiche della Block Ram ottenendo direttamente il codice VHDL del componente ram desiderato. Tale strumento \`e per\`o disponibile solo nelle versioni complete del software ISE di Xilinx.\\
+In alternativa, si possono utilizzare i tipi VHDL  gi\`a associati alla Block Ram presenti nella libreria \texttt{UNISIM} package VComponets. In entrambi i casi si riesce a definire direttamente il numero di porte da utilizzare per l'accesso alla Block Ram e l'ampiezza del dato acceduto (da ci\`o segue l'organizzazione interna dei dati).\\
+Per Block Ram in Single-Port i componenti sono denominati RAMB16\_Sn dove n corrisponde all'ampiezza del dato + parit\`a. In Fig.\ref{fig:tipi_br} si mostarno le possibili organizzazioni dei dati e i rispettivi componenti della libreria Xilinx UNISIM che le implementano.
 
 \begin{figure}[!h]
 \centering
@@ -102,7 +112,7 @@ Analogamente avviene per l'utilizzo di Block Ram Dual-Port dove l'organizzazione
 
 \subsection{Inizializzazione del contenuto e attributi di configurazione}
 \begin{itemize}
-  \item \texttt{INIT\_xx - INITP\_xx}
+  \item \textbf{INIT\_xx - INITP\_xx}
 A default la Block Ram \`e inizializzata a tutti 0, ma \`e possibile inizializzarne il contenuto in diversi modi o direttamente tramite Core Generator al momento della configurazione del componente oppure tramite opportuni attributi VHDL come INIT\_xx e INITP\_xx.\\ 
 Nel primo caso si passa direttamente un file di coefficienti (.coe) che definisce in primo luogo la base numerica dei dati da inserire e in seguito l'elenco dei dati elencati a partire dalla parte bassa della memoria fino agli indirizzi alti. Un esempio della struttura di tale file \`e il seguente:\\
 
@@ -121,9 +131,9 @@ indirizzo finale del blocco xx = yy * 256\\
 \label{fig:attrInit_br}
 \end{figure}
 
-INITP\_xx sono attributi analoghi che consentono di inizializzare i bit di parit\`a presenti in memoria (da INITP\_00 a INITP\_07).
-\item \texttt{INIT}  \`e l'attributo utilizzato in fase di inizializzazione per settare il valore iniziale del registro di output quando viene asserito il segnale GSR.\\
-\item \texttt{LOC} consente di specificare quale Block Ram utilizzare all'interno dell'FPGA individuandola tramite coordinate di riga e colonna. Tale operazione pu\`o essere fatta solamente tramite codice VHDL (non con il Core Generator) specificando \texttt{LOC = RAMB16\_X\#\_Y\#}.\\
+\textbf{INITP\_xx} sono attributi analoghi che consentono di inizializzare i bit di parit\`a presenti in memoria (da INITP\_00 a INITP\_07).
+\item \textbf{INIT}  \`e l'attributo utilizzato in fase di inizializzazione per settare il valore iniziale del registro di output quando viene asserito il segnale GSR.\\
+\item \textbf{LOC} consente di specificare quale Block Ram utilizzare all'interno dell'FPGA individuandola tramite coordinate di riga e colonna. Tale operazione pu\`o essere fatta solamente tramite codice VHDL (non con il Core Generator) specificando \texttt{LOC = RAMB16\_X\#\_Y\#}.\\
 La Fig\ref{fig:loc} mostra in dettaglio come si configura una Location Constraint tramite coordinate riga-colonna. Naturalmente la scelta delle coordinate dipende dal numero di Block Ram presenti sull'FPGA utilizzata.
 
 \begin{figure}[!h]
@@ -132,11 +142,11 @@ La Fig\ref{fig:loc} mostra in dettaglio come si configura una Location Constrain
 \caption{LOC: coordiante Block Ram su FPGA}
 \label{fig:loc}
 \end{figure}
-
-\item \texttt{WRITE\_MODE}  \`e l'attributo che consente di specificare il comportamento della Block Ram e dei latch di output durante un ciclo di scrittura. I possibili valori sono i seguenti:
+\item \textbf{SRVAL} rappresenta il dato che viene portato in uscita alla Block Ram durante i particolare cicli d'accesso caratterizzati dal segnale \texttt{SSR} attivo.
+\item \textbf{WRITE\_MODE}  \`e l'attributo che consente di specificare il comportamento della Block Ram e dei latch di output durante un ciclo di scrittura. I possibili valori sono i seguenti:
 
 \begin{enumerate}
-\item \texttt{WRITE\_FIRST} \`e  il valore di default e comporta un comportamento Read after Write della memoria, ovvero durante un ciclo di scrittura il dato in input viene contemporaneamente scritto alla locazione di memoria indicata dall'indirizzo e memorizzato e reso disponibile sui latch di output.\\
+\item \textbf{WRITE\_FIRST} \`e  il valore di default e comporta un comportamento Read after Write della memoria, ovvero durante un ciclo di scrittura il dato in input viene contemporaneamente scritto alla locazione di memoria indicata dall'indirizzo e memorizzato e reso disponibile sui latch di output.\\
 Nel caso di utilizzo in Dual-Port si ha l'effetto collaterale di un'invalidazione del contenuto del registro di output dell'altra porta, causando pertanto potenziali problemi di conflitto in caso di scrittura e lettura contemporanei sulle due porte.(Fig.\ref{fig:write_first}).
 
 \begin{figure}
@@ -146,7 +156,7 @@ Nel caso di utilizzo in Dual-Port si ha l'effetto collaterale di un'invalidazion
 \label{fig:write_first}
 \end{figure}
 
-\item \texttt{READ\_FIRST} determina un comportamento Read before Write, ovvero prima si carica nei latch di output il dato presente alla locazione di memoria specificata dall'indirizzo e poi lo si sovrascritto in memoria con l'operazione di scrittura. Le temporizzazioni e il comportamento dettagliato in tale modalit\`a sono illustrati in Fig.\ref{fig:read_first}. 
+\item \textbf{READ\_FIRST} determina un comportamento Read before Write, ovvero prima si carica nei latch di output il dato presente alla locazione di memoria specificata dall'indirizzo e poi lo si sovrascritto in memoria con l'operazione di scrittura. Le temporizzazioni e il comportamento dettagliato in tale modalit\`a sono illustrati in Fig.\ref{fig:read_first}. 
 
 \begin{figure}
 \centering
@@ -155,7 +165,7 @@ Nel caso di utilizzo in Dual-Port si ha l'effetto collaterale di un'invalidazion
 \label{fig:read_first}
 \end{figure}
 
-\item \texttt{NO\_CHANGE} determina un comportamento classico di scrittura in memoria senza alcun aggiornamento del dato contenuto nel registro in output (temporizzazioni e funzionamento in Fig.\ref{fig:no_change}). Nel caso di utilizzo in Dual-Port si ha come side-effect l'invalidazione del contenuto del registro di output dell'altra porta. %\\\\
+\item \textbf{NO\_CHANGE} determina un comportamento classico di scrittura in memoria senza alcun aggiornamento del dato contenuto nel registro in output (temporizzazioni e funzionamento in Fig.\ref{fig:no_change}). Nel caso di utilizzo in Dual-Port si ha come side-effect l'invalidazione del contenuto del registro di output dell'altra porta. %\\\\
 \end{enumerate}
 
 \begin{figure}

@@ -219,31 +219,32 @@ architecture Behavioral of BlockRam_cmp is
 			
 				elsif(counter < 2**OFFSET_BIT) then
 					
-					line_ready <= '0';
-					
-					br_addr <= addr + counter;
-					addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug
-	
-					if(write_line='1' and not byte_write and read_line='0') then    --scrittura su Block Ram
-						br_en <= '1';
-						br_we <= '1';
-						br_ssr <= '0';
+					if(not byte_write and not byte_read) then -- se si attende il completamento di una lettura di un byte non si fanno nuove richieste alla Block RAM
+						line_ready <= '0';
+						br_addr <= addr + counter;
+						addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug
 		
-						br_data_in <= line(counter);
+						if(write_line='1' and read_line='0') then    --scrittura su Block Ram
+							br_en <= '1';
+							br_we <= '1';
+							br_ssr <= '0';
+			
+							br_data_in <= line(counter);
+							
+							byte_write := true;-- serve per sincronizzare il processo lettura_byte, attendendo la fine della scrittura in corso e l'aggiornamento del registro di output per debug
 						
-						byte_write := true;-- serve per sincronizzare il processo lettura_byte, attendendo la fine della scrittura in corso e l'aggiornamento del registro di output per debug
-					
-					elsif(read_line='1' and not byte_read and write_line='0') then --lettura da Block Ram (byte_read=true indica che è in corso una lettura di un byte che ancora non è terminata)
-						br_en <= '1';
-						br_we <= '0';
-						br_ssr <= '0';
+						elsif(read_line='1' and write_line='0') then --lettura da Block Ram (byte_read=true indica che è in corso una lettura di un byte che ancora non è terminata)
+							br_en <= '1';
+							br_we <= '0';
+							br_ssr <= '0';
 
-						byte_read := true;-- serve per sincronizzare il processo lettura_byte con la lettura in corso
-				
-					else--nessun accesso
-						br_en <= '0';
-						br_we <= '0';
-						br_ssr <= '0';	
+							byte_read := true;-- serve per sincronizzare il processo lettura_byte con la lettura in corso
+					
+						else--nessun accesso
+							br_en <= '0';
+							br_we <= '0';
+							br_ssr <= '0';	
+						end if;
 					end if;
 				end if;	
 		end if;

@@ -219,7 +219,7 @@ architecture Behavioral of BlockRam_cmp is
 			
 				elsif(counter < 2**OFFSET_BIT) then
 					
-					if(not byte_write and not byte_read) then -- se si attende il completamento di una lettura di un byte non si fanno nuove richieste alla Block RAM
+					if(not byte_write and not byte_read) then -- se non si attende il completamento di una lettura di un byte non si fanno nuove richieste alla Block RAM
 						line_ready <= '0';
 						br_addr <= addr + counter;
 						addr_m <= addr + counter;  --indirizzi forniti alla Block Ram esportati per debug

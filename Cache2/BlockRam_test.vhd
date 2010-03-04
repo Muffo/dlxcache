@@ -23,6 +23,7 @@
 		memwr : in std_logic; 
 		en : in std_logic;			-- Ram Enable
 		bdata_out : out data_line;
+		outd: out std_logic_vector (DATA_WIDTH-1 downto 0);
 		addr_m : out std_logic_vector (ADDR_BIT-1 downto 0);
 		ready : out	std_logic
 );
@@ -43,9 +44,9 @@
    signal bdata_out : data_line;
    signal ready : std_logic;
 	signal addr_m: std_logic_vector (ADDR_BIT-1 downto 0);
-
+	signal br_out: std_logic_vector (DATA_WIDTH-1 downto 0);
    -- Clock period definitions
-   constant clk_period : time := 30ns;
+   constant clk_period : time := 10ns;
 
  
 BEGIN
@@ -57,6 +58,7 @@ BEGIN
           clk => clk,
           bdata_in => bdata_in,
           bdata_out => bdata_out,
+			 outd => br_out,
           memrd => memrd,
           memwr => memwr,
           en => en,
@@ -91,7 +93,7 @@ BEGIN
 		memrd <= '0';
 		en <= '0';
 		
-		wait for clk_period*4;
+		wait for clk_period*5;
 		en <= '1';
 		--lettura della linea di memoria scritto in precedenza
 		

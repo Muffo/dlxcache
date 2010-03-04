@@ -37,18 +37,18 @@
 \contentsline {subsection}{\numberline {2.3}provaFU.vhd}{40}{subsection.4.2.3}
 \contentsline {chapter}{\numberline {5}Block RAM}{43}{chapter.5}
 \contentsline {section}{\numberline {1}Caratteristiche e segnali della Block Ram}{44}{section.5.1}
-\contentsline {section}{\numberline {2}Configurazione della Block RAM}{48}{section.5.2}
-\contentsline {subsection}{\numberline {2.1}Inizializzazione del contenuto e attributi di configurazione}{48}{subsection.5.2.1}
-\contentsline {section}{\numberline {3}Operazioni della Block RAM}{51}{section.5.3}
-\contentsline {section}{\numberline {4}Conflitti d'accesso in Block RAM Dual-Port}{52}{section.5.4}
-\contentsline {section}{\numberline {5}Utilizzo della Block Ram in un progetto su FPGA}{56}{section.5.5}
-\contentsline {chapter}{\numberline {6}Progetto d'esempio: BlockRam\_cmp}{59}{chapter.6}
-\contentsline {section}{\numberline {1}Specifiche del progetto}{59}{section.6.1}
-\contentsline {section}{\numberline {2}Implementazione}{60}{section.6.2}
-\contentsline {subsection}{\numberline {2.1}ram\_cache}{62}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {2.2}blockram\_sequential\_access}{63}{subsection.6.2.2}
-\contentsline {subsection}{\numberline {2.3}end\_blockram\_access}{65}{subsection.6.2.3}
-\contentsline {section}{\numberline {3}Testbench}{65}{section.6.3}
-\contentsline {section}{\numberline {4}Considerazioni sul progetto d'esempio}{67}{section.6.4}
-\contentsline {chapter}{Conclusioni}{69}{chapter*.9}
-\contentsline {chapter}{Bibliografia}{71}{chapter*.10}
+\contentsline {section}{\numberline {2}Configurazione della Block RAM}{47}{section.5.2}
+\contentsline {subsection}{\numberline {2.1}Inizializzazione del contenuto e attributi di configurazione}{49}{subsection.5.2.1}
+\contentsline {section}{\numberline {3}Operazioni della Block RAM}{54}{section.5.3}
+\contentsline {section}{\numberline {4}Conflitti d'accesso in Block RAM Dual-Port}{55}{section.5.4}
+\contentsline {section}{\numberline {5}Utilizzo della Block Ram in un progetto su FPGA}{58}{section.5.5}
+\contentsline {chapter}{\numberline {6}Progetto d'esempio: BlockRam\_cmp}{61}{chapter.6}
+\contentsline {section}{\numberline {1}Specifiche del progetto}{61}{section.6.1}
+\contentsline {section}{\numberline {2}Implementazione}{62}{section.6.2}
+\contentsline {subsection}{\numberline {2.1}ram\_cache}{64}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {2.2}blockram\_sequential\_access}{65}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {2.3}end\_blockram\_access}{67}{subsection.6.2.3}
+\contentsline {section}{\numberline {3}Testbench}{67}{section.6.3}
+\contentsline {section}{\numberline {4}Considerazioni e Sviluppi Futuri}{69}{section.6.4}
+\contentsline {chapter}{Conclusioni}{71}{chapter*.9}
+\contentsline {chapter}{Bibliografia}{73}{chapter*.10}

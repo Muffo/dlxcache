@@ -205,13 +205,13 @@ La tabella mostrata in Fig.\ref{fig:operazioniBlockRam} racchiude quanto detto i
 \end{figure}
 
 \section{Conflitti d'accesso in Block RAM Dual-Port}
-Utilizzando la Block RAM in modalit\`a Dual-Port  si ha la possibilit\`a di utilizzare contemporaneamente le due porte per accedere alla memoria sia in lettura e scrittura. Mentre da un lato ci\`o consente di aumentare lo throughput complessivo dei dati trasferiti, dall'altro vi sono potenziali problemi di conflitto negli accessi simultanei alle stesse celle di memoria.\\
+Utilizzando la Block RAM in modalit\`a Dual-Port  si ha la possibilit\`a di utilizzare contemporaneamente le due porte per accedere alla memoria sia in lettura sia in scrittura. Mentre da un lato ci\`o consente di aumentare lo throughput complessivo dei dati trasferiti, dall'altro vi sono potenziali problemi di conflitto negli accessi simultanei alle stesse celle di memoria.\\
 
 Le condizioni di potenziale conflitto sono le seguenti:
 
 \begin{enumerate}
 	\item Scrittura simultanea sulle due porte alla stessa locazione di memoria.\\
-	Tale situazione non ha un meccanismo di arbitraggio per far fronte ad accessi in scrittura simultanei, ma l'effetto prodotto \`e quello di comportare l'invalidazione del contenuto dell'area di memoria coinvolta.
+	Tale situazione non \`e gestita tramite un meccanismo di arbitraggio per far fronte ad accessi in scrittura simultanei, ma l'effetto prodotto \`e quello di comportare l'invalidazione del contenuto dell'area di memoria coinvolta, inquanto il contenuto finale risulter\`a impredicibile.
 	\item Conflitti per temporizzazioni clock-to-clock tra le due porte.\\
 Ci\`o accade a causa dei clock diversi che comandano le operazioni tra le due porte che sono troppo ravvicinati tra loro e il clock della porta in lettura non rispetta i tempi di setup per l'accesso in scrittura al dispositivo (arriva troppo presto quando ancora la scrittura in memoria non ha terminato). Un esempio \`e illustrato in Fig.\ref{fig:conflittiTemp}.\\
 

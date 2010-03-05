@@ -68,7 +68,7 @@ Interfacciamento ai bus:\\
   \item \texttt{DOP}: Data Output Parity Bus (nei bit pi\`u significative del Bus Dati di Output);
 \end{itemize}
 
-Possibili configurazioni e organizzazioni della Block RAM sono illustrate in Fig. \ref{fig:ram_org}.\\
+Per quanto riguarda l'ampiezza dei dati che vengono acceduti durante un ciclo di trasferimento e la memory depth associata, le possibili configurazioni della Block RAM sono illustrate in Fig. \ref{fig:ram_org}.\\
 
 \begin{figure}[!h]
 \centering
@@ -345,7 +345,7 @@ La Fig. \ref{fig:br_cmp} mostra una schematizzazione dei process utilizzati per 
 \subsection{ram\_cache}
 Il process \texttt{ram\_cache} è il processo principale che gestisce le richieste di trasferimento di linee di memoria provenienti dalla cache. Tale processo sulla base dei segnali di comando ricevuti (\texttt{en}, \texttt{memrd} e \texttt{memwr}) asserisce i segnali interni di sincronizzazione, abilitando le seguenti operazioni:
 \begin{enumerate}
-\item \texttt{write\_line}: la scrittura di una linea in Block Ram deve provvedere al trasferimento byte per byte della linea in ingresso su \texttt{bdata\_in} sulla Block Ram tramite una serie di \texttt{2**OFFSET\_BIT} scritture consecutive che avvengono sul fronte positivo del clock \texttt{clk} in ingresso alla Block Ram.
+\item \texttt{write\_line}: la scrittura di una linea in Block Ram deve provvedere al trasferimento byte per byte della linea in ingresso su \texttt{bdata\_in} sulla Block Ram tramite una serie di \texttt{2**OFFSET\_BIT} scritture consecutive che avvengono sul fronte positivo del clock \texttt{clk}.
 \item \texttt{read\_line}: la lettura di una linea da Block Ram deve prevedere un buffer (una variabile VHDL \texttt{line} di tipo \texttt{mem\_line}) che viene riempito man mano attraverso \texttt{2**OFFSET\_BIT} letture di byte dalla Block Ram. Al termine la linea letta deve essere restituita in uscita alla cache su \texttt{bdata\_out} (bus dati di output).
 \end{enumerate}
 
@@ -373,17 +373,17 @@ RAMB16_S9_inst : RAMB16_S9
 
 
 Mentre in scrittura il processo \texttt{blockram\_sequential\_access} gestisce correttamente la sequenza di scritture in quanto il contatore degli accessi aggiorna a ogni clock l'indirizzo in scrittura e il byte della linea da scrivere a tale indirizzo, in caso di lettura ci\`o non \`e altrettanto immediato.\\
-Il motivo \`e che per leggere un byte a ogni ciclo di lettura si fornisce alla Block Ram l'indirizzo a cui leggere il dato ed il segnale \texttt{en} per abilitare la lettura, ma tale dato non \`e immediatamente disponibile sul bus dati in uscita dalla Block Ram (\texttt{br\_data\_out}) in quanto bisogna attendere un tempo d'accesso in lettura per avere il dato richiesto.\\
+Il motivo \`e che per leggere un byte in un ciclo di lettura, prima si fornisce alla Block Ram l'indirizzo a cui leggere il dato e si alza il segnale \texttt{en} per abilitare la lettura, ma poi bisogna attendere un tempo d'accesso in lettura per avere il dato richiesto (non essendo immediatamente disponibile sul bus dati in uscita dalla Block Ram \texttt{br\_data\_out}).\\
 
 Per risolvere tale problema, dal momento che la Block Ram non dispone di un segnale di ready col quale avvisare che il byte letto \`e pronto e non potendo utilizzare un processo asincrono che si attiva con una commutazione del bus dati di output della Block Ram a causa di possibili letture di dati uguali (che non attiverebbero il processo), abbiamo determinato il tempo necessario per completare la lettura di un byte.\\
-In questa fase abbiamo riscontrato che durante ogni operazione in cui si richiede di portare in uscita un dato presente sulla Block Ram ad un certo indirizzo (quindi durante le lettura, ma anche durante le scrittura per effetto delle WRITE\_MODE da gestire), il dato viene reso disponibile in uscita al clock successivo e dopo un ritardo di 100 ps. L'effetto \`e pertanto che al primo clock si richiede una dato e lo si ottiene solo al secondo quando è in corso la richiesta del secondo dato. La Fig.\ref{fig:lettura_ritardata} mostra in dettaglio ci\`o che accade. \texttt{br\_out} \`e il segnale di debug utilizzato per mostare il dato in uscita dalla Block Ram.\\
+In questa fase abbiamo riscontrato che durante ogni operazione in cui si richiede di portare in uscita un dato presente sulla Block Ram ad un certo indirizzo (quindi durante le lettura, ma anche durante le scrittura per effetto delle WRITE\_MODE da gestire), il dato viene reso disponibile in uscita al clock successivo e dopo un ritardo di 100 ps. L'effetto \`e pertanto che al primo clock si richiede una dato e lo si ottiene solo al secondo quando è in corso la richiesta del secondo dato. La Fig.\ref{fig:lettura_ritardata} mostra in dettaglio ci\`o che accade. \texttt{br\_out} \`e il segnale di debug utilizzato per mostare il byte in uscita alla Block Ram dopo ogni richiesta.\\
 \begin{figure}[!h]
 \centering
 \includegraphics[width=\textwidth]{img/blockRam/letturaRitardata.png}
 \caption{Dato richiesto ad un clock è reso disponibile in uscita al clock successivo + ritardo di 100 ps.}
 \label{fig:lettura_ritardata}
 \end{figure}
-Consultando la User Guide di Xilinx \cite{xil2} non abbiamo raccolto informazioni in merito alle temporizzazioni in lettura per avere un dato in uscita (dopo averne comandato una lettura), pertanto abbiamo cercato una spiegazione su forum del settore e abbiamo riscontrato che i due clock per avere il dato in uscita sono necessari inquanto per alcune FPGA la scrittura sul registro di output avviene al ciclo successivo dopo che il dato \`e stato richiesto e il ritardo di 100 ps \`e legato al fatto che la Block Ram \`e un componente reale e tale ritardo \`e utilizzato per simularne l'accesso.\\
+Consultando la User Guide di Xilinx \cite{xil2} non abbiamo raccolto informazioni in merito alle temporizzazioni in lettura per avere un dato in uscita (dopo averne comandato una lettura), pertanto abbiamo cercato una spiegazione su forum del settore. Abbiamo riscontrato che i due clock per avere il dato in uscita sono necessari inquanto il process sincrono che sequenzializza l'accesso alla Block Ram utilizza lo stesso clock in ingresso alla Block Ram. Pertanto i due processi sincroni si attivano contemporaneamente e operano con assegnamenti sugli stessi segnali. Quindi il nostro process assegna i segnali di comando che dovrebbero comportare l'operazione voluta sulla Block Ram, ma per come avviene l'assegnamento dei segnali all'interno di un process, tali valori assegnati non sono ancora disponibili per la Block Ram e quindi vengono assegnati correttamente al clock successivo. Il ritardo di 100 ps \`e legato invece al fatto che la Block Ram \`e un componente reale e tale ritardo \`e utilizzato per simularne l'accesso con tempistiche non istantanee ai fini di simulazione.\\
 Sulla base di tali considerazioni deriva la scelta di attendere il fronte di discesa del secondo clock prima di leggere il dato (che sicuramente sar\`a presente in uscita dalla Block Ram).
 
 
